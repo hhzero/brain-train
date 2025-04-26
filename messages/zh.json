@@ -1,0 +1,19 @@
+{
+  "About": "关于",
+  "Support": "支持",
+  "Other": "其他",
+  "Theme": "主题",
+  "An": "一个",
+  "Booster": "加速器",
+  "to_Your_NextJS_Apps": "到你的NextJS应用",
+  "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "一个易用、高效且多功能的SSR应用模板。",
+  "Use_Template": "使用模板",
+  "Learn_More": "了解更多!",
+  "Approachable": "易用",
+  "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "添加组件而不发送额外的客户端JavaScript。基于最新的React特性构建。",
+  "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "自动优化图片、字体和脚本，以提升用户体验和核心网页指标。",
+  "Versatile": "多功能",
+  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "一个丰富、可扩展的模板，适用于从小型展示网站到完整应用的场景。",
+  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "这是一个简单的关于页面，展示如何使用国际化在不同页面中。",
+  "Performant": "高效"
+}
