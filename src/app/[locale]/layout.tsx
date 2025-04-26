@@ -9,6 +9,7 @@ import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from './components/Header'
 import './globals.css'
+import { cn } from '@/lib/utils'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({
   params: { locale: string }
 }) {
   const messages = useMessages()
+  
   return (
     <html
       lang={locale}
@@ -42,21 +44,14 @@ export default function RootLayout({
       className={`${space_grotesk.variable} ${rubik.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body>
+      <body className={cn(
+        'min-h-screen font-sans antialiased',
+      )}>
         <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
           enableSystem
-          attribute='class'
-          defaultTheme='light'
-          themes={[
-            'light',
-            'dark',
-            'instagram',
-            'facebook',
-            'discord',
-            'netflix',
-            'twilight',
-            'reddit'
-          ]}
+          disableTransitionOnChange
         >
           <NextIntlClientProvider
             locale={locale}
@@ -69,12 +64,16 @@ export default function RootLayout({
               crawl={true}
               easing='ease'
               speed={200}
-              shadow='0 0 10px #2299DD,0 0 5px #2299DD'
-              color='var(--primary)'
+              shadow='0 0 10px #00ffff,0 0 5px #00ffff'
+              color='#00ffff'
               showSpinner={false}
             />
-            <Header locale={locale} />
-            <main className='mx-auto max-w-screen-2xl'>{children}</main>
+            <div className="starry-background">
+              <div className="starry-background-content">
+                <Header locale={locale} />
+                <main className='mx-auto max-w-screen-2xl'>{children}</main>
+              </div>
+            </div>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

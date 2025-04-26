@@ -1,36 +1,58 @@
 import React from 'react'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   children: React.ReactNode
+  className?: string
+  onClick?: () => void
   variant?: 'primary' | 'secondary'
-  size?: 'small' | 'medium' | 'large'
   rounded?: boolean
+  size?: 'small' | 'medium' | 'large'
+  type?: 'button' | 'submit' | 'reset'
+  onBlur?: () => void
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  className = '',
+  onClick,
   variant = 'primary',
-  size = 'medium',
   rounded = false,
-  className,
-  ...props
+  size = 'medium',
+  type = 'button',
+  onBlur
 }) => {
-  const sizeStyles = {
-    small: 'px-2 py-2 text-sm',
-    medium: 'px-4 py-2 text-base font-semibold',
-    large: 'px-6 py-3 text-lg font-semibold'
+  let sizeClasses = ''
+  switch (size) {
+    case 'small':
+      sizeClasses = 'px-3 py-1 text-sm'
+      break
+    case 'medium':
+      sizeClasses = 'px-4 py-2'
+      break
+    case 'large':
+      sizeClasses = 'px-6 py-3 text-lg'
+      break
   }
 
-  const baseStyles = `rounded focus:outline-none focus:shadow-outline ${rounded ? 'rounded-full' : ''}`
-  const variantStyles = {
-    primary: 'bg-button text-button-text',
-    secondary: 'bg-button-secondary text-secondary ring-secondary ring-2'
+  let variantClasses = ''
+  switch (variant) {
+    case 'primary':
+      variantClasses = 'bg-cyan-600 text-white hover:bg-cyan-700'
+      break
+    case 'secondary':
+      variantClasses = 'bg-gray-800 bg-opacity-50 text-cyan-300 hover:bg-gray-700 border border-cyan-700'
+      break
   }
-
-  const buttonStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
 
   return (
-    <button className={buttonStyles} {...props}>
+    <button
+      type={type}
+      onClick={onClick}
+      onBlur={onBlur}
+      className={`${sizeClasses} ${variantClasses} ${
+        rounded ? 'rounded-full' : 'rounded-md'
+      } transition-colors duration-300 ${className}`}
+    >
       {children}
     </button>
   )

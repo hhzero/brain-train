@@ -4,32 +4,28 @@ import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import { useEffect, useRef, useState } from 'react'
 import { FiSun } from 'react-icons/fi'
-import { useOnClickOutside } from 'usehooks-ts'
 import Button from './Button'
 
 export default function ThemeSwitch() {
   const t = useTranslations('')
-  const [mounted, setMounted] = useState(false)
-  const [isOpen, setIsOpen] = useState(false) // New state to control dropdown visibility
-  const { setTheme, resolvedTheme, themes, theme } = useTheme()
-  const ref = useRef(null)
-  useEffect(() => setMounted(true), [])
-  useOnClickOutside(ref, () => setIsOpen(false))
-  if (!mounted)
-    return (
-      <Button
-        size='small'
-        type='button'
-        className='text-destructive inline-flex w-fit min-w-[95px] items-center justify-between gap-3'
-        id='options-menu'
-        aria-expanded={isOpen}
-        onClick={() => {}}
-      >
-        <span className='ml-2'>{t('Theme')}</span>
-        <FiSun />
-      </Button>
-    )
+  const { theme, setTheme, themes } = useTheme()
+  const [isOpen, setIsOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
 
+  // Close the dropdown menu if clicked outside of it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref])
+
+  // toggle dropdown menu
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }
@@ -39,7 +35,7 @@ export default function ThemeSwitch() {
       <Button
         size='small'
         type='button'
-        className='text-destructive inline-flex w-full min-w-[95px] items-center justify-between gap-3'
+        className='text-white inline-flex w-full min-w-[95px] items-center justify-between gap-3 hover:text-cyan-300 transition-colors'
         id='options-menu'
         aria-expanded={isOpen}
         onClick={toggleDropdown}
@@ -48,7 +44,7 @@ export default function ThemeSwitch() {
         <FiSun />
       </Button>
       {isOpen && (
-        <div className='absolute right-0 mt-2 w-full origin-top-right rounded-md bg-dropdown shadow-lg'>
+        <div className='absolute right-0 mt-2 w-full origin-top-right rounded-md bg-black bg-opacity-60 backdrop-blur-sm shadow-lg'>
           <div
             className='py-1'
             role='menu'
@@ -63,10 +59,10 @@ export default function ThemeSwitch() {
                     setTheme(themeItem)
                     setIsOpen(false)
                   }}
-                  className={`block w-full px-4 py-2 text-left text-sm hover:bg-dropdownHover ${
+                  className={`block w-full px-4 py-2 text-left text-sm hover:bg-cyan-900 ${
                     themeItem === theme
-                      ? 'bg-selected text-primary hover:bg-selected'
-                      : 'text-secondary'
+                      ? 'bg-cyan-800 text-white hover:bg-cyan-800'
+                      : 'text-gray-200'
                   }`}
                 >
                   {capitalize(themeItem)}

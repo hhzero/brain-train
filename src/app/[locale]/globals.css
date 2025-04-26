@@ -171,3 +171,320 @@
     @apply bg-background text-primary;
   }
 }
+
+.starry-background {
+  position: relative;
+  background-color: #010112;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 20px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 15px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 20px),
+    radial-gradient(white, rgba(255,255,255,.07) 1px, transparent 10px),
+    radial-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02) 1px, transparent 5px),
+    radial-gradient(rgba(70, 131, 255, 0.3), rgba(70, 131, 255, 0.1) 2px, transparent 15px),
+    radial-gradient(rgba(149, 58, 255, 0.4), rgba(149, 58, 255, 0.1) 1px, transparent 10px),
+    radial-gradient(rgba(0, 183, 183, 0.3), rgba(0, 183, 183, 0.1) 2px, transparent 15px);
+  background-size: 
+    650px 650px, 
+    450px 450px, 
+    350px 350px, 
+    250px 250px,
+    120px 120px,
+    200px 200px,
+    180px 180px,
+    150px 150px;
+  background-position: 
+    0 0, 
+    40px 60px, 
+    130px 270px, 
+    70px 100px,
+    50px 30px,
+    90px 20px,
+    120px 150px,
+    200px 70px;
+  animation: starAnimation 300s linear infinite; /* 更慢的动画 */
+  overflow: hidden;
+}
+
+.starry-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, 
+    rgba(5, 15, 60, 0.4) 0%, 
+    rgba(2, 8, 36, 0.7) 45%, 
+    rgba(1, 4, 20, 0.9) 100%); /* 放射状渐变创造深度感 */
+  z-index: 1;
+}
+
+.starry-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='rgba(100, 100, 255, 0.05)' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='rgba(120, 120, 255, 0.02)'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+  background-size: 100%;
+  opacity: 0.05;
+  filter: blur(3px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 添加一些稀疏的大星星 */
+.starry-background .big-star {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 
+    0 0 10px 2px rgba(255, 255, 255, 0.9),
+    0 0 20px 4px rgba(173, 216, 230, 0.8),
+    0 0 30px 6px rgba(70, 131, 255, 0.6);
+  animation: twinkle 6s infinite ease-in-out alternate;
+  transform-origin: center;
+}
+
+.big-star:nth-child(odd) {
+  animation-duration: 7s;
+  background-color: rgba(255, 252, 236, 0.95);
+  box-shadow: 
+    0 0 10px 2px rgba(255, 252, 236, 0.9),
+    0 0 20px 4px rgba(255, 248, 202, 0.8),
+    0 0 30px 6px rgba(255, 237, 156, 0.6);
+}
+
+.big-star:nth-child(3n) {
+  animation-duration: 8s;
+  background-color: rgba(245, 250, 255, 0.95);
+  box-shadow: 
+    0 0 10px 2px rgba(245, 250, 255, 0.9),
+    0 0 20px 4px rgba(185, 228, 255, 0.8),
+    0 0 30px 6px rgba(116, 188, 255, 0.6);
+}
+
+.big-star:nth-child(3n+1) {
+  animation-delay: 1s;
+}
+
+.big-star:nth-child(4n) {
+  animation-delay: 2s;
+}
+
+.big-star:nth-child(5n) {
+  animation-delay: 3s;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    box-shadow: 
+      0 0 5px 1px rgba(255, 255, 255, 0.3),
+      0 0 10px 2px rgba(173, 216, 230, 0.2),
+      0 0 15px 3px rgba(70, 131, 255, 0.1);
+    transform: scale(0.7);
+  }
+  25% {
+    opacity: 0.6;
+    box-shadow: 
+      0 0 8px 2px rgba(255, 255, 255, 0.6),
+      0 0 16px 4px rgba(173, 216, 230, 0.4),
+      0 0 24px 6px rgba(70, 131, 255, 0.3);
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 
+      0 0 15px 3px rgba(255, 255, 255, 1),
+      0 0 25px 5px rgba(173, 216, 230, 0.8),
+      0 0 40px 8px rgba(70, 131, 255, 0.6);
+    transform: scale(1.1);
+  }
+  75% {
+    opacity: 0.7;
+    box-shadow: 
+      0 0 10px 2px rgba(255, 255, 255, 0.7),
+      0 0 20px 4px rgba(173, 216, 230, 0.5),
+      0 0 30px 6px rgba(70, 131, 255, 0.4);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.4;
+    box-shadow: 
+      0 0 8px 1px rgba(255, 255, 255, 0.5),
+      0 0 15px 3px rgba(173, 216, 230, 0.3),
+      0 0 20px 5px rgba(70, 131, 255, 0.2);
+    transform: scale(0.8);
+  }
+}
+
+.starry-background-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+  text-align: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@keyframes starAnimation {
+  from {
+    background-position: 
+      0 0, 
+      40px 60px, 
+      130px 270px, 
+      70px 100px,
+      50px 30px,
+      90px 20px,
+      120px 150px,
+      200px 70px;
+  }
+  to {
+    background-position: 
+      1300px 1300px, 
+      1340px 1360px, 
+      1430px 1570px, 
+      1370px 1400px,
+      1350px 1330px,
+      1390px 1320px,
+      1420px 1450px,
+      1500px 1370px;
+  }
+}
+
+.training-btn {
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 183, 183, 0.3) !important;
+  color: rgba(200, 200, 200, 0.7) !important;
+  transition: all 0.4s ease !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.training-btn:hover {
+  color: rgba(255, 255, 255, 1) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+               0 0 12px rgba(0, 183, 183, 0.6) !important;
+  border-color: rgba(0, 183, 183, 0.7) !important;
+  box-shadow: 0 0 15px rgba(0, 183, 183, 0.6),
+              0 0 30px rgba(0, 183, 183, 0.4),
+              0 0 45px rgba(0, 183, 183, 0.2) !important;
+  background-color: rgba(0, 183, 183, 0.1) !important;
+}
+
+.training-btn-text {
+  animation: textPulse 3s infinite;
+}
+
+@keyframes textPulse {
+  0% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                 0 0 10px rgba(0, 183, 183, 0.3);
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+}
+
+/* 添加深邃星空风格的CSS类 */
+.nebula-text {
+  background-image: linear-gradient(
+    to right,
+    rgba(110, 80, 240, 0.9),  /* 深紫色 */
+    rgba(65, 176, 255, 0.9),  /* 明亮蓝色 */
+    rgba(44, 219, 159, 0.9),  /* 青绿色 */
+    rgba(240, 208, 0, 0.9)    /* 金黄色 */
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 
+    0 0 5px rgba(110, 80, 240, 0.3),
+    0 0 15px rgba(65, 176, 255, 0.2),
+    0 0 25px rgba(44, 219, 159, 0.1);
+  animation: nebulaShimmer 15s ease infinite;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+
+.nebula-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(110, 80, 240, 0.9),
+    rgba(65, 176, 255, 0.9),
+    rgba(44, 219, 159, 0.9),
+    rgba(240, 208, 0, 0.9)
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: blur(6px);
+  opacity: 0.3;
+  z-index: 1;
+  animation: nebulaShimmer 15s ease infinite reverse;
+}
+
+.nebula-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.nebula-text-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(
+    circle at center,
+    rgba(65, 176, 255, 0.05) 0%,
+    rgba(110, 80, 240, 0.05) 40%,
+    transparent 70%
+  );
+  filter: blur(8px);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+@keyframes nebulaShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
