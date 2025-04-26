@@ -8,6 +8,7 @@ import {
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from './components/Header'
+import MusicPlayer from './components/MusicPlayer'
 import './globals.css'
 import { cn } from '@/lib/utils'
 
@@ -70,6 +71,7 @@ export default function RootLayout({
             />
             <div className="starry-background">
               <div className="starry-background-content">
+                <MusicPlayer />
                 <Header locale={locale} />
                 <main className='mx-auto max-w-screen-2xl'>{children}</main>
               </div>

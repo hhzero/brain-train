@@ -175,34 +175,10 @@
 .starry-background {
   position: relative;
   background-color: #010112;
-  background-image: 
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 20px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 15px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 20px),
-    radial-gradient(white, rgba(255,255,255,.07) 1px, transparent 10px),
-    radial-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02) 1px, transparent 5px),
-    radial-gradient(rgba(70, 131, 255, 0.3), rgba(70, 131, 255, 0.1) 2px, transparent 15px),
-    radial-gradient(rgba(149, 58, 255, 0.4), rgba(149, 58, 255, 0.1) 1px, transparent 10px),
-    radial-gradient(rgba(0, 183, 183, 0.3), rgba(0, 183, 183, 0.1) 2px, transparent 15px);
-  background-size: 
-    650px 650px, 
-    450px 450px, 
-    350px 350px, 
-    250px 250px,
-    120px 120px,
-    200px 200px,
-    180px 180px,
-    150px 150px;
-  background-position: 
-    0 0, 
-    40px 60px, 
-    130px 270px, 
-    70px 100px,
-    50px 30px,
-    90px 20px,
-    120px 150px,
-    200px 70px;
-  animation: starAnimation 300s linear infinite; /* 更慢的动画 */
+  background-image: url('/images/bg_starry_sky.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -214,31 +190,14 @@
   right: 0;
   bottom: 0;
   background: radial-gradient(ellipse at center, 
-    rgba(5, 15, 60, 0.4) 0%, 
-    rgba(2, 8, 36, 0.7) 45%, 
-    rgba(1, 4, 20, 0.9) 100%); /* 放射状渐变创造深度感 */
+    rgba(1, 1, 18, 0.2) 0%, 
+    rgba(1, 1, 18, 0.5) 45%, 
+    rgba(1, 1, 18, 0.7) 100%);
   z-index: 1;
-}
-
-.starry-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='rgba(100, 100, 255, 0.05)' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='rgba(120, 120, 255, 0.02)'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
-  background-position: center;
-  background-size: 100%;
-  opacity: 0.05;
-  filter: blur(3px);
-  z-index: 1;
-  pointer-events: none;
 }
 
 /* 添加一些稀疏的大星星 */
-.starry-background .big-star {
+.big-star {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
@@ -410,23 +369,24 @@
 .nebula-text {
   background-image: linear-gradient(
     to right,
-    rgba(110, 80, 240, 0.9),  /* 深紫色 */
-    rgba(65, 176, 255, 0.9),  /* 明亮蓝色 */
-    rgba(44, 219, 159, 0.9),  /* 青绿色 */
-    rgba(240, 208, 0, 0.9)    /* 金黄色 */
+    rgba(40, 27, 88, 0.9),  /* 深蓝紫色 */
+    rgba(83, 74, 160, 0.9),  /* 中紫色 */
+    rgba(125, 119, 207, 0.9),  /* 浅紫色 */
+    rgba(167, 142, 223, 0.9)    /* 粉紫色 */
   );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 
-    0 0 5px rgba(110, 80, 240, 0.3),
-    0 0 15px rgba(65, 176, 255, 0.2),
-    0 0 25px rgba(44, 219, 159, 0.1);
+    0 0 5px rgba(40, 27, 88, 0.3),
+    0 0 10px rgba(83, 74, 160, 0.2),
+    0 0 15px rgba(125, 119, 207, 0.1);
   animation: nebulaShimmer 15s ease infinite;
   position: relative;
   z-index: 2;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .nebula-text::after {
@@ -438,16 +398,16 @@
   height: 100%;
   background-image: linear-gradient(
     to right,
-    rgba(110, 80, 240, 0.9),
-    rgba(65, 176, 255, 0.9),
-    rgba(44, 219, 159, 0.9),
-    rgba(240, 208, 0, 0.9)
+    rgba(40, 27, 88, 0.9),
+    rgba(83, 74, 160, 0.9),
+    rgba(125, 119, 207, 0.9),
+    rgba(167, 142, 223, 0.9)
   );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  filter: blur(6px);
+  filter: blur(4px);
   opacity: 0.3;
   z-index: 1;
   animation: nebulaShimmer 15s ease infinite reverse;
@@ -467,8 +427,8 @@
   bottom: -10px;
   background: radial-gradient(
     circle at center,
-    rgba(65, 176, 255, 0.05) 0%,
-    rgba(110, 80, 240, 0.05) 40%,
+    rgba(125, 119, 207, 0.1) 0%,
+    rgba(83, 74, 160, 0.05) 40%,
     transparent 70%
   );
   filter: blur(8px);
@@ -487,4 +447,26 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* 音乐播放器按钮星星闪烁效果 */
+@keyframes star-twinkle {
+  0% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+}
+
+.music-button-star:hover {
+  animation: star-twinkle 1.5s infinite;
 }
