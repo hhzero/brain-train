@@ -2,8 +2,8 @@ function LogoIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="auto"
-      height="auto"
+      width="100%"
+      height="100%"
       viewBox="0 0 200 240"
       className="brain-logo"
     >
@@ -177,7 +177,7 @@ function LogoIcon() {
           
           .big-star {
             animation: glow 5s infinite alternate;
-            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 24px rgba(255, 255, 255, 0.7));
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
             opacity: 1;
           }
           

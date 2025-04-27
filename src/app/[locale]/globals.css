@@ -392,7 +392,7 @@
     rgba(125, 119, 207, 0.9),  /* 浅紫色 */
     rgba(167, 142, 223, 0.9)    /* 粉紫色 */
   );
-  background-size: 300% 100%;
+  background-size: 100% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -421,7 +421,7 @@
     rgba(125, 119, 207, 0.9),
     rgba(167, 142, 223, 0.9)
   );
-  background-size: 300% 100%;
+  background-size: 100% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
