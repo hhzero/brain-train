@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl'
 
-export default function MemoryTraining() {
+export default function Categories() {
   const t = useTranslations('')
   return (
     <div className='px-8 py-12'>
-      <h1 className='mb-8 text-3xl font-bold'>{t('Memory_Training')}</h1>
+      <h1 className='mb-8 text-3xl font-bold'>{t('Categories')}</h1>
       <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
         <div className='rounded-lg bg-card p-6 shadow-md'>
           <h2 className='mb-4 text-xl font-semibold'>分类1</h2>

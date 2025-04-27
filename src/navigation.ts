@@ -13,7 +13,8 @@ export const pathnames = {
   '/memory': '/memory',
   '/reaction': '/reaction',
   '/attention': '/attention',
-  '/categories': '/categories'
+  '/categories': '/categories',
+  '/speedreading': '/speedreading'
 } satisfies Pathnames<typeof locales>
 
 export const { Link, redirect, usePathname, useRouter, getPathname } =

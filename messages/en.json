@@ -4,9 +4,10 @@
   "Support": "Support",
   "Other": "Other",
   "Theme": "Theme",
-  "Memory_Training": "Memory Training",
-  "Reaction_Speed": "Reaction Speed",
-  "Attention_Training": "Attention Training",
+  "Memory": "Memory",
+  "Reaction": "Reaction",
+  "Attention": "Attention",
+  "SpeedReading": "Speed Reading",
   "Games": "Games",
   "Categories": "Categories",
   "Training": "Training",
@@ -38,5 +39,4 @@
   "Memory_Description": "Enhance your memory capacity and recall ability through scientifically proven memory training games.",
   "Reaction_Description": "Improve your response time and reflex speed with engaging reaction training exercises.",
   "Other_Categories_Description": "Explore additional cognitive training exercises for a well-rounded mental workout."
-
 }

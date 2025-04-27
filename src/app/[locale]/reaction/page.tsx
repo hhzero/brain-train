@@ -4,7 +4,7 @@ export default function ReactionSpeed() {
   const t = useTranslations('')
   return (
     <div className='px-8 py-12'>
-      <h1 className='mb-8 text-3xl font-bold'>{t('Reaction_Speed')}</h1>
+      <h1 className='mb-8 text-3xl font-bold'>{t('Reaction')}</h1>
       <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
         <div className='rounded-lg bg-card p-6 shadow-md'>
           <h2 className='mb-4 text-xl font-semibold'>快速点击</h2>
