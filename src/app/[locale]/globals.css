@@ -204,9 +204,9 @@
   right: 0;
   bottom: 0;
   background: radial-gradient(ellipse at center, 
-    rgba(1, 1, 18, 0.2) 0%, 
-    rgba(1, 1, 18, 0.5) 45%, 
-    rgba(1, 1, 18, 0.7) 100%);
+    rgba(1, 1, 18, 0.1) 0%, 
+    rgba(1, 1, 18, 0.1) 45%, 
+    rgba(1, 1, 18, 0.1) 100%);
   z-index: 1;
 }
 
