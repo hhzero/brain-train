@@ -21,7 +21,21 @@
   "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "Ajoutez des composants sans envoyer de JavaScript supplémentaire côté client. Construit sur les dernières fonctionnalités de React.",
   "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "Optimisations automatiques des images, des polices et des scripts pour améliorer l'UX et les Core Web Vitals.",
   "Versatile": "Polyvalent",
-  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "Un modèle riche et incroyablement adaptable qui s'adapte entre un petit site vitrine et une application complète.",
-  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "C'est une plateforme d'entraînement cérébral dédiée à fournir des solutions pour améliorer les capacités cognitives. Si vous avez des suggestions ou des questions, veuillez nous contacter à : zhzero886@gmail.com.",
-  "Performant": "Performant"
+  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "Un modèle riche et incroyablement adaptable qui s'ajuste entre un petit site vitrine et une application complète.",
+  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "Il s'agit d'une plateforme d'entraînement cérébral dédiée à fournir des solutions pour améliorer les compétences cognitives. Si vous avez des suggestions ou des questions, veuillez nous contacter à zhzero886@gmail.com.",
+  "Performant": "Performant",
+  
+  "Categories_Title": "Catégories d'Entraînement Cérébral",
+  "Categories_Description": "Découvrez notre large gamme d'exercices d'entraînement cérébral conçus pour améliorer diverses compétences cognitives.",
+  "Attention": "Attention",
+  "Speed_Reading": "Lecture Rapide",
+  "Memory": "Mémoire",
+  "Reaction": "Vitesse de Réaction",
+  "Other_Categories": "Autres Catégories",
+  
+  "Attention_Description": "Affinez votre concentration et votre focus avec des exercices qui améliorent votre capacité d'attention et votre clarté mentale.",
+  "Speed_Reading_Description": "Améliorez votre vitesse de lecture et votre compréhension avec des techniques d'entraînement spécialisées.",
+  "Memory_Description": "Augmentez votre capacité de mémoire et votre habileté de rétention avec des jeux d'entraînement de mémoire scientifiquement prouvés.",
+  "Reaction_Description": "Améliorez votre temps de réaction et la rapidité de vos réflexes avec des exercices d'entraînement de réaction engageants.",
+  "Other_Categories_Description": "Découvrez des exercices supplémentaires d'entraînement cognitif pour un entraînement mental complet.",
 }

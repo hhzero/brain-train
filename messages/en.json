@@ -23,5 +23,20 @@
   "Versatile": "Versatile",
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "A rich, incredibly adoptable template that scales between a small showcase website and a full-size app.",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a brain training platform dedicated to providing solutions to enhance cognitive abilities. If you have any suggestions or questions, please contact us at zhzero886@gmail.com.",
-  "Performant": "Performant"
+  "Performant": "Performant",
+  
+  "Categories_Title": "Brain Training Categories",
+  "Categories_Description": "Explore our comprehensive range of brain training exercises designed to enhance different cognitive abilities.",
+  "Attention": "Attention",
+  "Speed_Reading": "Speed Reading",
+  "Memory": "Memory",
+  "Reaction": "Reaction Speed",
+  "Other_Categories": "Other Categories",
+  
+  "Attention_Description": "Sharpen your focus and concentration with exercises designed to enhance your attention span and mental clarity.",
+  "Speed_Reading_Description": "Improve your reading speed and comprehension with specialized training techniques.",
+  "Memory_Description": "Enhance your memory capacity and recall ability through scientifically proven memory training games.",
+  "Reaction_Description": "Improve your response time and reflex speed with engaging reaction training exercises.",
+  "Other_Categories_Description": "Explore additional cognitive training exercises for a well-rounded mental workout.",
+
 }
