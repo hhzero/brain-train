@@ -175,14 +175,28 @@
 .starry-background {
   position: relative;
   background-color: #010112;
-  background-image: url('/images/bg_starry_sky.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* background-color: white; */
   overflow: hidden;
 }
 
 .starry-background::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  right: -30%;
+  bottom: -30%;
+  /* background-image: url('/images/bg_starry_sky.jpg'); */
+  background-image: url('/images/bg_starry_sky2.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: rotateBackground 120s linear infinite;
+  will-change: transform;
+  z-index: 0;
+}
+
+.starry-background::after {
   content: '';
   position: absolute;
   top: 0;
@@ -469,4 +483,14 @@
 
 .music-button-star:hover {
   animation: star-twinkle 1.5s infinite;
+}
+
+/* 添加背景旋转动画 */
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg) scale(1.4);
+  }
+  to {
+    transform: rotate(360deg) scale(1.4);
+  }
 }

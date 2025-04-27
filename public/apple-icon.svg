@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <!-- 背景 -->
+  <rect width="180" height="180" rx="40" fill="#000814" />
+  
+  <!-- 大脑外形轮廓 -->
+  <path
+    d="M90,150 C50,150 30,130 30,90 C30,50 50,30 90,30 C130,30 150,50 150,90 C150,130 130,150 90,150"
+    fill="none"
+    stroke="#0ba6d1"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  
+  <!-- 左脑区域 -->
+  <path
+    d="M45,50 C40,60 35,75 35,90 C35,105 40,120 45,130"
+    fill="none"
+    stroke="#0ba6d1"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  
+  <!-- 右脑区域 -->
+  <path
+    d="M135,50 C140,60 145,75 145,90 C145,105 140,120 135,130"
+    fill="none"
+    stroke="#0ba6d1"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  
+  <!-- 脑区连接 -->
+  <path
+    d="M45,60 C60,50 120,50 135,60"
+    fill="none"
+    stroke="#0ba6d1"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  
+  <path
+    d="M45,90 C60,80 120,80 135,90"
+    fill="none"
+    stroke="#0ba6d1"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  
+  <path
+    d="M45,120 C60,110 120,110 135,120"
+    fill="none"
+    stroke="#0ba6d1"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  
+  <!-- 星星 -->
+  <circle cx="60" cy="60" r="3" fill="#ffffff" />
+  <circle cx="90" cy="45" r="3.5" fill="#ffffff" />
+  <circle cx="120" cy="60" r="3" fill="#ffffff" />
+  <circle cx="60" cy="90" r="3.5" fill="#ffffff" />
+  <circle cx="120" cy="90" r="3" fill="#ffffff" />
+  <circle cx="60" cy="120" r="3" fill="#ffffff" />
+  <circle cx="90" cy="135" r="3.5" fill="#ffffff" />
+  <circle cx="120" cy="120" r="3" fill="#ffffff" />
+  
+  <!-- 大星星 -->
+  <circle cx="75" cy="75" r="5" fill="#ffffff" />
+  <circle cx="105" cy="105" r="5" fill="#ffffff" />
+  <circle cx="90" cy="90" r="6" fill="#ffffff" />
+  
+  <!-- 发光效果 -->
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="3" result="blur" />
+    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+  </filter>
+  
+  <style>
+    circle {
+      filter: url(#glow);
+    }
+  </style>
+</svg> 
