@@ -6,20 +6,35 @@ import { IoPlay, IoPause, IoPlayBack, IoPlayForward, IoVolumeMute, IoVolumeHigh,
 // 音乐列表
 const musicList = [
   {
-    title: '梦想起航',
-    artist: '未来之星',
-    src: '/music/bah1.mp3'
+    title: '',
+    artist: '',
+    src: '/music/ClassicalArtists-D.ogg'
   },
   {
-    title: '思维探索',
-    artist: '脑力天才',
-    src: '/music/track2.mp3'
+    title: '',
+    artist: '',
+    src: '/music/ClassicalArtists-G.ogg'
   },
   {
-    title: '知识海洋',
-    artist: '学习达人',
-    src: '/music/track3.mp3'
-  }
+    title: '',
+    artist: '',
+    src: '/music/Concerto.ogg'
+  },
+  {
+    title: '',
+    artist: '',
+    src: '/music/dreams.flac'
+  },
+  {
+    title: '',
+    artist: '',
+    src: '/music/hires.flac'
+  },
+  {
+    title: '',
+    artist: '',
+    src: '/music/TenderPassion.ogg'
+  },
 ];
 
 export default function MusicPlayer() {
@@ -31,14 +46,34 @@ export default function MusicPlayer() {
   
   // 初始化音频
   useEffect(() => {
+    // 创建新的音频对象
     audioRef.current = new Audio(musicList[currentTrack].src);
     
     // 添加事件监听器
     const handleEnded = () => {
-      next();
+      console.log("音乐播放结束，准备播放下一曲");
+      // 使用setCurrentTrack直接切换到下一曲，避免调用next函数造成循环
+      setCurrentTrack((prev) => (prev + 1) % musicList.length);
+      setIsPlaying(true);
+      // 在下一个周期播放音频
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play().catch(err => {
+            console.error("自动播放失败:", err);
+          });
+        }
+      }, 0);
     };
     
+    // 添加ended事件监听
     audioRef.current.addEventListener('ended', handleEnded);
+    
+    // 如果当前状态是播放状态，则自动播放该曲目
+    if (isPlaying) {
+      audioRef.current.play().catch(err => {
+        console.error("自动播放失败:", err);
+      });
+    }
     
     // 清理函数
     return () => {
@@ -47,7 +82,7 @@ export default function MusicPlayer() {
         audioRef.current.removeEventListener('ended', handleEnded);
       }
     };
-  }, [currentTrack]);
+  }, [currentTrack, isPlaying]); // 添加isPlaying作为依赖项
   
   // 播放/暂停切换
   const togglePlayPause = () => {
@@ -64,11 +99,25 @@ export default function MusicPlayer() {
   // 下一曲
   const next = () => {
     setCurrentTrack((prev) => (prev + 1) % musicList.length);
+    // 在下一个渲染周期自动播放
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play();
+        setIsPlaying(true);
+      }
+    }, 0);
   };
   
   // 上一曲
   const prev = () => {
     setCurrentTrack((prev) => (prev - 1 + musicList.length) % musicList.length);
+    // 在下一个渲染周期自动播放
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play();
+        setIsPlaying(true);
+      }
+    }, 0);
   };
   
   const toggleMute = () => {
