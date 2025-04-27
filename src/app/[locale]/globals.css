@@ -341,22 +341,25 @@
 
 .training-btn {
   background-color: transparent !important;
-  border: 1px solid rgba(0, 183, 183, 0.3) !important;
-  color: rgba(200, 200, 200, 0.7) !important;
+  border: 1px solid rgba(0, 183, 183, 0.5) !important;
+  color: rgba(220, 220, 220, 0.9) !important;
   transition: all 0.4s ease !important;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 0 10px rgba(0, 183, 183, 0.3);
+  animation: borderPulse 3s infinite;
 }
 
 .training-btn:hover {
   color: rgba(255, 255, 255, 1) !important;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
-               0 0 12px rgba(0, 183, 183, 0.6) !important;
-  border-color: rgba(0, 183, 183, 0.7) !important;
-  box-shadow: 0 0 15px rgba(0, 183, 183, 0.6),
-              0 0 30px rgba(0, 183, 183, 0.4),
-              0 0 45px rgba(0, 183, 183, 0.2) !important;
-  background-color: rgba(0, 183, 183, 0.1) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9),
+               0 0 12px rgba(0, 183, 183, 0.8) !important;
+  border-color: rgba(0, 183, 183, 0.9) !important;
+  box-shadow: 0 0 20px rgba(0, 183, 183, 0.8),
+              0 0 35px rgba(0, 183, 183, 0.6),
+              0 0 50px rgba(0, 183, 183, 0.4) !important;
+  background-color: rgba(0, 183, 183, 0.15) !important;
+  animation: none;
 }
 
 .training-btn-text {
@@ -365,17 +368,18 @@
 
 @keyframes textPulse {
   0% {
-    opacity: 0.7;
-    text-shadow: none;
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(0, 183, 183, 0.2);
   }
   50% {
-    opacity: 0.9;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
-                 0 0 10px rgba(0, 183, 183, 0.3);
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7),
+                 0 0 15px rgba(0, 183, 183, 0.6),
+                 0 0 20px rgba(0, 183, 183, 0.4);
   }
   100% {
-    opacity: 0.7;
-    text-shadow: none;
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(0, 183, 183, 0.2);
   }
 }
 
@@ -492,5 +496,22 @@
   }
   to {
     transform: rotate(360deg) scale(1.4);
+  }
+}
+
+/* 边框闪烁动画 */
+@keyframes borderPulse {
+  0% {
+    border-color: rgba(0, 183, 183, 0.3);
+    box-shadow: 0 0 5px rgba(0, 183, 183, 0.2);
+  }
+  50% {
+    border-color: rgba(0, 183, 183, 0.9);
+    box-shadow: 0 0 15px rgba(0, 183, 183, 0.6),
+                0 0 25px rgba(0, 183, 183, 0.4);
+  }
+  100% {
+    border-color: rgba(0, 183, 183, 0.3);
+    box-shadow: 0 0 5px rgba(0, 183, 183, 0.2);
   }
 }
