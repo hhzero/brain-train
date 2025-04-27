@@ -183,9 +183,10 @@
   content: '';
   position: absolute;
   /* 计算图片的50%减去视口的50%的位置，使图片中心与屏幕中心对齐 */
-  top: calc(50% - 1696px); /* 视口高度的50% - 图片高度的50% */
+  top: calc(50% - 2348px); /* 视口高度的50% - 图片高度的50% */
   left: calc(50% - 2848px); /* 视口宽度的50% - 图片宽度的50% */
-  width: 5696px;
+  /* 图片原始像素 : width: 5696px; height: 3392px; */
+  width: 4696px;
   height: 3392px;
   /* background-image: url('/images/bg_starry_sky.jpg'); */
   background-image: url('/images/bg_starry_sky2.jpeg'); 
