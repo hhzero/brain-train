@@ -1,40 +1,40 @@
+'use client'
 import { useTranslations } from 'next-intl'
+import data from '../../../../public/data/data.json'
+import { Link } from '@/src/navigation'
 
-export default function SpeedReading() {
+export default function SpeedReading({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
   const t = useTranslations('')
+  // 获取Memory部分的数据
+  const speedReadingData = data.SpeedReading;
+
   return (
     <div className='px-8 py-12'>
       <h1 className='mb-8 text-3xl font-bold'>{t('SpeedReading')}</h1>
       <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-        <div className='rounded-lg bg-card p-6 shadow-md'>
-          <h2 className='mb-4 text-xl font-semibold'>快速点击</h2>
-          <p className='mb-4 text-secondary'>当目标从红色变为绿色时，尽快点击。测试您的反应速度。</p>
-          <div className='mt-4 flex justify-end'>
-            <button className='rounded-md bg-primary px-4 py-2 text-white transition hover:bg-primary/80'>
-              开始训练
-            </button>
-          </div>
-        </div>
         
-        <div className='rounded-lg bg-card p-6 shadow-md'>
-          <h2 className='mb-4 text-xl font-semibold'>追踪目标</h2>
-          <p className='mb-4 text-secondary'>跟踪并点击屏幕上快速移动的目标。</p>
-          <div className='mt-4 flex justify-end'>
-            <button className='rounded-md bg-primary px-4 py-2 text-white transition hover:bg-primary/80'>
-              开始训练
-            </button>
-          </div>
-        </div>
-        
-        <div className='rounded-lg bg-card p-6 shadow-md'>
-          <h2 className='mb-4 text-xl font-semibold'>按键速度</h2>
-          <p className='mb-4 text-secondary'>根据屏幕上显示的字母，尽快按下键盘上对应的按键。</p>
-          <div className='mt-4 flex justify-end'>
-            <button className='rounded-md bg-primary px-4 py-2 text-white transition hover:bg-primary/80'>
-              开始训练
-            </button>
-          </div>
-        </div>
+      {/* 动态生成记忆训练卡片 */}
+      {speedReadingData.list.map((item) => {
+          // 提取link中的路径名称（去掉开头的/）
+          const linkPath = item.link.startsWith('/') ? item.link.substring(1) : item.link;
+          return (
+            <div key={item.id} className='rounded-lg bg-card p-6 shadow-md'>
+              <h2 className='mb-4 text-xl font-semibold'>{item.name}</h2>
+              <p className='mb-4 text-secondary'>{item.description}</p>
+              <div className='mt-4 flex justify-end'> 
+                <Link href={item.link as '/memory' | '/reaction' | '/attention' | '/speedreading' | '/categories' | '/about' | '/'} lang={locale}>
+                  <button className='rounded-md bg-primary px-4 py-2 text-white transition hover:bg-primary/80'>
+                    开始训练
+                  </button>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   )

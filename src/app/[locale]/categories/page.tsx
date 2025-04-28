@@ -1,6 +1,10 @@
 import { useTranslations } from 'next-intl'
 
-export default function Categories() {
+export default function Categories({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
   const t = useTranslations('')
   return (
     <div className='px-8 py-12'>
