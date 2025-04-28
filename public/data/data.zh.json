@@ -8,7 +8,7 @@
         "name": "流动记忆:n-back",
         "description": "通过不断挑战记忆极限，提升大脑的工作记忆力/短时存储能力，让思维更敏捷。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/n-back"
       }
     ]
   },
@@ -41,14 +41,14 @@
         "name": "凝视训练",
         "description": "持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力!",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/gaze"
       },
       {
         "id": 11,
         "name": "舒尔特方格",
         "description": "在打乱顺序的数字方格中依次寻找目标数字，有助于提升视觉搜索、顺序处理和注意力分配能力",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/schulte"
       }
     ]
   },
@@ -61,14 +61,14 @@
         "name": "消除音读",
         "description": "改正逐字默读的习惯",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/reading-elimination"
       },
       {
         "id": 11,
         "name": "速度实战",
         "description": "以实际阅读的方式，训练自己速度的能力",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/speed-practice"
       }
     ]
   }
