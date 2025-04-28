@@ -25,5 +25,13 @@
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "一个丰富、令人难以置信的可采用模板，可在小型展示网站和全尺寸应用程序之间扩展。",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "这是一个脑力训练平台，致力于提供增强认知能力的解决方案。\n 我们正在持续更新和新增功能。\n 如果您有任何建议或问题，请联系我们：zhzero886@gmail.com。",
   "Performant": "高性能",
-  "StartTraining": "开始训练"
+  "StartTraining": "开始训练",
+  "gaze.title": "凝视训练",
+  "gaze.desc": "通过持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力表现。",
+  "gaze.focusLabel": "本次：",
+  "gaze.bestLabel": "历史最佳：",
+  "gaze.statusFocusing": "专注计时中...",
+  "gaze.statusIdle": "点击下方按钮开始训练",
+  "gaze.interrupted": "训练中断，请重新开始",
+  "gaze.dotAriaLabel": "凝视黑点"
 }

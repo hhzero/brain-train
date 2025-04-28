@@ -5,17 +5,10 @@
     "list": [
       {
         "id": 10,
-        "name": "記憶力トレーニング1",
-        "description": "記憶力トレーニングの説明1",
+        "name": "ワーキングメモリ：n-back",
+        "description": "記憶の限界に挑戦し続けることで、ワーキングメモリや短期記憶力を高め、思考をより敏捷にします。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
-      },
-      {
-        "id": 11,
-        "name": "記憶力トレーニング2",
-        "description": "記憶力トレーニングの説明2",
-        "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/n-back"
       }
     ]
   },
@@ -26,14 +19,14 @@
       {
         "id": 10,
         "name": "反応力トレーニング1",
-        "description": "反応力トレーニングの説明1",
+        "description": "反応力トレーニング1の説明",
         "image": "/images/memory/memory.png",
         "link": "/memory"
       },
       {
         "id": 11,
         "name": "反応力トレーニング2",
-        "description": "反応力トレーニングの説明2",
+        "description": "反応力トレーニング2の説明",
         "image": "/images/memory/memory.png",
         "link": "/memory"
       }
@@ -45,17 +38,17 @@
     "list": [
       {
         "id": 10,
-        "name": "注意力トレーニング1",
-        "description": "注意力トレーニングの説明1",
+        "name": "凝視トレーニング",
+        "description": "画面中央の黒点を見つめ続けることで集中力と妨害耐性を鍛え、注意力の持続と雑念の軽減に役立ちます。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/gaze"
       },
       {
         "id": 11,
-        "name": "注意力トレーニング2",
-        "description": "注意力トレーニングの説明2",
+        "name": "シュルテグリッド",
+        "description": "シャッフルされた数字グリッドから目標数字を順に探すことで、視覚探索力・順序処理力・注意分配力を高めます。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/schulte"
       }
     ]
   },
@@ -65,17 +58,17 @@
     "list": [
       {
         "id": 10,
-        "name": "速読トレーニング1",
-        "description": "速読トレーニングの説明1",
+        "name": "音読抑制トレーニング",
+        "description": "一語一語読む癖を改善し、速読力と理解力を向上させます。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/reading-elimination"
       },
       {
         "id": 11,
-        "name": "速読トレーニング2",
-        "description": "速読トレーニングの説明2",
+        "name": "スピード実践",
+        "description": "実際の読書スタイルでスピード力を鍛え、より速く効率的な読書を目指します。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/speed-practice"
       }
     ]
   }

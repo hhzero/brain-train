@@ -5,17 +5,10 @@
     "list": [
       {
         "id": 10,
-        "name": "Memory Training 1",
-        "description": "Memory training description 1",
+        "name": "Working Memory: n-back",
+        "description": "Sharpen your working memory and short-term retention by constantly challenging your memory limits, making your mind more agile.",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
-      },
-      {
-        "id": 11,
-        "name": "Memory Training 2",
-        "description": "Memory training description 2",
-        "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/n-back"
       }
     ]
   },
@@ -26,14 +19,14 @@
       {
         "id": 10,
         "name": "Reaction Training 1",
-        "description": "Reaction training description 1",
+        "description": "Description for Reaction Training 1",
         "image": "/images/memory/memory.png",
         "link": "/memory"
       },
       {
         "id": 11,
         "name": "Reaction Training 2",
-        "description": "Reaction training description 2",
+        "description": "Description for Reaction Training 2",
         "image": "/images/memory/memory.png",
         "link": "/memory"
       }
@@ -45,17 +38,17 @@
     "list": [
       {
         "id": 10,
-        "name": "Attention Training 1",
-        "description": "Attention training description 1",
+        "name": "Gaze Training",
+        "description": "Improve your focus and resistance to distraction by continuously gazing at the central black dot, reducing mind-wandering and enhancing sustained attention!",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/gaze"
       },
       {
         "id": 11,
-        "name": "Attention Training 2",
-        "description": "Attention training description 2",
+        "name": "Schulte Grid",
+        "description": "Find target numbers in a shuffled grid to boost your visual search, sequential processing, and attention distribution skills.",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/schulte"
       }
     ]
   },
@@ -65,17 +58,17 @@
     "list": [
       {
         "id": 10,
-        "name": "Speed Reading Training 1",
-        "description": "Speed reading training description 1",
+        "name": "Eliminate Subvocalization",
+        "description": "Break the habit of reading word by word and improve your reading speed and comprehension.",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/reading-elimination"
       },
       {
         "id": 11,
-        "name": "Speed Reading Training 2",
-        "description": "Speed reading training description 2",
+        "name": "Speed Practice",
+        "description": "Train your reading speed in real-world scenarios and push your limits for faster, more efficient reading.",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/speed-practice"
       }
     ]
   }

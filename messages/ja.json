@@ -19,5 +19,13 @@
   "Versatile": "多用途",
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "小さなショーケースウェブサイトから本格的なアプリまでスケールする、豊かで、信じられないほど採用しやすいテンプレートです。",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "これは脳トレーニングプラットフォームであり、認知機能向上ソリューションを提供することに専念しています。提案や質問がある場合は、zhzero886@gmail.comまでご連絡ください。",
-  "Performant": "パフォーマンス"
+  "Performant": "パフォーマンス",
+  "gaze.title": "凝視トレーニング",
+  "gaze.desc": "画面中央の黒点を見つめ続けることで集中力と妨害耐性を鍛え、注意力の持続と雑念の軽減に役立ちます。",
+  "gaze.focusLabel": "今回：",
+  "gaze.bestLabel": "ベスト：",
+  "gaze.statusFocusing": "集中計測中...",
+  "gaze.statusIdle": "下のボタンをクリックしてトレーニングを開始",
+  "gaze.interrupted": "トレーニングが中断されました。再度お試しください。",
+  "gaze.dotAriaLabel": "凝視ドット"
 }

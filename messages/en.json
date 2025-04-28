@@ -36,5 +36,13 @@
   "Memory_Description": "Enhance your memory capacity and recall ability through scientifically proven memory training games.",
   "Reaction_Description": "Improve your response time and reflex speed with engaging reaction training exercises.",
   "Other_Categories_Description": "Explore additional cognitive training exercises for a well-rounded mental workout.",
-  "StartTraining": "Start Training"
+  "StartTraining": "Start Training",
+  "gaze.title": "Gaze Training",
+  "gaze.desc": "Improve your focus and resistance to distraction by continuously gazing at the central black dot, reducing mind-wandering and enhancing sustained attention!",
+  "gaze.focusLabel": "Current:",
+  "gaze.bestLabel": "Best:",
+  "gaze.statusFocusing": "Focusing...",
+  "gaze.statusIdle": "Click the button below to start training",
+  "gaze.interrupted": "Training interrupted, please try again",
+  "gaze.dotAriaLabel": "Gaze dot"
 }

@@ -1,7 +1,9 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function GazeClient() {
+  const t = useTranslations('gaze')
   const [isFocusing, setIsFocusing] = useState(false)
   const [time, setTime] = useState(0)
   const [best, setBest] = useState(0)
@@ -42,13 +44,13 @@ export default function GazeClient() {
 
   return (
     <main className="max-w-xl mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-4 text-cyan-600">凝视训练</h1>
-      <p className="mb-6 text-gray-500">通过持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力表现。</p>
+      <h1 className="text-3xl font-bold mb-4 text-cyan-600">{t('title')}</h1>
+      <p className="mb-6 text-gray-500">{t('desc')}</p>
       <div className="bg-white/80 rounded-xl shadow-lg p-6 flex flex-col items-center gap-6 relative overflow-hidden">
-        <div className="mb-2 text-gray-700">{isFocusing ? '专注计时中...' : '点击下方按钮开始训练'}</div>
+        <div className="mb-2 text-gray-700">{isFocusing ? t('statusFocusing') : t('statusIdle')}</div>
         <div className="flex gap-8 mb-2">
-          <div>本次：<span className="font-bold text-cyan-700 text-xl">{time}s</span></div>
-          <div>历史最佳：<span className="font-bold text-cyan-700 text-xl">{best}s</span></div>
+          <div>{t('focusLabel')}<span className="font-bold text-cyan-700 text-xl">{time}s</span></div>
+          <div>{t('bestLabel')}<span className="font-bold text-cyan-700 text-xl">{best}s</span></div>
         </div>
         <div className="flex justify-center items-center h-48">
           <div
@@ -57,9 +59,9 @@ export default function GazeClient() {
             onMouseDown={start}
             onMouseUp={stop}
             onMouseLeave={isFocusing ? stop : undefined}
-            title="按住或点击凝视黑点"
+            title={t('dotAriaLabel')}
           >
-            <span className="sr-only">凝视黑点</span>
+            <span className="sr-only">{t('dotAriaLabel')}</span>
           </div>
           {distract && (
             <div
@@ -68,7 +70,7 @@ export default function GazeClient() {
             />
           )}
         </div>
-        {interrupted && <div className="text-red-500 font-semibold">训练中断，请重新开始</div>}
+        {interrupted && <div className="text-red-500 font-semibold">{t('interrupted')}</div>}
       </div>
     </main>
   )
