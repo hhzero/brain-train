@@ -36,7 +36,6 @@ export default function ThemeSwitch() {
         size='small'
         type='button'
         className='text-white inline-flex w-full min-w-[95px] items-center justify-between gap-3 hover:text-cyan-300 transition-colors'
-        id='options-menu'
         aria-expanded={isOpen}
         onClick={toggleDropdown}
       >
