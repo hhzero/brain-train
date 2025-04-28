@@ -49,16 +49,18 @@ export const Header: FC<Props> = ({ locale }) => {
           {/* <a href=''>{t('Support')}</a> */}
           {/* <a href=''>{t('Other')}</a> */}
         </nav>
-        <ThemeSwitch />
+        {/* 这是主题按钮，后续这里也需要启用起来
+         <ThemeSwitch /> */}
         <LangSwitcher />
-        <a
+        {/* 这是跳转到github的链接，后续这里要改造成登入的功能
+         <a
           href='https://github.com/yahyaparvar/nextjs-template'
           target='_blank'
         >
           <div className='size-8 text-white hover:text-cyan-300 transition-colors'>
             <GithubIcon />
           </div>
-        </a>
+        </a> */}
       </div>
     </div>
   )

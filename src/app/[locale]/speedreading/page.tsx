@@ -36,7 +36,7 @@ export default function SpeedReading({
             <p className='mb-4  text-cyan-300'>{item.description}</p>
             <div className='mt-4 flex justify-end'> 
               <Link href={item.link as '/memory' | '/reaction' | '/attention' | '/speedreading' | '/categories' | '/about' | '/'} lang={locale}>
-                <button className='rounded-md bg-primary px-4 py-2 text-white transition hover:bg-primary/80'>
+                <button className='rounded-md bg-cyan-600 px-4 py-2 text-white transition hover:bg-cyan-700'>
                   {t('StartTraining')}
                 </button>
               </Link>
