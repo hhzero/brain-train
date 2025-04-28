@@ -4,9 +4,6 @@
   "Support": "Support",
   "Other": "Andere",
   "Theme": "Thema",
-  "Memory": "Gedächtnis",
-  "Reaction": "Reaktion",
-  "Attention": "Aufmerksamkeit",
   "SpeedReading": "Schnelllesen",
   "Games": "Spiele",
   "Categories": "Kategorien",
@@ -36,5 +33,6 @@
   "Speed_Reading_Description": "Verbessern Sie Ihre Lesegeschwindigkeit und Ihr Textverständnis mit spezialisierten Trainingstechniken.",
   "Memory_Description": "Steigern Sie Ihre Gedächtniskapazität und Erinnerungsfähigkeit durch wissenschaftlich bewährte Gedächtnistrainingsspiele.",
   "Reaction_Description": "Verbessern Sie Ihre Reaktionszeit und Reflexgeschwindigkeit mit ansprechenden Reaktionstrainingsübungen.",
-  "Other_Categories_Description": "Entdecken Sie zusätzliche kognitive Trainingsübungen für ein umfassendes mentales Workout."
+  "Other_Categories_Description": "Entdecken Sie zusätzliche kognitive Trainingsübungen für ein umfassendes mentales Workout.",
+  "StartTraining": "Training starten"
 }

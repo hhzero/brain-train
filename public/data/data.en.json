@@ -1,0 +1,82 @@
+{
+  "Memory": {
+    "id": 1,
+    "name": "Memory",
+    "list": [
+      {
+        "id": 10,
+        "name": "Memory Training 1",
+        "description": "Memory training description 1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "Memory Training 2",
+        "description": "Memory training description 2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  },
+  "Reaction": {
+    "id": 2,
+    "name": "Reaction",
+    "list": [
+      {
+        "id": 10,
+        "name": "Reaction Training 1",
+        "description": "Reaction training description 1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "Reaction Training 2",
+        "description": "Reaction training description 2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  },
+  "Attention": {
+    "id": 3,
+    "name": "Attention",
+    "list": [
+      {
+        "id": 10,
+        "name": "Attention Training 1",
+        "description": "Attention training description 1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "Attention Training 2",
+        "description": "Attention training description 2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  },
+  "SpeedReading": {
+    "id": 4,
+    "name": "Speed Reading",
+    "list": [
+      {
+        "id": 10,
+        "name": "Speed Reading Training 1",
+        "description": "Speed reading training description 1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "Speed Reading Training 2",
+        "description": "Speed reading training description 2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  }
+} 

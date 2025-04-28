@@ -4,9 +4,6 @@
   "Support": "Support",
   "Other": "Autre",
   "Theme": "Thème",
-  "Memory": "Mémoire",
-  "Reaction": "Réaction",
-  "Attention": "Attention",
   "SpeedReading": "Lecture Rapide",
   "Games": "Jeux",
   "Categories": "Catégories",
@@ -38,5 +35,6 @@
   "Speed_Reading_Description": "Améliorez votre vitesse de lecture et votre compréhension grâce à des techniques d'entraînement spécialisées.",
   "Memory_Description": "Améliorez votre capacité de mémoire et de rappel grâce à des jeux d'entraînement de la mémoire scientifiquement prouvés.",
   "Reaction_Description": "Améliorez votre temps de réponse et votre vitesse de réflexe avec des exercices d'entraînement de réaction captivants.",
-  "Other_Categories_Description": "Explorez d'autres exercices d'entraînement cognitif pour un entraînement mental complet."
+  "Other_Categories_Description": "Explorez d'autres exercices d'entraînement cognitif pour un entraînement mental complet.",
+  "StartTraining": "Commencer l'entraînement"
 }

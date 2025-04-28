@@ -1,0 +1,82 @@
+{
+  "Memory": {
+    "id": 1,
+    "name": "記憶力",
+    "list": [
+      {
+        "id": 10,
+        "name": "記憶力トレーニング1",
+        "description": "記憶力トレーニングの説明1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "記憶力トレーニング2",
+        "description": "記憶力トレーニングの説明2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  },
+  "Reaction": {
+    "id": 2,
+    "name": "反応力",
+    "list": [
+      {
+        "id": 10,
+        "name": "反応力トレーニング1",
+        "description": "反応力トレーニングの説明1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "反応力トレーニング2",
+        "description": "反応力トレーニングの説明2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  },
+  "Attention": {
+    "id": 3,
+    "name": "注意力",
+    "list": [
+      {
+        "id": 10,
+        "name": "注意力トレーニング1",
+        "description": "注意力トレーニングの説明1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "注意力トレーニング2",
+        "description": "注意力トレーニングの説明2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  },
+  "SpeedReading": {
+    "id": 4,
+    "name": "速読",
+    "list": [
+      {
+        "id": 10,
+        "name": "速読トレーニング1",
+        "description": "速読トレーニングの説明1",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      },
+      {
+        "id": 11,
+        "name": "速読トレーニング2",
+        "description": "速読トレーニングの説明2",
+        "image": "/images/memory/memory.png",
+        "link": "/memory"
+      }
+    ]
+  }
+} 

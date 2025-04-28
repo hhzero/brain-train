@@ -523,3 +523,10 @@
     box-shadow: 0 0 5px rgba(0, 183, 183, 0.2);
   }
 }
+
+/* 导航栏选中项高亮样式 */
+.active {
+  color: #67e8f9 !important;         /* 高亮字体颜色 */
+  /* border-bottom: 2px solid #00ffff;  下划线高亮 */
+  /* 你可以根据需要添加更多效果 */
+}
