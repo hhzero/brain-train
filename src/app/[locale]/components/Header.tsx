@@ -36,10 +36,6 @@ export const Header: FC<Props> = ({ locale }) => {
           <Link lang={locale} href={`/memory`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/memory` ? ' active' : ''}`}>
             {t('Memory')}
           </Link>
-
-          <Link lang={locale} href={`/reaction`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/reaction` ? ' active' : ''}`}>
-            {t('Reaction')}
-          </Link>
           <Link lang={locale} href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/attention` ? ' active' : ''}`}>
             {t('Attention')}
           </Link>
