@@ -34,5 +34,13 @@
   "Memory_Description": "Steigern Sie Ihre Gedächtniskapazität und Erinnerungsfähigkeit durch wissenschaftlich bewährte Gedächtnistrainingsspiele.",
   "Reaction_Description": "Verbessern Sie Ihre Reaktionszeit und Reflexgeschwindigkeit mit ansprechenden Reaktionstrainingsübungen.",
   "Other_Categories_Description": "Entdecken Sie zusätzliche kognitive Trainingsübungen für ein umfassendes mentales Workout.",
-  "StartTraining": "Training starten"
+  "StartTraining": "Training starten",
+  "gaze.title": "Blick-Training",
+  "gaze.desc": "Verbessern Sie Ihre Konzentration und Widerstandsfähigkeit gegen Ablenkungen durch kontinuierliches Fokussieren auf den zentralen schwarzen Punkt, reduzieren Sie Gedankenabschweifungen und steigern Sie Ihre anhaltende Aufmerksamkeit!",
+  "gaze.focusLabel": "Aktuell:",
+  "gaze.bestLabel": "Beste:",
+  "gaze.statusFocusing": "Konzentriere...",
+  "gaze.statusIdle": "Klicken Sie auf die Schaltfläche unten, um mit dem Training zu beginnen",
+  "gaze.interrupted": "Training unterbrochen, bitte versuchen Sie es erneut",
+  "gaze.dotAriaLabel": "Blickpunkt"
 }

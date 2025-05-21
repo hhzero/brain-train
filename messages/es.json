@@ -35,5 +35,13 @@
   "Memory_Description": "Mejore su capacidad de memoria y habilidad de recordar a través de juegos de entrenamiento de memoria científicamente probados.",
   "Reaction_Description": "Mejore su tiempo de respuesta y velocidad de reflejos con atractivos ejercicios de entrenamiento de reacción.",
   "Other_Categories_Description": "Explore ejercicios adicionales de entrenamiento cognitivo para un entrenamiento mental completo.",
-  "StartTraining": "Comenzar Entrenamiento"
+  "StartTraining": "Comenzar Entrenamiento",
+  "gaze.title": "Entrenamiento de Mirada",
+  "gaze.desc": "¡Mejora tu concentración y resistencia a las distracciones mirando continuamente el punto negro central, reduciendo la divagación mental y mejorando la atención sostenida!",
+  "gaze.focusLabel": "Actual:",
+  "gaze.bestLabel": "Mejor:",
+  "gaze.statusFocusing": "Concentrando...",
+  "gaze.statusIdle": "Haz clic en el botón de abajo para comenzar el entrenamiento",
+  "gaze.interrupted": "Entrenamiento interrumpido, por favor inténtalo de nuevo",
+  "gaze.dotAriaLabel": "Punto de mirada"
 }

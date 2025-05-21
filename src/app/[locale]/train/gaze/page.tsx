@@ -1,11 +1,22 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { getTranslations } from 'next-intl/server'
 
-export const generateMetadata = (): Metadata => ({
-  title: '凝视训练 | Brain Train',
-  description: '凝视训练帮助提升专注力和抗干扰能力，适合所有年龄段的注意力训练。',
-  keywords: ['凝视训练', '专注力', '注意力', '抗干扰', '脑力训练']
-})
+type Props = {
+  params: {
+    locale: string
+  }
+}
+
+export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+  const t = await getTranslations()
+  
+  return {
+    title: `${t('gaze.title')} | Brain Train`,
+    description: t('gaze.desc'),
+    keywords: ['gaze training', 'focus', 'attention', 'distraction resistance', 'brain training']
+  }
+}
 
 const GazeClient = dynamic(() => import('./GazeClient'), { ssr: false })
 

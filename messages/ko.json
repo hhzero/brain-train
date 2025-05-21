@@ -39,5 +39,13 @@
   "Reaction_Description": "매력적인 반응 훈련 운동으로 반응 시간과 반사 속도를 향상시키세요.",
   "Other_Categories_Description": "포괄적인 정신 훈련을 위한 추가 인지 훈련 운동을 발견하세요.",
 
-  "StartTraining": "훈련 시작"
+  "StartTraining": "훈련 시작",
+  "gaze.title": "응시 훈련",
+  "gaze.desc": "중앙의 검은 점을 계속 응시하여 집중력과 방해 저항력을 향상시키고, 마음의 산만함을 줄이며 지속적인 주의력을 향상시킵니다!",
+  "gaze.focusLabel": "현재:",
+  "gaze.bestLabel": "최고:",
+  "gaze.statusFocusing": "집중 중...",
+  "gaze.statusIdle": "아래 버튼을 클릭하여 훈련을 시작하세요",
+  "gaze.interrupted": "훈련이 중단되었습니다. 다시 시도해 주세요",
+  "gaze.dotAriaLabel": "응시점"
 } 
