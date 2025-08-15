@@ -1,6 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/src/navigation'
+import { Link } from '@/navigation'
 import { useEffect, useState } from 'react'
 
 export default function ReactionSpeed({
@@ -35,7 +35,7 @@ export default function ReactionSpeed({
             <h2 className='mb-4 text-xl font-semibold text-gray-300'>{item.name}</h2>
             <p className='mb-4 text-cyan-300'>{item.description}</p>
             <div className='mt-4 flex justify-end'> 
-              <Link href={item.link as '/memory' | '/reaction' | '/attention' | '/speedreading' | '/categories' | '/about' | '/'} lang={locale}>
+              <Link href={item.link as '/memory' | '/reaction' | '/attention' | '/speedreading' | '/categories' | '/about' | '/'}>
                 <button className='rounded-md bg-cyan-600 px-4 py-2 text-white transition hover:bg-cyan-700'>
                   {t('StartTraining')}
                 </button>
@@ -46,4 +46,4 @@ export default function ReactionSpeed({
       </div>
     </div>
   )
-} 
+}

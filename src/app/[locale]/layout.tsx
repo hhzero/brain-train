@@ -1,15 +1,12 @@
-import { ThemeProvider } from '@/src/app/[locale]/components/ThemeProvider'
 import type { Metadata } from 'next'
-import {
-  AbstractIntlMessages,
-  NextIntlClientProvider,
-  useMessages
-} from 'next-intl'
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
-import NextTopLoader from 'nextjs-toploader'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+import { AbstractIntlMessages } from 'next-intl'
+import { PerformanceMonitorProvider } from '@/components/PerformanceMonitorProvider'
+import { ThemeProvider } from '@/app/[locale]/components/ThemeProvider'
 import { Header } from './components/Header'
 import MusicPlayer from './components/MusicPlayer'
-import './globals.css'
 import { cn } from '@/lib/utils'
 
 const inter = Inter({
@@ -17,7 +14,7 @@ const inter = Inter({
   variable: '--inter'
 })
 const rubik = Rubik({
-  subsets: ['arabic'],
+  subsets: ['latin'],
   variable: '--rubik'
 })
 const space_grotesk = Space_Grotesk({
@@ -41,14 +38,14 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { locale }
 }: {
   children: React.ReactNode
   params: { locale: string }
 }) {
-  const messages = useMessages()
+  const messages = await getMessages()
   
   return (
     <html
@@ -60,36 +57,26 @@ export default function RootLayout({
       <body className={cn(
         'min-h-screen font-sans antialiased',
       )}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider
-            locale={locale}
-            messages={messages as AbstractIntlMessages}
-          >
-            <NextTopLoader
-              initialPosition={0.08}
-              crawlSpeed={200}
-              height={3}
-              crawl={true}
-              easing='ease'
-              speed={200}
-              shadow='0 0 10px #00ffff,0 0 5px #00ffff'
-              color='#00ffff'
-              showSpinner={false}
-            />
-            <div className="starry-background">
+        <PerformanceMonitorProvider>
+          <ThemeProvider>
+            <NextIntlClientProvider
+              locale={locale}
+              messages={messages as AbstractIntlMessages}
+            >
+              {/* 星空背景 */}
+              <div className="starry-background"></div>
+              
+              {/* 主要内容区域 */}
               <div className="starry-background-content">
-                <MusicPlayer />
                 <Header locale={locale} />
-                <main className='mx-auto max-w-screen-2xl'>{children}</main>
+                <main className='mx-auto max-w-screen-2xl p-4'>
+                  {children}
+                </main>
+                <MusicPlayer />
               </div>
-            </div>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </PerformanceMonitorProvider>
       </body>
     </html>
   )

@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { IoPlay, IoPause, IoPlayBack, IoPlayForward, IoVolumeMute, IoVolumeHigh, IoContract, IoMusicalNotes } from 'react-icons/io5';
+import { audioManager } from '../../../utils/AudioManager';
 
 // 音乐列表
 const musicList = [
@@ -37,95 +38,163 @@ const musicList = [
   },
 ];
 
-export default function MusicPlayer() {
+/**
+ * 音乐播放器组件 - 使用优化的AudioManager进行音频管理
+ */
+const MusicPlayer = memo(function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isMuted, setIsMuted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [volume, setVolume] = useState(0.7);
+  const [isLoading, setIsLoading] = useState(false);
+  const currentSrcRef = useRef<string>('');
+  const isInitializedRef = useRef(false);
   
-  // 初始化音频
+  // 初始化音频管理器和预加载音频资源
   useEffect(() => {
-    // 创建新的音频对象
-    audioRef.current = new Audio(musicList[currentTrack].src);
-    
-    // 添加事件监听器
-    const handleEnded = () => {
-      console.log("音乐播放结束，准备播放下一曲");
-      // 使用setCurrentTrack直接切换到下一曲，避免调用next函数造成循环
-      setCurrentTrack((prev) => (prev + 1) % musicList.length);
-      setIsPlaying(true);
-      // 在下一个周期播放音频
-      setTimeout(() => {
-        if (audioRef.current) {
-          audioRef.current.play().catch(err => {
-            console.error("自动播放失败:", err);
-          });
+    const initializeAudio = async () => {
+      try {
+        setIsLoading(true);
+        
+        // 停止当前播放的音频
+        if (currentSrcRef.current) {
+          await audioManager.stop(currentSrcRef.current);
         }
-      }, 0);
+        
+        // 更新当前音频源
+        const newSrc = musicList[currentTrack].src;
+        currentSrcRef.current = newSrc;
+        
+        // 预加载新音频
+        await audioManager.preload(newSrc);
+        
+        // 设置音量和静音状态
+        audioManager.setVolume(newSrc, volume);
+        audioManager.setMuted(isMuted);
+        
+        isInitializedRef.current = true;
+        setIsLoading(false);
+        
+        console.log(`音频初始化完成: ${musicList[currentTrack].title || newSrc}`);
+      } catch (error) {
+        console.error('音频初始化失败:', error);
+        setIsLoading(false);
+        setIsPlaying(false);
+      }
     };
     
-    // 添加ended事件监听
-    audioRef.current.addEventListener('ended', handleEnded);
-    
-    // 如果当前状态是播放状态，则自动播放该曲目
-    if (isPlaying) {
-      audioRef.current.play().catch(err => {
-        console.error("自动播放失败:", err);
-      });
-    }
+    initializeAudio();
     
     // 清理函数
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.removeEventListener('ended', handleEnded);
+      if (currentSrcRef.current) {
+        audioManager.stop(currentSrcRef.current).catch(console.error);
       }
     };
-  }, [currentTrack, isPlaying]); // 添加isPlaying作为依赖项
+  }, [currentTrack, volume, isMuted]); // 依赖currentTrack、volume和isMuted
+  
+  // 处理播放状态变化（独立的useEffect）
+  useEffect(() => {
+    const handlePlayStateChange = async () => {
+      if (!isInitializedRef.current || !currentSrcRef.current) return;
+      
+      try {
+        if (isPlaying) {
+          await audioManager.play(currentSrcRef.current, {
+            volume,
+            loop: false,
+            fadeIn: 200 // 200ms淡入效果
+          });
+          console.log('音频播放开始');
+        } else {
+          audioManager.pause(currentSrcRef.current);
+          console.log('音频播放暂停');
+        }
+      } catch (error) {
+        console.error('播放状态切换失败:', error);
+        setIsPlaying(false);
+      }
+    };
+    
+    handlePlayStateChange();
+  }, [isPlaying, volume]);
   
   // 播放/暂停切换
   const togglePlayPause = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
+    if (!isInitializedRef.current || isLoading) return;
+    setIsPlaying(!isPlaying);
   };
   
   // 下一曲
   const next = () => {
+    if (isLoading) return;
     setCurrentTrack((prev) => (prev + 1) % musicList.length);
-    // 在下一个渲染周期自动播放
-    setTimeout(() => {
-      if (audioRef.current) {
-        audioRef.current.play();
-        setIsPlaying(true);
-      }
-    }, 0);
+    setIsPlaying(true); // 切换曲目后自动播放
   };
   
   // 上一曲
   const prev = () => {
+    if (isLoading) return;
     setCurrentTrack((prev) => (prev - 1 + musicList.length) % musicList.length);
-    // 在下一个渲染周期自动播放
-    setTimeout(() => {
-      if (audioRef.current) {
-        audioRef.current.play();
-        setIsPlaying(true);
-      }
-    }, 0);
+    setIsPlaying(true); // 切换曲目后自动播放
   };
   
+  // 切换静音状态
   const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+    const newMutedState = !isMuted;
+    setIsMuted(newMutedState);
+    audioManager.setMuted(newMutedState);
+  };
+  
+  // 音量控制
+  const handleVolumeChange = (newVolume: number) => {
+    const clampedVolume = Math.max(0, Math.min(1, newVolume));
+    setVolume(clampedVolume);
+    if (currentSrcRef.current) {
+      audioManager.setVolume(currentSrcRef.current, clampedVolume);
     }
   };
+  
+  // 批量预加载所有音频文件（组件挂载时执行）
+  useEffect(() => {
+    const preloadAllMusic = async () => {
+      try {
+        const allSources = musicList.map(music => music.src);
+        await audioManager.preloadBatch(allSources);
+        console.log('所有音频文件预加载完成');
+      } catch (error) {
+        console.error('批量预加载音频失败:', error);
+      }
+    };
+    
+    preloadAllMusic();
+    
+    // 组件卸载时清理音频资源
+    return () => {
+      if (currentSrcRef.current) {
+        audioManager.stop(currentSrcRef.current).catch(console.error);
+      }
+    };
+  }, []); // 只在组件挂载时执行一次
+  
+  // 监听音频播放结束事件
+  useEffect(() => {
+    const checkAudioState = () => {
+      if (!currentSrcRef.current) return;
+      
+      const audioState = audioManager.getState(currentSrcRef.current);
+      if (audioState && !audioState.isPlaying && !audioState.isPaused && isPlaying) {
+        // 音频播放结束，自动播放下一曲
+        console.log('音乐播放结束，准备播放下一曲');
+        setCurrentTrack((prev) => (prev + 1) % musicList.length);
+        setIsPlaying(true);
+      }
+    };
+    
+    const interval = setInterval(checkAudioState, 1000); // 每秒检查一次
+    return () => clearInterval(interval);
+  }, [isPlaying, currentTrack]);
   
   // 只切换显示/隐藏状态
   const toggleVisible = () => {
@@ -152,25 +221,35 @@ export default function MusicPlayer() {
           <div className="flex space-x-2">
             <button
               onClick={prev}
-              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star"
+              disabled={isLoading}
+              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               <IoPlayBack size={20} />
             </button>
             <button
               onClick={togglePlayPause}
-              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star"
+              disabled={!isInitializedRef.current || isLoading}
+              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
-              {isPlaying ? <IoPause size={20} /> : <IoPlay size={20} />}
+              {isLoading ? (
+                <div className="w-5 h-5 border-2 border-gray-400 border-t-white rounded-full animate-spin" />
+              ) : isPlaying ? (
+                <IoPause size={20} />
+              ) : (
+                <IoPlay size={20} />
+              )}
             </button>
             <button
               onClick={next}
-              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star"
+              disabled={isLoading}
+              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               <IoPlayForward size={20} />
             </button>
             <button
               onClick={toggleMute}
-              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star"
+              disabled={!isInitializedRef.current}
+              className="text-gray-400/70 hover:text-white p-2 rounded-full music-button-star disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {isMuted ? <IoVolumeMute size={20} /> : <IoVolumeHigh size={20} />}
             </button>
@@ -180,6 +259,39 @@ export default function MusicPlayer() {
             >
               <IoContract size={20} />
             </button>
+          </div>
+          
+          {/* 音量控制滑块 */}
+          <div className="flex items-center space-x-2 mt-2">
+            <IoVolumeHigh size={16} className="text-gray-400/70" />
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.1"
+              value={isMuted ? 0 : volume}
+              onChange={(e) => {
+                const newVolume = parseFloat(e.target.value);
+                if (newVolume === 0) {
+                  setIsMuted(true);
+                  audioManager.setMuted(true);
+                } else {
+                  if (isMuted) {
+                    setIsMuted(false);
+                    audioManager.setMuted(false);
+                  }
+                  handleVolumeChange(newVolume);
+                }
+              }}
+              disabled={!isInitializedRef.current}
+              className="flex-1 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                background: `linear-gradient(to right, #8b5cf6 0%, #8b5cf6 ${(isMuted ? 0 : volume) * 100}%, #4b5563 ${(isMuted ? 0 : volume) * 100}%, #4b5563 100%)`
+              }}
+            />
+            <span className="text-xs text-gray-400/70 w-8 text-right">
+              {Math.round((isMuted ? 0 : volume) * 100)}%
+            </span>
           </div>
         </div>
       ) : (
@@ -197,4 +309,6 @@ export default function MusicPlayer() {
       )}
     </>
   );
-} 
+});
+
+export default MusicPlayer;

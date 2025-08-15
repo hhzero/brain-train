@@ -172,65 +172,85 @@
   }
 }
 
+/* 深邃星空背景 - 多层次宇宙效果 */
 .starry-background {
-  position: relative;
-  background-color: #010112;
-  /* background-color: white; */
-  overflow: hidden;
-}
-
-.starry-background::before {
-  content: '';
   position: absolute;
-  /* 计算图片的50%减去视口的50%的位置，使图片中心与屏幕中心对齐 */
-  /* top: calc(50% - 2348px); 视口高度的50% - 图片高度的50% */
-  /* left: calc(50% - 2848px); 视口宽度的50% - 图片宽度的50% */
-  /* 图片原始像素 : width: 5696px; height: 3392px; */
-  /* width: 4696px; */
-  /* height: 3392px; */
-  top: -100%;
-  left: -30%;
-  right: -30%;
-  bottom: -100%;
-  /* background-image: url('/images/bg_starry_sky.jpg'); */
-  background-image: url('/images/bg_starry_sky2.jpeg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: rotateBackground 240s linear infinite;
-  will-change: transform;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* 深层宇宙背景 */
+    radial-gradient(ellipse at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
+    /* 主要渐变 */
+    linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 25%, #2a1a4a 50%, #1a2a5a 75%, #2a1a4a 100%);
+  overflow: hidden;
   z-index: 0;
-  /* 确保旋转围绕中心点 */
-  transform-origin: center center; 
+  pointer-events: none;
 }
 
+/* 深层星域 - 通过after伪元素实现 */
 .starry-background::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(ellipse at center, 
-    rgba(1, 1, 18, 0.1) 0%, 
-    rgba(1, 1, 18, 0.1) 45%, 
-    rgba(1, 1, 18, 0.1) 100%);
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* 深层星点 - 极远距离 */
+    radial-gradient(0.5px 0.5px at 15px 25px, rgba(200, 200, 255, 0.4), transparent),
+    radial-gradient(0.5px 0.5px at 85px 95px, rgba(255, 200, 200, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 155px 165px, rgba(200, 255, 200, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 225px 235px, rgba(255, 255, 200, 0.4), transparent),
+    radial-gradient(0.5px 0.5px at 295px 305px, rgba(200, 255, 255, 0.3), transparent),
+    /* 中层星点 */
+    radial-gradient(1px 1px at 60px 90px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 180px 50px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 220px 120px, rgba(255, 255, 255, 0.5), transparent);
+  background-repeat: repeat;
+  background-size: 350px 250px;
+  animation: deepStarsTwinkle 25s linear infinite;
+  z-index: 2;
+  opacity: 0.6;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  pointer-events: none;
 }
 
-/* 添加一些稀疏的大星星 */
-.big-star {
+/* 星云效果层 - 通过伪元素实现 */
+.starry-background::before {
+  content: '';
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* 主星云 */
+    radial-gradient(ellipse 800px 400px at 30% 20%, rgba(100, 50, 200, 0.15), transparent 70%),
+    radial-gradient(ellipse 600px 300px at 70% 80%, rgba(200, 100, 150, 0.12), transparent 70%),
+    radial-gradient(ellipse 1000px 500px at 50% 50%, rgba(50, 100, 200, 0.08), transparent 80%),
+    /* 次级星云 */
+    radial-gradient(ellipse 400px 200px at 80% 30%, rgba(150, 200, 100, 0.1), transparent 60%),
+    radial-gradient(ellipse 500px 250px at 20% 70%, rgba(200, 150, 100, 0.1), transparent 60%),
+    /* 远景星云 */
+    radial-gradient(ellipse 1200px 600px at 40% 60%, rgba(100, 150, 200, 0.05), transparent 90%);
+  animation: nebulaFlow 30s ease-in-out infinite;
   z-index: 1;
-  box-shadow: 
-    0 0 10px 2px rgba(255, 255, 255, 0.9),
-    0 0 20px 4px rgba(173, 216, 230, 0.8),
-    0 0 30px 6px rgba(70, 131, 255, 0.6);
-  animation: twinkle 6s infinite ease-in-out alternate;
-  transform-origin: center;
+  opacity: 0.8;
+  pointer-events: none;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
+
+/* 中景星域 - 已移除DOM元素实现 */
+
+/* 前景亮星域 - 已移除DOM元素实现 */
+
+/* 流星动画层 - 已移除DOM元素实现 */
 
 .big-star:nth-child(odd) {
   animation-duration: 7s;
@@ -305,9 +325,12 @@
   }
 }
 
+/* 深层星域 - 通过after伪元素实现 */
+
 .starry-background-content {
   position: relative;
-  z-index: 2;
+  z-index: 100;
+  pointer-events: auto;
   min-height: 100vh;
 }
 
@@ -497,13 +520,125 @@
   animation: star-twinkle 1.5s infinite;
 }
 
-/* 添加背景旋转动画 */
-@keyframes rotateBackground {
-  from {
-    transform: rotate(0deg) scale(1);
+/* 深邃星空动画定义 */
+@keyframes deepStarsTwinkle {
+  0%, 100% { 
+    opacity: 0.2;
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg) scale(1);
+  25% { 
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+  50% { 
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  75% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes distantStarsTwinkle {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes midStarsTwinkle {
+  0%, 100% { 
+    opacity: 0.4;
+    filter: brightness(1);
+  }
+  33% { 
+    opacity: 0.8;
+    filter: brightness(1.3);
+  }
+  66% { 
+    opacity: 0.6;
+    filter: brightness(0.8);
+  }
+}
+
+@keyframes brightStarsGlow {
+  0%, 100% { 
+    opacity: 0.6;
+    filter: brightness(1) blur(0px);
+  }
+  20% { 
+    opacity: 0.9;
+    filter: brightness(1.4) blur(0.5px);
+  }
+  40% { 
+    opacity: 0.7;
+    filter: brightness(0.9) blur(0px);
+  }
+  60% { 
+    opacity: 1;
+    filter: brightness(1.6) blur(1px);
+  }
+  80% { 
+    opacity: 0.8;
+    filter: brightness(1.1) blur(0.2px);
+  }
+}
+
+/* 简化的流星动画 */
+@keyframes meteor1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes meteor2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 添加星云效果层 */
+@keyframes nebulaDrift {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* 简化的宇宙漂移动画 */
+@keyframes cosmicDrift {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* 微妙旋转动画 */
+@keyframes subtleRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -524,9 +659,144 @@
   }
 }
 
+/* 星云流动动画 */
+@keyframes nebulaFlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.05) rotate(0.5deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02) rotate(1deg);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1.03) rotate(0.5deg);
+  }
+}
+
+/* 响应式背景优化 - 确保在所有设备和缩放级别都完美显示 */
+@media (max-width: 768px) {
+  .starry-background::before {
+    background-size: 300px 150px;
+    animation-duration: 15s;
+  }
+  
+  .starry-background::after {
+    background-size: 400px 200px;
+    animation-duration: 20s;
+  }
+  
+  .starry-background .nebula-layer {
+    animation-duration: 45s;
+  }
+}
+
+@media (max-width: 480px) {
+  .starry-background::before {
+    background-size: 250px 125px;
+  }
+  
+  .starry-background::after {
+    background-size: 350px 175px;
+  }
+}
+
+/* 确保背景在任何缩放级别都不会显示边界 */
+.starry-background,
+.starry-background::before,
+.starry-background::after,
+.starry-background .nebula-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.starry-background {
+  position: fixed;
+  z-index: -1;
+}
+
+.starry-background-content {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  width: 100%;
+  pointer-events: auto;
+}
+
 /* 导航栏选中项高亮样式 */
 .active {
   color: #67e8f9 !important;         /* 高亮字体颜色 */
   /* border-bottom: 2px solid #00ffff;  下划线高亮 */
   /* 你可以根据需要添加更多效果 */
+}
+
+/* 按钮动画效果 */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5),
+                0 0 10px rgba(147, 51, 234, 0.3),
+                0 0 15px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.8),
+                0 0 20px rgba(147, 51, 234, 0.6),
+                0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 动画工具类 */
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-button-glow {
+  animation: button-glow 2s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
 }

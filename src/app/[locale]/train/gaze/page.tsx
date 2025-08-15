@@ -12,8 +12,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   const t = await getTranslations()
   
   return {
-    title: `${t('gaze.title')} | Brain Train`,
-    description: t('gaze.desc'),
+    title: `${t('gazeTitle')} | Brain Train`,
+    description: t('gazeDesc'),
     keywords: ['gaze training', 'focus', 'attention', 'distraction resistance', 'brain training']
   }
 }
@@ -22,4 +22,4 @@ const GazeClient = dynamic(() => import('./GazeClient'), { ssr: false })
 
 export default function GazePage() {
   return <GazeClient />
-} 
+}

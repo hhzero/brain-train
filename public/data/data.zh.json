@@ -18,17 +18,17 @@
     "list": [
       {
         "id": 10,
-        "name": "反应力训练1",
-        "description": "反应力训练描述1",
+        "name": "反应速度测试",
+        "description": "测试你的反应速度，看看你能多快响应屏幕上的变化！挑战你的极限反应时间。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/reaction-speed"
       },
       {
         "id": 11,
-        "name": "反应力训练2",
-        "description": "反应力训练描述2",
+        "name": "反应时间训练",
+        "description": "通过连续的反应训练提升你的反应能力，让大脑和手指配合更加敏捷。",
         "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "link": "/train/reaction-time"
       }
     ]
   },
@@ -72,4 +72,4 @@
       }
     ]
   }
-} 
+}

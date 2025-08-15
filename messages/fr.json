@@ -37,12 +37,12 @@
   "Reaction_Description": "Améliorez votre temps de réponse et votre vitesse de réflexe avec des exercices d'entraînement de réaction captivants.",
   "Other_Categories_Description": "Explorez d'autres exercices d'entraînement cognitif pour un entraînement mental complet.",
   "StartTraining": "Commencer l'entraînement",
-  "gaze.title": "Entraînement du Regard",
-  "gaze.desc": "Améliorez votre concentration et votre résistance aux distractions en fixant continuellement le point noir central, réduisant la divagation mentale et améliorant l'attention soutenue !",
-  "gaze.focusLabel": "Actuel :",
-  "gaze.bestLabel": "Meilleur :",
-  "gaze.statusFocusing": "Concentration...",
-  "gaze.statusIdle": "Cliquez sur le bouton ci-dessous pour commencer l'entraînement",
-  "gaze.interrupted": "Entraînement interrompu, veuillez réessayer",
-  "gaze.dotAriaLabel": "Point de fixation"
+  "gazeTitle": "Entraînement du Regard",
+  "gazeDesc": "Améliorez votre concentration et votre résistance aux distractions en fixant continuellement le point noir central, réduisant la divagation mentale et améliorant l'attention soutenue !",
+  "gazeFocusLabel": "Actuel :",
+  "gazeBestLabel": "Meilleur :",
+  "gazeStatusFocusing": "Concentration...",
+  "gazeStatusIdle": "Cliquez sur le bouton ci-dessous pour commencer l'entraînement",
+  "gazeInterrupted": "Entraînement interrompu, veuillez réessayer",
+  "gazeDotAriaLabel": "Point de fixation"
 }

@@ -1,11 +1,12 @@
 'use client'
-import { Link } from '@/src/navigation'
+import { Link } from '@/navigation'
 import { useTranslations } from 'next-intl'
 import { FC, useState } from 'react'
 import GithubIcon from '../../icons/github'
 import LogoIcon from '../../icons/logo'
 import LangSwitcher from './LangSwitcher'
 import ThemeSwitch from './ThemeSwitch'
+import UserMenu from './UserMenu'
 import { FiChevronDown } from 'react-icons/fi'
 import { usePathname } from 'next/navigation'
 
@@ -19,7 +20,7 @@ export const Header: FC<Props> = ({ locale }) => {
 
   return (
     <div className='mx-auto flex max-w-screen-2xl flex-row items-center justify-between p-5 z-10 relative'>
-      <Link lang={locale} href='/'>
+      <Link href='/'>
         <div className='flex flex-row items-center'>
           <div className='mb-2 h-14 w-14'>
             <LogoIcon />
@@ -29,20 +30,20 @@ export const Header: FC<Props> = ({ locale }) => {
       </Link>
       <div className='flex flex-row items-center gap-3'>
         <nav className='mr-10 inline-flex gap-5'>
-          <Link lang={locale} href='/' className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}` || pathname === `/${locale}/` ? ' active' : ''}`}>
+          <Link href='/' className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}` || pathname === `/${locale}/` ? ' active' : ''}`}>
             {t('Home')}
           </Link>
           
-          <Link lang={locale} href={`/memory`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/memory` ? ' active' : ''}`}>
+          <Link href={`/memory`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/memory` ? ' active' : ''}`}>
             {t('Memory')}
           </Link>
-          <Link lang={locale} href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/attention` ? ' active' : ''}`}>
+          <Link href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/attention` ? ' active' : ''}`}>
             {t('Attention')}
           </Link>
-          <Link lang={locale} href={`/speedreading`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/speedreading` ? ' active' : ''}`}>
+          <Link href={`/speedreading`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/speedreading` ? ' active' : ''}`}>
             {t('SpeedReading')}
           </Link>
-          <Link lang={locale} href={`/about`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/about` ? ' active' : ''}`}>
+          <Link href={`/about`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/about` ? ' active' : ''}`}>
             {t('About')}
           </Link>
           
@@ -52,15 +53,7 @@ export const Header: FC<Props> = ({ locale }) => {
         {/* 这是主题按钮，后续这里也需要启用起来
          <ThemeSwitch /> */}
         <LangSwitcher />
-        {/* 这是跳转到github的链接，后续这里要改造成登入的功能
-         <a
-          href='https://github.com/yahyaparvar/nextjs-template'
-          target='_blank'
-        >
-          <div className='size-8 text-white hover:text-cyan-300 transition-colors'>
-            <GithubIcon />
-          </div>
-        </a> */}
+        <UserMenu />
       </div>
     </div>
   )

@@ -37,12 +37,115 @@
   "Reaction_Description": "Improve your response time and reflex speed with engaging reaction training exercises.",
   "Other_Categories_Description": "Explore additional cognitive training exercises for a well-rounded mental workout.",
   "StartTraining": "Start Training",
-  "gaze.title": "Gaze Training",
-  "gaze.desc": "Improve your focus and resistance to distraction by continuously gazing at the central black dot, reducing mind-wandering and enhancing sustained attention!",
-  "gaze.focusLabel": "Current:",
-  "gaze.bestLabel": "Best:",
-  "gaze.statusFocusing": "Focusing...",
-  "gaze.statusIdle": "Click the button below to start training",
-  "gaze.interrupted": "Training interrupted, please try again",
-  "gaze.dotAriaLabel": "Gaze dot"
+  "gazeTitle": "Gaze Training",
+  "gazeDesc": "Improve your focus and resistance to distraction by continuously gazing at the central black dot, reducing mind-wandering and enhancing sustained attention!",
+  "gazeFocusLabel": "Current:",
+  "gazeBestLabel": "Best:",
+  "gazeStatusFocusing": "Focusing...",
+  "gazeStatusIdle": "Click the button below to start training",
+  "gazeInterrupted": "Training interrupted, please try again",
+  "gazeDotAriaLabel": "Gaze dot",
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Welcome back, continue your brain training journey",
+      "submit": "Login",
+      "switchToRegister": "Don't have an account?"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create an account to start your brain training",
+      "submit": "Register",
+      "switchToLogin": "Already have an account?"
+    },
+    "fields": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "username": "Enter your username",
+      "email": "Enter your email address",
+      "password": "Enter your password",
+      "confirmPassword": "Confirm your password"
+    },
+    "errors": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "passwordRequired": "Password is required",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "usernameRequired": "Username is required",
+      "usernameTooShort": "Username must be at least 3 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "common": {
+      "loading": "Loading..."
+    }
+  },
+  "profile": {
+    "joinedOn": "Joined on:",
+    "stats": {
+      "title": "Training Statistics",
+      "totalTrainings": "Total Trainings",
+      "totalTime": "Total Time",
+      "bestScore": "Best Score",
+      "streak": "Streak Days"
+    },
+    "recentTrainings": "Recent Trainings",
+    "trainings": {
+      "schulte": "Schulte Grid",
+      "nback": "N-back Training",
+      "gaze": "Gaze Training"
+    },
+    "logout": "Logout",
+    "fields": {
+      "username": "Username",
+      "email": "Email"
+    },
+    "errors": {
+       "usernameRequired": "Username is required",
+       "usernameTooShort": "Username must be at least 3 characters",
+       "emailRequired": "Email is required",
+       "emailInvalid": "Invalid email format"
+     },
+     "noTrainings": "No training records yet",
+     "dataManagement": "Data Management",
+     "exportData": "Export Data",
+     "importData": "Import Data",
+     "clearData": "Clear Data",
+     "importSuccess": "Data imported successfully!",
+     "confirmClearData": "Are you sure you want to clear all training data? This action cannot be undone.",
+     "dataClearedSuccess": "Data cleared successfully!"
+   },
+  "userMenu": {
+    "guest": "Guest",
+    "signedInAs": "Signed in as",
+    "profile": "Profile",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "gazeTraining": {
+    "title": "Gaze Training",
+    "description": "Train attention focus by gazing at specific targets",
+    "startTraining": "Start Training",
+    "focusOnTarget": "Please focus on the center target",
+    "timeRemaining": "Time Remaining",
+    "trainingComplete": "Training Complete!",
+    "score": "Score",
+    "accuracy": "Accuracy",
+    "focusTime": "Focus Time"
+  },
+  "audio": {
+    "play": "Play",
+    "pause": "Pause",
+    "stop": "Stop",
+    "loop": "Loop",
+    "loading": "Loading...",
+    "volume": "Volume",
+    "mute": "Mute",
+    "unmute": "Unmute"
+  }
 }

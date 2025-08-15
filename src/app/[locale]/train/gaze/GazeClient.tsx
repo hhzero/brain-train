@@ -13,9 +13,9 @@ export default function GazeClient() {
   useEffect(() => {
     console.log("Translation object:", t)
     try {
-      console.log("Trying gaze.title:", t('gaze.title'))
-    } catch (e) {
-      console.error("Error with gaze.title:", e)
+      console.log("Trying gazeTitle:", t('gazeTitle'))
+  } catch (e) {
+    console.error("Error with gazeTitle:", e)
     }
   }, [t])
 
@@ -55,13 +55,13 @@ export default function GazeClient() {
     <main className="max-w-xl mx-auto py-12 px-4">
       <h1 className="text-3xl font-bold mb-4 text-cyan-600">
         {(() => {
-          try { return t('gaze.title') } 
+          try { return t('gazeTitle') } 
           catch { return '凝视训练 (Gaze Training)' }
         })()}
       </h1>
       <p className="mb-6 text-gray-500">
         {(() => {
-          try { return t('gaze.desc') } 
+          try { return t('gazeDesc') } 
           catch { return '通过持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力表现。' }
         })()}
       </p>
@@ -69,11 +69,11 @@ export default function GazeClient() {
         <div className="mb-2 text-gray-700">
           {isFocusing ? 
             (() => {
-              try { return t('gaze.statusFocusing') } 
+              try { return t('gazeStatusFocusing') } 
               catch { return '专注计时中...' }
             })() : 
             (() => {
-              try { return t('gaze.statusIdle') } 
+              try { return t('gazeStatusIdle') } 
               catch { return '点击下方按钮开始训练' }
             })()
           }
@@ -81,14 +81,14 @@ export default function GazeClient() {
         <div className="flex gap-8 mb-2">
           <div>
             {(() => {
-              try { return t('gaze.focusLabel') } 
+              try { return t('gazeFocusLabel') } 
               catch { return '本次：' }
             })()}
             <span className="font-bold text-cyan-700 text-xl">{time}s</span>
           </div>
           <div>
             {(() => {
-              try { return t('gaze.bestLabel') } 
+              try { return t('gazeBestLabel') } 
               catch { return '历史最佳：' }
             })()}
             <span className="font-bold text-cyan-700 text-xl">{best}s</span>
@@ -102,7 +102,7 @@ export default function GazeClient() {
             onMouseUp={stop}
             onMouseLeave={isFocusing ? stop : undefined}
             title={(() => {
-              try { return t('gaze.dotAriaLabel') } 
+              try { return t('gazeDotAriaLabel') } 
               catch { return '凝视黑点' }
             })()}
           >
@@ -123,7 +123,7 @@ export default function GazeClient() {
         {interrupted && 
           <div className="text-red-500 font-semibold">
             {(() => {
-              try { return t('gaze.interrupted') } 
+              try { return t('gazeInterrupted') } 
               catch { return '训练中断，请重新开始' }
             })()}
           </div>
@@ -131,4 +131,4 @@ export default function GazeClient() {
       </div>
     </main>
   )
-} 
+}

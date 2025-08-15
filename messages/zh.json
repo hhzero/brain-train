@@ -26,12 +26,115 @@
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "这是一个脑力训练平台，致力于提供增强认知能力的解决方案。\n 我们正在持续更新和新增功能。\n 如果您有任何建议或问题，请联系我们：zhzero886@gmail.com。",
   "Performant": "高性能",
   "StartTraining": "开始训练",
-  "gaze.title": "凝视训练",
-  "gaze.desc": "通过持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力表现。",
-  "gaze.focusLabel": "本次：",
-  "gaze.bestLabel": "历史最佳：",
-  "gaze.statusFocusing": "专注计时中...",
-  "gaze.statusIdle": "点击下方按钮开始训练",
-  "gaze.interrupted": "训练中断，请重新开始",
-  "gaze.dotAriaLabel": "凝视黑点"
+  "gazeTitle": "凝视训练",
+  "gazeDesc": "通过持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力表现。",
+  "gazeFocusLabel": "本次：",
+  "gazeBestLabel": "历史最佳：",
+  "gazeStatusFocusing": "专注计时中...",
+  "gazeStatusIdle": "点击下方按钮开始训练",
+  "gazeInterrupted": "训练中断，请重新开始",
+  "gazeDotAriaLabel": "凝视黑点",
+  "auth": {
+    "login": {
+      "title": "登录",
+      "subtitle": "欢迎回来，继续您的大脑训练之旅",
+      "submit": "登录",
+      "switchToRegister": "还没有账户？"
+    },
+    "register": {
+      "title": "注册",
+      "subtitle": "创建账户，开始您的大脑训练",
+      "submit": "注册",
+      "switchToLogin": "已有账户？"
+    },
+    "fields": {
+      "username": "用户名",
+      "email": "邮箱",
+      "password": "密码",
+      "confirmPassword": "确认密码"
+    },
+    "placeholders": {
+      "username": "请输入用户名",
+      "email": "请输入邮箱地址",
+      "password": "请输入密码",
+      "confirmPassword": "请再次输入密码"
+    },
+    "errors": {
+      "emailRequired": "邮箱不能为空",
+      "emailInvalid": "邮箱格式不正确",
+      "passwordRequired": "密码不能为空",
+      "passwordTooShort": "密码至少需要6位",
+      "usernameRequired": "用户名不能为空",
+      "usernameTooShort": "用户名至少需要3位",
+      "confirmPasswordRequired": "请确认密码",
+      "passwordMismatch": "两次输入的密码不一致"
+    },
+    "common": {
+      "loading": "处理中..."
+    }
+  },
+  "profile": {
+    "joinedOn": "加入时间：",
+    "stats": {
+      "title": "训练统计",
+      "totalTrainings": "总训练次数",
+      "totalTime": "总训练时长",
+      "bestScore": "最佳成绩",
+      "streak": "连续天数"
+    },
+    "recentTrainings": "最近训练",
+    "trainings": {
+      "schulte": "舒尔特方格",
+      "nback": "N-back训练",
+      "gaze": "凝视训练"
+    },
+    "logout": "退出登录",
+    "fields": {
+      "username": "用户名",
+      "email": "邮箱"
+    },
+    "errors": {
+      "usernameRequired": "用户名是必填项",
+      "usernameTooShort": "用户名至少需要3个字符",
+      "emailRequired": "邮箱是必填项",
+      "emailInvalid": "邮箱格式无效"
+    },
+    "noTrainings": "暂无训练记录",
+    "dataManagement": "数据管理",
+    "exportData": "导出数据",
+    "importData": "导入数据",
+    "clearData": "清除数据",
+    "importSuccess": "数据导入成功！",
+    "confirmClearData": "确定要清除所有训练数据吗？此操作不可撤销。",
+    "dataClearedSuccess": "数据已成功清除！"
+  },
+  "userMenu": {
+    "guest": "游客",
+    "signedInAs": "登录身份",
+    "profile": "个人资料",
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出登录"
+  },
+  "gazeTraining": {
+    "title": "凝视训练",
+    "description": "通过凝视特定目标来训练注意力集中",
+    "startTraining": "开始训练",
+    "focusOnTarget": "请凝视中心目标",
+    "timeRemaining": "剩余时间",
+    "trainingComplete": "训练完成！",
+    "score": "得分",
+    "accuracy": "准确率",
+    "focusTime": "专注时间"
+  },
+  "audio": {
+    "play": "播放",
+    "pause": "暂停",
+    "stop": "停止",
+    "loop": "循环播放",
+    "loading": "加载中...",
+    "volume": "音量",
+    "mute": "静音",
+    "unmute": "取消静音"
+  }
 }

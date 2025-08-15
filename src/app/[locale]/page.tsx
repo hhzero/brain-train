@@ -1,7 +1,9 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import Button from './components/Button'
-import { Link } from '@/src/navigation'
+import MusicPlayer from './components/MusicPlayer'
+import ErrorBoundary from './components/ErrorBoundary'
+import { Link } from '@/navigation'
 
 export default function DashboardPage({
   params: { locale }
@@ -13,7 +15,7 @@ export default function DashboardPage({
   
   return (
     <>
-      <section className='flex flex-col items-center justify-center py-24'>
+      <section className='flex flex-col items-center justify-center py-24 relative z-20'>
         <h1 className='text-center font-extrabold leading-tight'>
           <div className='nebula-text-container'>
             <span 
@@ -28,13 +30,17 @@ export default function DashboardPage({
           </span>
         </h1>
         <div className='mt-8 flex flex-row gap-4'>
-          <Link lang={locale} href='/attention'>
+          <Link href='/attention'>
             <Button rounded size='large' className='training-btn'>
               <span className='training-btn-text'>{t('Use_Start')}</span>
             </Button>
           </Link>
         </div>
       </section>
+      {/* 音乐播放器 - 使用错误边界包装 */}
+      <ErrorBoundary>
+        <MusicPlayer />
+      </ErrorBoundary>
     </>
   )
 }
