@@ -215,4 +215,51 @@ interface LocalStorageData {
 
 ```typescript
 // 图片资源优化配置
-const imageOpt
+const imageOptimization = {
+  formats: ['webp', 'avif'],
+  sizes: [640, 768, 1024, 1280, 1600],
+  quality: 85,
+  loading: 'lazy' as const,
+};
+
+// 音频资源优化
+const audioOptimization = {
+  formats: ['ogg', 'mp3'],
+  bitrate: '128k',
+  preload: 'metadata' as const,
+};
+```
+
+## 7. 部署和运维
+
+### 7.1 构建配置
+
+```javascript
+// next.config.js 优化配置
+module.exports = {
+  // 图片优化
+  images: {
+    domains: ['localhost'],
+    formats: ['image/webp', 'image/avif'],
+  },
+  
+  // 国际化配置
+  i18n: {
+    locales: ['en', 'zh', 'ja', 'de', 'fr', 'es', 'ar', 'fa', 'ko', 'pl', 'pt', 'ru'],
+    defaultLocale: 'en',
+  },
+  
+  // 性能优化
+  experimental: {
+    optimizeCss: true,
+    optimizeImages: true,
+  },
+  
+  // 压缩配置
+  compress: true,
+  
+  // PWA 支持
+  pwa: {
+    dest: 'public',
+    register: true,
+    
