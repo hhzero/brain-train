@@ -37,31 +37,38 @@ graph TD
 
 ## 2. 技术描述
 
-- **前端框架**: React@18 + Next.js@14 + TypeScript@5.3
-- **样式方案**: TailwindCSS@3.4 + 自定义CSS动画
-- **UI组件库**: Radix UI + shadcn/ui 设计系统
-- **国际化**: next-intl@3.11 支持9种语言
-- **状态管理**: React Hooks + 本地存储
-- **构建工具**: Vite + PostCSS + Autoprefixer
-- **开发工具**: ESLint + Prettier + TypeScript
-- **部署平台**: Vercel（推荐）
+* **前端框架**: React\@18 + Next.js\@14 + TypeScript\@5.3
+
+* **样式方案**: TailwindCSS\@3.4 + 自定义CSS动画
+
+* **UI组件库**: Radix UI + shadcn/ui 设计系统
+
+* **国际化**: next-intl\@3.11 支持9种语言
+
+* **状态管理**: React Hooks + 本地存储
+
+* **构建工具**: Vite + PostCSS + Autoprefixer
+
+* **开发工具**: ESLint + Prettier + TypeScript
+
+* **部署平台**: Vercel（推荐）
 
 ## 3. 路由定义
 
-| 路由 | 用途 |
-|------|------|
-| /[locale] | 多语言首页，展示产品介绍和快速开始 |
-| /[locale]/attention | 注意力训练分类页面 |
-| /[locale]/memory | 记忆力训练分类页面 |
-| /[locale]/reaction | 反应力训练分类页面 |
-| /[locale]/speedreading | 速读训练分类页面 |
-| /[locale]/categories | 所有训练类别总览页面 |
-| /[locale]/train/schulte | 舒尔特方格训练游戏 |
-| /[locale]/train/n-back | N-back记忆训练游戏 |
-| /[locale]/train/gaze | 凝视专注力训练 |
-| /[locale]/train/reading-elimination | 消除音读训练 |
-| /[locale]/train/speed-practice | 速读实战练习 |
-| /[locale]/about | 关于页面，产品介绍和使用说明 |
+| 路由                                   | 用途                |
+| ------------------------------------ | ----------------- |
+| /\[locale]                           | 多语言首页，展示产品介绍和快速开始 |
+| /\[locale]/attention                 | 注意力训练分类页面         |
+| /\[locale]/memory                    | 记忆力训练分类页面         |
+| /\[locale]/reaction                  | 反应力训练分类页面         |
+| /\[locale]/speedreading              | 速读训练分类页面          |
+| /\[locale]/categories                | 所有训练类别总览页面        |
+| /\[locale]/train/schulte             | 舒尔特方格训练游戏         |
+| /\[locale]/train/n-back              | N-back记忆训练游戏      |
+| /\[locale]/train/gaze                | 凝视专注力训练           |
+| /\[locale]/train/reading-elimination | 消除音读训练            |
+| /\[locale]/train/speed-practice      | 速读实战练习            |
+| /\[locale]/about                     | 关于页面，产品介绍和使用说明    |
 
 ## 4. 组件架构
 
@@ -197,19 +204,27 @@ interface LocalStorageData {
 
 ### 6.1 前端性能优化
 
-- **代码分割**: 使用 Next.js 动态导入，按路由分割代码
-- **图片优化**: 使用 Next.js Image 组件，支持 WebP 格式和懒加载
-- **CSS优化**: TailwindCSS 的 purge 功能移除未使用样式
-- **缓存策略**: 静态资源使用浏览器缓存，API 数据使用 SWR
-- **预加载**: 关键路由和资源的预加载
+* **代码分割**: 使用 Next.js 动态导入，按路由分割代码
+
+* **图片优化**: 使用 Next.js Image 组件，支持 WebP 格式和懒加载
+
+* **CSS优化**: TailwindCSS 的 purge 功能移除未使用样式
+
+* **缓存策略**: 静态资源使用浏览器缓存，API 数据使用 SWR
+
+* **预加载**: 关键路由和资源的预加载
 
 ### 6.2 用户体验优化
 
-- **加载状态**: 所有异步操作都有加载指示器
-- **错误处理**: 优雅的错误边界和用户友好的错误提示
-- **离线支持**: Service Worker 缓存关键资源
-- **响应式设计**: 移动端优先的响应式布局
-- **无障碍访问**: ARIA 标签和键盘导航支持
+* **加载状态**: 所有异步操作都有加载指示器
+
+* **错误处理**: 优雅的错误边界和用户友好的错误提示
+
+* **离线支持**: Service Worker 缓存关键资源
+
+* **响应式设计**: 移动端优先的响应式布局
+
+* **无障碍访问**: ARIA 标签和键盘导航支持
 
 ### 6.3 资源优化
 
@@ -262,4 +277,50 @@ module.exports = {
   pwa: {
     dest: 'public',
     register: true,
-    
+    skipWaiting: true,
+  },
+};
+```
+
+### 7.2 监控和分析
+
+* **性能监控**: Web Vitals 指标追踪
+
+* **错误追踪**: 前端错误日志收集
+
+* **用户分析**: 训练数据统计和用户行为分析
+
+* **A/B测试**: 不同训练模式的效果对比
+
+## 8. 未来扩展规划
+
+### 8.1 短期优化（1-3个月）
+
+* 添加用户注册和登录系统
+
+* 实现云端数据同步
+
+* 增加更多训练游戏类型
+
+* 优化移动端体验
+
+### 8.2 中期发展（3-6个月）
+
+* 引入后端服务（Node.js + Supabase）
+
+* 添加社交功能和排行榜
+
+* 实现个性化训练推荐
+
+* 增加训练计划和目标设定
+
+### 8.3 长期规划（6-12个月）
+
+* AI驱动的个性化训练
+
+* VR/AR训练模式支持
+
+* 企业版和教育版功能
+
+* 多平台应用开发（iOS/Android）
+
