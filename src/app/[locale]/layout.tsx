@@ -55,7 +55,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className={cn(
-        'min-h-screen font-sans antialiased',
+        'min-h-screen font-sans antialiased'
       )}>
         <PerformanceMonitorProvider>
           <ThemeProvider>
