@@ -773,5 +773,178 @@
       "totalCycles": "Total cycles completed: {{cycles}}",
       "backToSelection": "Back to Session Selection"
     }
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": {
+      "title": "Personal Information",
+      "username": "Username",
+      "email": "Email",
+      "displayName": "Display Name",
+      "bio": "Bio",
+      "avatar": "Avatar",
+      "joinDate": "Join Date",
+      "lastActive": "Last Active",
+      "timezone": "Timezone",
+      "language": "Language Preference"
+    },
+    "training": {
+      "title": "Training Preferences",
+      "difficulty": "Difficulty Setting",
+      "duration": "Training Duration",
+      "breakReminders": "Break Reminders",
+      "autoSave": "Auto Save",
+      "showHints": "Show Hints",
+      "adaptiveDifficulty": "Adaptive Difficulty",
+      "difficultyLevels": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard",
+        "adaptive": "Adaptive"
+      }
+    },
+    "interface": {
+      "title": "Interface Settings",
+      "theme": "Theme",
+      "language": "Language",
+      "fontSize": "Font Size",
+      "animations": "Animations",
+      "reducedMotion": "Reduced Motion",
+      "themes": {
+        "dark": "Dark",
+        "light": "Light",
+        "auto": "Auto"
+      },
+      "languages": {
+        "zh": "中文",
+        "en": "English",
+        "ja": "日本語"
+      },
+      "fontSizes": {
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+      }
+    },
+    "audio": {
+      "title": "Audio Settings",
+      "muteAll": "Mute All",
+      "masterVolume": "Master Volume",
+      "effectsVolume": "Effects Volume",
+      "voiceVolume": "Voice Volume"
+    },
+    "privacy": {
+      "title": "Privacy Settings",
+      "profileVisible": "Public Profile",
+      "showOnlineStatus": "Show Online Status",
+      "allowFriendRequests": "Allow Friend Requests",
+      "showTrainingStats": "Show Training Statistics",
+      "showAchievements": "Show Achievements"
+    },
+    "dataManagement": {
+      "title": "Data Management",
+      "exportData": "Export My Data",
+      "importData": "Import Data",
+      "resetData": "Reset Training Data",
+      "deleteAccount": "Delete Account",
+      "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records, achievements, and friend relationships. This action cannot be undone.",
+      "confirmDelete": "Confirm Delete"
+    }
+  },
+  "zenMeditation": {
+    "title": "Zen Meditation Focus Training",
+    "subtitle": "Cultivate inner peace and focus through ancient Zen wisdom",
+    "guide": {
+      "title": "Zen Wisdom Guide",
+      "traditions": {
+        "title": "Meditation Traditions",
+        "zen": {
+          "name": "Zen",
+          "description": "Direct pointing to the mind, seeing one's nature and becoming Buddha"
+        },
+        "vipassana": {
+          "name": "Vipassana",
+          "description": "Observe as it is, insight into reality"
+        },
+        "tibetan": {
+          "name": "Tibetan",
+          "description": "Compassion and wisdom, benefiting all beings"
+        },
+        "chan": {
+          "name": "Chan",
+          "description": "In walking, standing, sitting, lying - all is Zen"
+        }
+      },
+      "types": {
+        "title": "Meditation Types",
+        "breathing": "Breathing Meditation - Observe breath, cultivate focus",
+        "mindfulness": "Mindfulness Meditation - Awareness of the present, insight into reality",
+        "lovingKindness": "Loving-Kindness Meditation - Cultivate compassion, dissolve resentment",
+        "walking": "Walking Meditation - Stillness in movement, mindful walking",
+        "bodyScan": "Body Scan - Body awareness, release tension"
+      },
+      "tips": {
+        "title": "Meditation Guidelines",
+        "posture": "Maintain an upright yet relaxed posture",
+        "expectation": "Don't force any special experiences",
+        "wandering": "When the mind wanders, gently return to the focus object",
+        "compassion": "Treat your imperfections with compassion",
+        "integration": "Bring meditation awareness into daily life"
+      },
+      "startButton": "Begin Zen Journey"
+    },
+    "sessions": {
+      "title": "Select Meditation Session",
+      "score": "Meditation Score",
+      "completed": "Sessions Completed",
+      "duration": "Meditation Duration",
+      "minutes": "minutes",
+      "seconds": "seconds",
+      "difficulty": "Difficulty",
+      "benefits": "Practice Benefits",
+      "philosophy": "Zen Wisdom",
+      "resetButton": "Start Over"
+    },
+    "practice": {
+      "phase": "Phase",
+      "guidance": "Meditation Guidance",
+      "focus": "Focus Object",
+      "visualization": "Visualization Guide",
+      "wisdom": "Zen Wisdom",
+      "mantra": "Loving-Kindness Mantra",
+      "showMantra": "Show Mantra",
+      "hideMantra": "Hide Mantra",
+      "startMeditation": "Start Meditation",
+      "pauseMeditation": "Pause Meditation",
+      "nextPhase": "Next Phase",
+      "completeMeditation": "Complete Meditation"
+    },
+    "name": "Zen Sitting Meditation",
+    "steps": {
+      "posture": {
+        "name": "Adjust Body",
+        "instruction": "Sit upright, spine straight, hands in mudra"
+      },
+      "breathing": {
+        "name": "Adjust Breath",
+        "instruction": "Breathe naturally, observe the flow of breath"
+      },
+      "mind": {
+        "name": "Adjust Mind",
+        "instruction": "Let go of distracting thoughts, return to this present moment"
+      },
+      "awareness": {
+        "name": "Awareness",
+        "instruction": "Maintain clear awareness, don't cling to thoughts"
+      }
+    },
+    "visualizations": {
+      "stillWater": "Mind like still water, clear and peaceful",
+      "emptySpace": "Mind like empty space, unobstructed"
+    },
+    "mantras": {
+      "presence": "The present moment is, this mind is Buddha",
+      "emptiness": "Emptiness is form, form is emptiness"
+    }
   }
 }
