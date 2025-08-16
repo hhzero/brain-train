@@ -124,11 +124,10 @@ interface UserSettings {
     fontSize: 'small' | 'medium' | 'large';
     colorScheme: 'default' | 'colorblind' | 'highContrast';
   };
-  // 音频设置
+  // 音频设置 - 移除音乐相关配置
   audio: {
     masterVolume: number;
     effectsVolume: number;
-    musicVolume: number;
     voiceVolume: number;
     muteAll: boolean;
   };
@@ -234,7 +233,6 @@ const ProfilePage: React.FC = () => {
       audio: {
         masterVolume: 80,
         effectsVolume: 70,
-        musicVolume: 60,
         voiceVolume: 85,
         muteAll: false
       }
@@ -931,7 +929,6 @@ const ProfilePage: React.FC = () => {
                             const labels = {
                               masterVolume: t('profile.settings.audio.masterVolume'),
                               effectsVolume: t('profile.settings.audio.effectsVolume'),
-                              musicVolume: t('profile.settings.audio.musicVolume'),
                               voiceVolume: t('profile.settings.audio.voiceVolume')
                             };
                             

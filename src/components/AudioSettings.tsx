@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Volume2, VolumeX, Music, Headphones, Settings, RotateCcw } from 'lucide-react';
+import { Volume2, VolumeX, Headphones, Settings, RotateCcw, Zap } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-// 音频设置接口
+// 音频设置接口 - 移除音乐相关功能，保留音效和音调
 interface AudioSettings {
   masterVolume: number;
   effectsVolume: number;
@@ -196,7 +196,7 @@ export const AudioSettingsComponent: React.FC<AudioSettingsProps> = ({
       <div className="bg-gray-700/50 rounded-lg p-4 space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <Music className="w-5 h-5 text-purple-400" />
+            <Zap className="w-5 h-5 text-purple-400" />
             {t('effectsSettings')}
           </h3>
           
@@ -224,7 +224,7 @@ export const AudioSettingsComponent: React.FC<AudioSettingsProps> = ({
           label={t('effectsVolume')}
           value={localSettings.effectsVolume}
           onChange={(value) => updateSetting('effectsVolume', value)}
-          icon={<Music className="w-5 h-5 text-purple-400" />}
+          icon={<Zap className="w-5 h-5 text-purple-400" />}
           color="#a855f7"
           disabled={!localSettings.enableEffects}
         />

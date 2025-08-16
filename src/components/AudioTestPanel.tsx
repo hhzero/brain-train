@@ -10,7 +10,6 @@ import {
   RotateCcw, 
   Settings,
   Headphones,
-  Music,
   Zap,
   CheckCircle
 } from 'lucide-react';
@@ -41,7 +40,7 @@ const EFFECT_TESTS = [
   { type: 'correct', name: '正确反馈', icon: CheckCircle, color: 'text-green-400' },
   { type: 'incorrect', name: '错误反馈', icon: VolumeX, color: 'text-red-400' },
   { type: 'perfect', name: '完美反馈', icon: Zap, color: 'text-yellow-400' },
-  { type: 'combo', name: '连击反馈', icon: Music, color: 'text-purple-400' },
+  { type: 'combo', name: '连击反馈', icon: Zap, color: 'text-purple-400' },
   { type: 'start', name: '开始音效', icon: Play, color: 'text-blue-400' },
   { type: 'pause', name: '暂停音效', icon: Pause, color: 'text-orange-400' },
   { type: 'complete', name: '完成音效', icon: CheckCircle, color: 'text-cyan-400' },
@@ -276,7 +275,7 @@ export function AudioTestPanel({ onClose, audioManager, soundManager }: AudioTes
           {/* 音调测试 */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <Music className="w-5 h-5 text-purple-400" />
+              <Zap className="w-5 h-5 text-purple-400" />
               音调测试
             </h3>
             

@@ -445,9 +445,7 @@
   }
 }
 
-.music-button-star:hover {
-  animation: star-twinkle 1.5s infinite;
-}
+
 
 /* 深邃星空动画定义 */
 /* deepStarsTwinkle动画已移除，现在使用StarfieldBackground组件 */

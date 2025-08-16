@@ -40,10 +40,9 @@ export interface UserAchievement {
   progress?: number; // 进度型成就的当前进度
 }
 
-// 用户设置接口
+// 用户设置接口 - 移除音乐相关配置
 export interface UserSettings {
   audioEnabled: boolean;
-  musicVolume: number;
   effectVolume: number;
   visualEffects: boolean;
   autoSave: boolean;
@@ -116,7 +115,6 @@ export class DataPersistenceManager {
       achievements: [],
       settings: {
         audioEnabled: true,
-        musicVolume: 0.5,
         effectVolume: 0.7,
         visualEffects: true,
         autoSave: true,

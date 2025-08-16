@@ -14,6 +14,35 @@ export const languageConfig = {
   en: { name: 'English', flag: '🇺🇸' }
 }
 
+// Utility functions for locale handling
+export function isValidLocale(locale: string): locale is Locale {
+  return locales.includes(locale as Locale);
+}
+
+export function getLocaleFromPathname(pathname: string): Locale | null {
+  const segments = pathname.split('/');
+  const potentialLocale = segments[1];
+  
+  if (isValidLocale(potentialLocale)) {
+    return potentialLocale;
+  }
+  
+  return null;
+}
+
+export function removeLocaleFromPathname(pathname: string): string {
+  const locale = getLocaleFromPathname(pathname);
+  if (locale) {
+    return pathname.replace(`/${locale}`, '') || '/';
+  }
+  return pathname;
+}
+
+export function addLocaleToPathname(pathname: string, locale: Locale): string {
+  const cleanPathname = removeLocaleFromPathname(pathname);
+  return `/${locale}${cleanPathname === '/' ? '' : cleanPathname}`;
+}
+
 export default getRequestConfig(async ({ locale }) => {
   // 验证传入的语言参数是否有效
   if (!locales.includes(locale as Locale)) notFound()

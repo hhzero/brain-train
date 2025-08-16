@@ -1,8 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import Button from './components/Button'
-import MusicPlayer from './components/MusicPlayer'
-import ErrorBoundary from './components/ErrorBoundary'
 import { Link } from '@/navigation'
 
 export default function DashboardPage({
@@ -37,10 +35,7 @@ export default function DashboardPage({
           </Link>
         </div>
       </section>
-      {/* 音乐播放器 - 使用错误边界包装 */}
-      <ErrorBoundary>
-        <MusicPlayer />
-      </ErrorBoundary>
+
     </>
   )
 }

@@ -4,7 +4,7 @@ import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { ChevronDown, Globe } from 'lucide-react';
-import { locales, localeNames, localeFlags, type Locale, addLocaleToPathname, removeLocaleFromPathname } from '@/i18n/config';
+import { locales, defaultLocale, languageConfig, type Locale, addLocaleToPathname, removeLocaleFromPathname } from '@/i18n';
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -40,11 +40,11 @@ export default function LanguageSwitcher({ className = '', variant = 'dropdown' 
           border border-white/20 hover:border-white/30
           ${className}
         `}
-        title={`Switch to ${localeNames[otherLocale]}`}
+        title={`Switch to ${languageConfig[otherLocale].name}`}
       >
         <Globe className="w-4 h-4" />
         <span className="text-sm font-medium">
-          {localeFlags[otherLocale]} {localeNames[otherLocale]}
+          {languageConfig[otherLocale].flag} {languageConfig[otherLocale].name}
         </span>
       </button>
     );
@@ -66,7 +66,7 @@ export default function LanguageSwitcher({ className = '', variant = 'dropdown' 
       >
         <Globe className="w-4 h-4" />
         <span className="text-sm font-medium">
-          {localeFlags[locale]} {localeNames[locale]}
+          {languageConfig[locale].flag} {languageConfig[locale].name}
         </span>
         <ChevronDown 
           className={`w-4 h-4 transition-transform duration-200 ${
@@ -106,8 +106,8 @@ export default function LanguageSwitcher({ className = '', variant = 'dropdown' 
                   }
                 `}
               >
-                <span className="text-base">{localeFlags[loc]}</span>
-                <span>{localeNames[loc]}</span>
+                <span className="text-base">{languageConfig[loc].flag}</span>
+                <span>{languageConfig[loc].name}</span>
                 {loc === locale && (
                   <div className="ml-auto w-2 h-2 rounded-full bg-blue-400" />
                 )}

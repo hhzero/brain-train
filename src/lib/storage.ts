@@ -74,7 +74,6 @@ export interface UserSettings {
   audio: {
     masterVolume: number;
     effectsVolume: number;
-    musicVolume: number;
     voiceVolume: number;
     muteAll: boolean;
   };
@@ -332,7 +331,6 @@ export class UserDataManager {
       audio: {
         masterVolume: 80,
         effectsVolume: 70,
-        musicVolume: 60,
         voiceVolume: 85,
         muteAll: false
       }

@@ -89,6 +89,7 @@ function NBackClientContent() {
   const [showVisualStimulus, setShowVisualStimulus] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(true)
   const [feedbackMessage, setFeedbackMessage] = useState('')
+  const [feedbackType, setFeedbackType] = useState<'correct' | 'incorrect' | 'neutral'>('neutral')
   const [score, setScore] = useState(0)
   const [streak, setStreak] = useState(0)
   const [maxStreak, setMaxStreak] = useState(0)
@@ -106,12 +107,7 @@ function NBackClientContent() {
   })
   
   // 成就系统
-  const [achievements, setAchievements] = useState<Achievement[]>([
-    { id: 'first_session', title: t('achievements.firstSession.title'), description: t('achievements.firstSession.description'), icon: '🌟', unlocked: false },
-    { id: 'perfect_round', title: t('achievements.perfectRound.title'), description: t('achievements.perfectRound.description'), icon: '💎', unlocked: false },
-    { id: 'streak_master', title: t('achievements.streakMaster.title'), description: t('achievements.streakMaster.description'), icon: '🔥', unlocked: false },
-    { id: 'level_up', title: t('achievements.levelUp.title'), description: t('achievements.levelUp.description'), icon: '🚀', unlocked: false }
-  ])
+  const [achievements, setAchievements] = useState<Achievement[]>([])
   
   // 定时器引用
   const trialTimerRef = useRef<NodeJS.Timeout | null>(null)
@@ -142,7 +138,7 @@ function NBackClientContent() {
         // 初始化音频系统
         const audioSuccess = await audioManager.initialize()
         if (audioSuccess) {
-          console.log('音频管理器初始化成功')
+          console.log('Audio manager initialized successfully')
           performanceMonitor.recordMetric('audio_init_success', {
             timestamp: Date.now()
           })
@@ -152,7 +148,7 @@ function NBackClientContent() {
           })
         }
       } catch (error) {
-        console.error('系统初始化失败:', error)
+        console.error('System initialization failed:', error)
         performanceMonitor.reportError({
           message: 'System initialization failed',
           stack: error instanceof Error ? error.stack : undefined,
@@ -171,6 +167,16 @@ function NBackClientContent() {
     }
   }, [])
   
+  // 初始化成就系统 - 在组件挂载后进行，确保翻译已准备好
+  useEffect(() => {
+    setAchievements([
+      { id: 'first_session', title: t('achievements.firstSession.title'), description: t('achievements.firstSession.description'), icon: '🌟', unlocked: false },
+      { id: 'perfect_round', title: t('achievements.perfectRound.title'), description: t('achievements.perfectRound.description'), icon: '💎', unlocked: false },
+      { id: 'streak_master', title: t('achievements.streakMaster.title'), description: t('achievements.streakMaster.description'), icon: '🔥', unlocked: false },
+      { id: 'level_up', title: t('achievements.levelUp.title'), description: t('achievements.levelUp.description'), icon: '🚀', unlocked: false }
+    ])
+  }, [t])
+  
   // 播放音调
   const playTone = useCallback(async (frequency: number, duration: number = 500) => {
     if (!audioEnabled) return
@@ -178,7 +184,7 @@ function NBackClientContent() {
     try {
       await audioManager.playTone(frequency, duration, 0.3, 'sine')
     } catch (error) {
-      console.warn('音频播放失败:', error)
+      console.warn('Audio playback failed:', error)
     }
   }, [audioEnabled])
   
@@ -186,6 +192,14 @@ function NBackClientContent() {
   const audioFrequencies = useMemo(() => [
     261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25
   ], [])
+  
+  // 训练模式配置 - 使用useMemo确保翻译正确加载
+  const trainingModes = useMemo(() => [
+    { mode: TrainingMode.TUTORIAL, title: t('modes.tutorial.title'), desc: t('modes.tutorial.description'), disabled: true },
+    { mode: TrainingMode.SINGLE_VISUAL, title: t('modes.visual.title'), desc: t('modes.visual.description'), disabled: false },
+    { mode: TrainingMode.SINGLE_AUDIO, title: t('modes.audio.title'), desc: t('modes.audio.description'), disabled: false },
+    { mode: TrainingMode.DUAL_NBACK, title: t('modes.dual.title'), desc: t('modes.dual.description'), disabled: false }
+  ], [t])
   
   // 生成新的刺激
   const generateStimulus = useCallback((): Stimulus => {
@@ -312,13 +326,18 @@ function NBackClientContent() {
         return newStreak
       })
       setFeedbackMessage(t('feedback.correct'))
+      setFeedbackType('correct')
     } else {
       setStreak(0)
       setFeedbackMessage(t('feedback.keepGoing'))
+      setFeedbackType('incorrect')
     }
     
     // 清除反馈消息
-    setTimeout(() => setFeedbackMessage(''), 1000)
+    setTimeout(() => {
+      setFeedbackMessage('')
+      setFeedbackType('neutral')
+    }, 1000)
     
     // 清除响应定时器
     if (responseTimerRef.current) {
@@ -398,9 +417,9 @@ function NBackClientContent() {
     
     try {
       dataPersistence.saveTrainingSession(sessionData)
-      console.log('训练会话数据已保存')
+      console.log('Training session data saved successfully')
     } catch (error) {
-      console.error('保存训练数据失败:', error)
+      console.error('Failed to save training data:', error)
       performanceMonitor.reportError({
         message: (error as Error).message,
         stack: (error as Error).stack,
@@ -569,15 +588,15 @@ function NBackClientContent() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Brain className="w-12 h-12 text-pink-400" />
             <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-              双重 N-Back 训练
+              {t('ui.title')}
             </h1>
             <Zap className="w-12 h-12 text-cyan-400" />
           </div>
           <p className="text-xl text-purple-200 mb-2">
-            科学证明的工作记忆训练方法，提升大脑认知能力
+            {t('ui.subtitle')}
           </p>
           <p className="text-sm text-purple-300/80">
-            通过视觉位置和听觉音调的双重刺激，全面锻炼工作记忆
+            {t('ui.description')}
           </p>
         </motion.div>
         
@@ -587,19 +606,14 @@ function NBackClientContent() {
             <CardHeader>
               <CardTitle className="text-pink-300 flex items-center gap-2">
                 <Star className="w-5 h-5" />
-                选择训练模式
+                {t('ui.selectMode')}
               </CardTitle>
               <CardDescription className="text-purple-200/80">
-                选择适合你的训练类型
+                {t('ui.selectModeDescription')}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
-              {[
-                { mode: TrainingMode.TUTORIAL, title: t('modes.tutorial.title'), desc: t('modes.tutorial.description'), disabled: true },
-                { mode: TrainingMode.SINGLE_VISUAL, title: t('modes.visual.title'), desc: t('modes.visual.description'), disabled: false },
-                { mode: TrainingMode.SINGLE_AUDIO, title: t('modes.audio.title'), desc: t('modes.audio.description'), disabled: false },
-                { mode: TrainingMode.DUAL_NBACK, title: t('modes.dual.title'), desc: t('modes.dual.description'), disabled: false }
-              ].map(({ mode, title, desc, disabled }) => (
+              {trainingModes.map(({ mode, title, desc, disabled }) => (
                 <motion.div
                   key={mode}
                   whileHover={{ scale: disabled ? 1 : 1.02 }}
@@ -1002,7 +1016,7 @@ function NBackClientContent() {
             <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-pink-300 text-center flex items-center justify-center gap-2">
-                  👁️ 视觉刺激
+                  👁️ {t('ui.visualStimulus')}
                   {showVisualStimulus && (
                     <motion.div
                       className="w-3 h-3 bg-pink-400 rounded-full"
@@ -1045,11 +1059,11 @@ function NBackClientContent() {
                         transition={{ duration: 1.5, repeat: Infinity }}
                       />
                     )}
-                    <span className="relative z-10">位置匹配 {nLevel} 步前</span>
+                    <span className="relative z-10">{t('ui.positionMatch', { nLevel })}</span>
                   </TouchOptimizedButton>
                 </motion.div>
                 <p className="text-xs text-purple-300/70 text-center">
-                  当前位置与 {nLevel} 步前的位置相同时点击
+                  {t('ui.positionInstruction', { nLevel })}
                 </p>
               </CardContent>
             </Card>
@@ -1060,7 +1074,7 @@ function NBackClientContent() {
             <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-pink-300 text-center flex items-center justify-center gap-2">
-                  🎵 听觉刺激
+                  🎵 {t('ui.auditoryStimulus')}
                   {audioEnabled && (
                     <motion.div
                       className="w-3 h-3 bg-cyan-400 rounded-full"
@@ -1143,11 +1157,11 @@ function NBackClientContent() {
                         />
                       </>
                     )}
-                    <span className="relative z-10">音调匹配 {nLevel} 步前</span>
+                    <span className="relative z-10">{t('ui.audioMatch', { nLevel })}</span>
                   </TouchOptimizedButton>
                 </motion.div>
                 <p className="text-xs text-purple-300/70 text-center">
-                  当前音调与 {nLevel} 步前的音调相同时点击
+                  {t('ui.audioInstruction', { nLevel })}
                 </p>
               </CardContent>
             </Card>
@@ -1182,9 +1196,9 @@ function NBackClientContent() {
               <motion.div 
                 className={`
                   relative inline-block px-8 py-4 rounded-full font-semibold text-lg shadow-2xl backdrop-blur-sm border-2 overflow-hidden
-                  ${feedbackMessage.includes('正确') || feedbackMessage.includes('好') 
+                  ${feedbackType === 'correct'
                     ? 'bg-gradient-to-r from-green-500/30 to-emerald-600/30 border-green-400/60 text-green-300' 
-                    : feedbackMessage.includes('错误') || feedbackMessage.includes('失误')
+                    : feedbackType === 'incorrect'
                     ? 'bg-gradient-to-r from-red-500/30 to-pink-600/30 border-red-400/60 text-red-300'
                     : 'bg-gradient-to-r from-pink-500/30 to-purple-600/30 border-pink-400/60 text-pink-300'
                   }
@@ -1209,7 +1223,7 @@ function NBackClientContent() {
                 />
                 
                 {/* 粒子效果 */}
-                {(feedbackMessage.includes('正确') || feedbackMessage.includes('好')) && (
+                {feedbackType === 'correct' && (
                   <>
                     <motion.div
                       className="absolute top-0 left-1/4 w-1 h-1 bg-green-300 rounded-full"
@@ -1241,7 +1255,7 @@ function NBackClientContent() {
         {/* 训练提示 */}
         <div className="mt-8 text-center">
           <p className="text-sm text-purple-300/70">
-            专注聆听和观察，当刺激与 {nLevel} 步前相同时立即响应
+            {t('ui.trainingTip', { nLevel })}
           </p>
         </div>
         </div>
@@ -1262,12 +1276,12 @@ function NBackClientContent() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Trophy className="w-12 h-12 text-yellow-400" />
             <h2 className="text-4xl font-bold bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
-              训练完成！
+              {t('results.sessionComplete')}
             </h2>
             <Star className="w-12 h-12 text-pink-400" />
           </div>
           <p className="text-lg text-purple-200">
-            恭喜完成 {nLevel}-Back 训练，查看你的表现
+            {t('ui.congratulations', { nLevel })}
           </p>
         </motion.div>
         
@@ -1276,7 +1290,7 @@ function NBackClientContent() {
           <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-pink-300 flex items-center gap-2">
-                📊 训练统计
+                📊 {t('ui.trainingStats')}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -1304,7 +1318,7 @@ function NBackClientContent() {
                     >
                       {stats.accuracy.toFixed(1)}%
                     </motion.div>
-                    <div className="text-sm text-purple-200">准确率</div>
+                    <div className="text-sm text-purple-200">{t('ui.accuracy')}</div>
                   </div>
                 </motion.div>
                 
@@ -1331,7 +1345,7 @@ function NBackClientContent() {
                     >
                       {maxStreak}
                     </motion.div>
-                    <div className="text-sm text-purple-200">最高连击</div>
+                    <div className="text-sm text-purple-200">{t('ui.streak')}</div>
                   </div>
                 </motion.div>
                 
@@ -1358,7 +1372,7 @@ function NBackClientContent() {
                     >
                       {score}
                     </motion.div>
-                    <div className="text-sm text-purple-200">总分</div>
+                    <div className="text-sm text-purple-200">{t('ui.score')}</div>
                   </div>
                 </motion.div>
                 
@@ -1385,7 +1399,7 @@ function NBackClientContent() {
                     >
                       {nLevel}
                     </motion.div>
-                    <div className="text-sm text-purple-200">训练级别</div>
+                    <div className="text-sm text-purple-200">{t('ui.level')}</div>
                   </div>
                 </motion.div>
               </div>
@@ -1393,15 +1407,15 @@ function NBackClientContent() {
               {/* 详细统计 */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center p-3 bg-purple-800/30 rounded-lg">
-                  <span className="text-purple-200">总试验次数</span>
+                  <span className="text-purple-200">{t('ui.totalTrials')}</span>
                   <span className="text-white font-semibold">{stats.totalTrials}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-purple-800/30 rounded-lg">
-                  <span className="text-purple-200">视觉正确</span>
+                  <span className="text-purple-200">{t('ui.visualCorrect')}</span>
                   <span className="text-pink-300 font-semibold">{stats.correctVisual}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-purple-800/30 rounded-lg">
-                  <span className="text-purple-200">听觉正确</span>
+                  <span className="text-purple-200">{t('ui.auditoryCorrect')}</span>
                   <span className="text-cyan-300 font-semibold">{stats.correctAudio}</span>
                 </div>
               </div>
@@ -1412,7 +1426,7 @@ function NBackClientContent() {
           <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-pink-300 flex items-center gap-2">
-                🏆 成就解锁
+                🏆 {t('ui.achievementsUnlocked')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -1499,8 +1513,8 @@ function NBackClientContent() {
                 {achievements.filter(a => a.unlocked).length === 0 && (
                   <div className="text-center text-purple-300 py-8">
                     <div className="text-4xl mb-3">🎯</div>
-                    <p>继续训练解锁更多成就！</p>
-                    <p className="text-sm text-purple-400 mt-2">提高准确率和连击数来获得奖励</p>
+                    <p>{t('ui.continueTraining')}</p>
+                <p className="text-sm text-purple-400 mt-2">{t('ui.improveAccuracy')}</p>
                   </div>
                 )}
               </div>
@@ -1552,7 +1566,7 @@ function NBackClientContent() {
                   animate={{ opacity: [0.8, 1, 0.8] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  训练评价
+                  {t('results.evaluation')}
                 </motion.h3>
                 <motion.div 
                   className="text-lg text-purple-300"
@@ -1572,7 +1586,7 @@ function NBackClientContent() {
                       >
                         🌟
                       </motion.span>
-                      <span>优秀表现！你的工作记忆能力很强</span>
+                      <span>{t('ui.excellentPerformance')}</span>
                     </motion.div>
                   ) : stats.accuracy >= 70 ? (
                     <motion.div 
@@ -1586,7 +1600,7 @@ function NBackClientContent() {
                       >
                         👍
                       </motion.span>
-                      <span>良好表现！继续保持训练</span>
+                      <span>{t('ui.goodPerformance')}</span>
                     </motion.div>
                   ) : stats.accuracy >= 50 ? (
                     <motion.div 
@@ -1761,7 +1775,7 @@ function NBackClientContent() {
               hapticFeedback
               preventDoubleClick
             >
-              ← 返回主菜单
+              ← {t('buttons.backToMenu')}
             </TouchOptimizedButton>
           </motion.div>
           

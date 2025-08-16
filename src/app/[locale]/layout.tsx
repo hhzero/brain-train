@@ -6,7 +6,6 @@ import { AbstractIntlMessages } from 'next-intl'
 import { PerformanceMonitorProvider } from '@/components/PerformanceMonitorProvider'
 import { ThemeProvider } from '@/app/[locale]/components/ThemeProvider'
 import { Header } from './components/Header'
-import MusicPlayer from './components/MusicPlayer'
 import { cn } from '@/lib/utils'
 import { ClientStarfieldWrapper } from '@/components/ClientStarfieldWrapper'
 
@@ -73,7 +72,6 @@ export default async function RootLayout({
                 <main className='mx-auto max-w-screen-2xl p-4'>
                   {children}
                 </main>
-                <MusicPlayer />
               </div>
             </NextIntlClientProvider>
           </ThemeProvider>

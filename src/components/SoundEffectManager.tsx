@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { 
   Volume2, 
   VolumeX, 
-  Music, 
   Zap, 
   CheckCircle, 
   XCircle,
@@ -494,7 +493,7 @@ export const SoundEffectManagerComponent: React.FC<SoundEffectManagerProps> = ({
       {/* 标题 */}
       <div className="flex items-center gap-3">
         <div className="p-2 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg">
-          <Music className="w-6 h-6 text-white" />
+          <Zap className="w-6 h-6 text-white" />
         </div>
         <h3 className="text-xl font-bold text-white">音效管理</h3>
       </div>

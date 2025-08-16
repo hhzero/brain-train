@@ -114,7 +114,7 @@ export default function TrainingPage() {
       color: 'from-indigo-500 to-purple-500',
       difficulty: t('training.difficulty.beginner'),
       duration: t('training.duration.5-15min'),
-      features: [t('training.features.mindfulMeditation'), t('training.features.breathingTraining'), t('training.features.relaxationGuidance'), t('training.features.backgroundMusic')],
+      features: [t('training.features.mindfulMeditation'), t('training.features.breathingTraining'), t('training.features.relaxationGuidance')],
       href: '/train'
     },
     {
