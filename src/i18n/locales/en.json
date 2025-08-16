@@ -38,38 +38,10 @@
     "accuracy": "Accuracy"
   },
   "nback": {
-    "title": "N-Back Training",
-    "description": "Improve your working memory by remembering sequences",
-    "instructions": {
-      "title": "How to Play",
-      "steps": [
-        "Watch the sequence of stimuli",
-        "Press the button when the current stimulus matches the one from N steps back",
-        "Try to maintain high accuracy while increasing difficulty"
-      ]
-    },
-    "settings": {
-      "nLevel": "N-Level",
-      "rounds": "Rounds",
-      "speed": "Speed",
-      "stimulusType": "Stimulus Type"
-    },
-    "stimulusTypes": {
-      "visual": "Visual",
-      "audio": "Audio",
-      "dual": "Dual (Visual + Audio)"
-    },
-    "feedback": {
-      "correct": "Correct!",
-      "incorrect": "Incorrect",
-      "missed": "Missed",
-      "falseAlarm": "False Alarm"
-    },
-    "results": {
-      "accuracy": "Accuracy",
-      "reactionTime": "Avg Reaction Time",
-      "correctResponses": "Correct Responses",
-      "totalTargets": "Total Targets"
+    "meta": {
+      "title": "N-Back Training",
+      "description": "N-Back training improves working memory and focus, a scientifically effective brain training tool.",
+      "keywords": "n-back,working memory,focus,brain training,cognitive enhancement"
     },
     "achievements": {
       "title": "N-Back Achievements",
@@ -94,6 +66,50 @@
         "name": "High Accuracy Master",
         "description": "Achieve over 90% accuracy in training"
       }
+    },
+    "feedback": {
+      "correct": "Correct!",
+      "keepGoing": "Keep going!",
+      "incorrect": "Incorrect",
+      "missed": "Missed",
+      "falseAlarm": "False Alarm"
+    },
+    "modes": {
+      "tutorial": {
+        "title": "Tutorial Mode",
+        "description": "Learn the basics of N-Back training"
+      },
+      "visual": {
+        "title": "Visual Mode",
+        "description": "Train visual working memory through position patterns"
+      },
+      "audio": {
+        "title": "Audio Mode",
+        "description": "Train auditory working memory through sound patterns"
+      },
+      "dual": {
+        "title": "Dual Mode",
+        "description": "Train both visual and auditory working memory simultaneously"
+      },
+      "single": {
+        "title": "Single Modal",
+        "description": "Focus on one type of stimulus training"
+      },
+      "position": {
+        "title": "Position",
+        "description": "Track spatial positions in the grid"
+      }
+    },
+    "settings": {
+      "title": "Training Settings",
+      "description": "Customize your N-Back training experience",
+      "levelHint": "Recommended to start from lower levels",
+      "audioFeedback": "Audio Feedback",
+      "audioDescription": "Enable audio prompts and feedback",
+      "nLevel": "N-Level",
+      "rounds": "Rounds",
+      "speed": "Speed",
+      "stimulusType": "Stimulus Type"
     },
     "ui": {
       "title": "Dual N-Back Training",
@@ -129,6 +145,64 @@
       "goodPerformance": "Good performance! Keep up the training",
       "accuracy": "Accuracy",
       "level": "Level"
+    },
+    "instructions": {
+      "title": "Training Instructions",
+      "visual": "Observe positions in the grid, determine if they match N steps back",
+      "audio": "Listen to letter pronunciations, determine if they match N steps back",
+      "dual": {
+        "title": "Dual N-Back Instructions"
+      }
+    },
+    "results": {
+      "accuracy": "Accuracy",
+      "reactionTime": "Avg Reaction Time",
+      "correctResponses": "Correct Responses",
+      "totalTargets": "Total Targets",
+      "evaluation": {
+        "title": "Training Evaluation",
+        "goodStart": "Good start! Keep it up",
+        "keepTrying": "Keep trying! You can do better!"
+      },
+      "recommendation": "Recommendation"
+    },
+    "buttons": {
+      "backToMenu": "Back to Menu",
+      "trainAgain": "Train Again"
+    },
+    "difficulty": {
+      "adjusted": "Difficulty adjusted to level {{level}}, reason: {{reason}}"
+    },
+    "training": {
+      "visualMatch": "Visual Match",
+      "audioMatch": "Audio Match",
+      "progress": "Training Progress",
+      "paused": "Training Paused",
+      "resume": "Resume Training"
+    },
+    "title": "N-Back Training",
+    "description": "Improve your working memory by remembering sequences",
+    "menu": {
+      "startTraining": "Start Training",
+      "statistics": "Statistics",
+      "achievements": "Achievements",
+      "settings": "Settings",
+      "tutorial": "Tutorial",
+      "demo": "Demo"
+    },
+    "demo": {
+      "title": "Training Demo"
+    },
+    "welcome": {
+      "title": "Welcome to N-Back Training",
+      "description": "This is a scientifically proven effective working memory training tool",
+      "skip": "Skip",
+      "startGuide": "Start Guide"
+    },
+    "stimulusTypes": {
+      "visual": "Visual",
+      "audio": "Audio",
+      "dual": "Dual (Visual + Audio)"
     }
   },
   "schulte": {
@@ -142,7 +216,7 @@
     "totalSessions": "Total Sessions",
     "totalTime": "Total Time",
     "numberLabel": "Find number",
-    "findNumber": "Find number {{number}}",
+    "findNumber": "Find number {number}",
     "startTraining": "Start Training",
     "completed": "Completed!",
     "mode": {
@@ -156,7 +230,21 @@
     "trainingElapsed": "Training Elapsed",
     "currentNumber": "Current Number",
     "totalNumbers": "Total Numbers",
-    "averageTime": "Average Time"
+    "averageTime": "Average Time",
+    "timeElapsed": "Time Elapsed",
+    "progress": "Progress",
+    "currentTarget": "Current Target",
+    "errors": "Errors",
+    "avgReaction": "Avg Reaction",
+    "level": "Level",
+    "resume": "Resume",
+    "pause": "Pause",
+    "stop": "Stop",
+    "wrongNumber": "Wrong number! Try again.",
+    "trainingStarted": "Training started!",
+    "trainingResumed": "Training resumed!",
+    "trainingPaused": "Training paused!",
+    "trainingCompleted": "Training completed! Score: {score}"
   },
   "gaze": {
     "title": "Gaze Focus Training",
@@ -917,7 +1005,9 @@
       "startMeditation": "Start Meditation",
       "pauseMeditation": "Pause Meditation",
       "nextPhase": "Next Phase",
-      "completeMeditation": "Complete Meditation"
+      "completeMeditation": "Complete Meditation",
+      "instruction": "Meditation Instruction",
+      "focusObject": "Focus Object"
     },
     "name": "Zen Sitting Meditation",
     "steps": {

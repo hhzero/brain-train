@@ -46,9 +46,9 @@
       "copyright": "版权所有",
       "loadingBackgroundImage": "加载背景图片中...",
       "time": {
-        "minutes": "{{count}}分钟",
-        "hours": "{{count}}小时",
-        "hoursAndMinutes": "{{hours}}小时{{minutes}}分钟"
+        "minutes": "{count}分钟",
+        "hours": "{count}小时",
+        "hoursAndMinutes": "{hours}小时{minutes}分钟"
       },
       "errorBoundary": {
         "title": "哎呀，出现了一些问题",
@@ -603,7 +603,7 @@
     "mantra": "真言",
     "overallProgress": "整体进度",
     "stages": "阶段",
-    "trainingCompleted": "训练完成！得分：{{score}}",
+    "trainingCompleted": "训练完成！得分：{score}",
     "congratulations": "恭喜你完成了情绪管理训练",
     "trainingResults": "训练结果",
     "finalAccuracy": "最终准确率",
@@ -690,7 +690,7 @@
       "meditationGuide": "冥想指导",
       "preparation": "准备事项",
       "breathingTechniques": "呼吸技巧",
-      "cycle": "第 {{count}} 轮",
+      "cycle": "第 {count} 轮",
       "continue": "继续",
       "pause": "暂停",
       "restart": "重新开始"
@@ -740,8 +740,8 @@
     },
     "completion": {
       "title": "冥想完成",
-      "congratulations": "恭喜您完成了 {{duration}} 分钟的冥想练习！",
-      "totalCycles": "总共完成了 {{cycles}} 个呼吸周期",
+      "congratulations": "恭喜您完成了 {duration} 分钟的冥想练习！",
+        "totalCycles": "总共完成了 {cycles} 个呼吸周期",
       "backToSelection": "返回选择界面"
     }
   },
@@ -749,7 +749,7 @@
     "clickToStart": "点击开始",
     "waitForGreen": "等待绿色出现...",
     "clickNow": "现在点击！",
-    "reactionTime": "反应时间：{{time}}ms",
+    "reactionTime": "反应时间：{time}ms",
     "tooEarly": "点击太早了！",
     "lightning": "闪电般快速！",
     "veryFast": "非常快！",
@@ -999,7 +999,7 @@
         "trainingSettings": "训练设置",
         "trainingDuration": "训练时长（秒）",
         "difficultyLevel": "难度等级",
-        "level": "等级 {{level}}",
+        "level": "等级 {level}",
         "trainingTypes": "训练类型",
         "visualTraining": "视觉训练",
         "auditoryTraining": "听觉训练",
@@ -1085,10 +1085,24 @@
         "totalTime": "总时间",
         "timeUsed": "用时",
         "bestTime": "最佳",
-        "numberLabel": "数字{{number}}",
-    "findNumber": "找到数字{{number}}",
+        "numberLabel": "数字{number}",
+        "findNumber": "找到数字 {{number}}",
         "startTraining": "开始训练",
-        "completed": "完成！用时 {{time}} 秒"
+        "completed": "完成！用时 {{time}} 秒",
+        "timeElapsed": "已用时间",
+        "progress": "进度",
+        "currentTarget": "当前目标",
+        "errors": "错误次数",
+        "avgReaction": "平均反应时间",
+        "level": "等级",
+        "resume": "继续",
+        "pause": "暂停",
+        "stop": "停止",
+        "wrongNumber": "错误！请找数字 {{number}}",
+        "trainingStarted": "训练开始",
+        "trainingResumed": "训练继续",
+        "trainingPaused": "训练暂停",
+        "trainingCompleted": "训练完成"
       },
       "nback": {
         "meta": {
@@ -1170,16 +1184,16 @@
           "score": "得分",
           "streak": "连击",
           "trainingProgress": "训练进度",
-          "nBackTraining": "{{level}}-Back训练",
-          "trialProgress": "试验 {{current}}/{{total}}",
+          "nBackTraining": "{level}-Back训练",
+          "trialProgress": "试验 {current}/{total}",
           "visualStimulus": "视觉刺激",
           "auditoryStimulus": "听觉刺激",
-          "positionMatch": "位置匹配 {{nLevel}} 步前",
-          "audioMatch": "音调匹配 {{nLevel}} 步前",
-          "positionInstruction": "当前位置与 {{nLevel}} 步前的位置相同时点击",
-          "audioInstruction": "当前音调与 {{nLevel}} 步前的音调相同时点击",
-          "trainingTip": "专注聆听和观察，当刺激与 {{nLevel}} 步前相同时立即响应",
-          "congratulations": "恭喜完成 {{nLevel}}-Back 训练，查看你的表现",
+          "positionMatch": "位置匹配 {nLevel} 步前",
+          "audioMatch": "音调匹配 {nLevel} 步前",
+          "positionInstruction": "当前位置与 {nLevel} 步前的位置相同时点击",
+          "audioInstruction": "当前音调与 {nLevel} 步前的音调相同时点击",
+          "trainingTip": "专注聆听和观察，当刺激与 {nLevel} 步前相同时立即响应",
+          "congratulations": "恭喜完成 {nLevel}-Back 训练，查看你的表现",
           "trainingStats": "训练统计",
           "totalTrials": "总试验次数",
           "visualCorrect": "视觉正确",
@@ -1199,7 +1213,10 @@
           "dual": "同时进行视觉和听觉判断，双重挑战您的工作记忆"
         },
         "results": {
-          "evaluation": "训练评估",
+          "evaluation": {
+            "title": "训练评估",
+            "keepTrying": "继续努力！你可以做得更好！"
+          },
           "recommendation": "建议"
         },
         "buttons": {
@@ -1207,7 +1224,7 @@
           "trainAgain": "再次训练"
         },
         "difficulty": {
-          "adjusted": "难度已调整到 {{level}} 级，原因：{{reason}}"
+          "adjusted": "难度已调整到 {level} 级，原因：{reason}"
         },
         "training": {
           "visualMatch": "视觉匹配",
@@ -1543,9 +1560,9 @@
         "description": "增强思维转换和问题解决能力"
       },
       "weaknessImprovement": {
-        "attention": "您的注意力得分为{{score}}分，建议加强训练",
-        "emotional": "您的情绪管理得分为{{score}}分，建议重点提升",
-        "cognitive": "您的认知灵活性得分为{{score}}分，需要加强"
+        "attention": "您的注意力得分为{score}分，建议加强训练",
+        "emotional": "您的情绪管理得分为{score}分，建议重点提升",
+        "cognitive": "您的认知灵活性得分为{score}分，需要加强"
       },
       "tags": {
         "attention": "注意力",
@@ -1716,12 +1733,12 @@
         "progress": "进度",
         "visualStimulus": "视觉刺激",
         "auditoryStimulus": "听觉刺激",
-        "positionMatch": "位置匹配{{nLevel}}步前",
-        "audioMatch": "音频匹配{{nLevel}}步前",
-        "positionInstruction": "当前位置与{{nLevel}}步前匹配时点击",
-        "audioInstruction": "当前音频与{{nLevel}}步前匹配时点击",
-        "trainingTip": "专注观察，当刺激与{{nLevel}}步前匹配时立即响应",
-        "congratulations": "恭喜完成{{nLevel}}-Back训练，查看您的表现",
+        "positionMatch": "位置匹配{nLevel}步前",
+        "audioMatch": "音频匹配{nLevel}步前",
+        "positionInstruction": "当前位置与{nLevel}步前匹配时点击",
+        "audioInstruction": "当前音频与{nLevel}步前匹配时点击",
+        "trainingTip": "专注观察，当刺激与{nLevel}步前匹配时立即响应",
+        "congratulations": "恭喜完成{nLevel}-Back训练，查看您的表现",
         "trainingStats": "训练统计",
         "totalTrials": "总试验次数",
         "visualCorrect": "视觉正确",
@@ -1751,7 +1768,11 @@
         "tips": "提示：保持专注，不要急于响应"
       },
       "results": {
-        "evaluation": "训练评估",
+        "evaluation": {
+          "title": "训练评估",
+          "goodStart": "不错的开始！继续努力",
+          "keepTrying": "继续努力！你可以做得更好！"
+        },
         "recommendation": "建议",
         "sessionComplete": "训练完成！",
         "finalScore": "最终得分",
@@ -1773,7 +1794,7 @@
         "settings": "设置"
       },
       "difficulty": {
-        "adjusted": "难度已调整到等级{{level}}，原因：{{reason}}"
+        "adjusted": "难度已调整到等级{level}，原因：{reason}"
       },
       "training": {
         "visualMatch": "视觉匹配",

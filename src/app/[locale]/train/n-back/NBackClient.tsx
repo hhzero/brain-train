@@ -1566,7 +1566,7 @@ function NBackClientContent() {
                   animate={{ opacity: [0.8, 1, 0.8] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  {t('results.evaluation')}
+                  {t('results.evaluation.title')}
                 </motion.h3>
                 <motion.div 
                   className="text-lg text-purple-300"
