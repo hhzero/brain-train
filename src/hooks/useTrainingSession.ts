@@ -261,6 +261,7 @@ export function useTrainingSession() {
       id: sessionId,
       userId: 'current_user', // 在实际应用中应该从用户上下文获取
       trainingType: config.trainingType,
+      trainingName: config.trainingType, // 添加训练名称
       difficulty: config.difficulty,
       startTime: startTime.toISOString(),
       endTime: now.toISOString(),
@@ -268,12 +269,16 @@ export function useTrainingSession() {
       score: liveStats.currentScore,
       accuracy: liveStats.currentAccuracy,
       reactionTime: liveStats.averageReactionTime,
-      correctAnswers: liveStats.correctCount,
-      totalQuestions: liveStats.totalCount,
-      streakCount: liveStats.bestStreak,
-      bonusPoints: 0, // 可以根据需要计算奖励分数
-      settings: config.settings || {},
-      completed: true
+      completed: true,
+      statistics: {
+        correctAnswers: liveStats.correctCount,
+        totalQuestions: liveStats.totalCount,
+        averageReactionTime: liveStats.averageReactionTime,
+        bestReactionTime: liveStats.averageReactionTime, // 简化处理
+        worstReactionTime: liveStats.averageReactionTime, // 简化处理
+        streakCount: liveStats.bestStreak,
+        mistakeCount: liveStats.totalCount - liveStats.correctCount
+      }
     };
 
     // 保存会话数据
@@ -307,6 +312,7 @@ export function useTrainingSession() {
         id: sessionId,
         userId: 'current_user',
         trainingType: config.trainingType,
+        trainingName: config.trainingType,
         difficulty: config.difficulty,
         startTime: startTime.toISOString(),
         endTime: now.toISOString(),
@@ -314,12 +320,16 @@ export function useTrainingSession() {
         score: liveStats.currentScore,
         accuracy: liveStats.currentAccuracy,
         reactionTime: liveStats.averageReactionTime,
-        correctAnswers: liveStats.correctCount,
-        totalQuestions: liveStats.totalCount,
-        streakCount: liveStats.bestStreak,
-        bonusPoints: 0,
-        settings: config.settings || {},
-        completed: false // 标记为未完成
+        completed: false, // 标记为未完成
+        statistics: {
+          correctAnswers: liveStats.correctCount,
+          totalQuestions: liveStats.totalCount,
+          averageReactionTime: liveStats.averageReactionTime,
+          bestReactionTime: liveStats.averageReactionTime,
+          worstReactionTime: liveStats.averageReactionTime,
+          streakCount: liveStats.bestStreak,
+          mistakeCount: liveStats.totalCount - liveStats.correctCount
+        }
       };
 
       addSession(session);
