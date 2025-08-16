@@ -2,6 +2,96 @@
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
+// ErrorBoundaryContent 函数组件用于处理国际化
+interface ErrorBoundaryContentProps {
+  error: Error | null;
+  eventId: string | null;
+  showDetails: boolean;
+  onRetry: () => void;
+  onGoHome: () => void;
+  onRefresh: () => void;
+}
+
+const ErrorBoundaryContent: React.FC<ErrorBoundaryContentProps> = ({
+  error,
+  eventId,
+  showDetails,
+  onRetry,
+  onGoHome,
+  onRefresh
+}) => {
+  const t = useTranslations('errorBoundary');
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
+        <div className="mb-4">
+          <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            {t('title')}
+          </h1>
+          <p className="text-gray-600 mb-4">
+            {t('description')}
+          </p>
+        </div>
+
+        {/* 错误详情 */}
+        {showDetails && error && (
+          <div className="mb-6 p-4 bg-gray-50 rounded-lg text-left">
+            <h3 className="text-sm font-semibold text-gray-700 mb-2">
+              {t('errorDetails')}:
+            </h3>
+            <p className="text-xs text-gray-600 font-mono break-all mb-2">
+              {error.message}
+            </p>
+            {eventId && (
+              <p className="text-xs text-gray-500">
+                {t('errorId')}: {eventId}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* 操作按钮 */}
+        <div className="space-y-3">
+          <button
+            onClick={onRetry}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+          >
+            <RefreshCw className="w-4 h-4" />
+            {t('retry')}
+          </button>
+          
+          <div className="flex gap-2">
+            <button
+              onClick={onGoHome}
+              className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+            >
+              <Home className="w-4 h-4" />
+              {t('goHome')}
+            </button>
+            
+            <button
+              onClick={onRefresh}
+              className="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+            >
+              {t('refresh')}
+            </button>
+          </div>
+        </div>
+
+        {/* 帮助信息 */}
+        <div className="mt-6 pt-4 border-t border-gray-200">
+          <p className="text-xs text-gray-500">
+            {t('helpText')}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 interface Props {
   children: ReactNode;
@@ -169,71 +259,14 @@ class ErrorBoundary extends Component<Props, State> {
 
       // 默认错误UI
       return (
-        <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center p-4">
-          <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
-            <div className="mb-4">
-              <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                出现了一些问题
-              </h1>
-              <p className="text-gray-600 mb-4">
-                应用遇到了意外错误，我们正在努力修复这个问题。
-              </p>
-            </div>
-
-            {/* 错误详情 */}
-            {showDetails && error && (
-              <div className="mb-6 p-4 bg-gray-50 rounded-lg text-left">
-                <h3 className="text-sm font-semibold text-gray-700 mb-2">
-                  错误详情:
-                </h3>
-                <p className="text-xs text-gray-600 font-mono break-all mb-2">
-                  {error.message}
-                </p>
-                {eventId && (
-                  <p className="text-xs text-gray-500">
-                    错误ID: {eventId}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* 操作按钮 */}
-            <div className="space-y-3">
-              <button
-                onClick={this.handleRetry}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-              >
-                <RefreshCw className="w-4 h-4" />
-                重试
-              </button>
-              
-              <div className="flex gap-2">
-                <button
-                  onClick={this.handleGoHome}
-                  className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-                >
-                  <Home className="w-4 h-4" />
-                  返回首页
-                </button>
-                
-                <button
-                  onClick={this.handleRefresh}
-                  className="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-                >
-                  刷新页面
-                </button>
-              </div>
-            </div>
-
-            {/* 帮助信息 */}
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <p className="text-xs text-gray-500">
-                如果问题持续存在，请联系技术支持或稍后再试。
-              </p>
-            </div>
-          </div>
-        </div>
+        <ErrorBoundaryContent
+          error={error}
+          eventId={eventId}
+          showDetails={showDetails}
+          onRetry={this.handleRetry}
+          onGoHome={this.handleGoHome}
+          onRefresh={this.handleRefresh}
+        />
       );
     }
 

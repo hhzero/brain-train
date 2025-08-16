@@ -1,14 +1,19 @@
 import { Metadata } from 'next'
+import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import dynamic from 'next/dynamic'
 
-export const generateMetadata = (): Metadata => ({
-  title: '消除音读 | Brain Train',
-  description: '消除音读（Stroop测试）训练提升注意力控制和认知灵活性，是经典的执行功能训练工具。',
-  keywords: ['Stroop', '消除音读', '注意力', '认知灵活性', '执行功能', '脑力训练']
-})
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('ReadingElimination')
+  return {
+    title: `${t('title')} | Brain Train`,
+    description: t('description'),
+    keywords: ['Stroop', 'reading elimination', 'attention', 'cognitive flexibility', 'executive function', 'brain training']
+  }
+}
 
 const ReadingEliminationClient = dynamic(() => import('./ReadingEliminationClient'), { ssr: false })
 
 export default function ReadingEliminationPage() {
   return <ReadingEliminationClient />
-} 
+}

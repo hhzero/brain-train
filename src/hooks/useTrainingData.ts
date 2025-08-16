@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { trainingDataManager, TrainingResult, UserStats } from '../utils/TrainingDataManager';
 import { useAuth } from './useAuth';
+import { useTranslations } from 'next-intl';
 
 export interface UseTrainingDataReturn {
   // 数据状态
@@ -20,6 +21,7 @@ export interface UseTrainingDataReturn {
 
 export const useTrainingData = (): UseTrainingDataReturn => {
   const { user } = useAuth();
+  const t = useTranslations();
   const [userStats, setUserStats] = useState<UserStats | null>(null);
   const [recentTrainings, setRecentTrainings] = useState<TrainingResult[]>([]);
   const [loading, setLoading] = useState(false);
@@ -45,7 +47,7 @@ export const useTrainingData = (): UseTrainingDataReturn => {
       const recent = trainingDataManager.getRecentTrainingResults(user.id, 10);
       setRecentTrainings(recent);
     } catch (err) {
-      setError(err instanceof Error ? err.message : '加载数据失败');
+      setError(err instanceof Error ? err.message : t('trainingData.errors.loadFailed'));
       console.error('Error loading training data:', err);
     } finally {
       setLoading(false);
@@ -57,7 +59,7 @@ export const useTrainingData = (): UseTrainingDataReturn => {
     training: Omit<TrainingResult, 'id' | 'timestamp' | 'userId'>
   ): Promise<TrainingResult | null> => {
     if (!user) {
-      setError('用户未登录');
+      setError(t('trainingData.errors.notLoggedIn'));
       return null;
     }
 
@@ -75,7 +77,7 @@ export const useTrainingData = (): UseTrainingDataReturn => {
       
       return result;
     } catch (err) {
-      setError(err instanceof Error ? err.message : '保存训练结果失败');
+      setError(err instanceof Error ? err.message : t('trainingData.errors.saveFailed'));
       console.error('Error saving training result:', err);
       return null;
     } finally {
@@ -97,23 +99,23 @@ export const useTrainingData = (): UseTrainingDataReturn => {
   // 导出数据
   const exportData = useCallback((): string | null => {
     if (!user) {
-      setError('用户未登录');
+      setError(t('trainingData.errors.notLoggedIn'));
       return null;
     }
 
     try {
       return trainingDataManager.exportUserData(user.id);
     } catch (err) {
-      setError(err instanceof Error ? err.message : '导出数据失败');
+      setError(err instanceof Error ? err.message : t('trainingData.errors.exportFailed'));
       console.error('Error exporting data:', err);
       return null;
     }
-  }, [user]);
+  }, [user, t]);
 
   // 导入数据
   const importData = useCallback(async (data: string): Promise<boolean> => {
     if (!user) {
-      setError('用户未登录');
+      setError(t('trainingData.errors.notLoggedIn'));
       return false;
     }
 
@@ -126,22 +128,22 @@ export const useTrainingData = (): UseTrainingDataReturn => {
         await loadUserData();
         return true;
       } else {
-        setError('导入数据格式错误');
+        setError(t('trainingData.errors.invalidFormat'));
         return false;
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : '导入数据失败');
+      setError(err instanceof Error ? err.message : t('trainingData.errors.importFailed'));
       console.error('Error importing data:', err);
       return false;
     } finally {
       setLoading(false);
     }
-  }, [user, loadUserData]);
+  }, [user, loadUserData, t]);
 
   // 清除数据
   const clearData = useCallback(async (): Promise<void> => {
     if (!user) {
-      setError('用户未登录');
+      setError(t('trainingData.errors.notLoggedIn'));
       return;
     }
 
@@ -152,12 +154,12 @@ export const useTrainingData = (): UseTrainingDataReturn => {
       trainingDataManager.clearUserData(user.id);
       await loadUserData();
     } catch (err) {
-      setError(err instanceof Error ? err.message : '清除数据失败');
+      setError(err instanceof Error ? err.message : t('trainingData.errors.clearFailed'));
       console.error('Error clearing data:', err);
     } finally {
       setLoading(false);
     }
-  }, [user, loadUserData]);
+  }, [user, loadUserData, t]);
 
   // 当用户状态变化时重新加载数据
   useEffect(() => {

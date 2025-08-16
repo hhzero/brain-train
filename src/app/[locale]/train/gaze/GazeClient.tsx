@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 
 export default function GazeClient() {
-  const t = useTranslations()
+  const t = useTranslations('gaze')
   const [isFocusing, setIsFocusing] = useState(false)
   const [time, setTime] = useState(0)
   const [best, setBest] = useState(0)
@@ -54,43 +54,22 @@ export default function GazeClient() {
   return (
     <main className="max-w-xl mx-auto py-12 px-4">
       <h1 className="text-3xl font-bold mb-4 text-cyan-600">
-        {(() => {
-          try { return t('gazeTitle') } 
-          catch { return '凝视训练 (Gaze Training)' }
-        })()}
+        {t('gazeTitle')}
       </h1>
       <p className="mb-6 text-gray-500">
-        {(() => {
-          try { return t('gazeDesc') } 
-          catch { return '通过持续凝视屏幕中央的黑点，帮助训练专注力和抗干扰能力，减少走神现象，提升持续注意力表现。' }
-        })()}
+        {t('gazeDesc')}
       </p>
       <div className="bg-white/80 rounded-xl shadow-lg p-6 flex flex-col items-center gap-6 relative overflow-hidden">
         <div className="mb-2 text-gray-700">
-          {isFocusing ? 
-            (() => {
-              try { return t('gazeStatusFocusing') } 
-              catch { return '专注计时中...' }
-            })() : 
-            (() => {
-              try { return t('gazeStatusIdle') } 
-              catch { return '点击下方按钮开始训练' }
-            })()
-          }
+          {isFocusing ? t('gazeStatusFocusing') : t('gazeStatusIdle')}
         </div>
         <div className="flex gap-8 mb-2">
           <div>
-            {(() => {
-              try { return t('gazeFocusLabel') } 
-              catch { return '本次：' }
-            })()}
+            {t('gazeFocusLabel')}
             <span className="font-bold text-cyan-700 text-xl">{time}s</span>
           </div>
           <div>
-            {(() => {
-              try { return t('gazeBestLabel') } 
-              catch { return '历史最佳：' }
-            })()}
+            {t('gazeBestLabel')}
             <span className="font-bold text-cyan-700 text-xl">{best}s</span>
           </div>
         </div>
@@ -101,16 +80,10 @@ export default function GazeClient() {
             onMouseDown={start}
             onMouseUp={stop}
             onMouseLeave={isFocusing ? stop : undefined}
-            title={(() => {
-              try { return t('gazeDotAriaLabel') } 
-              catch { return '凝视黑点' }
-            })()}
+            title={t('gazeDotAriaLabel')}
           >
             <span className="sr-only">
-              {(() => {
-                try { return t('gaze.dotAriaLabel') } 
-                catch { return '凝视黑点' }
-              })()}
+              {t('gazeDotAriaLabel')}
             </span>
           </div>
           {distract && (
@@ -122,10 +95,7 @@ export default function GazeClient() {
         </div>
         {interrupted && 
           <div className="text-red-500 font-semibold">
-            {(() => {
-              try { return t('gazeInterrupted') } 
-              catch { return '训练中断，请重新开始' }
-            })()}
+            {t('gazeInterrupted')}
           </div>
         }
       </div>

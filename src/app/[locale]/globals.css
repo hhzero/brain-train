@@ -173,78 +173,7 @@
 }
 
 /* 深邃星空背景 - 多层次宇宙效果 */
-.starry-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    /* 深层宇宙背景 */
-    radial-gradient(ellipse at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
-    /* 主要渐变 */
-    linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 25%, #2a1a4a 50%, #1a2a5a 75%, #2a1a4a 100%);
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* 深层星域 - 通过after伪元素实现 */
-.starry-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    /* 深层星点 - 极远距离 */
-    radial-gradient(0.5px 0.5px at 15px 25px, rgba(200, 200, 255, 0.4), transparent),
-    radial-gradient(0.5px 0.5px at 85px 95px, rgba(255, 200, 200, 0.3), transparent),
-    radial-gradient(0.5px 0.5px at 155px 165px, rgba(200, 255, 200, 0.3), transparent),
-    radial-gradient(0.5px 0.5px at 225px 235px, rgba(255, 255, 200, 0.4), transparent),
-    radial-gradient(0.5px 0.5px at 295px 305px, rgba(200, 255, 255, 0.3), transparent),
-    /* 中层星点 */
-    radial-gradient(1px 1px at 60px 90px, rgba(255, 255, 255, 0.5), transparent),
-    radial-gradient(1px 1px at 180px 50px, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(1px 1px at 220px 120px, rgba(255, 255, 255, 0.5), transparent);
-  background-repeat: repeat;
-  background-size: 350px 250px;
-  animation: deepStarsTwinkle 25s linear infinite;
-  z-index: 2;
-  opacity: 0.6;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  pointer-events: none;
-}
-
-/* 星云效果层 - 通过伪元素实现 */
-.starry-background::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    /* 主星云 */
-    radial-gradient(ellipse 800px 400px at 30% 20%, rgba(100, 50, 200, 0.15), transparent 70%),
-    radial-gradient(ellipse 600px 300px at 70% 80%, rgba(200, 100, 150, 0.12), transparent 70%),
-    radial-gradient(ellipse 1000px 500px at 50% 50%, rgba(50, 100, 200, 0.08), transparent 80%),
-    /* 次级星云 */
-    radial-gradient(ellipse 400px 200px at 80% 30%, rgba(150, 200, 100, 0.1), transparent 60%),
-    radial-gradient(ellipse 500px 250px at 20% 70%, rgba(200, 150, 100, 0.1), transparent 60%),
-    /* 远景星云 */
-    radial-gradient(ellipse 1200px 600px at 40% 60%, rgba(100, 150, 200, 0.05), transparent 90%);
-  animation: nebulaFlow 30s ease-in-out infinite;
-  z-index: 1;
-  opacity: 0.8;
-  pointer-events: none;
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
+/* 旧的星空背景样式已移除，现在使用StarfieldBackground组件 */
 
 /* 中景星域 - 已移除DOM元素实现 */
 
@@ -521,24 +450,7 @@
 }
 
 /* 深邃星空动画定义 */
-@keyframes deepStarsTwinkle {
-  0%, 100% { 
-    opacity: 0.2;
-    transform: scale(1);
-  }
-  25% { 
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
-  50% { 
-    opacity: 0.4;
-    transform: scale(0.9);
-  }
-  75% { 
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
+/* deepStarsTwinkle动画已移除，现在使用StarfieldBackground组件 */
 
 @keyframes distantStarsTwinkle {
   0%, 100% {
@@ -659,27 +571,71 @@
   }
 }
 
-/* 星云流动动画 */
-@keyframes nebulaFlow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1) rotate(0deg);
-  }
-  25% {
-    opacity: 0.8;
-    transform: scale(1.05) rotate(0.5deg);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.02) rotate(1deg);
-  }
-  75% {
-    opacity: 0.9;
-    transform: scale(1.03) rotate(0.5deg);
-  }
+/* nebulaFlow动画已移除，现在使用StarfieldBackground组件 */
+
+/* 移动端优化样式 */
+
+/* 触摸优化 */
+.touch-optimized {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 移动端优化 */
+.mobile-optimized {
+  /* 优化滚动性能 */
+  -webkit-overflow-scrolling: touch;
+  /* 防止缩放 */
+  touch-action: pan-x pan-y;
+  /* 优化渲染性能 */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 全屏模式优化 */
+.fullscreen-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
 }
 
 /* 响应式背景优化 - 确保在所有设备和缩放级别都完美显示 */
+@media (max-width: 1024px) {
+  /* 平板设备优化 */
+  .starry-background::before {
+    background-size: 350px 175px;
+    animation-duration: 18s;
+  }
+  
+  .starry-background::after {
+    background-size: 450px 225px;
+    animation-duration: 22s;
+  }
+  
+  /* 按钮尺寸优化 */
+  .training-btn {
+    min-height: 48px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  /* 游戏区域优化 */
+  .game-area {
+    min-height: 60vh;
+    padding: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .starry-background::before {
     background-size: 300px 150px;
@@ -694,6 +650,31 @@
   .starry-background .nebula-layer {
     animation-duration: 45s;
   }
+  
+  /* 移动端按钮优化 */
+  .training-btn {
+    min-height: 52px;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+  
+  /* 文字大小优化 */
+  .quote-text {
+    font-size: 1.25rem;
+    padding: 1.5rem;
+  }
+  
+  /* 游戏网格优化 */
+  .game-grid {
+    gap: 8px;
+    padding: 16px;
+  }
+  
+  .game-grid-item {
+    min-height: 60px;
+    min-width: 60px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -703,6 +684,103 @@
   
   .starry-background::after {
     background-size: 350px 175px;
+  }
+  
+  /* 小屏幕按钮优化 */
+  .training-btn {
+    min-height: 56px;
+    padding: 18px 36px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  /* 小屏幕文字优化 */
+  .quote-text {
+    font-size: 1.125rem;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* 游戏区域小屏幕优化 */
+  .game-area {
+    min-height: 50vh;
+    padding: 12px;
+    margin: 8px;
+  }
+  
+  .game-grid {
+    gap: 6px;
+    padding: 12px;
+  }
+  
+  .game-grid-item {
+    min-height: 50px;
+    min-width: 50px;
+    border-radius: 8px;
+  }
+  
+  /* 统计信息优化 */
+  .stats-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-item {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 360px) {
+  .training-btn {
+    min-height: 48px;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .quote-text {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+  
+  .game-grid-item {
+    min-height: 45px;
+    min-width: 45px;
+  }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .game-area {
+    min-height: 70vh;
+  }
+  
+  .quote-text {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .training-btn {
+    min-height: 40px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* 高DPI屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .starry-background::before,
+  .starry-background::after {
+    /* 高分辨率屏幕下的优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  .game-grid-item {
+    /* 高DPI下的边框优化 */
+    border-width: 0.5px;
   }
 }
 

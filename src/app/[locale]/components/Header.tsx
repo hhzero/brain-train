@@ -31,20 +31,23 @@ export const Header: FC<Props> = ({ locale }) => {
       <div className='flex flex-row items-center gap-3'>
         <nav className='mr-10 inline-flex gap-5'>
           <Link href='/' className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}` || pathname === `/${locale}/` ? ' active' : ''}`}>
-            {t('Home')}
+            {t('navigation.home')}
           </Link>
           
           <Link href={`/memory`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/memory` ? ' active' : ''}`}>
-            {t('Memory')}
+            {t('navigation.memory')}
           </Link>
           <Link href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/attention` ? ' active' : ''}`}>
-            {t('Attention')}
+            {t('navigation.attention')}
           </Link>
           <Link href={`/speedreading`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/speedreading` ? ' active' : ''}`}>
-            {t('SpeedReading')}
+            {t('navigation.speedReading')}
+          </Link>
+          <Link href={`/train`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/train` ? ' active' : ''}`}>
+            {t('navigation.training')}
           </Link>
           <Link href={`/about`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/about` ? ' active' : ''}`}>
-            {t('About')}
+            {t('navigation.about')}
           </Link>
           
           {/* <a href=''>{t('Support')}</a> */}

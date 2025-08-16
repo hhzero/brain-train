@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 // 洗牌算法，生成乱序数组
 function shuffle(arr: number[]) {
@@ -12,6 +13,7 @@ function shuffle(arr: number[]) {
 }
 
 export default function SchulteClient() {
+  const t = useTranslations('schulte')
   const [grid, setGrid] = useState<number[]>([])
   const [current, setCurrent] = useState(1)
   const [time, setTime] = useState(0)
@@ -50,12 +52,12 @@ export default function SchulteClient() {
 
   return (
     <main className="max-w-xl mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-4 text-cyan-600">舒尔特方格</h1>
-      <p className="mb-6 text-gray-500">舒尔特方格训练是一种经典的专注力和视觉搜索训练方法，通过顺序点击数字，提升注意力集中和反应速度。</p>
+      <h1 className="text-3xl font-bold mb-4 text-cyan-600">{t('title')}</h1>
+      <p className="mb-6 text-gray-500">{t('description')}</p>
       <div className="bg-white/80 rounded-xl shadow-lg p-6 flex flex-col items-center gap-6">
         <div className="flex gap-8 mb-2">
-          <div>用时：<span className="font-bold text-cyan-700 text-xl">{running ? time : finished ? time : 0}s</span></div>
-          <div>最佳：<span className="font-bold text-cyan-700 text-xl">{best ?? '-'}</span></div>
+          <div>{t('timeUsed')}：<span className="font-bold text-cyan-700 text-xl">{running ? time : finished ? time : 0}s</span></div>
+          <div>{t('bestTime')}：<span className="font-bold text-cyan-700 text-xl">{best ?? '-'}</span></div>
         </div>
         <div className="grid grid-cols-3 gap-3 mb-4">
           {grid.map((num, i) => (
@@ -67,19 +69,19 @@ export default function SchulteClient() {
                   'bg-white border-cyan-200 text-cyan-700 hover:bg-cyan-50'}`}
               onClick={() => clickCell(num)}
               disabled={num < current || finished}
-              aria-label={`数字${num}`}
+              aria-label={t('numberLabel', { number: num })}
             >
               {num}
             </button>
           ))}
         </div>
         {!running && !finished && (
-          <button className="bg-cyan-600 text-white px-6 py-2 rounded-md hover:bg-cyan-700 transition" onClick={start}>开始训练</button>
+          <button className="bg-cyan-600 text-white px-6 py-2 rounded-md hover:bg-cyan-700 transition" onClick={start}>{t('startTraining')}</button>
         )}
         {finished && (
-          <div className="text-green-600 font-bold text-lg mb-2">完成！用时 {time + 1} 秒</div>
+          <div className="text-green-600 font-bold text-lg mb-2">{t('completed', { time: time + 1 })}</div>
         )}
       </div>
     </main>
   )
-} 
+}

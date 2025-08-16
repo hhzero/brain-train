@@ -1,7 +1,8 @@
 import createMiddleware from 'next-intl/middleware'
 import { NextRequest } from 'next/server'
-import { locales } from './i18n'
+import { locales, defaultLocale } from './i18n'
 import { localePrefix } from './navigation'
+
 type CustomMiddleware = (req: NextRequest) => Promise<NextRequest>
 const customMiddleware: CustomMiddleware = async req => {
   console.log('Custom middleware executed before next-intl')
@@ -10,7 +11,7 @@ const customMiddleware: CustomMiddleware = async req => {
 
 const intlMiddleware = createMiddleware({
   locales,
-  defaultLocale: 'en',
+  defaultLocale,
   localePrefix
 })
 
@@ -22,5 +23,11 @@ export default async function middleware(
 }
 
 export const config = {
-  matcher: ['/', '/(fr|en|ja|de|ru|es|fa|ar|zh)/:path*']
+  matcher: [
+    // 匹配所有国际化路径
+    '/',
+    '/(zh|en|fr|ja|de|ru|es|fa|ar)/:path*',
+    // 排除API路由、静态文件等
+    '/((?!api|_next|_vercel|.*\\..*).*)',
+  ]
 }

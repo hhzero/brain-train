@@ -7,7 +7,6 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return <NextThemesProvider 
     themes={['light', 'dark', 'sunset', 'instagram', 'facebook', 'discord', 'netflix', 'reddit', 'twilight']} 
     defaultTheme="system"
-    suppressHydrationWarning
     {...props}
   >
     {children}

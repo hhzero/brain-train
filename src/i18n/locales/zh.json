@@ -1,0 +1,1412 @@
+{
+  "startTraining": "开始训练",
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "stop": "停止",
+    "complete": "完成",
+    "retry": "重试",
+    "refresh": "刷新",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "view": "查看",
+    "share": "分享",
+    "download": "下载",
+    "upload": "上传",
+    "settings": "设置",
+    "profile": "个人资料",
+    "logout": "退出登录",
+    "login": "登录",
+    "register": "注册",
+    "home": "首页",
+    "about": "关于",
+    "contact": "联系我们",
+    "help": "帮助",
+    "feedback": "反馈",
+    "version": "版本",
+    "language": "语言",
+    "theme": "主题",
+    "notifications": "通知",
+    "privacy": "隐私",
+    "terms": "条款",
+    "copyright": "版权所有",
+    "loadingBackgroundImage": "加载背景图片中...",
+    "errorBoundary": {
+      "title": "哎呀，出现了一些问题",
+      "description": "应用遇到了意外错误，但不用担心，我们可以重新开始！",
+      "retryButton": "🔄 重新开始",
+      "viewDetails": "查看错误详情",
+      "errorMessage": "错误信息",
+      "errorStack": "错误堆栈"
+    }
+  },
+  "zenMeditation": {
+    "title": "禅修专注力训练",
+    "subtitle": "通过古老的禅修智慧，培养内心的宁静与专注",
+    "guide": {
+      "title": "禅修智慧指南",
+      "traditions": {
+        "title": "禅修传统",
+        "zen": {
+          "name": "禅宗 (Zen)",
+          "description": "直指人心，见性成佛"
+        },
+        "vipassana": {
+          "name": "内观 (Vipassana)",
+          "description": "如实观察，洞察实相"
+        },
+        "tibetan": {
+          "name": "藏传 (Tibetan)",
+          "description": "慈悲智慧，利益众生"
+        },
+        "chan": {
+          "name": "禅宗 (Chan)",
+          "description": "行住坐卧，皆是禅机"
+        }
+      },
+      "types": {
+        "title": "禅修类型",
+        "breathing": "呼吸禅修 - 观察呼吸，培养专注",
+        "mindfulness": "正念禅修 - 觉知当下，洞察实相",
+        "lovingKindness": "慈心禅修 - 培养慈悲，化解怨恨",
+        "walking": "行禅 - 动中有静，行走觉知",
+        "bodyScan": "身体扫描 - 觉知身体，释放紧张"
+      },
+      "tips": {
+        "title": "禅修要点",
+        "posture": "保持正直而放松的坐姿",
+        "expectation": "不强求任何特殊体验",
+        "wandering": "当心念散乱时，温和地回到专注对象",
+        "compassion": "以慈悲心对待自己的不完美",
+        "integration": "将禅修的觉知带入日常生活"
+      },
+      "startButton": "开始禅修之旅"
+    },
+    "sessions": {
+      "title": "选择禅修会话",
+      "score": "禅修得分",
+      "completed": "完成会话",
+      "duration": "禅修时长",
+      "minutes": "分钟",
+      "seconds": "秒",
+      "difficulty": "难度",
+      "benefits": "修行益处",
+      "philosophy": "禅修智慧",
+      "resetButton": "重新开始"
+    },
+    "practice": {
+      "phase": "阶段",
+      "guidance": "禅修指导",
+      "focus": "专注对象",
+      "visualization": "观想引导",
+      "wisdom": "禅修智慧",
+      "mantra": "慈心真言",
+      "showMantra": "显示真言",
+      "hideMantra": "隐藏真言",
+      "startMeditation": "开始禅修",
+      "pauseMeditation": "暂停禅修",
+      "nextPhase": "下一阶段",
+      "completeMeditation": "完成禅修"
+    }
+  },
+  "gaze": {
+    "gazeTitle": "凝视专注训练",
+    "gazeDesc": "保持专注凝视中心黑点，避免被干扰元素分散注意力，训练持续专注能力",
+    "gazeStatusFocusing": "专注中...",
+    "gazeStatusIdle": "准备开始",
+    "gazeFocusLabel": "专注时间：",
+    "gazeBestLabel": "最佳记录：",
+    "gazeDotAriaLabel": "专注训练目标点",
+    "gazeInterrupted": "专注被中断！"
+  },
+  "navigation": {
+    "home": "首页",
+    "training": "训练",
+    "memory": "记忆力",
+    "attention": "注意力",
+    "reaction": "反应力",
+    "classification": "分类",
+    "speedReading": "速读",
+    "about": "关于",
+    "profile": "个人中心",
+    "leaderboard": "排行榜",
+    "achievements": "成就",
+    "settings": "设置"
+  },
+  "training": {
+    "title": "脑力训练中心",
+    "subtitle": "探索大脑潜能，提升认知能力。通过科学的训练方法和个性化的学习路径，全面提升注意力、记忆力、情绪管理等核心能力。",
+    "seo": {
+      "title": "脑力训练中心 - 全方位认知能力提升平台",
+      "description": "专业的脑力训练平台，提供注意力、记忆力、情绪管理等多维度训练模块，科学提升认知能力",
+      "keywords": "脑力训练,认知训练,注意力训练,记忆训练,情绪管理,大脑训练"
+    },
+    "modules": {
+      "multiAttention": {
+        "title": "多维注意力挑战",
+        "description": "沉浸式3D环境下的多感官注意力训练，提升专注力和反应速度"
+      },
+      "cognitiveFlexibility": {
+        "title": "认知灵活性训练营",
+        "description": "通过职场模拟、学习场景提升思维转换和问题解决能力"
+      },
+      "emotionalManagement": {
+        "title": "情绪管理训练",
+        "description": "融合中国传统文化的情绪调节和社交情商提升训练"
+      },
+      "emotionRecognition": {
+        "title": "情绪识别训练",
+        "description": "通过面部表情和情境分析提升情绪感知能力"
+      },
+      "stressRelief": {
+        "title": "压力缓解冥想",
+        "description": "结合正念冥想和深度呼吸的压力管理训练"
+      },
+      "socialEQ": {
+        "title": "社交情商提升",
+        "description": "通过真实社交场景模拟提升人际交往和沟通技巧"
+      }
+    },
+    "difficulty": {
+      "all": "全部难度",
+      "beginner": "初级",
+      "intermediate": "中级",
+      "advanced": "高级"
+    },
+    "duration": {
+      "5-15min": "5-15分钟",
+      "10-20min": "10-20分钟",
+      "10-25min": "10-25分钟",
+      "15-30min": "15-30分钟",
+      "20-40min": "20-40分钟"
+    },
+    "features": {
+      "3dEnvironment": "3D环境",
+      "multiSensory": "多感官融合",
+      "adaptiveDifficulty": "自适应难度",
+      "realTimeFeedback": "实时反馈",
+      "workplaceSimulation": "职场模拟",
+      "learningScenarios": "学习场景",
+      "lifeContexts": "生活情境",
+      "advancedChallenges": "进阶挑战",
+      "emotionRecognition": "情绪识别",
+      "stressRelief": "压力缓解",
+      "taichiMindset": "太极心境",
+      "zenFocus": "禅修专注",
+      "facialRecognition": "表情识别",
+      "contextAnalysis": "情境分析",
+      "culturalAdaptation": "文化适应",
+      "instantFeedback": "即时反馈",
+      "mindfulMeditation": "正念冥想",
+      "breathingTraining": "呼吸训练",
+      "relaxationGuidance": "放松引导",
+      "backgroundMusic": "背景音乐",
+      "scenarioSimulation": "场景模拟",
+      "communicationSkills": "沟通技巧",
+      "eqAssessment": "情商测评",
+      "culturalWisdom": "文化智慧"
+    },
+    "categories": {
+      "all": "全部训练",
+      "attention": "注意力",
+      "emotion": "情绪管理",
+      "cognitive": "认知能力",
+      "dataLoadError": "加载数据失败:"
+    },
+    "stats": {
+      "trainingModules": "训练模块",
+      "userCompletions": "用户完成",
+      "averageImprovement": "平均提升",
+      "satisfaction": "满意度",
+      "totalTrainingTime": "总训练时长",
+      "completedTraining": "完成训练",
+      "activeUsers": "活跃用户"
+    },
+    "mockUsers": {
+      "trainer": "训练者",
+      "cognitiveExplorer": "认知探索者",
+      "focusMaster": "专注达人",
+      "emotionManager": "情绪管理师",
+      "memoryMaster": "记忆大师",
+      "quickThinker": "思维敏捷者"
+    },
+    "mockData": {
+      "milestone": {
+        "title": "连胜达人",
+        "description": "连续训练15天",
+        "reward": "专属徽章"
+      },
+      "dailyGoals": {
+        "completeSessions": {
+          "title": "完成训练",
+          "description": "完成2次训练"
+        },
+        "trainingTime": {
+          "title": "训练时长",
+          "description": "训练30分钟"
+        }
+      },
+      "insights": {
+        "attentionExcellent": {
+          "title": "注意力表现优秀",
+          "description": "您的注意力训练成绩在同级别用户中排名前20%",
+          "actionText": "挑战更高难度"
+        }
+      }
+    },
+    "title": "脑力训练中心",
+    "subtitle": "Brain Training Center",
+    "description": "通过科学的训练方法和沉浸式体验，全面提升认知能力、注意力和情绪管理技能",
+    "modules": {
+      "attention": {
+        "title": "多维注意力挑战",
+        "description": "沉浸式3D环境下的注意力训练，多感官融合体验，自适应难度调节",
+        "features": ["3D环境", "多感官融合", "自适应难度", "实时反馈"]
+      },
+      "cognitiveFlexibility": {
+        "title": "认知灵活性训练营",
+        "description": "通过任务切换、Stroop测试等训练，提升思维敏捷性和认知灵活性",
+        "features": ["职场模拟", "学习场景", "生活情境", "进阶挑战"]
+      },
+      "emotionalManagement": {
+        "title": "情绪管理训练",
+        "description": "融合中华文化的情绪调节训练，包括太极心境、禅修专注等模块",
+        "features": ["情绪识别", "压力缓解", "太极心境", "禅修专注"]
+      },
+      "emotionRecognition": {
+        "title": "情绪识别训练",
+        "description": "通过面部表情和语音识别训练，提升情绪感知和理解能力",
+        "features": ["表情识别", "语音分析", "情境理解", "共情训练"]
+      },
+      "stressRelief": {
+        "title": "压力缓解冥想",
+        "description": "结合正念冥想和呼吸训练，有效缓解压力，提升心理健康",
+        "features": ["正念冥想", "呼吸训练", "放松技巧", "心理调节"]
+      },
+      "socialIntelligence": {
+        "title": "社交情商提升",
+        "description": "通过社交场景模拟和沟通技巧训练，提升人际交往能力",
+        "features": ["社交模拟", "沟通技巧", "情商测试", "人际关系"]
+      }
+    },
+    "categories": {
+      "all": "全部",
+      "cognitive": "认知训练",
+      "emotional": "情绪管理",
+      "social": "社交技能",
+      "mindfulness": "正念冥想"
+    },
+    "difficulty": {
+      "beginner": "初级",
+      "intermediate": "中级",
+      "advanced": "高级",
+      "expert": "专家"
+    },
+    "duration": {
+      "short": "短时间",
+      "medium": "中等时长",
+      "long": "长时间"
+    },
+    "stats": {
+      "totalUsers": "总用户数",
+      "sessionsCompleted": "完成训练次数",
+      "averageImprovement": "平均提升",
+      "satisfactionRate": "满意度"
+    }
+  },
+  "retention": {
+    "title": "训练中心",
+    "subtitle": "个性化的脑力训练体验",
+    "metrics": {
+      "dailyStreak": "连胜天数",
+      "engagementScore": "参与度评分",
+      "weeklyGoal": "本周目标",
+      "nextMilestone": "下个里程碑",
+      "trainingStats": "训练统计",
+      "totalTrainingDays": "总训练天数",
+      "averageSessionTime": "平均训练时长",
+      "totalSessions": "总训练次数",
+      "averageAccuracy": "平均准确率"
+    },
+    "goals": {
+      "title": "今日目标",
+      "description": "完成每日目标获得额外积分奖励",
+      "completed": "完成",
+      "reward": "积分奖励",
+      "progress": "进度"
+    },
+    "insights": {
+      "title": "个性化洞察",
+      "description": "基于您的训练数据生成的智能分析"
+    },
+    "tabs": {
+      "overview": "概览",
+      "recommendations": "推荐",
+      "achievements": "成就",
+      "social": "社交"
+    },
+    "abilities": {
+      "attention": "注意力",
+      "memory": "记忆力",
+      "cognitive": "认知",
+      "emotional": "情绪",
+      "social": "社交",
+      "speed": "速度"
+    },
+    "engagementLevels": {
+      "high": "高度活跃",
+      "active": "活跃",
+      "normal": "一般",
+      "needsAttention": "需要关注"
+    }
+  },
+  "achievements": {
+    "title": "成就系统",
+    "description": "通过完成训练和挑战解锁各种成就徽章",
+    "categories": {
+      "all": "全部",
+      "training": "训练成就",
+      "streak": "连胜成就",
+      "score": "分数成就",
+      "time": "时间成就",
+      "social": "社交成就",
+      "special": "特殊成就"
+    },
+    "rarity": {
+      "common": "普通",
+      "rare": "稀有",
+      "epic": "史诗",
+      "legendary": "传说"
+    },
+    "stats": {
+      "unlockedAchievements": "已解锁成就",
+      "achievementPoints": "成就积分",
+      "completionRate": "完成度"
+    },
+    "newUnlock": "新成就解锁！",
+    "viewDetails": "查看详情",
+    "shareAchievement": "分享成就"
+  },
+  "recommendations": {
+    "title": "个性化推荐",
+    "description": "基于您的训练历史和能力评估的智能推荐",
+    "reasons": {
+      "weakness": "弱项改进",
+      "strength": "优势强化",
+      "history": "基于历史",
+      "preference": "个人偏好",
+      "challenge": "新挑战",
+      "popular": "热门选择"
+    },
+    "filters": {
+      "all": "全部类型",
+      "attention": "注意力",
+      "memory": "记忆力",
+      "cognitive": "认知",
+      "emotional": "情绪",
+      "social": "社交"
+    },
+    "refresh": "刷新推荐",
+    "startTraining": "开始训练",
+    "expectedImprovement": "预期提升",
+    "estimatedTime": "预计时长",
+    "noRecommendations": "暂无推荐内容",
+    "generateMore": "生成更多推荐"
+  },
+  "social": {
+    "title": "社交功能",
+    "leaderboard": {
+      "title": "排行榜",
+      "weekly": "本周",
+      "monthly": "本月",
+      "allTime": "总榜",
+      "rank": "排名",
+      "score": "分数",
+      "level": "等级"
+    },
+    "friends": {
+      "title": "好友列表",
+      "addFriend": "添加好友",
+      "searchFriends": "搜索好友",
+      "online": "在线",
+      "offline": "离线",
+      "lastActive": "最后活跃",
+      "sendChallenge": "发起挑战",
+      "viewProfile": "查看资料"
+    },
+    "challenges": {
+      "title": "挑战赛",
+      "active": "进行中",
+      "completed": "已完成",
+      "upcoming": "即将开始",
+      "joinChallenge": "参加挑战",
+      "createChallenge": "创建挑战",
+      "participants": "参与者",
+      "timeLeft": "剩余时间",
+      "prize": "奖励"
+    },
+    "activities": {
+      "title": "动态",
+      "recent": "最近动态",
+      "achievement": "获得成就",
+      "training": "完成训练",
+      "challenge": "参与挑战",
+      "friendship": "添加好友",
+      "timeAgo": "前"
+    }
+  },
+  "emotionalManagement": {
+    "title": "情绪管理训练",
+    "subtitle": "融合中华文化的情绪调节之道",
+    "description": "通过科学的情绪训练方法，结合太极、禅修等传统文化，提升情绪管理和心理健康水平",
+    "modules": {
+      "emotionRecognition": {
+        "title": "情绪识别",
+        "description": "学习识别和理解各种情绪状态"
+      },
+      "stressRelief": {
+        "title": "压力缓解冥想",
+        "description": "通过冥想和呼吸练习缓解压力"
+      },
+      "emotionRegulation": {
+        "title": "情绪调节",
+        "description": "掌握有效的情绪管理技巧"
+      },
+      "socialIntelligence": {
+        "title": "社交情商提升",
+        "description": "提升人际交往和沟通能力"
+      },
+      "taichiMindset": {
+        "title": "太极心境训练",
+        "description": "通过太极理念培养内心平静"
+      },
+      "zenFocus": {
+        "title": "禅修专注力",
+        "description": "运用禅修方法提升专注力"
+      }
+    },
+    "emotions": {
+      "joy": "喜悦",
+      "sadness": "悲伤",
+      "anger": "愤怒",
+      "fear": "恐惧",
+      "surprise": "惊讶",
+      "disgust": "厌恶",
+      "neutral": "平静",
+      "anxiety": "焦虑",
+      "excitement": "兴奋",
+      "contentment": "满足"
+    },
+    "training": {
+      "selectEmotion": "选择您当前的情绪",
+      "breathingExercise": "呼吸练习",
+      "inhale": "吸气",
+      "exhale": "呼气",
+      "hold": "屏息",
+      "relax": "放松",
+      "focus": "专注",
+      "mindfulness": "正念",
+      "meditation": "冥想",
+      "reflection": "反思"
+    },
+    "stats": {
+      "emotionalBalance": "情绪平衡度",
+      "stressLevel": "压力水平",
+      "mindfulnessScore": "正念得分",
+      "socialSkills": "社交技能",
+      "overallWellbeing": "整体幸福感"
+    },
+    "selectModule": "选择训练模块",
+    "trainingSettings": "训练设置",
+    "trainingDuration": "训练时长",
+    "durations": {
+      "5min": "5分钟",
+      "10min": "10分钟",
+      "15min": "15分钟",
+      "20min": "20分钟"
+    },
+    "difficultyLevel": "难度等级",
+    "difficulty": {
+      "beginner": "初级",
+      "intermediate": "中级",
+      "advanced": "高级",
+      "expert": "专家"
+    },
+    "culturalElements": "融入文化元素",
+    "adaptiveDifficulty": "自适应难度",
+    "instantFeedback": "即时反馈",
+    "startTraining": "开始训练",
+    "moduleType": "模块类型",
+    "timeRemaining": "剩余时间",
+    "continue": "继续",
+    "pause": "暂停",
+    "completeTraining": "完成训练",
+    "trainingPaused": "训练已暂停",
+    "clickContinue": "点击继续按钮恢复训练",
+    "realTimeStats": "实时统计",
+    "accuracy": "准确率",
+    "averageResponseTime": "平均反应时间",
+    "currentStreak": "当前连击",
+    "totalQuestions": "总题数",
+    "correct": "答对了！",
+    "incorrect": "答错了",
+    "correctAnswer": "正确答案是",
+    "culturalOrigins": {
+      "taichi": "太极养生",
+      "zen": "禅修静心"
+    },
+    "stage": "阶段",
+    "breathing": {
+      "inhale": "吸气",
+      "hold": "屏息",
+      "exhale": "呼气",
+      "pause": "停顿"
+    },
+    "seconds": "秒",
+    "visualization": "观想引导",
+    "mantra": "真言",
+    "overallProgress": "整体进度",
+    "stages": "阶段",
+    "trainingCompleted": "训练完成！",
+    "congratulations": "恭喜你完成了情绪管理训练",
+    "trainingResults": "训练结果",
+    "finalAccuracy": "最终准确率",
+    "bestStreak": "最佳连击",
+    "totalAnswered": "总答题数",
+    "emotionAccuracyBreakdown": "各情绪识别准确率",
+    "restartTraining": "重新开始训练",
+    "descriptions": {
+      "emotionRecognition": "学习识别和理解不同的情绪表达，提升情绪感知能力",
+      "stressRelief": "通过呼吸练习和放松技巧，有效缓解日常压力",
+      "emotionRegulation": "掌握情绪调节策略，保持情绪平衡和稳定",
+      "socialIntelligence": "提升人际交往中的情绪理解和表达能力",
+      "taichiMindset": "结合太极动作与正念冥想，达到身心和谐",
+      "zenFocus": "通过禅修练习，培养内心平静与专注力"
+    },
+    "meditation": {
+      "taichiBreathing": {
+        "name": "太极呼吸法",
+        "steps": {
+          "preparation": {
+            "name": "准备阶段",
+            "instruction": "站立，双脚与肩同宽，放松身体"
+          },
+          "breathing": {
+            "name": "呼吸调节",
+            "instruction": "深呼吸，感受气息在体内的流动"
+          },
+          "movement": {
+            "name": "动作配合",
+            "instruction": "缓慢抬起双臂，配合呼吸节奏"
+          },
+          "integration": {
+            "name": "身心合一",
+            "instruction": "将注意力集中在呼吸和动作的协调上"
+          }
+        },
+        "visualizations": {
+          "energyFlow": "想象能量在体内流动，如温暖的光芒",
+          "naturalHarmony": "感受与自然的和谐统一"
+        },
+        "mantras": {
+          "balance": "身心平衡，气息调和",
+          "harmony": "天人合一，内外协调"
+        }
+      },
+      "zenMeditation": {
+        "name": "禅修静坐",
+        "steps": {
+          "posture": {
+            "name": "调身",
+            "instruction": "端坐，脊背挺直，双手结印"
+          },
+          "breathing": {
+            "name": "调息",
+            "instruction": "自然呼吸，观察气息的进出"
+          },
+          "mind": {
+            "name": "调心",
+            "instruction": "放下杂念，回归当下此刻"
+          },
+          "awareness": {
+            "name": "觉察",
+            "instruction": "保持清明觉知，不执着于念头"
+          }
+        },
+        "visualizations": {
+          "stillWater": "心如止水，清澈宁静",
+          "emptySpace": "心如虚空，无所挂碍"
+        },
+        "mantras": {
+          "presence": "当下即是，此心即佛",
+          "emptiness": "空即是色，色即是空"
+        }
+      }
+    }
+  },
+  "ReactionSpeed": {
+    "clickToStart": "点击开始",
+    "waitForGreen": "等待绿色出现...",
+    "clickNow": "现在点击！",
+    "reactionTime": "反应时间：{time}ms",
+    "tooEarly": "点击太早了！",
+    "lightning": "闪电般快速！",
+    "veryFast": "非常快！",
+    "good": "很好！",
+    "notBad": "还不错！",
+    "keepPracticing": "继续练习！",
+    "tryAgain": "再试一次",
+    "cancel": "取消",
+    "bestScore": "最佳成绩",
+    "averageTime": "平均时间",
+    "totalAttempts": "总尝试次数",
+    "noRecord": "暂无记录",
+    "testCount": "测试次数",
+    "noData": "暂无数据",
+    "gameInstructions": "游戏说明",
+    "instruction1": "点击紫色区域开始游戏",
+    "instruction2": "红色时等待，不要点击",
+    "instruction3": "绿色出现时立即点击",
+    "instruction4": "挑战你的反应极限！"
+  },
+  "cognitiveFlexibility": {
+    "title": "认知灵活性训练营",
+    "subtitle": "提升思维敏捷性的专业训练",
+    "description": "通过多样化的认知任务和情境化训练，全面提升思维转换能力和认知灵活性",
+    "taskTypes": {
+      "taskSwitching": "任务切换",
+      "stroopTest": "Stroop测试",
+      "workingMemory": "工作记忆更新",
+      "workplaceSimulation": "职场模拟",
+      "learningScenario": "学习场景",
+      "lifeContext": "生活情境"
+    },
+    "scenarios": {
+      "meeting": "会议场景",
+      "presentation": "演讲场景",
+      "negotiation": "谈判场景",
+      "study": "学习场景",
+      "exam": "考试场景",
+      "research": "研究场景",
+      "shopping": "购物场景",
+      "cooking": "烹饪场景",
+      "travel": "旅行场景"
+    },
+    "instructions": {
+      "taskSwitching": "根据提示快速切换任务类型",
+      "stroopTest": "说出文字的颜色，忽略文字内容",
+      "workingMemory": "记住字母序列并判断是否匹配",
+      "workplace": "在职场情境中做出最佳决策",
+      "learning": "在学习场景中选择最有效的策略",
+      "life": "在日常生活中做出合理选择"
+    },
+    "feedback": {
+      "correct": "正确！",
+      "incorrect": "错误",
+      "tooSlow": "反应太慢",
+      "excellent": "优秀！",
+      "good": "不错",
+      "needsImprovement": "需要改进"
+    },
+    "stats": {
+      "accuracy": "准确率",
+      "reactionTime": "反应时间",
+      "score": "得分",
+      "streak": "连击",
+      "totalTrials": "总试验数",
+      "bestStreak": "最佳连击",
+      "averageTime": "平均时间"
+    }
+  },
+  "attention": {
+    "title": "多维注意力挑战",
+    "subtitle": "沉浸式3D注意力训练体验",
+    "description": "在虚拟3D环境中进行多感官注意力训练，提升专注力、选择性注意和持续注意能力",
+    "modes": {
+      "selective": "选择性注意",
+      "sustained": "持续注意",
+      "divided": "分散注意",
+      "executive": "执行注意"
+    },
+    "environments": {
+      "forest": "森林环境",
+      "ocean": "海洋环境",
+      "space": "太空环境",
+      "city": "城市环境",
+      "mountain": "山峰环境"
+    },
+    "instructions": {
+      "selective": "专注于目标刺激，忽略干扰",
+      "sustained": "保持长时间专注",
+      "divided": "同时处理多个任务",
+      "executive": "控制注意力的分配"
+    },
+    "feedback": {
+      "focused": "专注度很好",
+      "distracted": "注意力分散",
+      "improving": "注意力正在提升",
+      "excellent": "注意力表现优秀"
+    }
+  },
+  "seo": {
+    "meta": {
+      "title": "脑力训练平台 - 提升认知能力的科学训练",
+      "description": "专业的脑力训练平台，通过科学的认知训练提升注意力、记忆力、认知灵活性和情绪管理能力。个性化训练方案，实时进度跟踪。",
+      "keywords": "脑力训练,认知训练,注意力训练,记忆力训练,认知灵活性,情绪管理,大脑训练"
+    },
+    "pages": {
+      "training": {
+        "title": "训练中心 - 个性化脑力训练方案",
+        "description": "探索多样化的脑力训练模块，包括注意力挑战、认知灵活性训练营、情绪管理训练等。科学设计，循序渐进。"
+      },
+      "attention": {
+        "title": "多维注意力挑战 - 提升专注力和反应速度",
+        "description": "沉浸式3D环境下的注意力训练，多感官融合体验，自适应难度调节，全面提升注意力各个维度。"
+      },
+      "cognitiveFlexibility": {
+        "title": "认知灵活性训练营 - 提升思维敏捷性",
+        "description": "通过任务切换、Stroop测试、工作记忆更新等训练，提升认知灵活性和思维转换能力。职场模拟、学习场景应有尽有。"
+      },
+      "emotionalManagement": {
+        "title": "情绪管理训练 - 融合中华文化的情绪调节",
+        "description": "结合太极、禅修等中华传统文化的情绪管理训练，包括情绪识别、压力缓解、社交情商提升等模块。"
+      }
+    },
+    "cognitiveFlexibility": {
+      "title": "认知灵活性训练营 2.0",
+      "description": "通过职场模拟、学习场景、生活情境等多元化训练，全面提升认知灵活性和执行控制能力",
+      "challengeLevel": "挑战等级",
+      "achievements": "成就",
+      "trainingControl": {
+        "title": "训练控制",
+        "startTraining": "开始训练",
+        "preparing": "准备开始...",
+        "prepareMessage": "请做好准备，训练即将开始",
+        "pause": "暂停",
+        "continue": "继续",
+        "complete": "完成",
+        "abandon": "放弃",
+        "settings": "设置"
+      },
+      "taskTypes": {
+        "taskSwitching": "任务切换",
+        "stroopTest": "Stroop测试",
+        "workingMemoryUpdate": "工作记忆更新",
+        "workplaceSimulation": "职场模拟",
+        "learningScenario": "学习场景",
+        "lifeSituation": "生活情境"
+      },
+      "currentTask": "当前任务：",
+      "trainingAreas": {
+        "workplace": "职场模拟",
+        "learning": "学习场景",
+        "life": "生活情境"
+      },
+      "completion": {
+        "title": "训练完成！",
+        "finalScore": "最终分数",
+        "accuracy": "准确率",
+        "bestStreak": "最佳连击",
+        "averageReactionTime": "平均反应时间",
+        "trainAgain": "再次训练"
+      },
+      "stats": {
+        "title": "训练统计",
+        "accuracy": "准确率",
+        "averageReactionTime": "平均反应时间",
+        "score": "得分",
+        "totalTrials": "总试验数",
+        "challengeProgress": "挑战进度"
+      },
+      "achievements": {
+        "title": "成就徽章",
+        "streakMaster": "连击达人",
+        "trainingExpert": "训练专家"
+      },
+      "settings": {
+        "title": "训练设置",
+        "duration": "训练时长（秒）",
+        "difficulty": "难度等级",
+        "level": "等级",
+        "trainingTypes": "训练类型",
+        "enableFeedback": "启用反馈",
+        "adaptiveDifficulty": "自适应难度",
+        "progressiveChallenge": "进阶挑战",
+        "contextualLearning": "情境化学习"
+      },
+      "colors": {
+        "red": "红色",
+        "blue": "蓝色",
+        "green": "绿色",
+        "yellow": "黄色",
+        "purple": "紫色",
+        "orange": "橙色"
+      },
+      "shapes": {
+        "circle": "圆形",
+        "square": "正方形",
+        "triangle": "三角形",
+        "diamond": "菱形",
+        "star": "星形",
+        "heart": "心形"
+      },
+      "trainingSettings": {
+        "title": "训练设置",
+        "duration": "训练时长（秒）",
+        "difficulty": "难度等级",
+        "level": "等级",
+        "trainingTypes": "训练类型",
+        "enableFeedback": "启用反馈",
+        "adaptiveDifficulty": "自适应难度",
+        "progressiveChallenge": "进阶挑战",
+        "contextualLearning": "情境化学习"
+      },
+      "taskInstructions": {
+      "stroopTest": "说出文字的颜色（不是文字内容）",
+      "workingMemoryUpdate": "记住序列，然后输入最后一个字母"
+    },
+    "multidimensionalAttention": {
+      "title": "多维注意力挑战 3.0",
+      "subtitle": "沉浸式3D环境 · 多感官融合 · 自适应难度系统",
+      "upgradeTitle": "升级版多维注意力训练",
+      "selectEnvironment": "选择训练环境",
+      "trainingConfig": "训练配置",
+      "sensoryMode": "感官模式",
+      "initialDifficulty": "初始难度",
+      "targets": "目标",
+      "soundFeedback": "音效反馈",
+      "adaptiveDifficulty": "自适应难度",
+      "startPrompt": "点击开始按钮开始训练",
+      "description": "通过视觉、听觉、触觉多感官训练，全面提升注意力的广度、深度和灵活性",
+      "trainingControl": "训练控制",
+      "startTraining": "开始训练",
+      "preparing": "准备开始...",
+      "getReady": "请做好准备，训练即将开始",
+      "pause": "暂停",
+      "resume": "继续",
+      "complete": "完成",
+      "abandon": "放弃",
+      "settings": "设置",
+      "trainingComplete": "训练完成！",
+      "finalScore": "最终分数",
+      "accuracy": "准确率",
+      "bestStreak": "最佳连击",
+      "averageReactionTime": "平均反应时间",
+      "retrain": "再次训练",
+      "trainingStats": "训练统计",
+      "score": "得分",
+      "totalStimuli": "总刺激数",
+      "trainingSettings": "训练设置",
+      "trainingDuration": "训练时长（秒）",
+      "difficultyLevel": "难度等级",
+      "level": "等级 {{level}}",
+      "trainingTypes": "训练类型",
+      "visualTraining": "视觉训练",
+      "auditoryTraining": "听觉训练",
+      "tactileTraining": "触觉训练",
+      "sensoryModes": {
+        "visual": "视觉专注",
+        "audio": "听觉训练",
+        "multi": "多感官融合",
+        "synesthetic": "联觉体验"
+      },
+      "environments": {
+        "deepSpace": {
+          "name": "深空",
+          "description": "在无垠的宇宙中训练专注力",
+          "benefits": ["提升专注力", "减少干扰", "增强空间感知"]
+        },
+        "mysticalForest": {
+          "name": "神秘森林",
+          "description": "在自然环境中放松心灵",
+          "benefits": ["缓解压力", "提升创造力", "增强直觉"]
+        },
+        "underwaterWorld": {
+          "name": "深海世界",
+          "description": "在宁静的海底世界中冥想",
+          "benefits": ["深度放松", "情绪平衡", "内心宁静"]
+        },
+        "neonCity": {
+          "name": "霓虹都市",
+          "description": "在动态城市中锻炼适应性",
+          "benefits": ["快速反应", "多任务处理", "压力适应"]
+        },
+        "abstractDimension": {
+          "name": "抽象维度",
+          "description": "在抽象空间中探索认知边界",
+          "benefits": ["创新思维", "认知灵活性", "突破局限"]
+        }
+      },
+      "units": {
+        "ms": "毫秒",
+        "seconds": "秒",
+        "minutes": "分钟"
+      }
+    },
+    "schulte": {
+      "title": "舒尔特方格",
+      "description": "舒尔特方格训练是一种经典的专注力和视觉搜索训练方法，通过顺序点击数字，提升注意力集中和反应速度。",
+      "timeUsed": "用时",
+      "bestTime": "最佳",
+      "numberLabel": "数字{number}",
+      "startTraining": "开始训练",
+      "completed": "完成！用时 {time} 秒"
+    },
+    "nback": {
+      "achievements": {
+        "firstSession": {
+          "title": "初次体验",
+          "description": "完成第一次N-Back训练"
+        },
+        "perfectRound": {
+          "title": "完美表现",
+          "description": "在一轮训练中达到100%准确率"
+        },
+        "streakMaster": {
+          "title": "连击大师",
+          "description": "连续答对10题"
+        },
+        "levelUp": {
+          "title": "等级提升",
+          "description": "成功提升到更高难度等级"
+        }
+      },
+      "feedback": {
+        "correct": "正确！",
+        "keepGoing": "继续加油！"
+      },
+      "modes": {
+        "tutorial": "教程模式",
+        "visual": "视觉模式",
+        "audio": "听觉模式",
+        "dual": "双重模式"
+      },
+      "settings": {
+        "title": "训练设置",
+        "description": "自定义您的N-Back训练体验",
+        "levelHint": "建议从较低等级开始",
+        "audioFeedback": "音频反馈",
+        "audioDescription": "启用音频提示和反馈"
+      },
+      "ui": {
+        "startTraining": "开始训练",
+        "dataManagement": "数据管理",
+        "trainingHistory": "训练历史",
+        "waitingResponse": "等待响应...",
+        "score": "得分",
+        "streak": "连击",
+        "trainingProgress": "训练进度"
+      },
+      "instructions": {
+        "title": "训练说明",
+        "visual": "观察方格中的位置，判断是否与N步之前相同",
+        "audio": "聆听字母读音，判断是否与N步之前相同",
+        "dual": "同时进行视觉和听觉判断，双重挑战您的工作记忆"
+      },
+      "results": {
+        "evaluation": "训练评估",
+        "recommendation": "建议"
+      },
+      "buttons": {
+        "backToMenu": "返回菜单",
+        "trainAgain": "再次训练"
+      }
+    }
+    }
+  },
+  "profile": {
+    "tabs": {
+      "profile": "个人资料",
+      "stats": "统计",
+      "settings": "设置",
+      "privacy": "隐私"
+    },
+    "basicInfo": {
+      "title": "基本信息",
+      "edit": "编辑",
+      "save": "保存",
+      "cancel": "取消",
+      "level": "等级",
+      "rank": "排名",
+      "joinedAt": "加入时间",
+      "displayName": "显示名称",
+      "username": "用户名",
+      "email": "邮箱",
+      "bio": "个人简介",
+      "bioPlaceholder": "介绍一下你自己..."
+    },
+    "achievements": {
+      "title": "成就概览",
+      "count": "成就数量",
+      "streak": "连击天数",
+      "totalScore": "总积分",
+      "trainingTime": "训练时长",
+      "recent": "最近成就"
+    },
+    "stats": {
+      "totalSessions": "训练次数",
+      "totalTime": "总时长",
+      "averageAccuracy": "平均准确率",
+      "bestStreak": "最佳连击",
+      "trainingDistribution": "训练分布",
+      "goalProgress": "目标进度",
+      "weeklyGoal": "本周目标",
+      "monthlyGoal": "本月目标",
+      "comparedToLastMonth": "相比上月",
+      "types": {
+        "attention": "注意力",
+        "memory": "记忆力",
+        "reaction": "反应力",
+        "cognitive": "认知力"
+      }
+    },
+    "settings": {
+      "notifications": {
+        "title": "通知设置",
+        "achievements": "成就解锁",
+        "friendRequests": "好友请求",
+        "trainingReminders": "训练提醒",
+        "weeklyReports": "周报告",
+        "soundEffects": "声音效果",
+        "vibration": "震动反馈"
+      },
+      "training": {
+        "title": "训练偏好",
+        "difficulty": "难度设置",
+        "duration": "训练时长",
+        "breakReminders": "休息提醒",
+        "autoSave": "自动保存",
+        "showHints": "显示提示",
+        "adaptiveDifficulty": "自适应难度",
+        "difficultyLevels": {
+          "easy": "简单",
+          "medium": "中等",
+          "hard": "困难",
+          "adaptive": "自适应"
+        }
+      },
+      "interface": {
+        "title": "界面设置",
+        "theme": "主题",
+        "language": "语言",
+        "fontSize": "字体大小",
+        "animations": "动画效果",
+        "reducedMotion": "减少动画",
+        "themes": {
+          "dark": "深色",
+          "light": "浅色",
+          "auto": "自动"
+        },
+        "languages": {
+          "zh": "中文",
+          "en": "English",
+          "ja": "日本語"
+        },
+        "fontSizes": {
+          "small": "小",
+          "medium": "中",
+          "large": "大"
+        }
+      },
+      "audio": {
+        "title": "音频设置",
+        "muteAll": "静音所有",
+        "masterVolume": "主音量",
+        "effectsVolume": "音效音量",
+        "musicVolume": "背景音乐",
+        "voiceVolume": "语音音量"
+      },
+      "privacy": {
+        "title": "隐私设置",
+        "profileVisible": "公开个人资料",
+        "showOnlineStatus": "显示在线状态",
+        "allowFriendRequests": "允许好友请求",
+        "showTrainingStats": "显示训练统计",
+        "showAchievements": "显示成就"
+      },
+      "dataManagement": {
+        "title": "数据管理",
+        "exportData": "导出我的数据",
+        "importData": "导入数据",
+        "resetData": "重置训练数据",
+        "deleteAccount": "删除账户",
+        "deleteConfirmation": "此操作将永久删除你的账户和所有相关数据，包括训练记录、成就和好友关系。此操作不可撤销。",
+        "confirmDelete": "确认删除"
+      }
+    }
+  },
+  "the_title_homepage01": "静心于念，启智于行",
+  "the_title_homepage02": "让我们在训练中开启心智的觉醒与超越",
+  "Use_Start": "开始训练",
+  "userMenu": {
+    "guest": "游客",
+    "signedInAs": "登录身份",
+    "profile": "个人资料",
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出登录"
+  },
+  "auth": {
+    "login": {
+      "title": "登录",
+      "subtitle": "欢迎回来，继续您的大脑训练之旅",
+      "submit": "登录",
+      "switchToRegister": "还没有账户？"
+    },
+    "register": {
+      "title": "注册",
+      "subtitle": "创建账户，开始您的大脑训练",
+      "submit": "注册",
+      "switchToLogin": "已有账户？"
+    },
+    "fields": {
+      "username": "用户名",
+      "email": "邮箱",
+      "password": "密码",
+      "confirmPassword": "确认密码"
+    },
+    "placeholders": {
+      "username": "请输入用户名",
+      "email": "请输入邮箱地址",
+      "password": "请输入密码",
+      "confirmPassword": "请再次输入密码"
+    },
+    "errors": {
+      "emailRequired": "邮箱不能为空",
+      "emailInvalid": "邮箱格式不正确",
+      "passwordRequired": "密码不能为空",
+      "passwordTooShort": "密码至少需要6位",
+      "usernameRequired": "用户名不能为空",
+      "usernameTooShort": "用户名至少需要3位",
+      "confirmPasswordRequired": "请确认密码",
+      "passwordMismatch": "两次输入的密码不一致"
+    },
+    "common": {
+      "loading": "处理中..."
+    }
+  },
+  "audioSettings": {
+    "title": "音频设置",
+    "reset": "重置",
+    "masterVolume": "主音量",
+    "effectsSettings": "音效设置",
+    "enabled": "启用",
+    "disabled": "禁用",
+    "effectsVolume": "音效音量",
+    "effectsStyle": "音效风格",
+    "tonesSettings": "音调设置",
+    "tonesVolume": "音调音量",
+    "toneType": "音调类型",
+    "testEffects": "测试音效",
+    "testTones": "测试音调",
+    "toneTypes": {
+      "sine": {
+        "label": "正弦波",
+        "description": "纯净柔和的音调"
+      },
+      "square": {
+        "label": "方波",
+        "description": "清脆明亮的音调"
+      },
+      "triangle": {
+        "label": "三角波",
+        "description": "温和平衡的音调"
+      },
+      "sawtooth": {
+        "label": "锯齿波",
+        "description": "丰富饱满的音调"
+      }
+    },
+    "effectStyles": {
+      "digital": {
+        "label": "数字风格",
+        "description": "现代科技感音效"
+      },
+      "natural": {
+        "label": "自然风格",
+        "description": "贴近自然的音效"
+      },
+      "minimal": {
+        "label": "极简风格",
+        "description": "简洁清晰的音效"
+      }
+    }
+  },
+  "personalizedRecommendations": {
+    "attention": {
+      "title": "多维注意力挑战",
+      "description": "专门针对注意力薄弱环节设计的强化训练"
+    },
+    "emotional": {
+      "title": "情绪管理训练",
+      "description": "提升情绪识别和调节能力的综合训练"
+    },
+    "cognitive": {
+      "title": "认知灵活性训练营",
+      "description": "增强思维转换和问题解决能力"
+    },
+    "weaknessImprovement": {
+      "attention": "您的注意力得分为{{score}}分，建议加强训练",
+      "emotional": "您的情绪管理得分为{{score}}分，建议重点提升",
+      "cognitive": "您的认知灵活性得分为{{score}}分，需要加强"
+    },
+    "tags": {
+      "attention": "注意力",
+      "emotional": "情绪管理",
+      "cognitive": "认知训练",
+      "thinking": "思维训练",
+      "basic": "基础训练",
+      "personalized": "个性化"
+    }
+  },
+  "errorBoundary": {
+    "title": "出现了一些问题",
+    "description": "应用遇到了意外错误，我们正在努力修复这个问题。",
+    "errorDetails": "错误详情",
+    "errorId": "错误ID",
+    "retry": "重试",
+    "goHome": "返回首页",
+    "refresh": "刷新页面",
+    "helpText": "如果问题持续存在，请联系技术支持或稍后再试。"
+  },
+  "trainingData": {
+    "errors": {
+      "loadFailed": "加载数据失败",
+      "notLoggedIn": "用户未登录",
+      "saveFailed": "保存训练结果失败",
+      "exportFailed": "导出数据失败",
+      "importFailed": "导入数据失败",
+      "invalidFormat": "导入数据格式错误",
+      "clearFailed": "清除数据失败"
+    }
+  },
+  "progressConfigs": {
+    "attentionMultidimensional": {
+      "name": "多维注意力挑战",
+      "description": "通过多感官融合训练提升注意力集中度"
+    },
+    "cognitiveFlexibility": {
+      "name": "认知灵活性训练营",
+      "description": "提升思维转换和适应能力"
+    },
+    "emotionManagement": {
+      "name": "情绪管理训练",
+      "description": "学习情绪识别和调节技巧"
+    }
+  },
+  "common": {
+    "time": {
+      "minutes": "{{count}}分钟",
+      "hours": "{{count}}小时",
+      "hoursAndMinutes": "{{hours}}小时{{minutes}}分钟"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ja": "日本語"
+  },
+  "simpleTest": {
+    "title": "简单测试",
+    "rawHtmlButton": "原生HTML按钮",
+    "customButtonComponent": "自定义按钮组件",
+    "buttonClickSuccess": "按钮点击成功！",
+    "buttonClickLog": "🎯 按钮被点击了！"
+  },
+  "startTraining": "开始训练",
+  "nback": {
+    "achievements": {
+      "firstSession": {
+        "title": "初次体验",
+        "description": "完成第一次N-Back训练"
+      },
+      "streak5": {
+        "title": "坚持不懈",
+        "description": "连续训练5天"
+      },
+      "level3": {
+        "title": "进阶挑战",
+        "description": "达到3-Back水平"
+      },
+      "perfectRound": {
+        "title": "完美表现",
+        "description": "单轮100%准确率"
+      }
+    },
+    "feedback": {
+      "correct": "正确！",
+      "incorrect": "错误",
+      "missed": "遗漏",
+      "falseAlarm": "误报",
+      "excellent": "优秀！",
+      "good": "良好",
+      "needsImprovement": "需要改进"
+    },
+    "modes": {
+      "single": "单模态",
+      "dual": "双模态",
+      "position": "位置",
+      "audio": "听觉",
+      "visual": "视觉"
+    },
+    "settings": {
+      "nLevel": "N级别",
+      "trials": "试验次数",
+      "stimulusDuration": "刺激持续时间",
+      "intervalDuration": "间隔时间",
+      "mode": "训练模式",
+      "difficulty": "难度"
+    },
+    "ui": {
+      "start": "开始训练",
+      "pause": "暂停",
+      "resume": "继续",
+      "stop": "停止",
+      "restart": "重新开始",
+      "score": "得分",
+      "accuracy": "准确率",
+      "level": "级别",
+      "round": "轮次",
+      "progress": "进度"
+    },
+    "instructions": {
+      "title": "训练说明",
+      "objective": "目标：当前刺激与N步之前的刺激相同时按空格键",
+      "controls": "控制：按空格键响应匹配",
+      "tips": "提示：保持专注，不要急于响应"
+    },
+    "results": {
+      "sessionComplete": "训练完成！",
+      "finalScore": "最终得分",
+      "accuracy": "准确率",
+      "reactionTime": "平均反应时间",
+      "improvements": "改进建议",
+      "nextSession": "下次训练"
+    },
+    "buttons": {
+      "startTraining": "开始训练",
+      "pauseTraining": "暂停训练",
+      "resumeTraining": "继续训练",
+      "stopTraining": "停止训练",
+      "restartTraining": "重新开始",
+      "viewResults": "查看结果",
+      "nextLevel": "下一级别",
+      "settings": "设置"
+    }
+  }
+}

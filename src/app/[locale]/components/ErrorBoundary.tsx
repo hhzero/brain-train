@@ -1,10 +1,18 @@
 'use client';
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
+  t?: (key: string) => string;
+}
+
+interface ErrorBoundaryClassProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+  t: (key: string) => string;
 }
 
 interface State {
@@ -17,8 +25,8 @@ interface State {
  * 错误边界组件 - 捕获子组件中的JavaScript错误并显示备用UI
  * 防止整个应用因为单个组件错误而崩溃
  */
-class ErrorBoundary extends Component<Props, State> {
-  constructor(props: Props) {
+class ErrorBoundaryClass extends Component<ErrorBoundaryClassProps, State> {
+  constructor(props: ErrorBoundaryClassProps) {
     super(props);
     this.state = { hasError: false };
   }
@@ -59,28 +67,28 @@ class ErrorBoundary extends Component<Props, State> {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-md mx-4 text-center">
             <div className="text-6xl mb-4">🌟</div>
             <h2 className="text-2xl font-bold text-white mb-4">
-              哎呀，出现了一些问题
+              {this.props.t('common.errorBoundary.title')}
             </h2>
             <p className="text-white/80 mb-6">
-              应用遇到了意外错误，但不用担心，我们可以重新开始！
+              {this.props.t('common.errorBoundary.description')}
             </p>
             <button
               onClick={this.handleRetry}
               className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              🔄 重新开始
+              {this.props.t('common.errorBoundary.retryButton')}
             </button>
             
             {/* 开发环境下显示错误详情 */}
             {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mt-6 text-left">
                 <summary className="text-white/60 cursor-pointer hover:text-white transition-colors">
-                  查看错误详情
+                  {this.props.t('common.errorBoundary.viewDetails')}
                 </summary>
                 <div className="mt-2 p-4 bg-black/20 rounded-lg text-xs text-white/80 overflow-auto max-h-40">
-                  <div className="font-bold mb-2">错误信息:</div>
+                  <div className="font-bold mb-2">{this.props.t('common.errorBoundary.errorMessage')}:</div>
                   <div className="mb-4">{this.state.error.message}</div>
-                  <div className="font-bold mb-2">错误堆栈:</div>
+                  <div className="font-bold mb-2">{this.props.t('common.errorBoundary.errorStack')}:</div>
                   <pre className="whitespace-pre-wrap">{this.state.error.stack}</pre>
                 </div>
               </details>
@@ -93,5 +101,16 @@ class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
+
+// 包装组件，用于提供国际化支持
+const ErrorBoundary: React.FC<Props> = ({ children, fallback }) => {
+  const t = useTranslations('');
+  
+  return (
+    <ErrorBoundaryClass t={t} fallback={fallback}>
+      {children}
+    </ErrorBoundaryClass>
+  );
+};
 
 export default ErrorBoundary;

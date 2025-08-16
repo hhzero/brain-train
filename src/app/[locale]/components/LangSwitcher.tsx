@@ -5,27 +5,16 @@ import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 import React, { useState } from 'react'
 import { FiGlobe } from 'react-icons/fi'
 import Button from './Button'
+import { locales, languageConfig, type Locale } from '@/i18n'
 
 const LangSwitcher: React.FC = () => {
-  interface Option {
-    country: string
-    code: string
-  }
   const pathname = usePathname()
   const urlSegments = useSelectedLayoutSegments()
-
   const [isOptionsExpanded, setIsOptionsExpanded] = useState(false)
-  const options: Option[] = [
-    { country: 'English', code: 'en' }, // Native name is the same
-    { country: 'Deutsch', code: 'de' },
-    { country: 'Français', code: 'fr' },
-    { country: 'Español', code: 'es' },
-    { country: 'Русский', code: 'ru' },
-    { country: '日本語', code: 'ja' },
-    { country: 'العربية', code: 'ar' },
-    { country: 'فارسی', code: 'fa' },
-    { country: '中文', code: 'zh' }
-  ]
+  
+  // 获取当前语言
+  const currentLocale = pathname.split('/')[1] as Locale
+  const currentLang = languageConfig[currentLocale] || languageConfig.zh
 
   return (
     <div className='flex items-center justify-center'>
@@ -36,7 +25,10 @@ const LangSwitcher: React.FC = () => {
           onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
           onBlur={() => setIsOptionsExpanded(false)}
         >
-          Language
+          <span className="flex items-center gap-2">
+            <span>{currentLang.flag}</span>
+            <span>{currentLang.name}</span>
+          </span>
           <FiGlobe />
         </Button>
         
@@ -48,24 +40,30 @@ const LangSwitcher: React.FC = () => {
               aria-orientation='vertical'
               aria-labelledby='options-menu'
             >
-              {options.map(lang => {
+              {locales.map(locale => {
+                const lang = languageConfig[locale]
+                const isActive = currentLocale === locale
+                
                 return (
                   <Link
-                    key={lang.code}
-                    href={`/${lang.code}/${urlSegments.join('/')}`}
+                    key={locale}
+                    href={`/${locale}/${urlSegments.join('/')}`}
                   >
                     <button
-                      lang={lang.code}
+                      lang={locale}
                       onMouseDown={e => {
                         e.preventDefault()
                       }}
-                      className={`block w-full px-4 py-2 text-left text-sm hover:bg-cyan-900 ${
-                        pathname === `/${lang.code}`
+                      className={`block w-full px-4 py-2 text-left text-sm hover:bg-cyan-900 transition-colors ${
+                        isActive
                           ? 'bg-cyan-800 text-white hover:bg-cyan-800'
                           : 'text-gray-200'
                       }`}
                     >
-                      {capitalize(lang.country)}
+                      <span className="flex items-center gap-2">
+                        <span>{lang.flag}</span>
+                        <span>{lang.name}</span>
+                      </span>
                     </button>
                   </Link>
                 )

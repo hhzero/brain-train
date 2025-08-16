@@ -3,7 +3,14 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import { useTranslations } from 'next-intl';
 import useAudio from '../../../hooks/useAudio';
-import { AudioOptions } from '../../../utils/AudioManager';
+
+// 本地音频选项接口
+interface AudioOptions {
+  volume?: number;
+  loop?: boolean;
+  fadeIn?: number;
+  fadeOut?: number;
+}
 
 interface AudioPlayerProps {
   src: string;

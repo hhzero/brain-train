@@ -71,5 +71,53 @@
         "link": "/train/speed-practice"
       }
     ]
+  },
+  "EmotionManagement": {
+    "id": 5,
+    "name": "Emotion Management",
+    "list": [
+      {
+        "id": 10,
+        "name": "Emotion Recognition",
+        "description": "Enhance emotional intelligence through facial expression and vocal tone recognition training",
+        "image": "/images/emotion/emotion-recognition.png",
+        "link": "/train/emotion-recognition"
+      },
+      {
+        "id": 11,
+        "name": "Stress Relief Meditation",
+        "description": "Combine mindfulness meditation and deep breathing techniques to effectively reduce stress and build resilience",
+        "image": "/images/emotion/stress-relief.png",
+        "link": "/train/stress-relief"
+      },
+      {
+        "id": 12,
+        "name": "Emotion Regulation",
+        "description": "Learn emotion regulation strategies through cognitive restructuring and behavioral techniques",
+        "image": "/images/emotion/emotion-regulation.png",
+        "link": "/train/emotion-regulation"
+      },
+      {
+        "id": 13,
+        "name": "Social EQ Enhancement",
+        "description": "Improve emotional understanding and expression in interpersonal interactions through scenario simulation",
+        "image": "/images/emotion/social-eq.png",
+        "link": "/train/social-eq"
+      },
+      {
+        "id": 14,
+        "name": "Tai Chi Mindset",
+        "description": "Emotional balance training integrating Tai Chi philosophy through virtual Tai Chi experience",
+        "image": "/images/emotion/taichi-mindset.png",
+        "link": "/train/taichi-mindset"
+      },
+      {
+        "id": 15,
+        "name": "Zen Focus Training",
+        "description": "Focus training combining Zen wisdom through breath counting and mind observation methods",
+        "image": "/images/emotion/zen-focus.png",
+        "link": "/train/zen-focus"
+      }
+    ]
   }
-} 
+}

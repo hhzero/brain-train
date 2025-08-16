@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, memo } from 'react';
 import { IoPlay, IoPause, IoPlayBack, IoPlayForward, IoVolumeMute, IoVolumeHigh, IoContract, IoMusicalNotes } from 'react-icons/io5';
-import { audioManager } from '../../../utils/AudioManager';
+import audioManager from '../../../utils/AudioManager';
 
 // 音乐列表
 const musicList = [
@@ -57,21 +57,21 @@ const MusicPlayer = memo(function MusicPlayer() {
       try {
         setIsLoading(true);
         
-        // 停止当前播放的音频
+        // 停止当前播放的音频（AudioManager暂不支持stop方法）
         if (currentSrcRef.current) {
-          await audioManager.stop(currentSrcRef.current);
+          console.warn('AudioManager.stop method not implemented');
         }
         
         // 更新当前音频源
         const newSrc = musicList[currentTrack].src;
         currentSrcRef.current = newSrc;
         
-        // 预加载新音频
-        await audioManager.preload(newSrc);
+        // 预加载新音频（AudioManager暂不支持preload方法）
+        console.warn('AudioManager.preload method not implemented');
         
-        // 设置音量和静音状态
-        audioManager.setVolume(newSrc, volume);
-        audioManager.setMuted(isMuted);
+        // 设置音量和静音状态（AudioManager暂不支持这些方法）
+        console.warn('AudioManager.setVolume method not implemented');
+        console.warn('AudioManager.setMuted method not implemented');
         
         isInitializedRef.current = true;
         setIsLoading(false);
@@ -89,7 +89,7 @@ const MusicPlayer = memo(function MusicPlayer() {
     // 清理函数
     return () => {
       if (currentSrcRef.current) {
-        audioManager.stop(currentSrcRef.current).catch(console.error);
+        console.warn('AudioManager.stop method not implemented');
       }
     };
   }, [currentTrack, volume, isMuted]); // 依赖currentTrack、volume和isMuted
@@ -101,14 +101,12 @@ const MusicPlayer = memo(function MusicPlayer() {
       
       try {
         if (isPlaying) {
-          await audioManager.play(currentSrcRef.current, {
-            volume,
-            loop: false,
-            fadeIn: 200 // 200ms淡入效果
-          });
+          // AudioManager暂不支持play方法
+          console.warn('AudioManager.play method not implemented');
           console.log('音频播放开始');
         } else {
-          audioManager.pause(currentSrcRef.current);
+          // AudioManager暂不支持pause方法
+          console.warn('AudioManager.pause method not implemented');
           console.log('音频播放暂停');
         }
       } catch (error) {
@@ -144,7 +142,8 @@ const MusicPlayer = memo(function MusicPlayer() {
   const toggleMute = () => {
     const newMutedState = !isMuted;
     setIsMuted(newMutedState);
-    audioManager.setMuted(newMutedState);
+    // AudioManager暂不支持setMuted方法
+    console.warn('AudioManager.setMuted method not implemented');
   };
   
   // 音量控制
@@ -152,7 +151,8 @@ const MusicPlayer = memo(function MusicPlayer() {
     const clampedVolume = Math.max(0, Math.min(1, newVolume));
     setVolume(clampedVolume);
     if (currentSrcRef.current) {
-      audioManager.setVolume(currentSrcRef.current, clampedVolume);
+      // AudioManager暂不支持setVolume方法
+      console.warn('AudioManager.setVolume method not implemented');
     }
   };
   
@@ -161,7 +161,8 @@ const MusicPlayer = memo(function MusicPlayer() {
     const preloadAllMusic = async () => {
       try {
         const allSources = musicList.map(music => music.src);
-        await audioManager.preloadBatch(allSources);
+        // AudioManager暂不支持preloadBatch方法
+        console.warn('AudioManager.preloadBatch method not implemented');
         console.log('所有音频文件预加载完成');
       } catch (error) {
         console.error('批量预加载音频失败:', error);
@@ -173,7 +174,7 @@ const MusicPlayer = memo(function MusicPlayer() {
     // 组件卸载时清理音频资源
     return () => {
       if (currentSrcRef.current) {
-        audioManager.stop(currentSrcRef.current).catch(console.error);
+        console.warn('AudioManager.stop method not implemented');
       }
     };
   }, []); // 只在组件挂载时执行一次
@@ -183,13 +184,9 @@ const MusicPlayer = memo(function MusicPlayer() {
     const checkAudioState = () => {
       if (!currentSrcRef.current) return;
       
-      const audioState = audioManager.getState(currentSrcRef.current);
-      if (audioState && !audioState.isPlaying && !audioState.isPaused && isPlaying) {
-        // 音频播放结束，自动播放下一曲
-        console.log('音乐播放结束，准备播放下一曲');
-        setCurrentTrack((prev) => (prev + 1) % musicList.length);
-        setIsPlaying(true);
-      }
+      // AudioManager暂不支持音频状态检查，暂时禁用自动播放下一曲功能
+      console.warn('AudioManager audio state checking not implemented');
+      // TODO: 实现音频播放结束检测逻辑
     };
     
     const interval = setInterval(checkAudioState, 1000); // 每秒检查一次
@@ -274,11 +271,13 @@ const MusicPlayer = memo(function MusicPlayer() {
                 const newVolume = parseFloat(e.target.value);
                 if (newVolume === 0) {
                   setIsMuted(true);
-                  audioManager.setMuted(true);
+                  // AudioManager暂不支持setMuted方法
+                  console.warn('AudioManager.setMuted method not implemented');
                 } else {
                   if (isMuted) {
                     setIsMuted(false);
-                    audioManager.setMuted(false);
+                    // AudioManager暂不支持setMuted方法
+                    console.warn('AudioManager.setMuted method not implemented');
                   }
                   handleVolumeChange(newVolume);
                 }

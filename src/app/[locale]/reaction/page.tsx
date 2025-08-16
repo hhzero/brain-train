@@ -37,7 +37,7 @@ export default function ReactionSpeed({
             <div className='mt-4 flex justify-end'> 
               <Link href={item.link as '/memory' | '/reaction' | '/attention' | '/speedreading' | '/categories' | '/about' | '/'}>
                 <button className='rounded-md bg-cyan-600 px-4 py-2 text-white transition hover:bg-cyan-700'>
-                  {t('StartTraining')}
+                  {t('startTraining')}
                 </button>
               </Link>
             </div>

@@ -8,6 +8,7 @@ import { ThemeProvider } from '@/app/[locale]/components/ThemeProvider'
 import { Header } from './components/Header'
 import MusicPlayer from './components/MusicPlayer'
 import { cn } from '@/lib/utils'
+import { ClientStarfieldWrapper } from '@/components/ClientStarfieldWrapper'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -64,7 +65,7 @@ export default async function RootLayout({
               messages={messages as AbstractIntlMessages}
             >
               {/* 星空背景 */}
-              <div className="starry-background"></div>
+              <ClientStarfieldWrapper />
               
               {/* 主要内容区域 */}
               <div className="starry-background-content">

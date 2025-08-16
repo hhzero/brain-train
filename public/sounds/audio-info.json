@@ -1,0 +1,62 @@
+{
+  "notes": [
+    {
+      "name": "tone1",
+      "frequency": 440,
+      "description": "A4 - 440Hz"
+    },
+    {
+      "name": "tone2",
+      "frequency": 523,
+      "description": "C5 - 523Hz"
+    },
+    {
+      "name": "tone3",
+      "frequency": 659,
+      "description": "E5 - 659Hz"
+    },
+    {
+      "name": "tone4",
+      "frequency": 784,
+      "description": "G5 - 784Hz"
+    },
+    {
+      "name": "tone5",
+      "frequency": 880,
+      "description": "A5 - 880Hz"
+    },
+    {
+      "name": "tone6",
+      "frequency": 1047,
+      "description": "C6 - 1047Hz"
+    },
+    {
+      "name": "tone7",
+      "frequency": 1319,
+      "description": "E6 - 1319Hz"
+    },
+    {
+      "name": "tone8",
+      "frequency": 1568,
+      "description": "G6 - 1568Hz"
+    }
+  ],
+  "effects": [
+    {
+      "name": "correct",
+      "description": "正确答案音效"
+    },
+    {
+      "name": "incorrect",
+      "description": "错误答案音效"
+    },
+    {
+      "name": "start",
+      "description": "开始训练音效"
+    },
+    {
+      "name": "complete",
+      "description": "完成训练音效"
+    }
+  ]
+}

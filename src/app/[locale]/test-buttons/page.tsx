@@ -13,37 +13,37 @@ export default function TestButtons() {
   // 测试点击处理函数
   const handleTestClick = () => {
     console.log('🎯 测试按钮被点击了！')
-    alert('按钮点击成功！')
+    alert(t('testButtons.buttonClickSuccess'))
   }
 
   const handleSimpleClick = () => {
     console.log('🎯 简单按钮被点击了！')
-    alert('简单按钮点击成功！')
+    alert(t('testButtons.simpleButtonClickSuccess'))
   }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-center">
-          按钮点击测试页面
+          {t('testButtons.title')}
         </h1>
         
         <div className="space-y-8">
           {/* 测试1: 原始HTML按钮 */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">测试1: 原始HTML按钮</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.test1Title')}</h2>
             <button 
               onClick={handleSimpleClick}
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
               style={{ zIndex: 9999, position: 'relative' }}
             >
-              原始HTML按钮
+              {t('testButtons.rawHtmlButton')}
             </button>
           </section>
 
           {/* 测试2: 自定义Button组件 */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">测试2: 自定义Button组件</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.test2Title')}</h2>
             <Button 
               onClick={handleTestClick}
               variant="primary"
@@ -51,27 +51,27 @@ export default function TestButtons() {
               className="relative"
               style={{ zIndex: 9999 }}
             >
-              自定义Button组件
+              {t('testButtons.customButtonComponent')}
             </Button>
           </section>
 
           {/* 测试3: Link包装的Button */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">测试3: Link包装的Button</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.test3Title')}</h2>
             <Link href="/attention" style={{ zIndex: 9999, position: 'relative' }}>
               <Button 
                 variant="magic"
                 size="large"
                 className="relative"
               >
-                Link包装的Button
+                {t('testButtons.linkWrappedButton')}
               </Button>
             </Link>
           </section>
 
           {/* 测试4: 不同z-index的按钮 */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">测试4: 不同z-index的按钮</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.test4Title')}</h2>
             <div className="space-x-4">
               <Button 
                 onClick={handleTestClick}
@@ -79,7 +79,7 @@ export default function TestButtons() {
                 className="relative"
                 style={{ zIndex: 1 }}
               >
-                z-index: 1
+                {t('testButtons.zIndex1')}
               </Button>
               <Button 
                 onClick={handleTestClick}
@@ -87,7 +87,7 @@ export default function TestButtons() {
                 className="relative"
                 style={{ zIndex: 10 }}
               >
-                z-index: 10
+                {t('testButtons.zIndex10')}
               </Button>
               <Button 
                 onClick={handleTestClick}
@@ -95,60 +95,60 @@ export default function TestButtons() {
                 className="relative"
                 style={{ zIndex: 9999 }}
               >
-                z-index: 9999
+                {t('testButtons.zIndex9999')}
               </Button>
             </div>
           </section>
 
           {/* 测试5: 禁用状态测试 */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">测试5: 禁用状态测试</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.test5Title')}</h2>
             <div className="space-x-4">
               <Button 
                 onClick={handleTestClick}
                 variant="primary"
                 disabled={false}
               >
-                启用按钮
+                {t('testButtons.enabledButton')}
               </Button>
               <Button 
                 onClick={handleTestClick}
                 variant="secondary"
                 disabled={true}
               >
-                禁用按钮
+                {t('testButtons.disabledButton')}
               </Button>
             </div>
           </section>
 
           {/* 测试6: 加载状态测试 */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">测试6: 加载状态测试</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.test6Title')}</h2>
             <div className="space-x-4">
               <Button 
                 onClick={handleTestClick}
                 variant="primary"
                 loading={false}
               >
-                正常按钮
+                {t('testButtons.normalButton')}
               </Button>
               <Button 
                 onClick={handleTestClick}
                 variant="secondary"
                 loading={true}
               >
-                加载中按钮
+                {t('testButtons.loadingButton')}
               </Button>
             </div>
           </section>
 
           {/* 调试信息 */}
           <section className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">调试信息</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('testButtons.debugInfo')}</h2>
             <div className="text-sm space-y-2">
-              <p>• 请打开浏览器开发者工具查看控制台输出</p>
-              <p>• 点击按钮时应该看到控制台日志和弹窗</p>
-              <p>• 如果没有反应，请检查元素层级和事件绑定</p>
+              <p>• {t('testButtons.debugTip1')}</p>
+              <p>• {t('testButtons.debugTip2')}</p>
+              <p>• {t('testButtons.debugTip3')}</p>
             </div>
           </section>
         </div>

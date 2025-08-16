@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import Button from '../../components/Button';
 
 /**
@@ -25,6 +26,7 @@ interface Target {
  * 实现连续点击目标的反应训练游戏
  */
 export default function ReactionTimeClient() {
+  const t = useTranslations('ReactionTime');
   const [gameState, setGameState] = useState<GameState>('waiting');
   const [targets, setTargets] = useState<Target[]>([]);
   const [score, setScore] = useState<number>(0);
@@ -187,12 +189,12 @@ export default function ReactionTimeClient() {
    * 获取成绩评价
    */
   const getScoreRating = (score: number) => {
-    if (score >= 50) return { text: '传奇级别！🏆', color: 'text-yellow-400' };
-    if (score >= 40) return { text: '大师级别！🌟', color: 'text-purple-400' };
-    if (score >= 30) return { text: '专家级别！⚡', color: 'text-blue-400' };
-    if (score >= 20) return { text: '熟练级别！👍', color: 'text-green-400' };
-    if (score >= 10) return { text: '入门级别！😊', color: 'text-pink-400' };
-    return { text: '继续练习！💪', color: 'text-gray-400' };
+    if (score >= 50) return { text: t('legendary'), color: 'text-yellow-400' };
+    if (score >= 40) return { text: t('master'), color: 'text-purple-400' };
+    if (score >= 30) return { text: t('expert'), color: 'text-blue-400' };
+    if (score >= 20) return { text: t('skilled'), color: 'text-green-400' };
+    if (score >= 10) return { text: t('beginner'), color: 'text-pink-400' };
+    return { text: t('keepPracticing'), color: 'text-gray-400' };
   };
 
   return (
@@ -200,13 +202,13 @@ export default function ReactionTimeClient() {
       {/* 游戏状态栏 */}
       <div className="flex justify-between items-center mb-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
         <div className="text-white font-bold text-xl">
-          得分: <span className="text-yellow-400">{score}</span>
+          {t('score')}: <span className="text-yellow-400">{score}</span>
         </div>
         <div className="text-white font-bold text-xl">
-          时间: <span className="text-green-400">{timeLeft}s</span>
+          {t('time')}: <span className="text-green-400">{timeLeft}s</span>
         </div>
         <div className="text-white font-bold text-xl">
-          目标: <span className="text-purple-400">{targets.length}</span>
+          {t('targets')}: <span className="text-purple-400">{targets.length}</span>
         </div>
       </div>
 
@@ -220,13 +222,13 @@ export default function ReactionTimeClient() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
               <div className="text-4xl font-bold text-white mb-4 animate-bounce">
-                🎯 准备开始训练！
+                🎯 {t('readyToStart')}
               </div>
               <Button
                 onClick={startGame}
                 className="bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-white font-bold py-4 px-8 rounded-full transform transition-all duration-200 hover:scale-110 shadow-lg text-xl"
               >
-                🚀 开始训练
+                🚀 {t('startTraining')}
               </Button>
             </div>
           </div>
@@ -258,22 +260,22 @@ export default function ReactionTimeClient() {
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm">
             <div className="text-center bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
               <div className="text-4xl font-bold text-white mb-4">
-                🎉 训练完成！
+                🎉 {t('trainingComplete')}
               </div>
               <div className="text-2xl text-yellow-400 font-bold mb-2">
-                最终得分: {score}
+                {t('finalScore')}: {score}
               </div>
               <div className={`text-xl font-bold mb-4 ${getScoreRating(score).color}`}>
                 {getScoreRating(score).text}
               </div>
               <div className="text-purple-200 mb-6">
-                平均反应时间: {averageReaction}ms
+                {t('averageReaction')}: {averageReaction}ms
               </div>
               <Button
                 onClick={resetGame}
                 className="bg-gradient-to-r from-blue-400 to-purple-500 hover:from-blue-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full transform transition-all duration-200 hover:scale-110 shadow-lg mr-4"
               >
-                🔄 再玩一次
+                🔄 {t('playAgain')}
               </Button>
             </div>
           </div>
@@ -287,46 +289,58 @@ export default function ReactionTimeClient() {
             onClick={resetGame}
             className="bg-gradient-to-r from-red-400 to-pink-500 hover:from-red-500 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full transform transition-all duration-200 hover:scale-110 shadow-lg"
           >
-            ❌ 结束训练
+            ❌ {t('reactionTime.endTraining')}
           </Button>
         </div>
       )}
 
       {/* 统计信息 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        {/* 最佳成绩 */}
-        <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-6 text-center shadow-xl border-2 border-white/20">
-          <div className="text-3xl mb-2">🏆</div>
-          <div className="text-white font-bold text-lg mb-1">最佳成绩</div>
-          <div className="text-white text-2xl font-bold">{bestScore}</div>
-        </div>
-
-        {/* 当前得分 */}
-        <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl p-6 text-center shadow-xl border-2 border-white/20">
-          <div className="text-3xl mb-2">🎯</div>
-          <div className="text-white font-bold text-lg mb-1">当前得分</div>
-          <div className="text-white text-2xl font-bold">{score}</div>
-        </div>
-
-        {/* 平均反应时间 */}
-        <div className="bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl p-6 text-center shadow-xl border-2 border-white/20">
-          <div className="text-3xl mb-2">⚡</div>
-          <div className="text-white font-bold text-lg mb-1">平均反应</div>
-          <div className="text-white text-2xl font-bold">
-            {averageReaction > 0 ? `${averageReaction}ms` : '暂无数据'}
+      <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 mt-8">
+        <h3 className="text-2xl font-bold text-white mb-4 text-center">📊 {t('statistics')}</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-yellow-400">{bestScore}</div>
+            <div className="text-purple-200">{t('bestScore')}</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-green-400">{score}</div>
+            <div className="text-purple-200">{t('currentScore')}</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-blue-400">{averageReaction || '---'}</div>
+            <div className="text-purple-200">{t('averageReactionShort')}</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-pink-400">{averageReaction ? `${averageReaction}ms` : t('noData')}</div>
+            <div className="text-purple-200">{t('reactionTime')}</div>
           </div>
         </div>
       </div>
 
       {/* 游戏说明 */}
-      <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-        <h3 className="text-xl font-bold text-white mb-4 text-center">🎮 游戏说明</h3>
-        <div className="text-purple-200 space-y-2">
-          <p>• 点击开始训练按钮开始游戏</p>
-          <p>• 快速点击出现的彩色目标</p>
-          <p>• 目标会在3秒后自动消失</p>
-          <p>• 在30秒内尽可能多地点击目标</p>
-          <p>• 挑战你的反应速度和准确性！</p>
+      <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20">
+        <h3 className="text-2xl font-bold text-white mb-4 text-center">🎮 {t('gameInstructions')}</h3>
+        <div className="space-y-3 text-purple-200">
+          <div className="flex items-center space-x-3">
+            <span className="text-green-400">•</span>
+            <span>{t('instruction1')}</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <span className="text-blue-400">•</span>
+            <span>{t('instruction2')}</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <span className="text-yellow-400">•</span>
+            <span>{t('instruction3')}</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <span className="text-pink-400">•</span>
+            <span>{t('instruction4')}</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <span className="text-purple-400">•</span>
+            <span>{t('instruction5')}</span>
+          </div>
         </div>
       </div>
     </div>

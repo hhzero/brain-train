@@ -1,0 +1,1376 @@
+{
+  "startTraining": "Start Training",
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "complete": "Complete",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "share": "Share",
+    "download": "Download",
+    "upload": "Upload",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact Us",
+    "help": "Help",
+    "feedback": "Feedback",
+    "version": "Version",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "Copyright",
+    "loadingBackgroundImage": "Loading background image...",
+    "errorBoundary": {
+      "title": "Oops, something went wrong",
+      "description": "The app encountered an unexpected error, but don't worry, we can start over!",
+      "retryButton": "🔄 Try Again",
+      "viewDetails": "View Error Details",
+      "errorMessage": "Error Message",
+      "errorStack": "Error Stack"
+    }
+  },
+  "zenMeditation": {
+    "title": "Zen Meditation Focus Training",
+    "subtitle": "Cultivate inner peace and focus through ancient meditation wisdom",
+    "guide": {
+      "title": "Meditation Wisdom Guide",
+      "traditions": {
+        "title": "Meditation Traditions",
+        "zen": {
+          "name": "Zen",
+          "description": "Direct pointing to the mind, seeing one's nature and becoming Buddha"
+        },
+        "vipassana": {
+          "name": "Vipassana",
+          "description": "Observe reality as it is, gain insight into truth"
+        },
+        "tibetan": {
+          "name": "Tibetan",
+          "description": "Compassion and wisdom, benefiting all beings"
+        },
+        "chan": {
+          "name": "Chan",
+          "description": "Meditation in all activities - walking, standing, sitting, lying"
+        }
+      },
+      "types": {
+        "title": "Meditation Types",
+        "breathing": "Breathing Meditation - Observe breath, cultivate focus",
+        "mindfulness": "Mindfulness Meditation - Awareness of present moment, insight into reality",
+        "lovingKindness": "Loving-Kindness Meditation - Cultivate compassion, dissolve resentment",
+        "walking": "Walking Meditation - Stillness in movement, mindful walking",
+        "bodyScan": "Body Scan - Body awareness, release tension"
+      },
+      "tips": {
+        "title": "Meditation Guidelines",
+        "posture": "Maintain an upright yet relaxed posture",
+        "expectation": "Don't force any special experiences",
+        "wandering": "When mind wanders, gently return to the focus object",
+        "compassion": "Treat your imperfections with compassion",
+        "integration": "Bring meditation awareness into daily life"
+      },
+      "startButton": "Begin Meditation Journey"
+    },
+    "sessions": {
+      "title": "Choose Meditation Session",
+      "score": "Meditation Score",
+      "completed": "Completed Sessions",
+      "duration": "Meditation Duration",
+      "minutes": "min",
+      "seconds": "sec",
+      "difficulty": "Difficulty",
+      "benefits": "Practice Benefits",
+      "philosophy": "Meditation Wisdom",
+      "resetButton": "Reset"
+    },
+    "practice": {
+      "phase": "Phase",
+      "guidance": "Meditation Guidance",
+      "focus": "Focus Object",
+      "visualization": "Visualization Guide",
+      "wisdom": "Meditation Wisdom",
+      "mantra": "Loving-Kindness Mantra",
+      "showMantra": "Show Mantra",
+      "hideMantra": "Hide Mantra",
+      "startMeditation": "Start Meditation",
+      "pauseMeditation": "Pause Meditation",
+      "nextPhase": "Next Phase",
+      "completeMeditation": "Complete Meditation"
+    }
+  },
+  "gaze": {
+    "gazeTitle": "Gaze Focus Training",
+    "gazeDesc": "Maintain focused gaze on the central black dot, avoid distractions from interfering elements, and train sustained attention ability",
+    "gazeStatusFocusing": "Focusing...",
+    "gazeStatusIdle": "Ready to start",
+    "gazeFocusLabel": "Focus time: ",
+    "gazeBestLabel": "Best record: ",
+    "gazeDotAriaLabel": "Focus training target point",
+    "gazeInterrupted": "Focus interrupted!"
+  },
+  "navigation": {
+    "home": "Home",
+    "training": "Training",
+    "memory": "Memory",
+    "attention": "Attention",
+    "reaction": "Reaction",
+    "classification": "Classification",
+    "speedReading": "Speed Reading",
+    "about": "About",
+    "profile": "Profile",
+    "leaderboard": "Leaderboard",
+    "achievements": "Achievements",
+    "settings": "Settings"
+  },
+  "training": {
+    "title": "Brain Training Center",
+    "subtitle": "Explore your brain's potential and enhance cognitive abilities. Through scientific training methods and personalized learning paths, comprehensively improve attention, memory, emotional management, and other core abilities.",
+    "seo": {
+      "title": "Brain Training Center - Comprehensive Cognitive Enhancement Platform",
+      "description": "Professional brain training platform offering multi-dimensional training modules for attention, memory, emotional management, and scientific cognitive enhancement",
+      "keywords": "brain training,cognitive training,attention training,memory training,emotional management,brain exercise"
+    },
+    "modules": {
+      "multiAttention": {
+        "title": "Multi-Dimensional Attention Challenge",
+        "description": "Immersive 3D environment multi-sensory attention training to enhance focus and reaction speed"
+      },
+      "cognitiveFlexibility": {
+        "title": "Cognitive Flexibility Training Camp",
+        "description": "Enhance thinking flexibility and problem-solving skills through workplace simulations and learning scenarios"
+      },
+      "emotionalManagement": {
+        "title": "Emotional Management Training",
+        "description": "Emotional regulation and social EQ enhancement training integrated with traditional Chinese culture"
+      },
+      "emotionRecognition": {
+        "title": "Emotion Recognition Training",
+        "description": "Enhance emotional perception through facial expression and contextual analysis"
+      },
+      "stressRelief": {
+        "title": "Stress Relief Meditation",
+        "description": "Stress management training combining mindful meditation and deep breathing"
+      },
+      "socialEQ": {
+        "title": "Social EQ Enhancement",
+        "description": "Improve interpersonal skills and communication through real social scenario simulations"
+      }
+    },
+    "difficulty": {
+      "all": "All Levels",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "duration": {
+      "5-15min": "5-15 minutes",
+      "10-20min": "10-20 minutes",
+      "10-25min": "10-25 minutes",
+      "15-30min": "15-30 minutes",
+      "20-40min": "20-40 minutes"
+    },
+    "features": {
+      "3dEnvironment": "3D Environment",
+      "multiSensory": "Multi-Sensory Integration",
+      "adaptiveDifficulty": "Adaptive Difficulty",
+      "realTimeFeedback": "Real-Time Feedback",
+      "workplaceSimulation": "Workplace Simulation",
+      "learningScenarios": "Learning Scenarios",
+      "lifeContexts": "Life Contexts",
+      "advancedChallenges": "Advanced Challenges",
+      "emotionRecognition": "Emotion Recognition",
+      "stressRelief": "Stress Relief",
+      "taichiMindset": "Taichi Mindset",
+      "zenFocus": "Zen Focus",
+      "facialRecognition": "Facial Recognition",
+      "contextAnalysis": "Context Analysis",
+      "culturalAdaptation": "Cultural Adaptation",
+      "instantFeedback": "Instant Feedback",
+      "mindfulMeditation": "Mindful Meditation",
+      "breathingTraining": "Breathing Training",
+      "relaxationGuidance": "Relaxation Guidance",
+      "backgroundMusic": "Background Music",
+      "scenarioSimulation": "Scenario Simulation",
+      "communicationSkills": "Communication Skills",
+      "eqAssessment": "EQ Assessment",
+      "culturalWisdom": "Cultural Wisdom"
+    },
+    "categories": {
+      "all": "All Training",
+      "attention": "Attention",
+      "emotion": "Emotional Management",
+      "cognitive": "Cognitive Abilities",
+      "dataLoadError": "Failed to load data:"
+    },
+    "stats": {
+      "trainingModules": "Training Modules",
+      "userCompletions": "User Completions",
+      "averageImprovement": "Average Improvement",
+      "satisfaction": "Satisfaction",
+      "totalTrainingTime": "Total Training Time",
+      "completedTraining": "Completed Training",
+      "activeUsers": "Active Users"
+    },
+    "mockUsers": {
+      "trainer": "Trainer",
+      "cognitiveExplorer": "Cognitive Explorer",
+      "focusMaster": "Focus Master",
+      "emotionManager": "Emotion Manager",
+      "memoryMaster": "Memory Master",
+      "quickThinker": "Quick Thinker"
+    },
+    "mockData": {
+      "milestone": {
+        "title": "Streak Master",
+        "description": "Train for 15 consecutive days",
+        "reward": "Exclusive Badge"
+      },
+      "dailyGoals": {
+        "completeSessions": {
+          "title": "Complete Training",
+          "description": "Complete 2 training sessions"
+        },
+        "trainingTime": {
+          "title": "Training Duration",
+          "description": "Train for 30 minutes"
+        }
+      },
+      "insights": {
+        "attentionExcellent": {
+          "title": "Excellent Attention Performance",
+          "description": "Your attention training scores rank in the top 20% among users of the same level",
+          "actionText": "Challenge Higher Difficulty"
+        }
+      }
+    },
+    "title": "Brain Training Center",
+    "subtitle": "脑力训练中心",
+    "description": "Enhance cognitive abilities, attention, and emotional management skills through scientific training methods and immersive experiences",
+    "modules": {
+      "attention": {
+        "title": "Multi-Dimensional Attention Challenge",
+        "description": "Attention training in immersive 3D environments with multi-sensory fusion and adaptive difficulty",
+        "features": ["3D Environment", "Multi-Sensory Fusion", "Adaptive Difficulty", "Real-time Feedback"]
+      },
+      "cognitiveFlexibility": {
+        "title": "Cognitive Flexibility Training Camp",
+        "description": "Enhance mental agility and cognitive flexibility through task switching, Stroop tests, and more",
+        "features": ["Workplace Simulation", "Learning Scenarios", "Life Contexts", "Advanced Challenges"]
+      },
+      "emotionalManagement": {
+        "title": "Emotional Management Training",
+        "description": "Emotional regulation training integrating Chinese culture, including Tai Chi mindset and Zen meditation",
+        "features": ["Emotion Recognition", "Stress Relief", "Tai Chi Mindset", "Zen Focus"]
+      },
+      "emotionRecognition": {
+        "title": "Emotion Recognition Training",
+        "description": "Enhance emotional perception and understanding through facial expression and voice recognition training",
+        "features": ["Expression Recognition", "Voice Analysis", "Context Understanding", "Empathy Training"]
+      },
+      "stressRelief": {
+        "title": "Stress Relief Meditation",
+        "description": "Effectively relieve stress and improve mental health through mindfulness meditation and breathing exercises",
+        "features": ["Mindfulness Meditation", "Breathing Exercises", "Relaxation Techniques", "Mental Regulation"]
+      },
+      "socialIntelligence": {
+        "title": "Social Intelligence Enhancement",
+        "description": "Improve interpersonal skills through social scenario simulation and communication training",
+        "features": ["Social Simulation", "Communication Skills", "EQ Testing", "Interpersonal Relations"]
+      }
+    },
+    "categories": {
+      "all": "All",
+      "cognitive": "Cognitive Training",
+      "emotional": "Emotional Management",
+      "social": "Social Skills",
+      "mindfulness": "Mindfulness Meditation"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "duration": {
+      "short": "Short",
+      "medium": "Medium",
+      "long": "Long"
+    },
+    "stats": {
+      "totalUsers": "Total Users",
+      "sessionsCompleted": "Sessions Completed",
+      "averageImprovement": "Average Improvement",
+      "satisfactionRate": "Satisfaction Rate"
+    }
+  },
+  "retention": {
+    "title": "Training Center",
+    "subtitle": "Personalized Brain Training Experience",
+    "metrics": {
+      "dailyStreak": "Daily Streak",
+      "engagementScore": "Engagement Score",
+      "weeklyGoal": "Weekly Goal",
+      "nextMilestone": "Next Milestone",
+      "trainingStats": "Training Stats",
+      "totalTrainingDays": "Total Training Days",
+      "averageSessionTime": "Average Session Time",
+      "totalSessions": "Total Sessions",
+      "averageAccuracy": "Average Accuracy"
+    },
+    "goals": {
+      "title": "Daily Goals",
+      "description": "Complete daily goals to earn bonus points",
+      "completed": "Completed",
+      "reward": "Point Reward",
+      "progress": "Progress"
+    },
+    "insights": {
+      "title": "Personalized Insights",
+      "description": "Intelligent analysis based on your training data"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "recommendations": "Recommendations",
+      "achievements": "Achievements",
+      "social": "Social"
+    },
+    "abilities": {
+      "attention": "Attention",
+      "memory": "Memory",
+      "cognitive": "Cognitive",
+      "emotional": "Emotional",
+      "social": "Social",
+      "speed": "Speed"
+    },
+    "engagementLevels": {
+      "high": "Highly Active",
+      "active": "Active",
+      "normal": "Normal",
+      "needsAttention": "Needs Attention"
+    }
+  },
+  "achievements": {
+    "title": "Achievement System",
+    "description": "Unlock various achievement badges by completing training and challenges",
+    "categories": {
+      "all": "All",
+      "training": "Training Achievements",
+      "streak": "Streak Achievements",
+      "score": "Score Achievements",
+      "time": "Time Achievements",
+      "social": "Social Achievements",
+      "special": "Special Achievements"
+    },
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "stats": {
+      "unlockedAchievements": "Unlocked Achievements",
+      "achievementPoints": "Achievement Points",
+      "completionRate": "Completion Rate"
+    },
+    "newUnlock": "New Achievement Unlocked!",
+    "viewDetails": "View Details",
+    "shareAchievement": "Share Achievement"
+  },
+  "recommendations": {
+    "title": "Personalized Recommendations",
+    "description": "Smart recommendations based on your training history and ability assessment",
+    "reasons": {
+      "weakness": "Weakness Improvement",
+      "strength": "Strength Enhancement",
+      "history": "Based on History",
+      "preference": "Personal Preference",
+      "challenge": "New Challenge",
+      "popular": "Popular Choice"
+    },
+    "filters": {
+      "all": "All Types",
+      "attention": "Attention",
+      "memory": "Memory",
+      "cognitive": "Cognitive",
+      "emotional": "Emotional",
+      "social": "Social"
+    },
+    "refresh": "Refresh Recommendations",
+    "startTraining": "Start Training",
+    "expectedImprovement": "Expected Improvement",
+    "estimatedTime": "Estimated Time",
+    "noRecommendations": "No recommendations available",
+    "generateMore": "Generate More Recommendations"
+  },
+  "social": {
+    "title": "Social Features",
+    "leaderboard": {
+      "title": "Leaderboard",
+      "weekly": "This Week",
+      "monthly": "This Month",
+      "allTime": "All Time",
+      "rank": "Rank",
+      "score": "Score",
+      "level": "Level"
+    },
+    "friends": {
+      "title": "Friends List",
+      "addFriend": "Add Friend",
+      "searchFriends": "Search Friends",
+      "online": "Online",
+      "offline": "Offline",
+      "lastActive": "Last Active",
+      "sendChallenge": "Send Challenge",
+      "viewProfile": "View Profile"
+    },
+    "challenges": {
+      "title": "Challenges",
+      "active": "Active",
+      "completed": "Completed",
+      "upcoming": "Upcoming",
+      "joinChallenge": "Join Challenge",
+      "createChallenge": "Create Challenge",
+      "participants": "Participants",
+      "timeLeft": "Time Left",
+      "prize": "Prize"
+    },
+    "activities": {
+      "title": "Activities",
+      "recent": "Recent Activities",
+      "achievement": "Earned Achievement",
+      "training": "Completed Training",
+      "challenge": "Joined Challenge",
+      "friendship": "Added Friend",
+      "timeAgo": "ago"
+    }
+  },
+  "emotionalManagement": {
+    "title": "Emotional Management Training",
+    "subtitle": "The Way of Emotional Regulation Integrating Chinese Culture",
+    "description": "Enhance emotional management and mental health through scientific emotional training methods combined with traditional culture like Tai Chi and Zen meditation",
+    "modules": {
+      "emotionRecognition": {
+        "title": "Emotion Recognition",
+        "description": "Learn to identify and understand various emotional states"
+      },
+      "stressRelief": {
+        "title": "Stress Relief Meditation",
+        "description": "Relieve stress through meditation and breathing exercises"
+      },
+      "emotionRegulation": {
+        "title": "Emotion Regulation",
+        "description": "Master effective emotional management techniques"
+      },
+      "socialIntelligence": {
+        "title": "Social Intelligence Enhancement",
+        "description": "Improve interpersonal and communication skills"
+      },
+      "taichiMindset": {
+        "title": "Tai Chi Mindset Training",
+        "description": "Cultivate inner peace through Tai Chi philosophy"
+      },
+      "zenFocus": {
+        "title": "Zen Focus Training",
+        "description": "Enhance focus through Zen meditation methods"
+      }
+    },
+    "emotions": {
+      "joy": "Joy",
+      "sadness": "Sadness",
+      "anger": "Anger",
+      "fear": "Fear",
+      "surprise": "Surprise",
+      "disgust": "Disgust",
+      "neutral": "Neutral",
+      "anxiety": "Anxiety",
+      "excitement": "Excitement",
+      "contentment": "Contentment"
+    },
+    "training": {
+      "selectEmotion": "Select your current emotion",
+      "breathingExercise": "Breathing Exercise",
+      "inhale": "Inhale",
+      "exhale": "Exhale",
+      "hold": "Hold",
+      "relax": "Relax",
+      "focus": "Focus",
+      "mindfulness": "Mindfulness",
+      "meditation": "Meditation",
+      "reflection": "Reflection"
+    },
+    "stats": {
+      "emotionalBalance": "Emotional Balance",
+      "stressLevel": "Stress Level",
+      "mindfulnessScore": "Mindfulness Score",
+      "socialSkills": "Social Skills",
+      "overallWellbeing": "Overall Wellbeing"
+    },
+    "selectModule": "Select Training Module",
+    "trainingSettings": "Training Settings",
+    "trainingDuration": "Training Duration",
+    "durations": {
+      "5min": "5 minutes",
+      "10min": "10 minutes",
+      "15min": "15 minutes",
+      "20min": "20 minutes"
+    },
+    "difficultyLevel": "Difficulty Level",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "culturalElements": "Integrate Cultural Elements",
+    "adaptiveDifficulty": "Adaptive Difficulty",
+    "instantFeedback": "Instant Feedback",
+    "startTraining": "Start Training",
+    "moduleType": "Module Type",
+    "timeRemaining": "Time Remaining",
+    "continue": "Continue",
+    "pause": "Pause",
+    "completeTraining": "Complete Training",
+    "trainingPaused": "Training Paused",
+    "clickContinue": "Click continue to resume training",
+    "realTimeStats": "Real-time Statistics",
+    "accuracy": "Accuracy",
+    "averageResponseTime": "Average Response Time",
+    "currentStreak": "Current Streak",
+    "totalQuestions": "Total Questions",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "correctAnswer": "The correct answer is",
+    "culturalOrigins": {
+      "taichi": "Tai Chi Wellness",
+      "zen": "Zen Meditation"
+    },
+    "stage": "Stage",
+    "breathing": {
+      "inhale": "Inhale",
+      "hold": "Hold",
+      "exhale": "Exhale",
+      "pause": "Pause"
+    },
+    "seconds": "seconds",
+    "visualization": "Visualization Guidance",
+    "mantra": "Mantra",
+    "overallProgress": "Overall Progress",
+    "stages": "Stages",
+    "trainingCompleted": "Training Completed!",
+    "congratulations": "Congratulations on completing the emotional management training",
+    "trainingResults": "Training Results",
+    "finalAccuracy": "Final Accuracy",
+    "bestStreak": "Best Streak",
+    "totalAnswered": "Total Answered",
+    "emotionAccuracyBreakdown": "Emotion Recognition Accuracy Breakdown",
+    "restartTraining": "Restart Training",
+    "descriptions": {
+      "emotionRecognition": "Learn to identify and understand different emotional expressions to enhance emotional perception",
+      "stressRelief": "Effectively relieve daily stress through breathing exercises and relaxation techniques",
+      "emotionRegulation": "Master emotion regulation strategies to maintain emotional balance and stability",
+      "socialIntelligence": "Enhance emotional understanding and expression in interpersonal interactions",
+      "taichiMindset": "Achieve mind-body harmony by combining Tai Chi movements with mindfulness meditation",
+      "zenFocus": "Cultivate inner peace and focus through Zen meditation practice"
+    },
+    "meditation": {
+      "taichiBreathing": {
+        "name": "Tai Chi Breathing Method",
+        "steps": {
+          "preparation": {
+            "name": "Preparation Stage",
+            "instruction": "Stand with feet shoulder-width apart, relax your body"
+          },
+          "breathing": {
+            "name": "Breath Regulation",
+            "instruction": "Breathe deeply, feel the flow of breath within your body"
+          },
+          "movement": {
+            "name": "Movement Coordination",
+            "instruction": "Slowly raise your arms, coordinating with breathing rhythm"
+          },
+          "integration": {
+            "name": "Mind-Body Unity",
+            "instruction": "Focus your attention on the coordination of breath and movement"
+          }
+        },
+        "visualizations": {
+          "energyFlow": "Imagine energy flowing through your body like warm light",
+          "naturalHarmony": "Feel the harmonious unity with nature"
+        },
+        "mantras": {
+          "balance": "Mind-body balance, breath in harmony",
+          "harmony": "Unity of heaven and human, inner and outer coordination"
+        }
+      },
+      "zenMeditation": {
+        "name": "Zen Sitting Meditation",
+        "steps": {
+          "posture": {
+            "name": "Adjust Posture",
+            "instruction": "Sit upright, spine straight, hands in mudra position"
+          },
+          "breathing": {
+            "name": "Regulate Breath",
+            "instruction": "Breathe naturally, observe the flow of breath in and out"
+          },
+          "mind": {
+            "name": "Calm the Mind",
+            "instruction": "Let go of distracting thoughts, return to the present moment"
+          },
+          "awareness": {
+            "name": "Awareness",
+            "instruction": "Maintain clear awareness, don't attach to thoughts"
+          }
+        },
+        "visualizations": {
+          "stillWater": "Mind like still water, clear and peaceful",
+          "emptySpace": "Mind like empty space, unobstructed"
+        },
+        "mantras": {
+          "presence": "The present moment is, this mind is Buddha",
+          "emptiness": "Emptiness is form, form is emptiness"
+        }
+      }
+    }
+  },
+  "ReactionSpeed": {
+    "clickToStart": "Click to Start",
+    "waitForGreen": "Wait for Green...",
+    "clickNow": "Click Now!",
+    "reactionTime": "Reaction Time: {time}ms",
+    "tooEarly": "Too Early!",
+    "lightning": "Lightning Fast!",
+    "veryFast": "Very Fast!",
+    "good": "Good!",
+    "notBad": "Not Bad!",
+    "keepPracticing": "Keep Practicing!",
+    "tryAgain": "Try Again",
+    "cancel": "Cancel",
+    "bestScore": "Best Score",
+    "averageTime": "Average Time",
+    "totalAttempts": "Total Attempts",
+    "noRecord": "No Record",
+    "testCount": "Test Count",
+    "noData": "No Data",
+    "gameInstructions": "Game Instructions",
+    "instruction1": "Click the purple area to start the game",
+    "instruction2": "Wait when it's red, don't click",
+    "instruction3": "Click immediately when it turns green",
+    "instruction4": "Challenge your reaction limits!"
+  },
+  "cognitiveFlexibility": {
+    "title": "Cognitive Flexibility Training Camp",
+    "subtitle": "Professional Training for Mental Agility",
+    "description": "Comprehensively enhance thinking switching ability and cognitive flexibility through diverse cognitive tasks and contextualized training",
+    "taskTypes": {
+      "taskSwitching": "Task Switching",
+      "stroopTest": "Stroop Test",
+      "workingMemory": "Working Memory Update",
+      "workplaceSimulation": "Workplace Simulation",
+      "learningScenario": "Learning Scenario",
+      "lifeContext": "Life Context"
+    },
+    "scenarios": {
+      "meeting": "Meeting Scenario",
+      "presentation": "Presentation Scenario",
+      "negotiation": "Negotiation Scenario",
+      "study": "Study Scenario",
+      "exam": "Exam Scenario",
+      "research": "Research Scenario",
+      "shopping": "Shopping Scenario",
+      "cooking": "Cooking Scenario",
+      "travel": "Travel Scenario"
+    },
+    "instructions": {
+      "taskSwitching": "Quickly switch task types according to prompts",
+      "stroopTest": "Say the color of the text, ignore the text content",
+      "workingMemory": "Remember letter sequences and judge if they match",
+      "workplace": "Make optimal decisions in workplace contexts",
+      "learning": "Choose the most effective strategy in learning scenarios",
+      "life": "Make reasonable choices in daily life"
+    },
+    "feedback": {
+      "correct": "Correct!",
+      "incorrect": "Incorrect",
+      "tooSlow": "Too slow",
+      "excellent": "Excellent!",
+      "good": "Good",
+      "needsImprovement": "Needs improvement"
+    },
+    "stats": {
+      "accuracy": "Accuracy",
+      "reactionTime": "Reaction Time",
+      "score": "Score",
+      "streak": "Streak",
+      "totalTrials": "Total Trials",
+      "bestStreak": "Best Streak",
+      "averageTime": "Average Time"
+    }
+  },
+  "attention": {
+    "title": "Multi-Dimensional Attention Challenge",
+    "subtitle": "Immersive 3D Attention Training Experience",
+    "description": "Multi-sensory attention training in virtual 3D environments to enhance focus, selective attention, and sustained attention abilities",
+    "modes": {
+      "selective": "Selective Attention",
+      "sustained": "Sustained Attention",
+      "divided": "Divided Attention",
+      "executive": "Executive Attention"
+    },
+    "environments": {
+      "forest": "Forest Environment",
+      "ocean": "Ocean Environment",
+      "space": "Space Environment",
+      "city": "City Environment",
+      "mountain": "Mountain Environment"
+    },
+    "instructions": {
+      "selective": "Focus on target stimuli, ignore distractions",
+      "sustained": "Maintain long-term focus",
+      "divided": "Handle multiple tasks simultaneously",
+      "executive": "Control attention allocation"
+    },
+    "feedback": {
+      "focused": "Good focus",
+      "distracted": "Attention distracted",
+      "improving": "Attention improving",
+      "excellent": "Excellent attention performance"
+    }
+  },
+  "seo": {
+    "meta": {
+      "title": "Brain Training Platform - Scientific Training to Enhance Cognitive Abilities",
+      "description": "Professional brain training platform that enhances attention, memory, cognitive flexibility, and emotional management through scientific cognitive training. Personalized training programs with real-time progress tracking.",
+      "keywords": "brain training,cognitive training,attention training,memory training,cognitive flexibility,emotional management,brain exercise"
+    },
+    "pages": {
+      "training": {
+        "title": "Training Center - Personalized Brain Training Programs",
+        "description": "Explore diverse brain training modules including attention challenges, cognitive flexibility training camps, emotional management training, and more. Scientifically designed and progressively structured."
+      },
+      "attention": {
+        "title": "Multi-Dimensional Attention Challenge - Enhance Focus and Reaction Speed",
+        "description": "Attention training in immersive 3D environments with multi-sensory fusion experience and adaptive difficulty adjustment to comprehensively enhance all dimensions of attention."
+      },
+      "cognitiveFlexibility": {
+        "title": "Cognitive Flexibility Training Camp - Enhance Mental Agility",
+        "description": "Enhance cognitive flexibility and thinking switching ability through task switching, Stroop tests, working memory updates, and more. Workplace simulations and learning scenarios available."
+      },
+      "emotionalManagement": {
+        "title": "Emotional Management Training - Emotional Regulation Integrating Chinese Culture",
+        "description": "Emotional management training combining traditional Chinese culture like Tai Chi and Zen meditation, including emotion recognition, stress relief, and social intelligence enhancement modules."
+      }
+    }
+  },
+  "cognitiveFlexibility": {
+    "title": "Cognitive Flexibility Training Camp 2.0",
+    "description": "Comprehensively enhance cognitive flexibility and executive control through diverse training including workplace simulations, learning scenarios, and life situations",
+    "challengeLevel": "Challenge Level",
+    "achievements": "Achievements",
+    "trainingControl": {
+      "title": "Training Control",
+      "startTraining": "Start Training",
+      "preparing": "Preparing...",
+      "prepareMessage": "Please get ready, training will begin shortly",
+      "pause": "Pause",
+      "continue": "Continue",
+      "complete": "Complete",
+      "abandon": "Abandon",
+      "settings": "Settings"
+    },
+    "taskTypes": {
+      "taskSwitching": "Task Switching",
+      "stroopTest": "Stroop Test",
+      "workingMemoryUpdate": "Working Memory Update",
+      "workplaceSimulation": "Workplace Simulation",
+      "learningScenario": "Learning Scenario",
+      "lifeSituation": "Life Situation"
+    },
+    "currentTask": "Current Task: ",
+    "trainingAreas": {
+      "workplace": "Workplace Simulation",
+      "learning": "Learning Scenario",
+      "life": "Life Situation"
+    },
+    "completion": {
+      "title": "Training Complete!",
+      "finalScore": "Final Score",
+      "accuracy": "Accuracy",
+      "bestStreak": "Best Streak",
+      "averageReactionTime": "Average Reaction Time",
+      "trainAgain": "Train Again"
+    },
+    "stats": {
+      "title": "Training Statistics",
+      "accuracy": "Accuracy",
+      "averageReactionTime": "Average Reaction Time",
+      "score": "Score",
+      "totalTrials": "Total Trials",
+      "challengeProgress": "Challenge Progress"
+    },
+    "achievements": {
+      "title": "Achievement Badges",
+      "streakMaster": "Streak Master",
+      "trainingExpert": "Training Expert"
+    },
+    "settings": {
+      "title": "Training Settings",
+      "duration": "Training Duration (seconds)",
+      "difficulty": "Difficulty Level",
+      "level": "Level",
+      "trainingTypes": "Training Types",
+      "enableFeedback": "Enable Feedback",
+      "adaptiveDifficulty": "Adaptive Difficulty",
+      "progressiveChallenge": "Progressive Challenge",
+      "contextualLearning": "Contextual Learning"
+    },
+    "colors": {
+      "red": "Red",
+      "blue": "Blue",
+      "green": "Green",
+      "yellow": "Yellow",
+      "purple": "Purple",
+      "orange": "Orange"
+    },
+    "shapes": {
+      "circle": "Circle",
+      "square": "Square",
+      "triangle": "Triangle",
+      "diamond": "Diamond",
+      "star": "Star",
+      "heart": "Heart"
+    },
+    "trainingSettings": {
+      "title": "Training Settings",
+      "duration": "Training Duration (seconds)",
+      "difficulty": "Difficulty Level",
+      "level": "Level",
+      "trainingType": "Training Type",
+      "enableFeedback": "Enable Feedback",
+      "adaptiveDifficulty": "Adaptive Difficulty",
+      "progressiveChallenge": "Progressive Challenge",
+      "contextualLearning": "Contextual Learning"
+    },
+    "taskInstructions": {
+      "stroopTest": "In the Stroop test, you will see color words displayed in different colors. Please click the button that matches the color of the text, not the word itself. For example, if you see the word 'RED' displayed in blue, click the blue button.",
+      "workingMemoryUpdate": "In the working memory update task, you need to remember and update a sequence of numbers. When you see a new number, add it to your memory and remove the oldest one. Always maintain the specified number of items in your working memory."
+    },
+    "multidimensionalAttention": {
+      "title": "Multidimensional Attention Challenge",
+      "startPrompt": "Click the start button to begin training",
+      "description": "Through visual, auditory, and tactile multi-sensory training, comprehensively enhance the breadth, depth, and flexibility of attention",
+      "trainingControl": "Training Control",
+      "startTraining": "Start Training",
+      "preparing": "Preparing...",
+      "getReady": "Get ready, training is about to begin",
+      "pause": "Pause",
+      "resume": "Resume",
+      "complete": "Complete",
+      "abandon": "Abandon",
+      "settings": "Settings",
+      "trainingComplete": "Training Complete!",
+      "finalScore": "Final Score",
+      "accuracy": "Accuracy",
+      "bestStreak": "Best Streak",
+      "averageReactionTime": "Average Reaction Time",
+      "retrain": "Train Again",
+      "trainingStats": "Training Statistics",
+      "score": "Score",
+      "totalStimuli": "Total Stimuli",
+      "trainingSettings": "Training Settings",
+      "trainingDuration": "Training Duration (seconds)",
+      "difficultyLevel": "Difficulty Level",
+      "level": "Level {{level}}",
+      "trainingTypes": "Training Types",
+      "visualTraining": "Visual Training",
+      "auditoryTraining": "Auditory Training",
+      "tactileTraining": "Tactile Training",
+      "pageTitle": "Multidimensional Attention Challenge 3.0",
+      "pageSubtitle": "Immersive 3D Environment · Multi-sensory Fusion · Adaptive Difficulty System",
+      "upgradeTrainingTitle": "Upgraded Multidimensional Attention Training",
+      "selectEnvironment": "Select Training Environment",
+      "trainingConfig": "Training Configuration",
+      "sensoryMode": "Sensory Mode",
+      "visualFocus": "Visual Focus",
+      "auditoryTrainingMode": "Auditory Training",
+      "multisensoryFusion": "Multi-sensory Fusion",
+      "synesthesiaExperience": "Synesthesia Experience",
+      "initialDifficulty": "Initial Difficulty",
+      "target": "Target",
+      "audioFeedback": "Audio Feedback",
+      "adaptiveDifficultySystem": "Adaptive Difficulty"
+    },
+    "schulte": {
+      "title": "Schulte Grid",
+      "description": "Schulte Grid training is a classic attention and visual search training method that improves concentration and reaction speed by clicking numbers in sequence.",
+      "timeUsed": "Time Used",
+      "bestTime": "Best Time",
+      "numberLabel": "Number {number}",
+      "startTraining": "Start Training",
+      "completed": "Completed! Time used: {time} seconds"
+    },
+    "nback": {
+      "achievements": {
+        "firstSession": {
+          "title": "First Experience",
+          "description": "Complete your first N-Back training session"
+        },
+        "perfectRound": {
+          "title": "Perfect Performance",
+          "description": "Achieve 100% accuracy in a training round"
+        },
+        "streakMaster": {
+          "title": "Streak Master",
+          "description": "Answer 10 questions correctly in a row"
+        },
+        "levelUp": {
+          "title": "Level Up",
+          "description": "Successfully advance to a higher difficulty level"
+        }
+      },
+      "feedback": {
+        "correct": "Correct!",
+        "keepGoing": "Keep going!"
+      },
+      "modes": {
+        "tutorial": "Tutorial Mode",
+        "visual": "Visual Mode",
+        "audio": "Audio Mode",
+        "dual": "Dual Mode"
+      },
+      "settings": {
+        "title": "Training Settings",
+        "description": "Customize your N-Back training experience",
+        "levelHint": "Recommended to start from lower levels",
+        "audioFeedback": "Audio Feedback",
+        "audioDescription": "Enable audio prompts and feedback"
+      },
+      "ui": {
+        "startTraining": "Start Training",
+        "dataManagement": "Data Management",
+        "trainingHistory": "Training History",
+        "waitingResponse": "Waiting for response...",
+        "score": "Score",
+        "streak": "Streak",
+        "trainingProgress": "Training Progress"
+      },
+      "instructions": {
+        "title": "Training Instructions",
+        "visual": "Observe positions in the grid, determine if they match N steps back",
+        "audio": "Listen to letter sounds, determine if they match N steps back",
+        "dual": "Perform both visual and auditory judgments, dual challenge for working memory"
+      },
+      "results": {
+        "evaluation": "Training Evaluation",
+        "recommendation": "Recommendation"
+      },
+      "buttons": {
+        "backToMenu": "Back to Menu",
+        "trainAgain": "Train Again"
+      }
+    }
+  },
+  "profile": {
+    "tabs": {
+      "profile": "Profile",
+      "stats": "Statistics",
+      "settings": "Settings",
+      "privacy": "Privacy"
+    },
+    "basicInfo": {
+      "title": "Basic Information",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "level": "Level",
+      "rank": "Rank",
+      "joinedAt": "Joined",
+      "displayName": "Display Name",
+      "username": "Username",
+      "email": "Email",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell us about yourself..."
+    },
+    "achievements": {
+      "title": "Achievement Overview",
+      "count": "Achievement Count",
+      "streak": "Streak Days",
+      "totalScore": "Total Score",
+      "trainingTime": "Training Time",
+      "recent": "Recent Achievements"
+    },
+    "stats": {
+      "totalSessions": "Total Sessions",
+      "totalTime": "Total Time",
+      "averageAccuracy": "Average Accuracy",
+      "bestStreak": "Best Streak",
+      "trainingDistribution": "Training Distribution",
+      "goalProgress": "Goal Progress",
+      "weeklyGoal": "Weekly Goal",
+      "monthlyGoal": "Monthly Goal",
+      "comparedToLastMonth": "Compared to Last Month",
+      "types": {
+        "attention": "Attention",
+        "memory": "Memory",
+        "reaction": "Reaction",
+        "cognitive": "Cognitive"
+      }
+    },
+    "settings": {
+      "notifications": {
+        "title": "Notification Settings",
+        "achievements": "Achievement Unlocked",
+        "friendRequests": "Friend Requests",
+        "trainingReminders": "Training Reminders",
+        "weeklyReports": "Weekly Reports",
+        "soundEffects": "Sound Effects",
+        "vibration": "Vibration Feedback"
+      },
+      "training": {
+        "title": "Training Preferences",
+        "difficulty": "Difficulty Setting",
+        "duration": "Training Duration",
+        "breakReminders": "Break Reminders",
+        "autoSave": "Auto Save",
+        "showHints": "Show Hints",
+        "adaptiveDifficulty": "Adaptive Difficulty",
+        "difficultyLevels": {
+          "easy": "Easy",
+          "medium": "Medium",
+          "hard": "Hard",
+          "adaptive": "Adaptive"
+        }
+      },
+      "interface": {
+        "title": "Interface Settings",
+        "theme": "Theme",
+        "language": "Language",
+        "fontSize": "Font Size",
+        "animations": "Animations",
+        "reducedMotion": "Reduced Motion",
+        "themes": {
+          "dark": "Dark",
+          "light": "Light",
+          "auto": "Auto"
+        },
+        "languages": {
+          "zh": "中文",
+          "en": "English",
+          "ja": "日本語"
+        },
+        "fontSizes": {
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large"
+        }
+      },
+      "audio": {
+        "title": "Audio Settings",
+        "muteAll": "Mute All",
+        "masterVolume": "Master Volume",
+        "effectsVolume": "Effects Volume",
+        "musicVolume": "Background Music",
+        "voiceVolume": "Voice Volume"
+      },
+      "privacy": {
+        "title": "Privacy Settings",
+        "profileVisible": "Public Profile",
+        "showOnlineStatus": "Show Online Status",
+        "allowFriendRequests": "Allow Friend Requests",
+        "showTrainingStats": "Show Training Statistics",
+        "showAchievements": "Show Achievements"
+      },
+      "dataManagement": {
+        "title": "Data Management",
+        "exportData": "Export My Data",
+        "importData": "Import Data",
+        "resetData": "Reset Training Data",
+        "deleteAccount": "Delete Account",
+        "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records, achievements, and friend relationships. This action cannot be undone.",
+        "confirmDelete": "Confirm Delete"
+      }
+    }
+  },
+  "the_title_homepage01": "Focus on the mind, enlighten through action",
+  "the_title_homepage02": "Let us awaken and transcend the mind through training",
+  "Use_Start": "Start Training",
+  "userMenu": {
+    "guest": "Guest",
+    "signedInAs": "Signed in as",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Welcome back! Please sign in to your account"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create a new account to start your brain training journey"
+    },
+    "fields": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "username": "Enter your username",
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "confirmPassword": "Confirm your password"
+    },
+    "buttons": {
+      "login": "Login",
+      "register": "Register",
+      "cancel": "Cancel"
+    },
+    "errors": {
+      "emailRequired": "Email is required",
+      "passwordRequired": "Password is required",
+      "usernameRequired": "Username is required",
+      "passwordMismatch": "Passwords do not match",
+      "invalidEmail": "Please enter a valid email address",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "loginFailed": "Login failed. Please check your credentials.",
+      "registerFailed": "Registration failed. Please try again."
+    }
+  },
+  "audioSettings": {
+    "title": "Audio Settings",
+    "reset": "Reset",
+    "masterVolume": "Master Volume",
+    "effectsSettings": "Effects Settings",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "effectsVolume": "Effects Volume",
+    "effectsStyle": "Effects Style",
+    "tonesSettings": "Tones Settings",
+    "tonesVolume": "Tones Volume",
+    "toneType": "Tone Type",
+    "testEffects": "Test Effects",
+    "testTones": "Test Tones",
+    "toneTypes": {
+      "sine": {
+        "label": "Sine Wave",
+        "description": "Pure and gentle tone"
+      },
+      "square": {
+        "label": "Square Wave",
+        "description": "Crisp and bright tone"
+      },
+      "triangle": {
+        "label": "Triangle Wave",
+        "description": "Gentle and balanced tone"
+      },
+      "sawtooth": {
+        "label": "Sawtooth Wave",
+        "description": "Rich and full tone"
+      }
+    },
+    "effectStyles": {
+      "digital": {
+        "label": "Digital Style",
+        "description": "Modern tech-inspired effects"
+      },
+      "natural": {
+        "label": "Natural Style",
+        "description": "Nature-inspired effects"
+      },
+      "minimal": {
+        "label": "Minimal Style",
+        "description": "Clean and clear effects"
+      }
+    }
+  },
+  "personalizedRecommendations": {
+    "attention": {
+      "title": "Multi-Dimensional Attention Challenge",
+      "description": "Intensive training designed for attention weaknesses"
+    },
+    "emotional": {
+      "title": "Emotional Management Training",
+      "description": "Comprehensive training to improve emotion recognition and regulation"
+    },
+    "cognitive": {
+      "title": "Cognitive Flexibility Bootcamp",
+      "description": "Enhance thinking switching and problem-solving abilities"
+    },
+    "weaknessImprovement": {
+      "attention": "Your attention score is {{score}} points, training recommended",
+      "emotional": "Your emotional management score is {{score}} points, improvement suggested",
+      "cognitive": "Your cognitive flexibility score is {{score}} points, enhancement needed"
+    },
+    "tags": {
+      "attention": "Attention",
+      "emotional": "Emotional Management",
+      "cognitive": "Cognitive Training",
+      "thinking": "Thinking Training",
+      "basic": "Basic Training",
+      "personalized": "Personalized"
+    }
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "The application encountered an unexpected error. We are working to fix this issue.",
+    "errorDetails": "Error Details",
+    "errorId": "Error ID",
+    "retry": "Retry",
+    "goHome": "Go Home",
+    "refresh": "Refresh Page",
+    "helpText": "If the problem persists, please contact technical support or try again later."
+  },
+  "trainingData": {
+    "errors": {
+      "loadFailed": "Failed to load data",
+      "notLoggedIn": "User not logged in",
+      "saveFailed": "Failed to save training result",
+      "exportFailed": "Failed to export data",
+      "importFailed": "Failed to import data",
+      "invalidFormat": "Invalid data format",
+      "clearFailed": "Failed to clear data"
+    }
+  },
+  "progressConfigs": {
+    "attentionMultidimensional": {
+      "name": "Multidimensional Attention Challenge",
+      "description": "Improve attention concentration through multisensory fusion training"
+    },
+    "cognitiveFlexibility": {
+      "name": "Cognitive Flexibility Training Camp",
+      "description": "Enhance thinking switching and adaptation abilities"
+    },
+    "emotionManagement": {
+      "name": "Emotion Management Training",
+      "description": "Learn emotion recognition and regulation techniques"
+    }
+  },
+  "common": {
+    "time": {
+      "minutes": "{{count}} minutes",
+      "hours": "{{count}} hours",
+      "hoursAndMinutes": "{{hours}} hours {{minutes}} minutes"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ja": "日本語"
+  },
+  "simpleTest": {
+    "title": "Simple Test",
+    "rawHtmlButton": "Raw HTML Button",
+    "customButtonComponent": "Custom Button Component",
+    "buttonClickSuccess": "Button clicked successfully!",
+    "buttonClickLog": "🎯 Button clicked!"
+  },
+  "nback": {
+    "achievements": {
+      "firstSession": {
+        "title": "First Experience",
+        "description": "Complete your first N-Back training"
+      },
+      "streak5": {
+        "title": "Persistent",
+        "description": "Train for 5 consecutive days"
+      },
+      "level3": {
+        "title": "Advanced Challenge",
+        "description": "Reach 3-Back level"
+      },
+      "perfectRound": {
+        "title": "Perfect Performance",
+        "description": "100% accuracy in a single round"
+      }
+    },
+    "feedback": {
+      "correct": "Correct!",
+      "incorrect": "Incorrect",
+      "missed": "Missed",
+      "falseAlarm": "False Alarm",
+      "excellent": "Excellent!",
+      "good": "Good",
+      "needsImprovement": "Needs Improvement"
+    },
+    "modes": {
+      "single": "Single Modal",
+      "dual": "Dual Modal",
+      "position": "Position",
+      "audio": "Audio",
+      "visual": "Visual"
+    },
+    "settings": {
+      "nLevel": "N Level",
+      "trials": "Number of Trials",
+      "stimulusDuration": "Stimulus Duration",
+      "intervalDuration": "Interval Duration",
+      "mode": "Training Mode",
+      "difficulty": "Difficulty"
+    },
+    "ui": {
+      "start": "Start Training",
+      "pause": "Pause",
+      "resume": "Resume",
+      "stop": "Stop",
+      "restart": "Restart",
+      "score": "Score",
+      "accuracy": "Accuracy",
+      "level": "Level",
+      "round": "Round",
+      "progress": "Progress"
+    },
+    "instructions": {
+      "title": "Training Instructions",
+      "objective": "Objective: Press spacebar when current stimulus matches the one N steps back",
+      "controls": "Controls: Press spacebar to respond to matches",
+      "tips": "Tips: Stay focused, don't rush to respond"
+    },
+    "results": {
+      "sessionComplete": "Training Complete!",
+      "finalScore": "Final Score",
+      "accuracy": "Accuracy",
+      "reactionTime": "Average Reaction Time",
+      "improvements": "Improvement Suggestions",
+      "nextSession": "Next Training"
+    },
+    "buttons": {
+      "startTraining": "Start Training",
+      "pauseTraining": "Pause Training",
+      "resumeTraining": "Resume Training",
+      "stopTraining": "Stop Training",
+      "restartTraining": "Restart Training",
+      "viewResults": "View Results",
+      "nextLevel": "Next Level",
+      "settings": "Settings"
+    }
+  }
+}

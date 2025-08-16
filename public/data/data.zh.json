@@ -49,6 +49,20 @@
         "description": "在打乱顺序的数字方格中依次寻找目标数字，有助于提升视觉搜索、顺序处理和注意力分配能力",
         "image": "/images/memory/memory.png",
         "link": "/train/schulte"
+      },
+      {
+        "id": 12,
+        "name": "多维注意力挑战",
+        "description": "通过视觉、听觉、触觉多感官刺激训练，提升多维度注意力分配和切换能力，增强认知灵活性",
+        "image": "/images/memory/memory.png",
+        "link": "/train/multidimensional-attention"
+      },
+      {
+        "id": 13,
+        "name": "认知灵活性训练营",
+        "description": "通过任务切换、抑制控制、工作记忆更新等训练，提升认知灵活性和执行控制能力",
+        "image": "/images/memory/memory.png",
+        "link": "/train/cognitive-flexibility"
       }
     ]
   },
@@ -69,6 +83,54 @@
         "description": "以实际阅读的方式，训练自己速度的能力",
         "image": "/images/memory/memory.png",
         "link": "/train/speed-practice"
+      }
+    ]
+  },
+  "EmotionManagement": {
+    "id": 5,
+    "name": "情绪管理",
+    "list": [
+      {
+        "id": 10,
+        "name": "情绪识别训练",
+        "description": "通过面部表情、语音语调识别训练，提升情绪感知能力，增强情商基础",
+        "image": "/images/emotion/emotion-recognition.png",
+        "link": "/train/emotion-recognition"
+      },
+      {
+        "id": 11,
+        "name": "压力缓解冥想",
+        "description": "结合正念冥想和深度呼吸技巧，有效缓解压力，提升心理韧性",
+        "image": "/images/emotion/stress-relief.png",
+        "link": "/train/stress-relief"
+      },
+      {
+        "id": 12,
+        "name": "情绪调节练习",
+        "description": "学习情绪调节策略，通过认知重构和行为技巧管理负面情绪",
+        "image": "/images/emotion/emotion-regulation.png",
+        "link": "/train/emotion-regulation"
+      },
+      {
+        "id": 13,
+        "name": "社交情商提升",
+        "description": "通过情境模拟训练，提升人际交往中的情绪理解和表达能力",
+        "image": "/images/emotion/social-eq.png",
+        "link": "/train/social-eq"
+      },
+      {
+        "id": 14,
+        "name": "太极心境训练",
+        "description": "融合太极哲学的情绪平衡训练，通过虚拟太极体验培养内心宁静",
+        "image": "/images/emotion/taichi-mindset.png",
+        "link": "/train/taichi-mindset"
+      },
+      {
+        "id": 15,
+        "name": "禅修专注力",
+        "description": "结合禅宗智慧的专注力训练，通过数息观、观心等方法提升心理素质",
+        "image": "/images/emotion/zen-focus.png",
+        "link": "/train/zen-focus"
       }
     ]
   }

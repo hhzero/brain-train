@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 // 颜色词和颜色值
 const COLORS = [
@@ -25,6 +26,7 @@ function getRandomQuestion() {
 }
 
 export default function ReadingEliminationClient() {
+  const t = useTranslations('ReadingElimination')
   const [question, setQuestion] = useState(getRandomQuestion())
   const [count, setCount] = useState(0)
   const [correct, setCorrect] = useState(0)
@@ -56,9 +58,9 @@ export default function ReadingEliminationClient() {
     setCount(c => c + 1)
     if (color === question.answer) {
       setCorrect(c => c + 1)
-      setFeedback('正确！')
+      setFeedback(t('correct'))
     } else {
-      setFeedback('错误')
+      setFeedback(t('incorrect'))
     }
     // 10题为一轮
     if (count + 1 >= 10) {
@@ -74,14 +76,14 @@ export default function ReadingEliminationClient() {
 
   return (
     <main className="max-w-xl mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-4 text-cyan-600">消除音读</h1>
-      <p className="mb-6 text-gray-500">消除音读（Stroop测试）是一种经典的注意力和认知灵活性训练，通过判断字体颜色而非文字内容，提升大脑的执行功能和抗干扰能力。</p>
+      <h1 className="text-3xl font-bold mb-4 text-cyan-600">{t('title')}</h1>
+      <p className="mb-6 text-gray-500">{t('description')}</p>
       <div className="bg-white/80 rounded-xl shadow-lg p-6 flex flex-col items-center gap-6">
         <div className="flex gap-8 mb-2">
-          <div>题数：<span className="font-bold text-cyan-700 text-xl">{count}/10</span></div>
-          <div>正确：<span className="font-bold text-cyan-700 text-xl">{correct}</span></div>
-          <div>最佳：<span className="font-bold text-cyan-700 text-xl">{best ?? '-'}</span></div>
-          <div>用时：<span className="font-bold text-cyan-700 text-xl">{time}s</span></div>
+          <div>{t('questions')}：<span className="font-bold text-cyan-700 text-xl">{count}/10</span></div>
+          <div>{t('correct')}：<span className="font-bold text-cyan-700 text-xl">{correct}</span></div>
+          <div>{t('best')}：<span className="font-bold text-cyan-700 text-xl">{best ?? '-'}</span></div>
+          <div>{t('time')}：<span className="font-bold text-cyan-700 text-xl">{time}s</span></div>
         </div>
         {running ? (
           <div className="flex flex-col items-center gap-4">
@@ -94,21 +96,21 @@ export default function ReadingEliminationClient() {
                     border-cyan-200 text-cyan-700 hover:bg-cyan-50`}
                   style={{ background: c.color }}
                   onClick={() => answer(c.word)}
-                  aria-label={`选择颜色${c.word}`}
+                  aria-label={t('selectColor', { color: c.word })}
                 >
                   {c.word}
                 </button>
               ))}
             </div>
-            {feedback && <div className={`font-bold text-lg ${feedback === '正确！' ? 'text-green-600' : 'text-red-500'}`}>{feedback}</div>}
+            {feedback && <div className={`font-bold text-lg ${feedback === t('correct') ? 'text-green-600' : 'text-red-500'}`}>{feedback}</div>}
           </div>
         ) : (
-          <button className="bg-cyan-600 text-white px-6 py-2 rounded-md hover:bg-cyan-700 transition" onClick={start}>开始训练</button>
+          <button className="bg-cyan-600 text-white px-6 py-2 rounded-md hover:bg-cyan-700 transition" onClick={start}>{t('startTraining')}</button>
         )}
         {!running && best !== null && (
-          <div className="text-green-600 font-bold text-lg mb-2">本轮正确数：{best} / 10</div>
+          <div className="text-green-600 font-bold text-lg mb-2">{t('roundResult', { correct: best })}</div>
         )}
       </div>
     </main>
   )
-} 
+}

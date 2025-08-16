@@ -4,7 +4,7 @@
  */
 
 import ImagePreloader, { PreloadOptions as ImagePreloadOptions, PreloadResult } from './ImagePreloader';
-import PerformanceMonitor from './PerformanceMonitor';
+import performanceMonitor from './PerformanceMonitor';
 
 // 音频资源接口
 interface AudioResource {
@@ -35,7 +35,7 @@ interface PreloadOptions {
 class ResourceManager {
   private static instance: ResourceManager;
   private imagePreloader: ImagePreloader;
-  private performanceMonitor: PerformanceMonitor;
+  private performanceMonitor = performanceMonitor;
   private audioCache = new Map<string, AudioResource>();
   private imageCache = new Map<string, ImageResource>();
   private loadingPromises: Map<string, Promise<any>> = new Map();
@@ -44,7 +44,7 @@ class ResourceManager {
   private cacheAccessTime: Map<string, number> = new Map();
 
   private constructor() {
-    this.performanceMonitor = PerformanceMonitor.getInstance();
+    // performanceMonitor已经是单例实例
     this.imagePreloader = ImagePreloader.getInstance();
     
     // 监听页面卸载，清理资源
@@ -129,30 +129,30 @@ class ResourceManager {
         this.loadingPromises.delete(url);
         
         // 记录成功的音频预加载
-        this.performanceMonitor.recordMetric({
-          name: 'audio_preload_success',
-          value: 1,
-          timestamp: Date.now(),
-          category: 'loading',
-          metadata: {
+        this.performanceMonitor.recordMetric(
+          'audio_preload_success',
+          {
+            value: 1,
+            timestamp: Date.now(),
             url,
             priority: options.priority || 'medium',
           },
-        });
+          'loading'
+        );
         
         console.log(`Audio preloaded: ${url}`);
       } catch (error) {
         this.loadingPromises.delete(url);
         
         // 记录音频预加载错误
-        this.performanceMonitor.reportAudioError(
-          `Failed to preload audio: ${url}`,
-          {
-            url,
-            error: error instanceof Error ? error.message : 'Unknown error',
-            options,
-          }
-        );
+        this.performanceMonitor.reportError({
+          message: `Failed to preload audio: ${url}`,
+          stack: error instanceof Error ? error.stack : undefined,
+          timestamp: Date.now(),
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          context: 'audio_preload'
+        });
         
         console.error(`Failed to preload audio: ${url}`, error);
         throw error;
@@ -169,13 +169,15 @@ class ResourceManager {
         // 检查本地缓存
          const cached = this.getCachedImage(url);
          if (cached) {
-           this.performanceMonitor.recordMetric({
-             name: 'image_cache_hit',
-             value: 1,
-             timestamp: Date.now(),
-             category: 'loading',
-             metadata: { url },
-           });
+           this.performanceMonitor.recordMetric(
+             'image_cache_hit',
+             {
+               value: 1,
+               timestamp: Date.now(),
+               url,
+             },
+             'loading'
+           );
            return cached;
          }
 
@@ -210,29 +212,29 @@ class ResourceManager {
         this.cleanupImageCache();
         
         // 记录成功的图片预加载
-        this.performanceMonitor.recordMetric({
-          name: 'image_preload_success',
-          value: 1,
-          timestamp: Date.now(),
-          category: 'loading',
-          metadata: {
+        this.performanceMonitor.recordMetric(
+          'image_preload_success',
+          {
+            value: 1,
+            timestamp: Date.now(),
             url,
             priority: options.priority || 'medium',
           },
-        });
+          'loading'
+        );
         
         console.log(`Image preloaded: ${url}`);
         return image;
       } catch (error) {
         // 记录图片预加载错误
-        this.performanceMonitor.reportImageError(
-          `Failed to preload image: ${url}`,
-          {
-            url,
-            error: error instanceof Error ? error.message : 'Unknown error',
-            options,
-          }
-        );
+        this.performanceMonitor.reportError({
+          message: `Failed to preload image: ${url}`,
+          stack: error instanceof Error ? error.stack : undefined,
+          timestamp: Date.now(),
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          context: 'image_preload'
+        });
         
         console.error(`Failed to preload image: ${url}`, error);
         throw error;
@@ -275,17 +277,17 @@ class ResourceManager {
       
       this.cleanupImageCache();
       
-      this.performanceMonitor.recordMetric({
-        name: 'images_batch_preload',
-        value: urls.length,
-        timestamp: Date.now(),
-        category: 'loading',
-        metadata: {
+      this.performanceMonitor.recordMetric(
+        'images_batch_preload',
+        {
+          value: urls.length,
+          timestamp: Date.now(),
           count: urls.length,
           successCount: results.filter(r => r.success).length,
           totalTime: Date.now() - startTime
-        }
-      });
+        },
+        'loading'
+      );
       
       return results;
     } catch (error) {
@@ -295,9 +297,7 @@ class ResourceManager {
         timestamp: Date.now(),
         url: window.location.href,
         userAgent: navigator.userAgent,
-        category: 'image',
-        severity: 'medium',
-        metadata: { urls }
+        context: 'images_batch_preload'
       });
       throw error;
     }

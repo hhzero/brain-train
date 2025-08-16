@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import Button from '../../components/Button';
 
 /**
@@ -13,6 +14,7 @@ type GameState = 'waiting' | 'ready' | 'go' | 'clicked' | 'too-early';
  * 实现反应速度测试游戏的核心逻辑
  */
 export default function ReactionSpeedClient() {
+  const t = useTranslations('ReactionSpeed');
   const [gameState, setGameState] = useState<GameState>('waiting');
   const [reactionTime, setReactionTime] = useState<number | null>(null);
   const [bestTime, setBestTime] = useState<number | null>(null);
@@ -96,37 +98,37 @@ export default function ReactionSpeedClient() {
       case 'waiting':
         return {
           bg: 'bg-gradient-to-br from-purple-500 to-pink-500',
-          text: '点击开始测试',
+          text: t('clickToStart'),
           textColor: 'text-white'
         };
       case 'ready':
         return {
           bg: 'bg-gradient-to-br from-red-500 to-orange-500',
-          text: '等待绿色出现...',
+          text: t('waitForGreen'),
           textColor: 'text-white'
         };
       case 'go':
         return {
           bg: 'bg-gradient-to-br from-green-400 to-emerald-500',
-          text: '点击！',
+          text: t('clickNow'),
           textColor: 'text-white'
         };
       case 'clicked':
         return {
           bg: 'bg-gradient-to-br from-blue-500 to-cyan-500',
-          text: `反应时间: ${reactionTime}ms`,
+          text: t('reactionTime', { time: reactionTime }),
           textColor: 'text-white'
         };
       case 'too-early':
         return {
           bg: 'bg-gradient-to-br from-red-600 to-pink-600',
-          text: '太早了！等待绿色出现',
+          text: t('tooEarly'),
           textColor: 'text-white'
         };
       default:
         return {
           bg: 'bg-gradient-to-br from-purple-500 to-pink-500',
-          text: '点击开始测试',
+          text: t('clickToStart'),
           textColor: 'text-white'
         };
     }
@@ -138,11 +140,11 @@ export default function ReactionSpeedClient() {
    * 获取反应时间评价
    */
   const getReactionRating = (time: number) => {
-    if (time < 200) return { text: '闪电般快速！⚡', color: 'text-yellow-400' };
-    if (time < 300) return { text: '非常快！🚀', color: 'text-green-400' };
-    if (time < 400) return { text: '很好！👍', color: 'text-blue-400' };
-    if (time < 500) return { text: '不错！😊', color: 'text-purple-400' };
-    return { text: '继续练习！💪', color: 'text-pink-400' };
+    if (time < 200) return { text: t('lightning'), color: 'text-yellow-400' };
+    if (time < 300) return { text: t('veryFast'), color: 'text-green-400' };
+    if (time < 400) return { text: t('good'), color: 'text-blue-400' };
+    if (time < 500) return { text: t('notBad'), color: 'text-purple-400' };
+    return { text: t('keepPracticing'), color: 'text-pink-400' };
   };
 
   return (
@@ -175,7 +177,7 @@ export default function ReactionSpeedClient() {
             onClick={startGame}
             className="bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-white font-bold py-3 px-8 rounded-full transform transition-all duration-200 hover:scale-110 shadow-lg"
           >
-            🔄 再试一次
+            {t('tryAgain')}
           </Button>
         )}
         
@@ -184,7 +186,7 @@ export default function ReactionSpeedClient() {
             onClick={resetGame}
             className="bg-gradient-to-r from-red-400 to-pink-500 hover:from-red-500 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-full transform transition-all duration-200 hover:scale-110 shadow-lg"
           >
-            ❌ 取消
+            {t('cancel')}
           </Button>
         )}
       </div>
@@ -194,27 +196,27 @@ export default function ReactionSpeedClient() {
         {/* 最佳成绩 */}
         <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-6 text-center shadow-xl border-2 border-white/20">
           <div className="text-2xl mb-2">🏆</div>
-          <div className="text-white font-bold text-lg mb-1">最佳成绩</div>
+          <div className="text-white font-bold text-lg mb-1">{t('bestScore')}</div>
           <div className="text-white text-2xl font-bold">
-            {bestTime ? `${bestTime}ms` : '暂无记录'}
+            {bestTime ? `${bestTime}ms` : t('noRecord')}
           </div>
         </div>
 
         {/* 测试次数 */}
         <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl p-6 text-center shadow-xl border-2 border-white/20">
           <div className="text-2xl mb-2">📊</div>
-          <div className="text-white font-bold text-lg mb-1">测试次数</div>
+          <div className="text-white font-bold text-lg mb-1">{t('testCount')}</div>
           <div className="text-white text-2xl font-bold">{attempts.length}</div>
         </div>
 
         {/* 平均时间 */}
         <div className="bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl p-6 text-center shadow-xl border-2 border-white/20">
           <div className="text-2xl mb-2">⚡</div>
-          <div className="text-white font-bold text-lg mb-1">平均时间</div>
+          <div className="text-white font-bold text-lg mb-1">{t('averageTime')}</div>
           <div className="text-white text-2xl font-bold">
             {attempts.length > 0 
               ? `${Math.round(attempts.reduce((a, b) => a + b, 0) / attempts.length)}ms`
-              : '暂无数据'
+              : t('noData')
             }
           </div>
         </div>
@@ -222,12 +224,12 @@ export default function ReactionSpeedClient() {
 
       {/* 游戏说明 */}
       <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-        <h3 className="text-xl font-bold text-white mb-4 text-center">🎮 游戏说明</h3>
+        <h3 className="text-xl font-bold text-white mb-4 text-center">🎮 {t('gameInstructions')}</h3>
         <div className="text-purple-200 space-y-2">
-          <p>• 点击紫色区域开始测试</p>
-          <p>• 屏幕变红后等待，不要点击</p>
-          <p>• 当屏幕变绿时立即点击</p>
-          <p>• 挑战你的反应极限，争取更好的成绩！</p>
+          <p>• {t('instruction1')}</p>
+          <p>• {t('instruction2')}</p>
+          <p>• {t('instruction3')}</p>
+          <p>• {t('instruction4')}</p>
         </div>
       </div>
     </div>

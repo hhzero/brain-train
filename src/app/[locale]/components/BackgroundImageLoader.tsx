@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import ResourceManager from '../../../utils/ResourceManager';
 
 interface BackgroundImageLoaderProps {
@@ -20,6 +21,7 @@ const BackgroundImageLoader: React.FC<BackgroundImageLoaderProps> = ({
   priority = false,
   fallbackColor = 'bg-gray-100 dark:bg-gray-800',
 }) => {
+  const t = useTranslations('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -133,7 +135,7 @@ const BackgroundImageLoader: React.FC<BackgroundImageLoaderProps> = ({
             <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
             {isPreloading && (
               <span className="text-xs text-white text-center px-2">
-                加载背景图片中...
+                {t('common.loadingBackgroundImage')}
               </span>
             )}
           </div>

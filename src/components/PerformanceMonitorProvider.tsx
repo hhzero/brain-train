@@ -10,19 +10,10 @@ import { performanceMonitor } from '@/utils/PerformanceMonitor';
 export function PerformanceMonitorProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // 记录应用启动指标
-    performanceMonitor.recordMetric({
-      name: 'app_startup',
+    performanceMonitor.recordMetric('app_startup', {
       value: performance.now(),
-      timestamp: Date.now(),
-      category: 'loading',
-      metadata: {
-        userAgent: navigator.userAgent,
-        viewport: {
-          width: window.innerWidth,
-          height: window.innerHeight
-        }
-      }
-    });
+      timestamp: Date.now()
+    }, 'application');
 
     // 监听页面卸载事件，生成性能报告
     const handleBeforeUnload = () => {

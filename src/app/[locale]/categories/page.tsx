@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 // 分类页面组件
 export default function Categories() {
@@ -14,6 +15,7 @@ export default function Categories() {
   const router = useRouter()
   const params = useParams()
   const locale = params.locale as string
+  const t = useTranslations('categories')
 
   // 页面加载时，异步获取 public/data/data.json 文件内容
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function Categories() {
         setCategories(arr)
       })
       .catch(err => {
-        console.error('加载数据失败:', err)
+        console.error(t('dataLoadError'), err)
       })
   }, [locale])
 
@@ -44,7 +46,7 @@ export default function Categories() {
           animate={{ opacity: 1, y: 0 }}
           className='mb-12 text-4xl font-bold text-center text-gray-800'
         >
-          {locale === 'zh' ? '分类训练' : locale === 'en' ? 'Categories' : 'カテゴリー'}
+          {t('title')}
         </motion.h1>
         
         <div className='space-y-6'>
@@ -104,13 +106,13 @@ export default function Categories() {
                             className='ml-4 rounded-lg bg-primary px-6 py-2 text-white font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg'
                             onClick={() => router.push(item.link)}
                           >
-                            {locale === 'zh' ? '开始训练' : locale === 'en' ? 'Start Training' : 'トレーニング開始'}
+                            {t('startTraining')}
                           </motion.button>
                         </motion.div>
                       ))
                     ) : (
                       <div className='text-center py-8 text-gray-400'>
-                        {locale === 'zh' ? '暂无训练项目' : locale === 'en' ? 'No training items' : 'トレーニング項目なし'}
+                        {t('noTrainingItems')}
                       </div>
                     )}
                   </motion.div>
@@ -122,4 +124,4 @@ export default function Categories() {
       </div>
     </div>
   )
-} 
+}
