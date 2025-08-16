@@ -1710,6 +1710,8 @@
         "difficulty": "难度"
       },
       "ui": {
+        "nBackTraining": "{level}-Back训练",
+        "trialProgress": "试验 {current}/{total}",
         "title": "双重N-Back训练",
         "subtitle": "科学验证的工作记忆训练方法，提升认知能力",
         "description": "通过视觉位置和听觉音调的双重刺激进行全面的工作记忆训练",
