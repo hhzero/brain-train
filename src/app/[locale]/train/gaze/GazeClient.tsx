@@ -96,16 +96,16 @@ export default function GazeClient() {
       startDistractions()
     }
     
-    toast.success(t('trainingStarted'))
+    toast.success(t('ui.trainingStarted'))
   }, [config, mode, startTrainingSession, t])
 
   // 暂停/恢复训练
   const togglePause = useCallback(() => {
     setIsPaused(prev => !prev)
     if (isPaused) {
-      toast.info(t('trainingResumed'))
+      toast.info(t('ui.trainingResumed'))
     } else {
-      toast.info(t('trainingPaused'))
+      toast.info(t('ui.trainingPaused'))
     }
   }, [isPaused, t])
 

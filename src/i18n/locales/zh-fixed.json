@@ -131,7 +131,11 @@
     "gazeFocusLabel": "专注时间：",
     "gazeBestLabel": "最佳记录：",
     "gazeDotAriaLabel": "专注训练目标点",
-    "gazeInterrupted": "专注被中断！"
+    "gazeInterrupted": "专注被中断！",
+    "resume": "继续",
+    "pause": "暂停",
+    "stop": "停止",
+    "trainingPaused": "训练已暂停"
   },
   "navigation": {
     "home": "首页",

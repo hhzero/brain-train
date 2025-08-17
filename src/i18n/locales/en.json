@@ -241,7 +241,11 @@
       "focusTime": "Focus Time",
       "distractions": "Distractions",
       "focusScore": "Focus Score"
-    }
+    },
+    "resume": "Resume",
+    "pause": "Pause",
+    "stop": "Stop",
+    "trainingPaused": "Training Paused"
   },
   "progress": {
     "title": "Training Progress",
