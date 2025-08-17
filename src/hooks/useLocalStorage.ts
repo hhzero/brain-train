@@ -8,14 +8,14 @@ import {
   UserProfile,
   UserSettings,
   TrainingSession,
-  Achievement,
+
   Friend,
   LeaderboardEntry,
   UserStatistics,
   DailyGoal,
   UserDataManager,
   TrainingDataManager,
-  AchievementManager,
+
   FriendManager,
   LeaderboardManager,
   LocalStorageManager,
@@ -220,89 +220,7 @@ export function useUserStatistics() {
   };
 }
 
-/**
- * 成就钩子
- */
-export function useAchievements() {
-  const [achievements, setAchievements] = useState<Achievement[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [newAchievements, setNewAchievements] = useState<Achievement[]>([]);
 
-  useEffect(() => {
-    const userAchievements = AchievementManager.getAchievements();
-    setAchievements(userAchievements);
-    setLoading(false);
-  }, []);
-
-  const checkAchievements = useCallback((session: TrainingSession) => {
-    const unlockedAchievements = AchievementManager.checkAndUnlockAchievements(session);
-    
-    if (unlockedAchievements.length > 0) {
-      setNewAchievements(unlockedAchievements);
-      
-      // 更新成就列表
-      const updatedAchievements = AchievementManager.getAchievements();
-      setAchievements(updatedAchievements);
-    }
-    
-    return unlockedAchievements;
-  }, []);
-
-  const clearNewAchievements = useCallback(() => {
-    setNewAchievements([]);
-  }, []);
-
-  const refreshAchievements = useCallback(() => {
-    const userAchievements = AchievementManager.getAchievements();
-    setAchievements(userAchievements);
-  }, []);
-
-  // 获取已解锁的成就
-  const getUnlockedAchievements = useCallback(() => {
-    return achievements.filter(achievement => achievement.unlocked);
-  }, [achievements]);
-
-  // 获取未解锁的成就
-  const getLockedAchievements = useCallback(() => {
-    return achievements.filter(achievement => !achievement.unlocked);
-  }, [achievements]);
-
-  // 按稀有度分组
-  const getAchievementsByRarity = useCallback(() => {
-    const grouped = {
-      common: [] as Achievement[],
-      rare: [] as Achievement[],
-      epic: [] as Achievement[],
-      legendary: [] as Achievement[]
-    };
-    
-    achievements.forEach(achievement => {
-      grouped[achievement.rarity].push(achievement);
-    });
-    
-    return grouped;
-  }, [achievements]);
-
-  // 计算总积分
-  const getTotalPoints = useCallback(() => {
-    return achievements
-      .filter(achievement => achievement.unlocked)
-      .reduce((total, achievement) => total + achievement.points, 0);
-  }, [achievements]);
-
-  return {
-    achievements,
-    loading,
-    newAchievements,
-    checkAchievements,
-    clearNewAchievements,
-    refreshAchievements,
-    getUnlockedAchievements,
-    getLockedAchievements,
-    getAchievementsByRarity,
-    getTotalPoints
-  };
-}
 
 /**
  * 好友钩子
@@ -492,7 +410,7 @@ export function useDataSync() {
   const { refreshProfile } = useUserProfile();
   const { refreshSessions } = useTrainingSessions();
   const { refreshStatistics } = useUserStatistics();
-  const { refreshAchievements } = useAchievements();
+
   const { refreshFriends } = useFriends();
   const { refreshLeaderboard } = useLeaderboard();
   const { refreshGoals } = useDailyGoals();
@@ -501,7 +419,7 @@ export function useDataSync() {
     refreshProfile();
     refreshSessions();
     refreshStatistics();
-    refreshAchievements();
+
     refreshFriends();
     refreshLeaderboard();
     refreshGoals();
@@ -509,7 +427,7 @@ export function useDataSync() {
     refreshProfile,
     refreshSessions,
     refreshStatistics,
-    refreshAchievements,
+
     refreshFriends,
     refreshLeaderboard,
     refreshGoals

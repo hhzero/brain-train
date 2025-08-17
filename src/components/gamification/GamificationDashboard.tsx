@@ -24,7 +24,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 // 导入游戏化组件
-import AchievementSystem from './AchievementSystem';
+
 import LevelSystem from './LevelSystem';
 import ExperienceCalculator from './ExperienceCalculator';
 
@@ -60,9 +60,6 @@ export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({
       const totalExperience = Object.values(userProgress).reduce(
         (sum, progress) => sum + (progress?.experience || 0), 0
       );
-      const totalAchievements = Object.values(userProgress).reduce(
-        (sum, progress) => sum + (progress?.achievements?.length || 0), 0
-      );
       const averageAccuracy = Object.values(userProgress).reduce(
         (sum, progress, index, array) => {
           const accuracy = progress?.bestAccuracy || 0;
@@ -73,7 +70,7 @@ export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({
       return {
         totalSessions,
         totalExperience,
-        totalAchievements,
+    
         averageAccuracy: Math.round(averageAccuracy),
         currentStreak: gamification.streaks.current,
         longestStreak: gamification.streaks.longest
@@ -83,7 +80,7 @@ export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({
       return {
         totalSessions: progress?.totalSessions || 0,
         totalExperience: progress?.experience || 0,
-        totalAchievements: progress?.achievements?.length || 0,
+    
         averageAccuracy: Math.round(progress?.bestAccuracy || 0),
         currentStreak: gamification.streaks.current,
         longestStreak: gamification.streaks.longest
@@ -184,12 +181,7 @@ export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({
           color="bg-yellow-500"
         />
         
-        <StatCard
-          title="解锁成就"
-          value={statsData.totalAchievements}
-          icon={<Trophy className="h-5 w-5 text-white" />}
-          color="bg-green-500"
-        />
+
         
         <StatCard
           title="平均准确率"
@@ -220,10 +212,8 @@ export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({
             <BarChart3 className="h-4 w-4" />
             概览
           </TabsTrigger>
-          <TabsTrigger value="achievements" className="flex items-center gap-2">
-            <Trophy className="h-4 w-4" />
-            成就
-          </TabsTrigger>
+
+
           <TabsTrigger value="levels" className="flex items-center gap-2">
             <Crown className="h-4 w-4" />
             等级
@@ -251,18 +241,10 @@ export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({
             )}
           </div>
           
-          {/* 成就系统概览 */}
-          <AchievementSystem 
-            trainingType={selectedTrainingType === 'all' ? undefined : selectedTrainingType}
-          />
+
         </TabsContent>
 
-        {/* 成就标签页 */}
-        <TabsContent value="achievements">
-          <AchievementSystem 
-            trainingType={selectedTrainingType === 'all' ? undefined : selectedTrainingType}
-          />
-        </TabsContent>
+
 
         {/* 等级标签页 */}
         <TabsContent value="levels">

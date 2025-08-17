@@ -150,21 +150,16 @@ export default function TrainingPage() {
     avatar: '/avatars/default.jpg',
     level: 15,
     totalScore: 15680,
-    achievements: 23,
     joinDate: '2024-01-15',
     lastActive: new Date().toISOString(),
     status: 'online' as const,
     stats: {
       totalTrainingTime: 1200, // 20小时
-      trainingStreak: 12,
-      totalScore: 15680,
-      modulesCompleted: 6,
-      perfectScores: 8,
-      averageAccuracy: 85,
-      fastestReaction: 280, // 毫秒
-      socialInteractions: 15,
-      achievementsUnlocked: 23,
-      totalSessions: 45
+      sessionsCompleted: 45,
+      averageScore: 85,
+      bestStreak: 12,
+      favoriteTrainingType: 'attention',
+      improvementRate: 15.5
     }
   })
   
@@ -367,7 +362,6 @@ export default function TrainingPage() {
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              whileHover={{ scale: 1.05 }}
               className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20"
             >
               <stat.icon className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
@@ -420,7 +414,6 @@ export default function TrainingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
                 onHoverStart={() => setHoveredModule(module.id)}
                 onHoverEnd={() => setHoveredModule(null)}
                 className="group relative"

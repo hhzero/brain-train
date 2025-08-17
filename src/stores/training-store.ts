@@ -7,7 +7,7 @@ import {
   TrainingType,
   DifficultyLevel,
   TrainingStatus,
-  Achievement,
+
   AdaptiveDifficultySystem,
   GameificationElements,
   TrainingStats,
@@ -43,7 +43,7 @@ interface TrainingStore {
     preferredDifficulty: DifficultyLevel;
     notifications: {
       dailyReminder: boolean;
-      achievementUnlocked: boolean;
+
       goalCompleted: boolean;
     };
   };
@@ -59,9 +59,7 @@ interface TrainingStore {
   updateUserProgress: (type: TrainingType, result: TrainingResult) => void;
   getProgressByType: (type: TrainingType) => UserProgress;
   
-  // 成就系统
-  checkAchievements: (result: TrainingResult) => Achievement[];
-  unlockAchievement: (achievement: Achievement) => void;
+
   
   // 自适应难度
   adjustDifficulty: (type: TrainingType, performance: { accuracy: number; reactionTime: number }) => DifficultyLevel;
@@ -93,7 +91,7 @@ const createDefaultUserProgress = (type: TrainingType): UserProgress => ({
   bestReactionTime: Infinity,
   currentStreak: 0,
   longestStreak: 0,
-  achievements: [],
+
   lastTrainingDate: new Date(),
   weeklyGoal: 150, // 150分钟/周
   weeklyProgress: 0
@@ -162,7 +160,7 @@ export const useTrainingStore = create<TrainingStore>()(persist(
       preferredDifficulty: 'intermediate',
       notifications: {
         dailyReminder: true,
-        achievementUnlocked: true,
+
         goalCompleted: true
       }
     },
@@ -214,9 +212,7 @@ export const useTrainingStore = create<TrainingStore>()(persist(
       // 更新统计数据
       state.updateStats(result);
       
-      // 检查成就
-      const newAchievements = state.checkAchievements(result);
-      newAchievements.forEach(achievement => state.unlockAchievement(achievement));
+
       
       // 调整自适应难度
       if (state.settings.adaptiveDifficultyEnabled) {
@@ -268,45 +264,7 @@ export const useTrainingStore = create<TrainingStore>()(persist(
       return get().userProgress[type];
     },
 
-    checkAchievements: (result) => {
-      const achievements: Achievement[] = [];
-      const progress = get().userProgress[result.type];
-      
-      // 示例成就检查逻辑
-      if (result.accuracy >= 95 && !progress.achievements.find(a => a.id === 'perfectionist')) {
-        achievements.push({
-          id: 'perfectionist',
-          name: 'Perfectionist',
-          description: 'Achieve 95% accuracy in a training session',
-          icon: '🎯',
-          type: 'accuracy',
-          requirement: { value: 95, condition: 'gte' },
-          reward: { experience: 50 },
-          unlockedAt: new Date(),
-          progress: 100
-        });
-      }
-      
-      return achievements;
-    },
 
-    unlockAchievement: (achievement) => {
-      set((state) => {
-        const progress = state.userProgress[state.currentSession?.type || 'gaze'];
-        const updatedAchievements = [...progress.achievements, achievement];
-        
-        return {
-          userProgress: {
-            ...state.userProgress,
-            [progress.trainingType]: {
-              ...progress,
-              achievements: updatedAchievements,
-              experience: progress.experience + achievement.reward.experience
-            }
-          }
-        };
-      });
-    },
 
     adjustDifficulty: (type, performance) => {
       const state = get();

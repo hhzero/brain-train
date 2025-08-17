@@ -8,7 +8,7 @@ export const STORAGE_KEYS = {
   USER_PROFILE: 'brain_train_user_profile',
   USER_SETTINGS: 'brain_train_user_settings',
   TRAINING_SESSIONS: 'brain_train_training_sessions',
-  ACHIEVEMENTS: 'brain_train_achievements',
+
   FRIENDS: 'brain_train_friends',
   STATISTICS: 'brain_train_statistics',
   LEADERBOARD: 'brain_train_leaderboard',
@@ -27,7 +27,7 @@ export interface UserProfile {
   level: number;
   totalScore: number;
   totalTrainingTime: number;
-  achievements: number;
+
   joinDate: string;
   lastActive: string;
   streak: number;
@@ -41,7 +41,7 @@ export interface UserProfile {
 // 用户设置接口
 export interface UserSettings {
   notifications: {
-    achievements: boolean;
+
     friendRequests: boolean;
     trainingReminders: boolean;
     weeklyReports: boolean;
@@ -53,7 +53,7 @@ export interface UserSettings {
     showOnlineStatus: boolean;
     allowFriendRequests: boolean;
     showTrainingStats: boolean;
-    showAchievements: boolean;
+
   };
   training: {
     difficulty: 'easy' | 'medium' | 'hard' | 'adaptive';
@@ -93,7 +93,7 @@ export interface TrainingSession {
   reactionTime?: number;
   difficulty: string;
   completed: boolean;
-  achievements?: string[];
+
   statistics: {
     correctAnswers: number;
     totalQuestions: number;
@@ -106,21 +106,7 @@ export interface TrainingSession {
   metadata?: Record<string, any>;
 }
 
-// 成就接口
-export interface Achievement {
-  id: string;
-  name: string;
-  description: string;
-  type: string;
-  rarity: 'common' | 'rare' | 'epic' | 'legendary';
-  icon: string;
-  points: number;
-  unlocked: boolean;
-  unlockedAt?: string;
-  progress: number;
-  maxProgress: number;
-  category: string;
-}
+
 
 // 好友接口
 export interface Friend {
@@ -198,7 +184,7 @@ export interface DailyGoal {
   current: number;
   completed: boolean;
   reward?: {
-    type: 'points' | 'achievement';
+    type: 'points';
     value: string | number;
   };
 }
@@ -298,7 +284,7 @@ export class UserDataManager {
   static getUserSettings(): UserSettings {
     const defaultSettings: UserSettings = {
       notifications: {
-        achievements: true,
+    
         friendRequests: true,
         trainingReminders: true,
         weeklyReports: true,
@@ -310,7 +296,7 @@ export class UserDataManager {
         showOnlineStatus: true,
         allowFriendRequests: true,
         showTrainingStats: true,
-        showAchievements: true
+    
       },
       training: {
         difficulty: 'adaptive',
@@ -369,7 +355,7 @@ export class UserDataManager {
       level: 1,
       totalScore: 0,
       totalTrainingTime: 0,
-      achievements: 0,
+  
       joinDate: new Date().toISOString(),
       lastActive: new Date().toISOString(),
       streak: 0,
@@ -571,135 +557,7 @@ export class TrainingDataManager {
   }
 }
 
-/**
- * 成就管理器
- */
-export class AchievementManager {
-  /**
-   * 获取所有成就
-   */
-  static getAchievements(): Achievement[] {
-    const defaultAchievements: Achievement[] = [
-      {
-        id: 'first_session',
-        name: '初次尝试',
-        description: '完成第一次训练',
-        type: 'milestone',
-        rarity: 'common',
-        icon: 'play',
-        points: 10,
-        unlocked: false,
-        progress: 0,
-        maxProgress: 1,
-        category: 'beginner'
-      },
-      {
-        id: 'perfect_start',
-        name: '完美开始',
-        description: '在训练中获得100%准确率',
-        type: 'performance',
-        rarity: 'rare',
-        icon: 'target',
-        points: 50,
-        unlocked: false,
-        progress: 0,
-        maxProgress: 1,
-        category: 'performance'
-      },
-      {
-        id: 'streak_master',
-        name: '连击大师',
-        description: '保持7天连续训练',
-        type: 'consistency',
-        rarity: 'epic',
-        icon: 'flame',
-        points: 100,
-        unlocked: false,
-        progress: 0,
-        maxProgress: 7,
-        category: 'consistency'
-      },
-      {
-        id: 'speed_demon',
-        name: '反应闪电',
-        description: '反应时间低于250毫秒',
-        type: 'speed',
-        rarity: 'legendary',
-        icon: 'zap',
-        points: 200,
-        unlocked: false,
-        progress: 0,
-        maxProgress: 1,
-        category: 'performance'
-      }
-    ];
-    
-    return LocalStorageManager.load(STORAGE_KEYS.ACHIEVEMENTS, defaultAchievements);
-  }
 
-  /**
-   * 保存成就
-   */
-  static saveAchievements(achievements: Achievement[]): void {
-    LocalStorageManager.save(STORAGE_KEYS.ACHIEVEMENTS, achievements);
-  }
-
-  /**
-   * 检查并解锁成就
-   */
-  static checkAndUnlockAchievements(session: TrainingSession): Achievement[] {
-    const achievements = this.getAchievements();
-    const unlockedAchievements: Achievement[] = [];
-    const stats = TrainingDataManager.getUserStatistics();
-    
-    achievements.forEach(achievement => {
-      if (achievement.unlocked) return;
-      
-      let shouldUnlock = false;
-      
-      switch (achievement.id) {
-        case 'first_session':
-          shouldUnlock = stats.totalSessions >= 1;
-          achievement.progress = Math.min(stats.totalSessions, 1);
-          break;
-          
-        case 'perfect_start':
-          shouldUnlock = session.accuracy >= 100;
-          achievement.progress = session.accuracy >= 100 ? 1 : 0;
-          break;
-          
-        case 'streak_master':
-          shouldUnlock = stats.currentStreak >= 7;
-          achievement.progress = Math.min(stats.currentStreak, 7);
-          break;
-          
-        case 'speed_demon':
-          if (session.reactionTime && session.reactionTime <= 250) {
-            shouldUnlock = true;
-            achievement.progress = 1;
-          }
-          break;
-      }
-      
-      if (shouldUnlock && !achievement.unlocked) {
-        achievement.unlocked = true;
-        achievement.unlockedAt = new Date().toISOString();
-        unlockedAchievements.push(achievement);
-        
-        // 更新用户积分
-        const profile = UserDataManager.getUserProfile();
-        if (profile) {
-          profile.totalScore += achievement.points;
-          profile.achievements++;
-          UserDataManager.saveUserProfile(profile);
-        }
-      }
-    });
-    
-    this.saveAchievements(achievements);
-    return unlockedAchievements;
-  }
-}
 
 /**
  * 好友管理器
@@ -826,7 +684,7 @@ export class DataManager {
       profile: UserDataManager.getUserProfile(),
       settings: UserDataManager.getUserSettings(),
       sessions: TrainingDataManager.getTrainingSessions(),
-      achievements: AchievementManager.getAchievements(),
+
       statistics: TrainingDataManager.getUserStatistics(),
       friends: FriendManager.getFriends(),
       exportDate: new Date().toISOString()
@@ -845,7 +703,7 @@ export class DataManager {
       if (data.profile) UserDataManager.saveUserProfile(data.profile);
       if (data.settings) UserDataManager.saveUserSettings(data.settings);
       if (data.sessions) LocalStorageManager.save(STORAGE_KEYS.TRAINING_SESSIONS, data.sessions);
-      if (data.achievements) AchievementManager.saveAchievements(data.achievements);
+
       if (data.statistics) LocalStorageManager.save(STORAGE_KEYS.STATISTICS, data.statistics);
       if (data.friends) LocalStorageManager.save(STORAGE_KEYS.FRIENDS, data.friends);
       

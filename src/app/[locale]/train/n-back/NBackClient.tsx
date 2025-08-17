@@ -60,14 +60,8 @@ interface TrainingStats {
   level: number
 }
 
-// 成就系统
-interface Achievement {
-  id: string
-  title: string
-  description: string
-  icon: string
-  unlocked: boolean
-}
+
+
 
 function NBackClientContent() {
   // 国际化翻译
@@ -105,9 +99,6 @@ function NBackClientContent() {
     reactionTime: 0,
     level: 2
   })
-  
-  // 成就系统
-  const [achievements, setAchievements] = useState<Achievement[]>([])
   
   // 定时器引用
   const trialTimerRef = useRef<NodeJS.Timeout | null>(null)
@@ -167,15 +158,7 @@ function NBackClientContent() {
     }
   }, [])
   
-  // 初始化成就系统 - 在组件挂载后进行，确保翻译已准备好
-  useEffect(() => {
-    setAchievements([
-      { id: 'first_session', title: t('achievements.firstSession.title'), description: t('achievements.firstSession.description'), icon: '🌟', unlocked: false },
-      { id: 'perfect_round', title: t('achievements.perfectRound.title'), description: t('achievements.perfectRound.description'), icon: '💎', unlocked: false },
-      { id: 'streak_master', title: t('achievements.streakMaster.title'), description: t('achievements.streakMaster.description'), icon: '🔥', unlocked: false },
-      { id: 'level_up', title: t('achievements.levelUp.title'), description: t('achievements.levelUp.description'), icon: '🚀', unlocked: false }
-    ])
-  }, [t])
+
   
   // 播放音调
   const playTone = useCallback(async (frequency: number, duration: number = 500) => {
@@ -412,7 +395,7 @@ function NBackClientContent() {
       accuracy: accuracy,
       averageReactionTime: averageReactionTime,
       score: score,
-      achievements: [] // 本次训练解锁的成就
+
     }
     
     try {
@@ -427,30 +410,10 @@ function NBackClientContent() {
       })
     }
     
-    // 检查成就
-    checkAchievements(accuracy)
+
   }, [responses, nLevel, trainingMode, sessionStartTime, score, maxStreak, audioEnabled])
   
-  // 检查成就
-  const checkAchievements = useCallback((accuracy: number) => {
-    setAchievements(prev => prev.map(achievement => {
-      if (achievement.unlocked) return achievement
-      
-      switch (achievement.id) {
-        case 'first_session':
-          return { ...achievement, unlocked: true }
-        case 'perfect_round':
-          return { ...achievement, unlocked: accuracy === 100 }
-        case 'streak_master':
-          return { ...achievement, unlocked: maxStreak >= 10 }
-        case 'level_up':
-          return { ...achievement, unlocked: nLevel >= 3 }
-        default:
-          return achievement
-      }
-    }))
-  }, [maxStreak, nLevel])
-  
+
   // 重置训练
   const resetTraining = useCallback(() => {
     setGameState(GameState.MENU)
@@ -616,7 +579,6 @@ function NBackClientContent() {
               {trainingModes.map(({ mode, title, desc, disabled }) => (
                 <motion.div
                   key={mode}
-                  whileHover={{ scale: disabled ? 1 : 1.02 }}
                   whileTap={{ scale: disabled ? 1 : 0.98 }}
                 >
                   <TouchOptimizedButton
@@ -715,7 +677,6 @@ function NBackClientContent() {
               </div>
               
               <motion.div
-                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <TouchOptimizedButton
@@ -761,51 +722,7 @@ function NBackClientContent() {
             </CardContent>
           </Card>
           
-          {/* 成就展示 */}
-          <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-pink-300 flex items-center gap-2">
-                🏆 {t('achievements.title')}
-              </CardTitle>
-              <CardDescription className="text-purple-200/80">
-                {t('achievements.description')}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                {achievements.map(achievement => (
-                  <motion.div
-                    key={achievement.id}
-                    className={`p-3 rounded-lg border transition-all duration-200 ${
-                      achievement.unlocked 
-                        ? 'bg-gradient-to-r from-yellow-400/20 to-orange-500/20 border-yellow-400/50 shadow-md' 
-                        : 'bg-gray-800/30 border-gray-600/30'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{achievement.icon}</span>
-                      <div className="flex-1">
-                        <div className={`text-sm font-medium ${
-                          achievement.unlocked ? 'text-yellow-300' : 'text-gray-400'
-                        }`}>
-                          {achievement.title}
-                        </div>
-                        <div className={`text-xs ${
-                          achievement.unlocked ? 'text-yellow-200/80' : 'text-gray-500'
-                        }`}>
-                          {achievement.description}
-                        </div>
-                      </div>
-                      {achievement.unlocked && (
-                        <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+
         </div>
         
         {/* 训练说明 */}
@@ -843,7 +760,6 @@ function NBackClientContent() {
         {/* 数据管理和历史记录按钮 */}
         <div className="flex justify-center gap-4">
           <motion.div
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <TouchOptimizedButton
@@ -869,9 +785,8 @@ function NBackClientContent() {
           </motion.div>
           
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+                  whileTap={{ scale: 0.95 }}
+                >
             <TouchOptimizedButton
               onClick={() => setGameState(GameState.TRAINING_HISTORY)}
               variant="outline"
@@ -930,9 +845,8 @@ function NBackClientContent() {
               <div className="text-2xl font-bold text-yellow-300">{streak}</div>
             </div>
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+                  whileTap={{ scale: 0.95 }}
+                >
               <TouchOptimizedButton
                 variant="outline"
                 size="sm"
@@ -952,8 +866,6 @@ function NBackClientContent() {
                 
                 <motion.div
                   className="relative z-10"
-                  whileHover={{ rotate: -180 }}
-                  transition={{ duration: 0.3 }}
                 >
                   <RotateCcw className="w-4 h-4" />
                 </motion.div>
@@ -1029,7 +941,6 @@ function NBackClientContent() {
               <CardContent className="flex flex-col items-center space-y-6">
                 {renderVisualGrid}
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <TouchOptimizedButton
@@ -1117,7 +1028,6 @@ function NBackClientContent() {
                 </div>
                 
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <TouchOptimizedButton
@@ -1297,7 +1207,6 @@ function NBackClientContent() {
               <div className="grid grid-cols-2 gap-4">
                 <motion.div 
                   className="relative text-center p-4 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-lg border border-pink-400/30 overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
@@ -1324,7 +1233,6 @@ function NBackClientContent() {
                 
                 <motion.div 
                   className="relative text-center p-4 bg-gradient-to-br from-yellow-500/20 to-orange-600/20 rounded-lg border border-yellow-400/30 overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -1351,7 +1259,6 @@ function NBackClientContent() {
                 
                 <motion.div 
                   className="relative text-center p-4 bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-lg border border-green-400/30 overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
@@ -1378,7 +1285,6 @@ function NBackClientContent() {
                 
                 <motion.div 
                   className="relative text-center p-4 bg-gradient-to-br from-blue-500/20 to-cyan-600/20 rounded-lg border border-blue-400/30 overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
@@ -1422,104 +1328,7 @@ function NBackClientContent() {
             </CardContent>
           </Card>
           
-          {/* 新解锁成就 */}
-          <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-pink-300 flex items-center gap-2">
-                🏆 {t('ui.achievementsUnlocked')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {achievements.filter(a => a.unlocked).map((achievement, index) => (
-                  <motion.div
-                    key={achievement.id}
-                    initial={{ opacity: 0, x: -20, scale: 0.8 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ 
-                      delay: index * 0.15,
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 20
-                    }}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    className="relative flex items-center gap-4 p-4 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 border border-yellow-400/50 rounded-lg overflow-hidden"
-                  >
-                    {/* 背景光效 */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-orange-500/10"
-                      animate={{
-                        opacity: [0.3, 0.6, 0.3],
-                        scale: [1, 1.02, 1]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                    />
-                    
-                    {/* 闪烁粒子效果 */}
-                    <motion.div
-                      className="absolute top-2 right-4 w-1 h-1 bg-yellow-300 rounded-full"
-                      animate={{
-                        opacity: [0, 1, 0],
-                        scale: [0.5, 1.5, 0.5]
-                      }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.2 }}
-                    />
-                    <motion.div
-                      className="absolute bottom-3 left-6 w-0.5 h-0.5 bg-orange-300 rounded-full"
-                      animate={{
-                        opacity: [0, 1, 0],
-                        scale: [0.5, 1.2, 0.5]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.4 }}
-                    />
-                    
-                    <div className="relative z-10 flex items-center gap-4 w-full">
-                      <motion.span 
-                        className="text-3xl"
-                        animate={{ 
-                          rotate: [0, 5, -5, 0],
-                          scale: [1, 1.1, 1]
-                        }}
-                        transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                      >
-                        {achievement.icon}
-                      </motion.span>
-                      <div className="flex-1">
-                        <motion.div 
-                          className="font-semibold text-yellow-300 text-lg"
-                          animate={{ opacity: [0.8, 1, 0.8] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          {achievement.title}
-                        </motion.div>
-                        <div className="text-sm text-yellow-200/80">{achievement.description}</div>
-                      </div>
-                      <motion.div
-                        className="w-3 h-3 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50"
-                        animate={{ 
-                          scale: [1, 1.5, 1], 
-                          opacity: [1, 0.5, 1],
-                          boxShadow: [
-                            "0 0 5px rgba(251, 191, 36, 0.5)",
-                            "0 0 15px rgba(251, 191, 36, 0.8)",
-                            "0 0 5px rgba(251, 191, 36, 0.5)"
-                          ]
-                        }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-                {achievements.filter(a => a.unlocked).length === 0 && (
-                  <div className="text-center text-purple-300 py-8">
-                    <div className="text-4xl mb-3">🎯</div>
-                    <p>{t('ui.continueTraining')}</p>
-                <p className="text-sm text-purple-400 mt-2">{t('ui.improveAccuracy')}</p>
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+
         </div>
         
         {/* 表现评价 */}
@@ -1648,7 +1457,6 @@ function NBackClientContent() {
         {/* 操作按钮 */}
         <div className="flex justify-center gap-6">
           <motion.div
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <TouchOptimizedButton
@@ -1671,7 +1479,6 @@ function NBackClientContent() {
           </motion.div>
           
           <motion.div
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <TouchOptimizedButton

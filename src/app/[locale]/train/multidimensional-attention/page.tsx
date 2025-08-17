@@ -21,10 +21,10 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import AchievementSystem from '@/components/AchievementSystem';
+
 
 import { useTrainingSession, TrainingState, TrainingConfig as HookTrainingConfig } from '@/hooks/useTrainingSession';
-import { useUserProfile, useAchievements } from '@/hooks/useLocalStorage';
+import { useUserProfile } from '@/hooks/useLocalStorage';
 
 // 训练类型枚举
 enum TrainingType {
@@ -88,7 +88,7 @@ export default function MultidimensionalAttentionPage() {
   
   // 数据管理钩子
   const { profile } = useUserProfile();
-  const { newAchievements, clearNewAchievements } = useAchievements();
+
   
   // 训练会话管理
   const {
@@ -273,14 +273,7 @@ export default function MultidimensionalAttentionPage() {
     }
   }, [isCompleted, getTrainingResult]);
   
-  // 成就通知处理
-  useEffect(() => {
-    if (newAchievements.length > 0) {
-      setTimeout(() => {
-        clearNewAchievements();
-      }, 5000);
-    }
-  }, [newAchievements, clearNewAchievements]);
+
 
   // 训练循环
   useEffect(() => {
@@ -361,7 +354,6 @@ export default function MultidimensionalAttentionPage() {
         exit={{ scale: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
         onClick={() => handleStimulusResponse(stimulus.id)}
-        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       />
     );
@@ -689,26 +681,7 @@ export default function MultidimensionalAttentionPage() {
           </div>
         </div>
 
-        {/* 成就系统 */}
-        <div className="mt-8">
-          <AchievementSystem
-            userStats={{
-              totalTrainingTime: config.duration - timeRemaining,
-              trainingStreak: sessionStats.correctResponses,
-              totalScore: sessionStats.score,
-              averageAccuracy: sessionStats.accuracy / 100,
-              modulesCompleted: 1,
-              perfectScores: sessionStats.accuracy >= 100 ? 1 : 0,
-              fastestReaction: sessionStats.averageReactionTime,
-              socialInteractions: 0,
-              achievementsUnlocked: 0,
-              totalSessions: 1
-            }}
-            onAchievementUnlock={(achievement) => {
-              console.log('Achievement unlocked:', achievement);
-            }}
-          />
-        </div>
+
       </div>
     </div>
   );

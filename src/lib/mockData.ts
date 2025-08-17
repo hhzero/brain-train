@@ -6,7 +6,7 @@
 import {
   UserProfile,
   TrainingSession,
-  Achievement,
+
   Friend,
   LeaderboardEntry,
   UserStatistics,
@@ -49,7 +49,7 @@ export function generateMockUserProfile(): UserProfile {
     level,
     totalScore,
     totalTrainingTime: Math.floor(Math.random() * 5000) + 100,
-    achievements: Math.floor(Math.random() * 15) + 1,
+
     joinDate: new Date(Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000).toISOString(),
     lastActive: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
     streak: Math.floor(Math.random() * 30),
@@ -98,7 +98,7 @@ export function generateMockTrainingSession(userId: string): TrainingSession {
     reactionTime,
     difficulty,
     completed: true,
-    achievements: Math.random() > 0.8 ? ['perfect_start'] : [],
+
     statistics: {
       correctAnswers,
       totalQuestions,
@@ -191,122 +191,7 @@ export function generateMockLeaderboard(count: number = 10): LeaderboardEntry[] 
   return leaderboard;
 }
 
-/**
- * 生成模拟成就数据
- */
-export function generateMockAchievements(): Achievement[] {
-  return [
-    {
-      id: 'first_session',
-      name: '初次尝试',
-      description: '完成第一次训练',
-      type: 'milestone',
-      rarity: 'common',
-      icon: 'play',
-      points: 10,
-      unlocked: true,
-      unlockedAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-      progress: 1,
-      maxProgress: 1,
-      category: 'beginner'
-    },
-    {
-      id: 'perfect_start',
-      name: '完美开始',
-      description: '在训练中获得100%准确率',
-      type: 'performance',
-      rarity: 'rare',
-      icon: 'target',
-      points: 50,
-      unlocked: Math.random() > 0.5,
-      unlockedAt: Math.random() > 0.5 ? new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString() : undefined,
-      progress: Math.random() > 0.5 ? 1 : 0,
-      maxProgress: 1,
-      category: 'performance'
-    },
-    {
-      id: 'streak_master',
-      name: '连击大师',
-      description: '保持7天连续训练',
-      type: 'consistency',
-      rarity: 'epic',
-      icon: 'flame',
-      points: 100,
-      unlocked: Math.random() > 0.7,
-      unlockedAt: Math.random() > 0.7 ? new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString() : undefined,
-      progress: Math.floor(Math.random() * 7),
-      maxProgress: 7,
-      category: 'consistency'
-    },
-    {
-      id: 'speed_demon',
-      name: '反应闪电',
-      description: '反应时间低于250毫秒',
-      type: 'speed',
-      rarity: 'legendary',
-      icon: 'zap',
-      points: 200,
-      unlocked: Math.random() > 0.8,
-      unlockedAt: Math.random() > 0.8 ? new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString() : undefined,
-      progress: Math.random() > 0.8 ? 1 : 0,
-      maxProgress: 1,
-      category: 'performance'
-    },
-    {
-      id: 'attention_master',
-      name: '注意力大师',
-      description: '完成50次注意力训练',
-      type: 'training_count',
-      rarity: 'epic',
-      icon: 'eye',
-      points: 150,
-      unlocked: false,
-      progress: Math.floor(Math.random() * 50),
-      maxProgress: 50,
-      category: 'training'
-    },
-    {
-      id: 'cognitive_genius',
-      name: '认知天才',
-      description: '在认知灵活性训练中获得95%以上准确率',
-      type: 'performance',
-      rarity: 'legendary',
-      icon: 'brain',
-      points: 250,
-      unlocked: false,
-      progress: 0,
-      maxProgress: 1,
-      category: 'performance'
-    },
-    {
-      id: 'marathon_trainer',
-      name: '马拉松训练师',
-      description: '单次训练时间超过30分钟',
-      type: 'endurance',
-      rarity: 'rare',
-      icon: 'clock',
-      points: 75,
-      unlocked: Math.random() > 0.6,
-      unlockedAt: Math.random() > 0.6 ? new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString() : undefined,
-      progress: Math.random() > 0.6 ? 1 : 0,
-      maxProgress: 1,
-      category: 'endurance'
-    },
-    {
-      id: 'social_butterfly',
-      name: '社交达人',
-      description: '添加10个好友',
-      type: 'social',
-      rarity: 'common',
-      icon: 'users',
-      points: 30,
-      unlocked: false,
-      progress: Math.floor(Math.random() * 10),
-      maxProgress: 10,
-      category: 'social'
-    }
-  ];
-}
+
 
 /**
  * 生成模拟统计数据
@@ -424,8 +309,8 @@ export function generateMockDailyGoals(): DailyGoal[] {
       current: Math.round((Math.random() * 20 + 75) * 10) / 10,
       completed: Math.random() > 0.7,
       reward: {
-        type: 'achievement',
-        value: 'accuracy_master'
+        type: 'points',
+        value: 100
       }
     }
   ];
@@ -457,9 +342,7 @@ export class MockDataInitializer {
     }
     localStorage.setItem('brain_train_training_sessions', JSON.stringify(sessions));
     
-    // 生成成就
-    const achievements = generateMockAchievements();
-    localStorage.setItem('brain_train_achievements', JSON.stringify(achievements));
+
     
     // 生成好友
     const friends = generateMockFriends(8);
@@ -492,7 +375,7 @@ export class MockDataInitializer {
       'brain_train_user_profile',
       'brain_train_user_settings',
       'brain_train_training_sessions',
-      'brain_train_achievements',
+
       'brain_train_friends',
       'brain_train_statistics',
       'brain_train_leaderboard',
@@ -522,27 +405,7 @@ export class MockDataInitializer {
     console.log('➕ 添加了新的训练会话:', newSession.trainingName);
   }
   
-  /**
-   * 解锁随机成就（用于测试）
-   */
-  static unlockRandomAchievement(): void {
-    const achievements = JSON.parse(localStorage.getItem('brain_train_achievements') || '[]');
-    const lockedAchievements = achievements.filter((a: Achievement) => !a.unlocked);
-    
-    if (lockedAchievements.length === 0) {
-      console.log('🏆 所有成就都已解锁！');
-      return;
-    }
-    
-    const randomAchievement = lockedAchievements[Math.floor(Math.random() * lockedAchievements.length)];
-    randomAchievement.unlocked = true;
-    randomAchievement.unlockedAt = new Date().toISOString();
-    randomAchievement.progress = randomAchievement.maxProgress;
-    
-    localStorage.setItem('brain_train_achievements', JSON.stringify(achievements));
-    
-    console.log('🎉 解锁成就:', randomAchievement.name);
-  }
+
 }
 
 /**
@@ -558,7 +421,7 @@ export const DevTools = {
         initData: MockDataInitializer.initializeAllData,
         resetData: MockDataInitializer.resetAndReinitialize,
         addSession: MockDataInitializer.addRandomTrainingSession,
-        unlockAchievement: MockDataInitializer.unlockRandomAchievement,
+
         viewData: (key: string) => {
           const data = localStorage.getItem(key);
           return data ? JSON.parse(data) : null;
@@ -573,7 +436,7 @@ export const DevTools = {
       console.log('- BrainTrainDevTools.initData() - 初始化数据');
       console.log('- BrainTrainDevTools.resetData() - 重置数据');
       console.log('- BrainTrainDevTools.addSession() - 添加训练会话');
-      console.log('- BrainTrainDevTools.unlockAchievement() - 解锁成就');
+
       console.log('- BrainTrainDevTools.viewData(key) - 查看数据');
       console.log('- BrainTrainDevTools.listKeys() - 列出所有键');
     }

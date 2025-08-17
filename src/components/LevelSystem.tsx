@@ -76,7 +76,7 @@ const LEVEL_DATA: LevelData[] = [
     icon: <Zap className="w-6 h-6" />,
     color: 'blue',
     gradient: 'from-blue-400 to-cyan-500',
-    rewards: ['音效反馈', '基础成就'],
+    rewards: ['音效反馈'],
     privileges: ['自定义训练时长', '详细统计']
   },
   {
@@ -87,7 +87,7 @@ const LEVEL_DATA: LevelData[] = [
     icon: <Shield className="w-6 h-6" />,
     color: 'green',
     gradient: 'from-green-400 to-emerald-500',
-    rewards: ['双重模式解锁', '进阶成就'],
+    rewards: ['双重模式解锁'],
     privileges: ['自适应难度', '训练计划']
   },
   {

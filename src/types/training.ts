@@ -63,30 +63,13 @@ export interface UserProgress {
   bestReactionTime: number;
   currentStreak: number;
   longestStreak: number;
-  achievements: Achievement[];
+
   lastTrainingDate: Date;
   weeklyGoal: number; // 每周训练目标（分钟）
   weeklyProgress: number; // 本周已完成（分钟）
 }
 
-// 成就系统
-export interface Achievement {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  type: 'score' | 'streak' | 'time' | 'accuracy' | 'consistency' | 'milestone';
-  requirement: {
-    value: number;
-    condition: 'gte' | 'lte' | 'eq';
-  };
-  reward: {
-    experience: number;
-    badge?: string;
-  };
-  unlockedAt?: Date;
-  progress: number; // 0-100
-}
+
 
 // 凝视训练特定类型
 export interface GazeTrainingConfig extends Omit<BaseTrainingConfig, 'mode'> {
@@ -193,7 +176,7 @@ export interface TrainingStats {
     sessions: number;
     totalTime: number;
     averageScore: number;
-    achievements: number;
+
   }[];
 }
 

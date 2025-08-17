@@ -92,14 +92,6 @@ const FIRST_TIME_GUIDANCE: GuidanceStep[] = [
     showArrow: true
   },
   {
-    id: 'achievements',
-    target: '[data-guide="achievements"]',
-    title: '成就系统',
-    description: '完成训练目标可以解锁各种成就，激励您持续进步。',
-    position: 'left',
-    showArrow: true
-  },
-  {
     id: 'settings',
     target: '[data-guide="settings"]',
     title: '训练设置',

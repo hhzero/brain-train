@@ -10,12 +10,9 @@ import {
   Volume2, 
   VolumeX, 
   Settings, 
-  Trophy, 
   Target, 
   Clock, 
   Zap,
-  Star,
-  Award,
   TrendingUp,
   RotateCcw,
   Home,
@@ -24,11 +21,9 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Progress } from '@/components/ui/progress';
-import AchievementSystem, { Achievement, AchievementType, AchievementRarity } from '../../../../components/AchievementSystem';
 import { StatisticsPanel } from '../../../../components/StatisticsPanel';
 import { LevelSystem } from '../../../../components/LevelSystem';
 import { TrainingHistory } from '../../../../components/TrainingHistory';
-import { AchievementUnlockAnimation } from '../../../../components/AchievementUnlockAnimation';
 import { AudioTestPanel } from '../../../../components/AudioTestPanel';
 import TrainingSettingsComponent, { TrainingConfig, DEFAULT_CONFIG } from '../../../../components/TrainingSettings';
 import { AudioSettingsComponent } from '../../../../components/AudioSettings';
@@ -50,8 +45,9 @@ enum GameState {
   RESULTS = 'results',
   SETTINGS = 'settings',
   STATISTICS = 'statistics',
-  ACHIEVEMENTS = 'achievements',
-  HISTORY = 'history'
+
+  HISTORY = 'history',
+  LEVEL = 'level'
 }
 
 // 视觉网格位置
@@ -70,9 +66,7 @@ export default function NBackTraining() {
   const [currentStimulus, setCurrentStimulus] = useState<any>(null);
   const [userResponses, setUserResponses] = useState<{ visual: boolean; audio: boolean }>({ visual: false, audio: false });
   const [sessionStats, setSessionStats] = useState<any>(null);
-  const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
-  const [showAchievement, setShowAchievement] = useState<Achievement | null>(null);
-  const [showAchievements, setShowAchievements] = useState(false);
+
   const [showStatistics, setShowStatistics] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showAudioSettings, setShowAudioSettings] = useState(false);
@@ -194,12 +188,7 @@ export default function NBackTraining() {
     // 播放完成音效
     audioManagerRef.current?.playSoundEffect(SoundEffect.COMPLETE);
     
-    // 检查成就
-    const achievements = checkAchievements(stats);
-    if (achievements.length > 0) {
-      setUnlockedAchievements(prev => [...prev, ...achievements]);
-      setShowAchievement(achievements[0]);
-    }
+
     
     // 更新难度
     if (difficultyManagerRef.current) {
@@ -248,32 +237,7 @@ export default function NBackTraining() {
     }, 200);
   }, [gameState]);
   
-  // 检查成就
-  const checkAchievements = useCallback((stats?: any): Achievement[] => {
-    const achievements: Achievement[] = [];
-    
-    if (stats) {
-      // 这里可以添加成就检查逻辑
-      if (stats.accuracy >= 0.8 && stats.nLevel >= 3) {
-        achievements.push({
-          id: 'high-accuracy',
-          title: t('nback.achievements.highAccuracy.name'),
-          description: t('nback.achievements.highAccuracy.description'),
-          type: AchievementType.CONSISTENCY,
-          icon: Target,
-          rarity: AchievementRarity.RARE,
-          requirement: 80,
-          points: 150,
-          unlocked: true,
-          unlockedAt: new Date(),
-          progress: 100,
-          category: 'accuracy'
-        });
-      }
-    }
-    
-    return achievements;
-  }, []);
+
   
   // 检查是否为首次使用
   useEffect(() => {
@@ -354,7 +318,6 @@ export default function NBackTraining() {
                 ? 'bg-green-500 text-white shadow-lg shadow-green-500/50'
                 : 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg shadow-purple-600/30'
             }`}
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Target className="w-6 h-6 mr-2 inline" />
@@ -370,7 +333,6 @@ export default function NBackTraining() {
                 ? 'bg-green-500 text-white shadow-lg shadow-green-500/50'
                 : 'bg-pink-600 hover:bg-pink-700 text-white shadow-lg shadow-pink-600/30'
             }`}
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Volume2 className="w-6 h-6 mr-2 inline" />
@@ -384,7 +346,6 @@ export default function NBackTraining() {
         <motion.button
           onClick={togglePause}
           className="p-3 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg shadow-lg"
-          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {gameState === GameState.PAUSED ? <Play className="w-5 h-5" /> : <Pause className="w-5 h-5" />}
@@ -393,7 +354,6 @@ export default function NBackTraining() {
         <motion.button
           onClick={stopTraining}
           className="p-3 bg-red-600 hover:bg-red-700 text-white rounded-lg shadow-lg"
-          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <Square className="w-5 h-5" />
@@ -438,7 +398,6 @@ export default function NBackTraining() {
         <motion.button
           onClick={startTraining}
           className="p-8 bg-gradient-to-br from-cyan-600 to-purple-700 rounded-xl text-white font-semibold text-xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
           <Play className="w-8 h-8 mx-auto mb-3" />
@@ -448,27 +407,17 @@ export default function NBackTraining() {
         <motion.button
           onClick={() => setGameState(GameState.STATISTICS)}
           className="p-8 bg-gradient-to-br from-purple-600 to-pink-700 rounded-xl text-white font-semibold text-xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
           <TrendingUp className="w-8 h-8 mx-auto mb-3" />
           {t('nback.menu.statistics')}
         </motion.button>
         
-        <motion.button
-          onClick={() => setGameState(GameState.ACHIEVEMENTS)}
-          className="p-8 bg-gradient-to-br from-pink-600 to-red-700 rounded-xl text-white font-semibold text-xl shadow-2xl hover:shadow-pink-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <Trophy className="w-8 h-8 mx-auto mb-3" />
-          {t('nback.menu.achievements')}
-        </motion.button>
+
         
         <motion.button
           onClick={() => setShowTrainingSettings(true)}
           className="p-8 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl text-white font-semibold text-xl shadow-2xl hover:shadow-gray-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
           <Settings className="w-8 h-8 mx-auto mb-3" />
@@ -478,7 +427,6 @@ export default function NBackTraining() {
         <motion.button
           onClick={() => setShowTutorial(true)}
           className="p-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl text-white font-semibold text-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
           <HelpCircle className="w-8 h-8 mx-auto mb-3" />
@@ -488,7 +436,6 @@ export default function NBackTraining() {
         <motion.button
           onClick={() => setShowDemo(true)}
           className="p-8 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl text-white font-semibold text-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
           <Play className="w-8 h-8 mx-auto mb-3" />
@@ -564,7 +511,7 @@ export default function NBackTraining() {
                   bestReactionTime: 0,
                   highestLevel: 1,
                   totalScore: 0,
-                  achievementsUnlocked: 0,
+
                   currentLevel: 1,
                   experiencePoints: 0,
                   nextLevelExp: 100
@@ -579,54 +526,11 @@ export default function NBackTraining() {
             </motion.div>
           )}
           
-          {gameState === GameState.ACHIEVEMENTS && (
-            <motion.div
-              key="achievements"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="w-full h-full p-8"
-            >
-              <AchievementSystem
-                userStats={{
-                  totalTrainingTime: sessionStats?.totalTime || 0,
-                  trainingStreak: 1,
-                  totalScore: sessionStats?.score || 0,
-                  modulesCompleted: 1,
-                  perfectScores: sessionStats?.accuracy === 1 ? 1 : 0,
-                  averageAccuracy: sessionStats?.accuracy || 0,
-                  fastestReaction: sessionStats?.reactionTime || 0,
-                  socialInteractions: 0,
-                  achievementsUnlocked: unlockedAchievements.length,
-                  totalSessions: 1
-                }}
-                onAchievementUnlock={(achievement) => {
-                  setUnlockedAchievements(prev => [...prev, achievement]);
-                  setShowAchievement(achievement);
-                }}
-              />
-              <button
-                onClick={() => setGameState(GameState.MENU)}
-                className="absolute top-4 left-4 p-3 bg-gray-600 hover:bg-gray-700 text-white rounded-lg"
-              >
-                <Home className="w-5 h-5" />
-              </button>
-            </motion.div>
-          )}
+
         </AnimatePresence>
       </div>
       
-      {/* 成就解锁动画 */}
-      <AnimatePresence>
-        {showAchievement && (
-          <AchievementUnlockAnimation
-            achievement={showAchievement}
-            isVisible={!!showAchievement}
-            onClose={() => setShowAchievement(null)}
-            onComplete={() => setShowAchievement(null)}
-          />
-        )}
-      </AnimatePresence>
+
       
       {/* 训练设置对话框 */}
       <AnimatePresence>
@@ -786,7 +690,6 @@ export default function NBackTraining() {
                   <motion.button
                     onClick={() => setIsFirstTime(false)}
                     className="flex-1 px-4 py-2 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-600 transition-colors"
-                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {t('nback.welcome.skip')}
@@ -794,7 +697,6 @@ export default function NBackTraining() {
                   <motion.button
                     onClick={handleFirstTimeGuidance}
                     className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
-                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {t('nback.welcome.startGuide')}

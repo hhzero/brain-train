@@ -36,7 +36,16 @@ import PersonalizedRecommendations, {
   UserAbilities, 
   TrainingType 
 } from './PersonalizedRecommendations'
-import AchievementSystem, { UserStats } from './AchievementSystem'
+
+// 用户统计数据接口
+export interface UserStats {
+  totalTrainingTime: number
+  sessionsCompleted: number
+  averageScore: number
+  bestStreak: number
+  favoriteTrainingType: string
+  improvementRate: number
+}
 
 // 用户接口
 export interface User {
@@ -46,7 +55,7 @@ export interface User {
   avatar?: string
   level: number
   totalScore: number
-  achievements: number
+
   joinDate: string
   lastActive: string
   status: 'online' | 'offline' | 'training'
@@ -86,7 +95,7 @@ export interface LeaderboardEntry {
 export interface SocialActivity {
   id: string
   user: User
-  type: 'achievement' | 'training' | 'milestone' | 'challenge'
+  type: 'training' | 'milestone' | 'challenge'
   content: string
   timestamp: Date
   likes: number
@@ -121,7 +130,7 @@ export interface Milestone {
 // 通知
 export interface Notification {
   id: string
-  type: 'achievement' | 'reminder' | 'challenge' | 'friend' | 'milestone'
+  type: 'reminder' | 'challenge' | 'friend' | 'milestone'
   title: string
   message: string
   timestamp: Date
@@ -213,7 +222,7 @@ export default function UserRetentionSystem({
   // 获取通知图标
   const getNotificationIcon = (type: string) => {
     switch (type) {
-      case 'achievement': return Trophy
+  
       case 'reminder': return Clock
       case 'challenge': return Target
       case 'friend': return Users
@@ -474,10 +483,7 @@ export default function UserRetentionSystem({
             <Sparkles className="w-4 h-4 mr-2" />
             推荐
           </TabsTrigger>
-          <TabsTrigger value="achievements" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
-            <Trophy className="w-4 h-4 mr-2" />
-            成就
-          </TabsTrigger>
+
           <TabsTrigger value="social" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
             <Users className="w-4 h-4 mr-2" />
             社交
@@ -555,10 +561,7 @@ export default function UserRetentionSystem({
           />
         </TabsContent>
 
-        {/* 成就系统 */}
-        <TabsContent value="achievements">
-          <AchievementSystem userStats={currentUser.stats} />
-        </TabsContent>
+
 
         {/* 社交功能 */}
         <TabsContent value="social">

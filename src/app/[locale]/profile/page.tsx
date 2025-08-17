@@ -76,7 +76,7 @@ interface UserProfile {
   level: number;
   totalScore: number;
   totalTrainingTime: number;
-  achievements: number;
+
   joinDate: string;
   lastActive: string;
   streak: number;
@@ -91,7 +91,7 @@ interface UserProfile {
 interface UserSettings {
   // 通知设置
   notifications: {
-    achievements: boolean;
+
     friendRequests: boolean;
     trainingReminders: boolean;
     weeklyReports: boolean;
@@ -104,7 +104,7 @@ interface UserSettings {
     showOnlineStatus: boolean;
     allowFriendRequests: boolean;
     showTrainingStats: boolean;
-    showAchievements: boolean;
+
   };
   // 训练偏好
   training: {
@@ -149,13 +149,7 @@ interface UserStats {
     reaction: number;
     cognitive: number;
   };
-  recentAchievements: Array<{
-    id: string;
-    name: string;
-    description: string;
-    unlockedAt: string;
-    rarity: 'common' | 'rare' | 'epic' | 'legendary';
-  }>;
+
 }
 
 /**
@@ -184,7 +178,7 @@ const ProfilePage: React.FC = () => {
       level: 15,
       totalScore: 12500,
       totalTrainingTime: 4800, // 分钟
-      achievements: 28,
+
       joinDate: '2024-01-15',
       lastActive: new Date().toISOString(),
       streak: 7,
@@ -200,7 +194,7 @@ const ProfilePage: React.FC = () => {
     // 模拟用户设置
     const mockSettings: UserSettings = {
       notifications: {
-        achievements: true,
+  
         friendRequests: true,
         trainingReminders: true,
         weeklyReports: true,
@@ -212,7 +206,7 @@ const ProfilePage: React.FC = () => {
         showOnlineStatus: true,
         allowFriendRequests: true,
         showTrainingStats: true,
-        showAchievements: true
+  
       },
       training: {
         difficulty: 'adaptive',
@@ -255,29 +249,7 @@ const ProfilePage: React.FC = () => {
         reaction: 20,
         cognitive: 20
       },
-      recentAchievements: [
-        {
-          id: 'ach-1',
-          name: t('profile.achievements.focusMaster.name'),
-          description: t('profile.achievements.focusMaster.description'),
-          unlockedAt: '2024-03-15',
-          rarity: 'epic'
-        },
-        {
-          id: 'ach-2',
-          name: t('profile.achievements.streakKing.name'),
-          description: t('profile.achievements.streakKing.description'),
-          unlockedAt: '2024-03-14',
-          rarity: 'rare'
-        },
-        {
-          id: 'ach-3',
-          name: t('profile.achievements.lightningReaction.name'),
-          description: t('profile.achievements.lightningReaction.description'),
-          unlockedAt: '2024-03-13',
-          rarity: 'legendary'
-        }
-      ]
+
     };
     setUserStats(mockStats);
   }, []);
@@ -319,20 +291,7 @@ const ProfilePage: React.FC = () => {
   };
 
   // 获取稀有度颜色
-  const getRarityColor = (rarity: string) => {
-    switch (rarity) {
-      case 'common':
-        return 'text-gray-400';
-      case 'rare':
-        return 'text-blue-400';
-      case 'epic':
-        return 'text-purple-400';
-      case 'legendary':
-        return 'text-yellow-400';
-      default:
-        return 'text-gray-400';
-    }
-  };
+
 
   if (!userProfile || !userSettings || !userStats) {
     return (
@@ -542,49 +501,29 @@ const ProfilePage: React.FC = () => {
                   <Card className="bg-gray-800/80 backdrop-blur-sm border-gray-700">
                     <CardHeader>
                       <CardTitle className="text-white flex items-center gap-2">
-                        <Trophy className="w-5 h-5 text-yellow-400" />
-                        {t('profile.achievements.title')}
+                        <BarChart3 className="w-5 h-5 text-blue-400" />
+                        {t('profile.stats.quickStats')}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-yellow-400">{userProfile.achievements}</div>
-                          <div className="text-sm text-gray-400">{t('profile.achievements.count')}</div>
-                        </div>
-                        <div className="text-center">
                           <div className="text-2xl font-bold text-orange-400">{userProfile.streak}</div>
-                          <div className="text-sm text-gray-400">{t('profile.achievements.streak')}</div>
+                          <div className="text-sm text-gray-400">{t('profile.stats.currentStreak')}</div>
                         </div>
                         <div className="text-center">
                           <div className="text-2xl font-bold text-purple-400">{userProfile.totalScore.toLocaleString()}</div>
-                          <div className="text-sm text-gray-400">{t('profile.achievements.totalScore')}</div>
+                          <div className="text-sm text-gray-400">{t('profile.stats.totalScore')}</div>
                         </div>
                         <div className="text-center">
                           <div className="text-2xl font-bold text-blue-400">{formatTime(userProfile.totalTrainingTime)}</div>
-                          <div className="text-sm text-gray-400">{t('profile.achievements.trainingTime')}</div>
+                          <div className="text-sm text-gray-400">{t('profile.stats.trainingTime')}</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-green-400">{userProfile.completedSessions}</div>
+                          <div className="text-sm text-gray-400">{t('profile.stats.completedSessions')}</div>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-gray-800/80 backdrop-blur-sm border-gray-700">
-                    <CardHeader>
-                      <CardTitle className="text-white flex items-center gap-2">
-                        <Star className="w-5 h-5 text-purple-400" />
-                        {t('profile.achievements.recent')}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      {userStats.recentAchievements.slice(0, 3).map((achievement) => (
-                        <div key={achievement.id} className="flex items-center space-x-3">
-                          <Award className={`w-6 h-6 ${getRarityColor(achievement.rarity)}`} />
-                          <div className="flex-1">
-                            <div className="font-medium text-white text-sm">{achievement.name}</div>
-                            <div className="text-xs text-gray-400">{achievement.description}</div>
-                          </div>
-                        </div>
-                      ))}
                     </CardContent>
                   </Card>
                 </div>
@@ -718,7 +657,6 @@ const ProfilePage: React.FC = () => {
                   <CardContent className="space-y-4">
                     {Object.entries(userSettings.notifications).map(([key, value]) => {
                       const labels = {
-                        achievements: t('profile.settings.notifications.achievements'),
                         friendRequests: t('profile.settings.notifications.friendRequests'),
                         trainingReminders: t('profile.settings.notifications.trainingReminders'),
                         weeklyReports: t('profile.settings.notifications.weeklyReports'),
@@ -973,8 +911,7 @@ const ProfilePage: React.FC = () => {
                         profileVisible: t('profile.settings.privacy.profileVisible'),
                         showOnlineStatus: t('profile.settings.privacy.showOnlineStatus'),
                         allowFriendRequests: t('profile.settings.privacy.allowFriendRequests'),
-                        showTrainingStats: t('profile.settings.privacy.showTrainingStats'),
-                        showAchievements: t('profile.settings.privacy.showAchievements')
+                        showTrainingStats: t('profile.settings.privacy.showTrainingStats')
                       };
                       
                       return (

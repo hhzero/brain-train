@@ -1,64 +1,59 @@
 {
   "startTraining": "开始训练",
   "common": {
-      "loading": "加载中...",
-      "error": "错误",
-      "success": "成功",
-      "cancel": "取消",
-      "confirm": "确认",
-      "save": "保存",
-      "delete": "删除",
-      "edit": "编辑",
-      "close": "关闭",
-      "back": "返回",
-      "next": "下一步",
-      "previous": "上一步",
-      "start": "开始",
-      "pause": "暂停",
-      "resume": "继续",
-      "stop": "停止",
-      "complete": "完成",
-      "retry": "重试",
-      "refresh": "刷新",
-      "search": "搜索",
-      "filter": "筛选",
-      "sort": "排序",
-      "view": "查看",
-      "share": "分享",
-      "download": "下载",
-      "upload": "上传",
-      "settings": "设置",
-      "profile": "个人资料",
-      "logout": "退出登录",
-      "login": "登录",
-      "register": "注册",
-      "home": "首页",
-      "about": "关于",
-      "contact": "联系我们",
-      "help": "帮助",
-      "feedback": "反馈",
-      "version": "版本",
-      "language": "语言",
-      "theme": "主题",
-      "notifications": "通知",
-      "privacy": "隐私",
-      "terms": "条款",
-      "copyright": "版权所有",
-      "loadingBackgroundImage": "加载背景图片中...",
-      "time": {
-        "minutes": "{count}分钟",
-        "hours": "{count}小时",
-        "hoursAndMinutes": "{hours}小时{minutes}分钟"
-      },
-      "errorBoundary": {
-        "title": "哎呀，出现了一些问题",
-        "description": "应用遇到了意外错误，但不用担心，我们可以重新开始！",
-        "retryButton": "🔄 重新开始",
-        "viewDetails": "查看错误详情",
-        "errorMessage": "错误信息",
-        "errorStack": "错误堆栈"
-      }
-    },
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "stop": "停止",
+    "complete": "完成",
+    "retry": "重试",
+    "refresh": "刷新",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "view": "查看",
+    "share": "分享",
+    "download": "下载",
+    "upload": "上传",
+    "settings": "设置",
+    "profile": "个人资料",
+    "logout": "退出登录",
+    "login": "登录",
+    "register": "注册",
+    "home": "首页",
+    "about": "关于",
+    "contact": "联系我们",
+    "help": "帮助",
+    "feedback": "反馈",
+    "version": "版本",
+    "language": "语言",
+    "theme": "主题",
+    "notifications": "通知",
+    "privacy": "隐私",
+    "terms": "条款",
+    "copyright": "版权所有",
+    "loadingBackgroundImage": "加载背景图片中...",
+    "errorBoundary": {
+      "title": "哎呀，出现了一些问题",
+      "description": "应用遇到了意外错误，但不用担心，我们可以重新开始！",
+      "retryButton": "🔄 重新开始",
+      "viewDetails": "查看错误详情",
+      "errorMessage": "错误信息",
+      "errorStack": "错误堆栈"
+    }
+  },
   "zenMeditation": {
     "title": "禅修专注力训练",
     "subtitle": "通过古老的禅修智慧，培养内心的宁静与专注",
@@ -136,29 +131,7 @@
     "gazeFocusLabel": "专注时间：",
     "gazeBestLabel": "最佳记录：",
     "gazeDotAriaLabel": "专注训练目标点",
-    "gazeInterrupted": "专注被中断！",
-    "mode": {
-      "static": "静态模式",
-      "dynamic": "动态模式",
-      "anti-distraction": "抗干扰模式"
-    },
-    "trainingArea": "训练区域",
-    "realTimeStats": "实时统计",
-    "personalRecords": "个人记录",
-    "clickToStart": "点击开始",
-    "startTraining": "开始训练",
-    "timeElapsed": "已用时间",
-    "focusStability": "专注稳定性",
-    "totalInterruptions": "总中断次数",
-    "bestScore": "最佳成绩",
-    "averageScore": "平均成绩",
-    "totalSessions": "总训练次数",
-    "bestTime": "最佳时间",
-    "focusTime": "专注时间",
-    "stability": "稳定性",
-    "interruptions": "中断次数",
-    "level": "等级",
-    "totalTime": "总时间"
+    "gazeInterrupted": "专注被中断！"
   },
   "navigation": {
     "home": "首页",
@@ -171,6 +144,7 @@
     "about": "关于",
     "profile": "个人中心",
     "leaderboard": "排行榜",
+
     "settings": "设置"
   },
   "training": {
@@ -241,32 +215,18 @@
           "情商测试",
           "人际关系"
         ]
-      },
-      "multiAttention": {
-        "title": "Multi-Dimensional Attention Challenge",
-        "description": "Immersive 3D environment multi-sensory attention training to enhance focus and reaction speed"
-      },
-      "socialEQ": {
-        "title": "Social EQ Enhancement",
-        "description": "Improve interpersonal skills and communication through real social scenario simulations"
       }
     },
     "difficulty": {
       "beginner": "初级",
       "intermediate": "中级",
       "advanced": "高级",
-      "expert": "专家",
-      "all": "All Levels"
+      "expert": "专家"
     },
     "duration": {
       "short": "短时间",
       "medium": "中等时长",
-      "long": "长时间",
-      "5-15min": "5-15 minutes",
-      "10-20min": "10-20 minutes",
-      "10-25min": "10-25 minutes",
-      "15-30min": "15-30 minutes",
-      "20-40min": "20-40 minutes"
+      "long": "长时间"
     },
     "features": {
       "3dEnvironment": "3D环境",
@@ -298,22 +258,13 @@
       "cognitive": "认知训练",
       "emotional": "情绪管理",
       "social": "社交技能",
-      "mindfulness": "正念冥想",
-      "attention": "Attention",
-      "emotion": "Emotional Management",
-      "dataLoadError": "Failed to load data:"
+      "mindfulness": "正念冥想"
     },
     "stats": {
       "totalUsers": "总用户数",
       "sessionsCompleted": "完成训练次数",
       "averageImprovement": "平均提升",
-      "satisfactionRate": "满意度",
-      "trainingModules": "Training Modules",
-      "userCompletions": "User Completions",
-      "satisfaction": "Satisfaction",
-      "totalTrainingTime": "Total Training Time",
-      "completedTraining": "Completed Training",
-      "activeUsers": "Active Users"
+      "satisfactionRate": "满意度"
     },
     "mockUsers": {
       "trainer": "训练者",
@@ -377,6 +328,7 @@
     "tabs": {
       "overview": "概览",
       "recommendations": "推荐",
+
       "social": "社交"
     },
     "abilities": {
@@ -456,6 +408,7 @@
     "activities": {
       "title": "动态",
       "recent": "最近动态",
+
       "training": "完成训练",
       "challenge": "参与挑战",
       "friendship": "添加好友",
@@ -574,7 +527,7 @@
     "mantra": "真言",
     "overallProgress": "整体进度",
     "stages": "阶段",
-    "trainingCompleted": "训练完成！得分：{score}",
+    "trainingCompleted": "训练完成！",
     "congratulations": "恭喜你完成了情绪管理训练",
     "trainingResults": "训练结果",
     "finalAccuracy": "最终准确率",
@@ -651,76 +604,11 @@
       }
     }
   },
-  "stressRelief": {
-    "title": "压力缓解冥想",
-    "description": "通过正念冥想和深度呼吸技巧，有效缓解压力，提升心理韧性",
-    "selectSession": "选择冥想会话",
-    "ui": {
-      "minutes": "分钟",
-      "breathingRhythm": "呼吸节奏",
-      "meditationGuide": "冥想指导",
-      "preparation": "准备事项",
-      "breathingTechniques": "呼吸技巧",
-      "cycle": "第 {count} 轮",
-      "continue": "继续",
-      "pause": "暂停",
-      "restart": "重新开始"
-    },
-    "sessions": {
-      "basicBreathing": {
-        "name": "基础呼吸法",
-        "description": "适合初学者的简单呼吸练习，帮助快速放松身心"
-      },
-      "boxBreathing": {
-        "name": "方形呼吸法",
-        "description": "四拍呼吸法，有效调节自律神经，缓解焦虑情绪"
-      },
-      "extendedExhale": {
-        "name": "延长呼气法",
-        "description": "通过延长呼气时间，激活副交感神经，深度放松"
-      },
-      "mountainMeditation": {
-        "name": "山峰冥想",
-        "description": "结合山峰意象的深度冥想，培养内心的稳定与宁静"
-      }
-    },
-    "preparation": {
-      "items": [
-        "找一个安静舒适的地方",
-        "保持脊背挺直，肩膀放松",
-        "闭上眼睛或轻柔地凝视前方",
-        "将注意力集中在呼吸上",
-        "放下所有杂念和担忧"
-      ]
-    },
-    "breathingTechniques": {
-      "items": [
-        "通过鼻子缓慢深吸气",
-        "感受腹部的起伏变化",
-        "保持自然的呼吸节奏",
-        "呼气时完全放松身体",
-        "专注于当下的感受"
-      ]
-    },
-    "breathingPhases": {
-      "inhale": "吸气",
-      "hold": "屏息",
-      "exhale": "呼气",
-      "pause": "停顿",
-      "prepare": "准备"
-    },
-    "completion": {
-      "title": "冥想完成",
-      "congratulations": "恭喜您完成了 {duration} 分钟的冥想练习！",
-        "totalCycles": "总共完成了 {cycles} 个呼吸周期",
-      "backToSelection": "返回选择界面"
-    }
-  },
   "ReactionSpeed": {
     "clickToStart": "点击开始",
     "waitForGreen": "等待绿色出现...",
     "clickNow": "现在点击！",
-    "reactionTime": "反应时间：{time}ms",
+    "reactionTime": "反应时间：{{time}}ms",
     "tooEarly": "点击太早了！",
     "lightning": "闪电般快速！",
     "veryFast": "非常快！",
@@ -966,7 +854,7 @@
         "trainingSettings": "训练设置",
         "trainingDuration": "训练时长（秒）",
         "difficultyLevel": "难度等级",
-        "level": "等级 {level}",
+        "level": "等级 {{level}}",
         "trainingTypes": "训练类型",
         "visualTraining": "视觉训练",
         "auditoryTraining": "听觉训练",
@@ -1033,51 +921,19 @@
       "schulte": {
         "title": "舒尔特方格",
         "description": "舒尔特方格训练是一种经典的专注力和视觉搜索训练方法，通过顺序点击数字，提升注意力集中和反应速度。",
-        "schulteTitle": "舒尔特方格训练",
-        "schulteDesc": "舒尔特方格训练是一种经典的专注力和视觉搜索训练方法，通过顺序点击数字，提升注意力集中和反应速度。",
-        "mode": {
-          "sequential": "顺序模式",
-          "reverse": "逆序模式",
-          "random": "随机模式"
-        },
-        "trainingArea": "训练区域",
-        "realTimeStats": "实时统计",
-        "personalRecords": "个人记录",
-        "trainingElapsed": "训练用时",
-        "currentNumber": "当前数字",
-        "totalNumbers": "总数字",
-        "averageTime": "平均时间",
-        "bestScore": "最佳成绩",
-        "totalSessions": "总训练次数",
-        "totalTime": "总时间",
         "timeUsed": "用时",
         "bestTime": "最佳",
-        "numberLabel": "数字{number}",
-        "findNumber": "找到数字 {{number}}",
+        "numberLabel": "数字{{number}}",
         "startTraining": "开始训练",
-        "completed": "完成！用时 {{time}} 秒",
-        "timeElapsed": "已用时间",
-        "progress": "进度",
-        "currentTarget": "当前目标",
-        "errors": "错误次数",
-        "avgReaction": "平均反应时间",
-        "level": "等级",
-        "resume": "继续",
-        "pause": "暂停",
-        "stop": "停止",
-        "wrongNumber": "错误！请找数字 {{number}}",
-        "trainingStarted": "训练开始",
-        "trainingResumed": "训练继续",
-        "trainingPaused": "训练暂停",
-        "trainingCompleted": "训练完成"
+        "completed": "完成！用时 {{time}} 秒"
       },
       "nback": {
         "meta": {
           "title": "N-Back训练",
           "description": "N-Back训练提升工作记忆力和专注力，科学有效的脑力训练工具。",
           "keywords": "n-back,工作记忆,专注力,脑力训练,认知提升"
+        }
         },
-
         "feedback": {
           "correct": "正确！",
           "keepGoing": "继续加油！"
@@ -1128,26 +984,23 @@
           "score": "得分",
           "streak": "连击",
           "trainingProgress": "训练进度",
-          "nBackTraining": "{level}-Back训练",
-          "trialProgress": "试验 {current}/{total}",
           "visualStimulus": "视觉刺激",
           "auditoryStimulus": "听觉刺激",
-          "positionMatch": "位置匹配 {nLevel} 步前",
-          "audioMatch": "音调匹配 {nLevel} 步前",
-          "positionInstruction": "当前位置与 {nLevel} 步前的位置相同时点击",
-          "audioInstruction": "当前音调与 {nLevel} 步前的音调相同时点击",
-          "trainingTip": "专注聆听和观察，当刺激与 {nLevel} 步前相同时立即响应",
-          "congratulations": "恭喜完成 {nLevel}-Back 训练，查看你的表现",
+          "positionMatch": "位置匹配 {{nLevel}} 步前",
+          "audioMatch": "音调匹配 {{nLevel}} 步前",
+          "positionInstruction": "当前位置与 {{nLevel}} 步前的位置相同时点击",
+          "audioInstruction": "当前音调与 {{nLevel}} 步前的音调相同时点击",
+          "trainingTip": "专注聆听和观察，当刺激与 {{nLevel}} 步前相同时立即响应",
+          "congratulations": "恭喜完成 {{nLevel}}-Back 训练，查看你的表现",
           "trainingStats": "训练统计",
           "totalTrials": "总试验次数",
           "visualCorrect": "视觉正确",
           "auditoryCorrect": "听觉正确",
 
+          "continueTraining": "继续训练解锁更多成就！",
           "improveAccuracy": "提高准确率和连击数来获得奖励",
           "excellentPerformance": "优秀表现！你的工作记忆能力很强",
-          "goodPerformance": "良好表现！继续保持训练",
-          "accuracy": "准确率",
-          "level": "等级"
+          "goodPerformance": "良好表现！继续保持训练"
         },
         "instructions": {
           "title": "训练说明",
@@ -1156,10 +1009,7 @@
           "dual": "同时进行视觉和听觉判断，双重挑战您的工作记忆"
         },
         "results": {
-          "evaluation": {
-            "title": "训练评估",
-            "keepTrying": "继续努力！你可以做得更好！"
-          },
+          "evaluation": "训练评估",
           "recommendation": "建议"
         },
         "buttons": {
@@ -1167,7 +1017,7 @@
           "trainAgain": "再次训练"
         },
         "difficulty": {
-          "adjusted": "难度已调整到 {level} 级，原因：{reason}"
+          "adjusted": "难度已调整到 {{level}} 级，原因：{{reason}}"
         },
         "training": {
           "visualMatch": "视觉匹配",
@@ -1181,6 +1031,7 @@
         "menu": {
           "startTraining": "开始训练",
           "statistics": "统计数据",
+
           "settings": "设置",
           "tutorial": "教程",
           "demo": "演示"
@@ -1238,6 +1089,7 @@
       "settings": {
         "notifications": {
           "title": "通知设置",
+
           "friendRequests": "好友请求",
           "trainingReminders": "训练提醒",
           "weeklyReports": "周报告",
@@ -1295,6 +1147,7 @@
           "showOnlineStatus": "显示在线状态",
           "allowFriendRequests": "允许好友请求",
           "showTrainingStats": "显示训练统计"
+
         },
         "dataManagement": {
           "title": "数据管理",
@@ -1302,90 +1155,13 @@
           "importData": "导入数据",
           "resetData": "重置训练数据",
           "deleteAccount": "删除账户",
-          "deleteConfirmation": "此操作将永久删除你的账户和所有相关数据，包括训练记录和好友关系。此操作不可撤销。",
+          "deleteConfirmation": "此操作将永久删除你的账户和所有相关数据，包括训练记录、成就和好友关系。此操作不可撤销。",
           "confirmDelete": "确认删除"
         }
       }
-    }
-  },
-  "profile": {
-    "title": "个人资料",
-    "personalInfo": {
-      "title": "个人信息",
-      "username": "用户名",
-      "email": "邮箱",
-      "displayName": "显示名称",
-      "bio": "个人简介",
-      "avatar": "头像",
-      "joinDate": "加入日期",
-      "lastActive": "最后活跃",
-      "timezone": "时区",
-      "language": "语言偏好"
     },
-    "training": {
-      "title": "训练偏好",
-      "difficulty": "难度设置",
-      "duration": "训练时长",
-      "breakReminders": "休息提醒",
-      "autoSave": "自动保存",
-      "showHints": "显示提示",
-      "adaptiveDifficulty": "自适应难度",
-      "difficultyLevels": {
-        "easy": "简单",
-        "medium": "中等",
-        "hard": "困难",
-        "adaptive": "自适应"
-      }
-    },
-    "interface": {
-      "title": "界面设置",
-      "theme": "主题",
-      "language": "语言",
-      "fontSize": "字体大小",
-      "animations": "动画效果",
-      "reducedMotion": "减少动画",
-      "themes": {
-        "dark": "深色",
-        "light": "浅色",
-        "auto": "自动"
-      },
-      "languages": {
-        "zh": "中文",
-        "en": "English",
-        "ja": "日本語"
-      },
-      "fontSizes": {
-        "small": "小",
-        "medium": "中",
-        "large": "大"
-      }
-    },
-    "audio": {
-      "title": "音频设置",
-      "muteAll": "全部静音",
-      "masterVolume": "主音量",
-      "effectsVolume": "音效音量",
-      "voiceVolume": "语音音量"
-    },
-    "privacy": {
-      "title": "隐私设置",
-      "profileVisible": "公开资料",
-      "showOnlineStatus": "显示在线状态",
-      "allowFriendRequests": "允许好友请求",
-      "showTrainingStats": "显示训练统计"
-    },
-    "dataManagement": {
-      "title": "数据管理",
-      "exportData": "导出我的数据",
-      "importData": "导入数据",
-      "resetData": "重置训练数据",
-      "deleteAccount": "删除账户",
-      "deleteConfirmation": "此操作将永久删除您的账户和所有相关数据，包括训练记录和好友关系。此操作无法撤销。",
-      "confirmDelete": "确认删除"
-    }
-  },
-  "the_title_homepage01": "敛冷于眼，藏拙于神，潜动于灵魂",
-    "the_title_homepage02": "似愚非愚，大巧无巧。让我们在思考中抵达内心的宁静和丰富",
+    "the_title_homepage01": "静心于念，启智于行",
+    "the_title_homepage02": "让我们在训练中开启心智的觉醒与超越",
     "Use_Start": "开始训练",
     "userMenu": {
       "guest": "游客",
@@ -1429,6 +1205,9 @@
         "usernameTooShort": "用户名至少需要3位",
         "confirmPasswordRequired": "请确认密码",
         "passwordMismatch": "两次输入的密码不一致"
+      },
+      "common": {
+        "loading": "处理中..."
       }
     },
     "audioSettings": {
@@ -1492,9 +1271,9 @@
         "description": "增强思维转换和问题解决能力"
       },
       "weaknessImprovement": {
-        "attention": "您的注意力得分为{score}分，建议加强训练",
-        "emotional": "您的情绪管理得分为{score}分，建议重点提升",
-        "cognitive": "您的认知灵活性得分为{score}分，需要加强"
+        "attention": "您的注意力得分为{{score}}分，建议加强训练",
+        "emotional": "您的情绪管理得分为{{score}}分，建议重点提升",
+        "cognitive": "您的认知灵活性得分为{{score}}分，需要加强"
       },
       "tags": {
         "attention": "注意力",
@@ -1540,6 +1319,13 @@
         "description": "学习情绪识别和调节技巧"
       }
     },
+    "common": {
+      "time": {
+        "minutes": "{{count}}分钟",
+        "hours": "{{count}}小时",
+        "hoursAndMinutes": "{{hours}}小时{{minutes}}分钟"
+      }
+    },
     "languages": {
       "en": "English",
       "zh": "中文",
@@ -1553,175 +1339,432 @@
       "buttonClickSuccess": "按钮点击成功！",
       "buttonClickLog": "🎯 按钮被点击了！"
     },
+    "startTraining": "开始训练"
+  },
+  "nback": {
+    "meta": {
+      "title": "N-Back Training",
+      "description": "N-Back training to improve working memory and focus, scientifically effective brain training tool.",
+      "keywords": "n-back,working memory,focus,brain training,cognitive enhancement"
+    },
 
-    "nback": {
-      "meta": {
-        "title": "N-Back训练",
-        "description": "N-Back训练提升工作记忆和专注力，科学有效的大脑训练工具。",
-        "keywords": "n-back,工作记忆,专注力,大脑训练,认知增强"
+    "feedback": {
+      "correct": "Correct!",
+      "incorrect": "Incorrect",
+      "missed": "Missed",
+      "falseAlarm": "False Alarm",
+      "excellent": "Excellent!",
+      "good": "Good",
+      "needsImprovement": "Needs Improvement",
+      "keepGoing": "Keep going!"
+    },
+    "modes": {
+      "tutorial": {
+        "title": "Tutorial Mode",
+        "description": "Learn the basics of N-Back training"
       },
+      "visual": {
+        "title": "Visual Mode",
+        "description": "Train visual working memory with position patterns"
+      },
+      "audio": {
+        "title": "Audio Mode",
+        "description": "Train auditory working memory with sound patterns"
+      },
+      "dual": {
+        "title": "Dual Mode",
+        "description": "Train both visual and auditory working memory simultaneously"
+      },
+      "single": {
+        "title": "Single Modal",
+        "description": "Focus on one type of stimulus at a time"
+      },
+      "position": {
+        "title": "Position",
+        "description": "Track spatial positions in the grid"
+      }
+    },
+    "settings": {
+      "title": "Training Settings",
+      "description": "Customize your N-Back training experience",
+      "levelHint": "Recommended to start from lower levels",
+      "audioFeedback": "Audio Feedback",
+      "audioDescription": "Enable audio prompts and feedback",
+      "nLevel": "N Level",
+      "trials": "Number of Trials",
+      "stimulusDuration": "Stimulus Duration",
+      "intervalDuration": "Interval Duration",
+      "mode": "Training Mode",
+      "difficulty": "Difficulty"
+    },
+    "ui": {
+      "title": "Dual N-Back Training",
+      "subtitle": "Scientifically proven working memory training method to enhance cognitive abilities",
+      "description": "Comprehensive working memory training through dual stimulation of visual positions and auditory tones",
+      "selectMode": "Select Training Mode",
+      "selectModeDescription": "Choose the training type that suits you",
+      "startTraining": "Start Training",
+      "dataManagement": "Data Management",
+      "trainingHistory": "Training History",
+      "waitingResponse": "Waiting for response...",
+      "score": "Score",
+      "streak": "Streak",
+      "trainingProgress": "Training Progress",
+      "start": "Start Training",
+      "pause": "Pause",
+      "resume": "Resume",
+      "stop": "Stop",
+      "restart": "Restart",
+      "accuracy": "Accuracy",
+      "level": "Level",
+      "round": "Round",
+      "progress": "Progress",
+      "visualStimulus": "Visual Stimulus",
+      "auditoryStimulus": "Auditory Stimulus",
+      "positionMatch": "Position Match {{nLevel}} Steps Back",
+      "audioMatch": "Audio Match {{nLevel}} Steps Back",
+      "positionInstruction": "Click when current position matches {{nLevel}} steps back",
+      "audioInstruction": "Click when current audio matches {{nLevel}} steps back",
+      "trainingTip": "Focus and observe, respond immediately when stimulus matches {{nLevel}} steps back",
+      "congratulations": "Congratulations on completing {{nLevel}}-Back training, check your performance",
+      "trainingStats": "Training Statistics",
+      "totalTrials": "Total Trials",
+      "visualCorrect": "Visual Correct",
+      "auditoryCorrect": "Auditory Correct",
 
-      "feedback": {
-        "correct": "正确！",
-        "incorrect": "错误",
-        "missed": "遗漏",
-        "falseAlarm": "误报",
-        "excellent": "优秀！",
-        "good": "良好",
-        "needsImprovement": "需要改进",
-        "keepGoing": "继续加油！"
-      },
-      "modes": {
-        "tutorial": {
-          "title": "教程模式",
-          "description": "学习N-Back训练的基础知识"
-        },
-        "visual": {
-          "title": "视觉模式",
-          "description": "通过位置模式训练视觉工作记忆"
-        },
-        "audio": {
-          "title": "听觉模式",
-          "description": "通过声音模式训练听觉工作记忆"
-        },
-        "dual": {
-          "title": "双重模式",
-          "description": "同时训练视觉和听觉工作记忆"
-        },
-        "single": {
-          "title": "单一模式",
-          "description": "专注于一种类型的刺激"
-        },
-        "position": {
-          "title": "位置",
-          "description": "追踪网格中的空间位置"
-        }
-      },
-      "settings": {
-        "title": "训练设置",
-        "description": "自定义您的N-Back训练体验",
-        "levelHint": "建议从较低等级开始",
-        "audioFeedback": "音频反馈",
-        "audioDescription": "启用音频提示和反馈",
-        "nLevel": "N等级",
-        "trials": "试验次数",
-        "stimulusDuration": "刺激持续时间",
-        "intervalDuration": "间隔持续时间",
-        "mode": "训练模式",
-        "difficulty": "难度"
-      },
-      "ui": {
-        "nBackTraining": "{level}-Back训练",
-        "trialProgress": "试验 {current}/{total}",
-        "title": "双重N-Back训练",
-        "subtitle": "科学验证的工作记忆训练方法，提升认知能力",
-        "description": "通过视觉位置和听觉音调的双重刺激进行全面的工作记忆训练",
-        "selectMode": "选择训练模式",
-        "selectModeDescription": "选择适合您的训练类型",
-        "startTraining": "开始训练",
-        "dataManagement": "数据管理",
-        "trainingHistory": "训练历史",
-        "waitingResponse": "等待响应...",
-        "score": "得分",
-        "streak": "连击",
-        "trainingProgress": "训练进度",
-        "start": "开始训练",
-        "pause": "暂停",
-        "resume": "继续",
-        "stop": "停止",
-        "restart": "重新开始",
-        "accuracy": "准确率",
-        "level": "等级",
-        "round": "回合",
-        "progress": "进度",
-        "visualStimulus": "视觉刺激",
-        "auditoryStimulus": "听觉刺激",
-        "positionMatch": "位置匹配{nLevel}步前",
-        "audioMatch": "音频匹配{nLevel}步前",
-        "positionInstruction": "当前位置与{nLevel}步前匹配时点击",
-        "audioInstruction": "当前音频与{nLevel}步前匹配时点击",
-        "trainingTip": "专注观察，当刺激与{nLevel}步前匹配时立即响应",
-        "congratulations": "恭喜完成{nLevel}-Back训练，查看您的表现",
-        "trainingStats": "训练统计",
-        "totalTrials": "总试验次数",
-        "visualCorrect": "视觉正确",
-        "auditoryCorrect": "听觉正确",
 
-        "improveAccuracy": "提高准确率和连击以获得奖励",
-        "excellentPerformance": "表现优秀！您的工作记忆很强",
-        "goodPerformance": "表现良好！继续保持训练"
-      },
-      "instructions": {
-        "title": "训练说明",
-        "visual": {
-          "title": "视觉训练",
-          "description": "观察网格中的位置，判断是否与N步前匹配"
-        },
-        "audio": {
-          "title": "听觉训练",
-          "description": "聆听字母声音，判断是否与N步前匹配"
-        },
-        "dual": {
-          "title": "双重训练",
-          "description": "同时进行视觉和听觉判断，双重挑战工作记忆"
-        },
-        "objective": "目标：当前刺激与N步前的刺激匹配时按空格键",
-        "controls": "控制：按空格键响应匹配",
-        "tips": "提示：保持专注，不要急于响应"
-      },
-      "results": {
-        "evaluation": {
-          "title": "训练评估",
-          "goodStart": "不错的开始！继续努力",
-          "keepTrying": "继续努力！你可以做得更好！"
-        },
-        "recommendation": "建议",
-        "sessionComplete": "训练完成！",
-        "finalScore": "最终得分",
-        "accuracy": "准确率",
-        "reactionTime": "平均反应时间",
-        "improvements": "改进建议",
-        "nextSession": "下次训练"
-      },
-      "buttons": {
-        "backToMenu": "返回菜单",
-        "trainAgain": "再次训练",
-        "startTraining": "开始训练",
-        "pauseTraining": "暂停训练",
-        "resumeTraining": "继续训练",
-        "stopTraining": "停止训练",
-        "restartTraining": "重新开始训练",
-        "viewResults": "查看结果",
-        "nextLevel": "下一等级",
-        "settings": "设置"
-      },
-      "difficulty": {
-        "adjusted": "难度已调整到等级{level}，原因：{reason}"
+      "improveAccuracy": "Improve accuracy and streak to earn rewards",
+      "excellentPerformance": "Excellent performance! Your working memory is strong",
+      "goodPerformance": "Good performance! Keep up the training"
+    },
+    "instructions": {
+      "title": "Training Instructions",
+      "visual": "Observe positions in the grid, determine if they match N steps back",
+      "audio": "Listen to letter sounds, determine if they match N steps back",
+      "dual": "Perform both visual and auditory judgments, dual challenge for working memory",
+      "objective": "Objective: Press spacebar when current stimulus matches the one N steps back",
+      "controls": "Controls: Press spacebar to respond to matches",
+      "tips": "Tips: Stay focused, don't rush to respond"
+    },
+    "results": {
+      "evaluation": "Training Evaluation",
+      "recommendation": "Recommendation",
+      "sessionComplete": "Training Complete!",
+      "finalScore": "Final Score",
+      "accuracy": "Accuracy",
+      "reactionTime": "Average Reaction Time",
+      "improvements": "Improvement Suggestions",
+      "nextSession": "Next Training"
+    },
+    "buttons": {
+      "backToMenu": "Back to Menu",
+      "trainAgain": "Train Again",
+      "startTraining": "Start Training",
+      "pauseTraining": "Pause Training",
+      "resumeTraining": "Resume Training",
+      "stopTraining": "Stop Training",
+      "restartTraining": "Restart Training",
+      "viewResults": "View Results",
+      "nextLevel": "Next Level",
+      "settings": "Settings"
+    },
+    "difficulty": {
+      "adjusted": "Difficulty adjusted to level {{level}}, reason: {{reason}}"
+    },
+    "training": {
+      "visualMatch": "Visual Match",
+      "audioMatch": "Audio Match",
+      "progress": "Training Progress",
+      "paused": "Training Paused",
+      "resume": "Resume Training"
+    },
+    "title": "N-Back Training",
+    "description": "Scientific training method to improve working memory and cognitive abilities",
+    "menu": {
+      "startTraining": "Start Training",
+      "statistics": "Statistics",
+
+      "settings": "Settings",
+      "tutorial": "Tutorial",
+      "demo": "Demo"
+    },
+    "demo": {
+      "title": "Training Demo"
+    },
+    "welcome": {
+      "title": "Welcome to N-Back Training",
+      "description": "This is a scientifically proven effective working memory training tool",
+      "skip": "Skip",
+      "startGuide": "Start Guide"
+    }
+  },
+  "profile": {
+    "tabs": {
+      "profile": "Profile",
+      "stats": "Statistics",
+      "settings": "Settings",
+      "privacy": "Privacy"
+    },
+    "basicInfo": {
+      "title": "Basic Information",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "level": "Level",
+      "rank": "Rank",
+      "joinedAt": "Joined",
+      "displayName": "Display Name",
+      "username": "Username",
+      "email": "Email",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell us about yourself..."
+    },
+
+    "stats": {
+      "totalSessions": "Total Sessions",
+      "totalTime": "Total Time",
+      "averageAccuracy": "Average Accuracy",
+      "bestStreak": "Best Streak",
+      "trainingDistribution": "Training Distribution",
+      "goalProgress": "Goal Progress",
+      "weeklyGoal": "Weekly Goal",
+      "monthlyGoal": "Monthly Goal",
+      "comparedToLastMonth": "Compared to Last Month",
+      "types": {
+        "attention": "Attention",
+        "memory": "Memory",
+        "reaction": "Reaction",
+        "cognitive": "Cognitive"
+      }
+    },
+    "settings": {
+      "notifications": {
+        "title": "Notification Settings",
+
+        "friendRequests": "Friend Requests",
+        "trainingReminders": "Training Reminders",
+        "weeklyReports": "Weekly Reports",
+        "soundEffects": "Sound Effects",
+        "vibration": "Vibration Feedback"
       },
       "training": {
-        "visualMatch": "视觉匹配",
-        "audioMatch": "音频匹配",
-        "progress": "训练进度",
-        "paused": "训练已暂停",
-        "resume": "继续训练"
+        "title": "Training Preferences",
+        "difficulty": "Difficulty Setting",
+        "duration": "Training Duration",
+        "breakReminders": "Break Reminders",
+        "autoSave": "Auto Save",
+        "showHints": "Show Hints",
+        "adaptiveDifficulty": "Adaptive Difficulty",
+        "difficultyLevels": {
+          "easy": "Easy",
+          "medium": "Medium",
+          "hard": "Hard",
+          "adaptive": "Adaptive"
+        }
       },
-      "title": "N-Back训练",
-      "description": "提升工作记忆和认知能力的科学训练方法",
-      "menu": {
-        "startTraining": "开始训练",
-        "statistics": "统计",
-        "settings": "设置",
-        "tutorial": "教程",
-        "demo": "演示"
+      "interface": {
+        "title": "Interface Settings",
+        "theme": "Theme",
+        "language": "Language",
+        "fontSize": "Font Size",
+        "animations": "Animations",
+        "reducedMotion": "Reduced Motion",
+        "themes": {
+          "dark": "Dark",
+          "light": "Light",
+          "auto": "Auto"
+        },
+        "languages": {
+          "zh": "中文",
+          "en": "English",
+          "ja": "日本語"
+        },
+        "fontSizes": {
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large"
+        }
       },
-      "demo": {
-        "title": "训练演示"
+      "audio": {
+        "title": "Audio Settings",
+        "muteAll": "Mute All",
+        "masterVolume": "Master Volume",
+        "effectsVolume": "Effects Volume",
+        "voiceVolume": "Voice Volume"
       },
-      "welcome": {
-        "title": "欢迎使用N-Back训练",
-        "description": "这是一个科学验证有效的工作记忆训练工具",
-        "skip": "跳过",
-        "startGuide": "开始指导"
+      "privacy": {
+        "title": "Privacy Settings",
+        "profileVisible": "Public Profile",
+        "showOnlineStatus": "Show Online Status",
+        "allowFriendRequests": "Allow Friend Requests",
+        "showTrainingStats": "Show Training Statistics"
+      },
+      "dataManagement": {
+        "title": "Data Management",
+        "exportData": "Export My Data",
+        "importData": "Import Data",
+        "resetData": "Reset Training Data",
+        "deleteAccount": "Delete Account",
+        "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records and friend relationships. This action cannot be undone.",
+        "confirmDelete": "Confirm Delete"
       }
     }
+  },
+  "the_title_homepage01": "Restrain coldness in the eyes, conceal clumsiness in spirit, stir subtly in the soul",
+  "the_title_homepage02": "Seemingly foolish yet not foolish, great skill without artifice—let us reach inner tranquility and richness through contemplation.",
+  "Use_Start": "Start Training",
+  "userMenu": {
+    "guest": "Guest",
+    "signedInAs": "Signed in as",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Welcome back! Please sign in to your account"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create a new account to start your brain training journey"
+    },
+    "fields": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "username": "Enter your username",
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "confirmPassword": "Confirm your password"
+    },
+    "buttons": {
+      "login": "Login",
+      "register": "Register",
+      "cancel": "Cancel"
+    },
+    "errors": {
+      "emailRequired": "Email is required",
+      "passwordRequired": "Password is required",
+      "usernameRequired": "Username is required",
+      "passwordMismatch": "Passwords do not match",
+      "invalidEmail": "Please enter a valid email address",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "loginFailed": "Login failed. Please check your credentials.",
+      "registerFailed": "Registration failed. Please try again."
+    }
+  },
+  "audioSettings": {
+    "title": "Audio Settings",
+    "reset": "Reset",
+    "masterVolume": "Master Volume",
+    "effectsSettings": "Effects Settings",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "effectsVolume": "Effects Volume",
+    "effectsStyle": "Effects Style",
+    "tonesSettings": "Tones Settings",
+    "tonesVolume": "Tones Volume",
+    "toneType": "Tone Type",
+    "testEffects": "Test Effects",
+    "testTones": "Test Tones",
+    "toneTypes": {
+      "sine": {
+        "label": "Sine Wave",
+        "description": "Pure and gentle tone"
+      },
+      "square": {
+        "label": "Square Wave",
+        "description": "Crisp and bright tone"
+      },
+      "triangle": {
+        "label": "Triangle Wave",
+        "description": "Gentle and balanced tone"
+      },
+      "sawtooth": {
+        "label": "Sawtooth Wave",
+        "description": "Rich and full tone"
+      }
+    },
+    "effectStyles": {
+      "digital": {
+        "label": "Digital Style",
+        "description": "Modern tech-inspired effects"
+      },
+      "natural": {
+        "label": "Natural Style",
+        "description": "Nature-inspired effects"
+      },
+      "minimal": {
+        "label": "Minimal Style",
+        "description": "Clean and clear effects"
+      }
+    }
+  },
+  "personalizedRecommendations": {
+    "attention": {
+      "title": "Multi-Dimensional Attention Challenge",
+      "description": "Intensive training designed for attention weaknesses"
+    },
+    "emotional": {
+      "title": "Emotional Management Training",
+      "description": "Comprehensive training to improve emotion recognition and regulation"
+    },
+    "cognitive": {
+      "title": "Cognitive Flexibility Bootcamp",
+      "description": "Enhance thinking switching and problem-solving abilities"
+    },
+    "weaknessImprovement": {
+      "attention": "Your attention score is {{score}} points, training recommended",
+      "emotional": "Your emotional management score is {{score}} points, improvement suggested",
+      "cognitive": "Your cognitive flexibility score is {{score}} points, enhancement needed"
+    },
+    "tags": {
+      "attention": "Attention",
+      "emotional": "Emotional Management",
+      "cognitive": "Cognitive Training",
+      "thinking": "Thinking Training",
+      "basic": "Basic Training",
+      "personalized": "Personalized"
+    }
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "The application encountered an unexpected error. We are working to fix this issue.",
+    "errorDetails": "Error Details",
+    "errorId": "Error ID",
+    "retry": "Retry",
+    "goHome": "Go Home",
+    "refresh": "Refresh Page",
+    "helpText": "If the problem persists, please contact technical support or try again later."
+  },
+  "trainingData": {
+    "errors": {
+      "loadFailed": "Failed to load data",
+      "notLoggedIn": "User not logged in",
+      "saveFailed": "Failed to save training result",
+      "exportFailed": "Failed to export data",
+      "importFailed": "Failed to import data",
+      "invalidFormat": "Invalid data format",
+      "clearFailed": "Failed to clear data"
+    }
+  },
+  "progressConfigs": {
+    "attentionMultidimensional": {
+      "name": "Multidimensional Attention Challenge",
+      "description": "Improve attention concentration through multisensory fusion training"
+    },
+    "cognitiveFlexibility": {
+      "name": "Cognitive Flexibility Training Camp",
+      "description": "Enhance thinking switching and adaptation abilities"
+    },
+    "emotionManagement": {
+      "name": "Emotion Management Training",
+      "description": "Learn emotion recognition and regulation techniques"
+    }
   }
+}

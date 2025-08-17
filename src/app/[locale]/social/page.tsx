@@ -64,7 +64,7 @@ interface FriendRequest {
 interface Activity {
   id: string;
   user: User;
-  type: 'achievement' | 'training' | 'milestone' | 'challenge';
+  type: 'training' | 'milestone' | 'challenge';
   title: string;
   description: string;
   timestamp: number;
@@ -170,16 +170,7 @@ export default function SocialPage() {
 
     // 模拟活动流
     const mockActivities: Activity[] = [
-      {
-        id: 'act1',
-        user: mockFriends[0],
-        type: 'achievement',
-        title: '获得新成就',
-        description: '完成了"记忆大师"挑战',
-        timestamp: Date.now() - 1800000,
-        likes: 5,
-        isLiked: false
-      },
+
       {
         id: 'act2',
         user: mockFriends[1],
@@ -229,8 +220,6 @@ export default function SocialPage() {
   // 获取活动图标
   const getActivityIcon = (type: Activity['type']) => {
     switch (type) {
-      case 'achievement':
-        return Trophy;
       case 'training':
         return Target;
       case 'milestone':

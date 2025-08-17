@@ -31,7 +31,6 @@ import {
   Clock,
   TrendingUp,
   Star,
-  Award,
   Activity,
   Eye,
   Shuffle,
@@ -43,7 +42,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import AchievementSystem from '@/components/AchievementSystem';
+
 import { ProgressBar, progressConfigs } from '@/components/ProgressBar';
 
 // 训练类型枚举
@@ -65,7 +64,6 @@ interface TrainingRecord {
   accuracy: number; // 百分比
   reactionTime?: number; // 毫秒
   level?: number;
-  achievements?: string[];
 }
 
 // 统计数据接口
@@ -76,7 +74,6 @@ interface DashboardStats {
   averageAccuracy: number;
   currentStreak: number;
   longestStreak: number;
-  totalAchievements: number;
   favoriteTrainingType: TrainingType;
   weeklyProgress: number; // 百分比
   monthlyGoalProgress: number; // 百分比
@@ -100,7 +97,7 @@ const mockTrainingRecords: TrainingRecord[] = [
     score: 1250,
     accuracy: 85.5,
     level: 3,
-    achievements: ['memory_master', 'focus_expert']
+
   },
   {
     id: '2',
@@ -111,7 +108,7 @@ const mockTrainingRecords: TrainingRecord[] = [
     score: 980,
     accuracy: 78.2,
     reactionTime: 450,
-    achievements: ['attention_expert']
+
   },
   {
     id: '3',
@@ -122,7 +119,7 @@ const mockTrainingRecords: TrainingRecord[] = [
     score: 1580,
     accuracy: 92.1,
     reactionTime: 320,
-    achievements: ['reaction_king']
+
   },
   {
     id: '4',
@@ -133,7 +130,7 @@ const mockTrainingRecords: TrainingRecord[] = [
     score: 1120,
     accuracy: 81.7,
     reactionTime: 520,
-    achievements: ['cognitive_master', 'flexible_thinking']
+
   },
   {
     id: '5',
@@ -143,7 +140,7 @@ const mockTrainingRecords: TrainingRecord[] = [
     duration: 420,
     score: 890,
     accuracy: 76.3,
-    achievements: ['reading_warrior']
+
   }
 ];
 
@@ -178,7 +175,7 @@ export default function DashboardPage() {
     averageAccuracy: 0,
     currentStreak: 0,
     longestStreak: 0,
-    totalAchievements: 0,
+
     favoriteTrainingType: TrainingType.MEMORY,
     weeklyProgress: 0,
     monthlyGoalProgress: 0
@@ -202,10 +199,7 @@ export default function DashboardPage() {
         typeCount[a[0] as TrainingType] > typeCount[b[0] as TrainingType] ? a : b
       )[0] as TrainingType;
       
-      // 计算成就总数
-      const totalAchievements = trainingRecords.reduce((sum, record) => 
-        sum + (record.achievements?.length || 0), 0
-      );
+
       
       setDashboardStats({
         totalTrainingSessions: totalSessions,
@@ -214,7 +208,7 @@ export default function DashboardPage() {
         averageAccuracy: Math.round(avgAccuracy * 10) / 10,
         currentStreak: 5, // 模拟数据
         longestStreak: 12, // 模拟数据
-        totalAchievements,
+
         favoriteTrainingType: favoriteType,
         weeklyProgress: 75, // 模拟数据
         monthlyGoalProgress: 60 // 模拟数据
@@ -607,19 +601,7 @@ export default function DashboardPage() {
                   <p className="text-sm text-gray-400">{t('dashboard.goals.monthlyTarget')}</p>
                 </div>
 
-                {/* 成就统计 */}
-                <div className="bg-gray-700/50 rounded-lg p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Award className="w-5 h-5 text-yellow-400" />
-                      <span className="text-white font-medium">{t('dashboard.goals.achievements')}</span>
-                    </div>
-                    <span className="text-2xl font-bold text-yellow-400">
-                      {dashboardStats.totalAchievements}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-400 mt-1">{t('dashboard.goals.encouragement')}</p>
-                </div>
+
               </CardContent>
             </Card>
           </motion.div>
@@ -671,23 +653,7 @@ export default function DashboardPage() {
           </Card>
         </motion.div>
 
-        {/* 成就系统 */}
-        <div className="mb-8">
-          <AchievementSystem
-            userStats={{
-              totalTrainingTime: dashboardStats.totalTrainingTime,
-              trainingStreak: dashboardStats.currentStreak,
-              totalScore: dashboardStats.averageScore,
-              modulesCompleted: 3, // 模拟数据
-              perfectScores: Math.floor(dashboardStats.averageAccuracy / 20),
-              averageAccuracy: dashboardStats.averageAccuracy,
-              fastestReaction: 400, // 模拟数据
-              socialInteractions: 0, // 模拟数据
-              achievementsUnlocked: dashboardStats.totalAchievements,
-              totalSessions: dashboardStats.totalTrainingSessions
-            }}
-          />
-        </div>
+
       </div>
     </div>
   );

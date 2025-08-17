@@ -134,7 +134,6 @@ export const TrainingHistory: React.FC = () => {
         <motion.button
           onClick={() => setShowFilters(!showFilters)}
           className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg border border-white/20 transition-colors"
-          whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
           <Filter className="w-4 h-4 text-white" />
@@ -190,7 +189,6 @@ export const TrainingHistory: React.FC = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <motion.div
           className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl p-4 border border-blue-500/30"
-          whileHover={{ scale: 1.02 }}
         >
           <div className="flex items-center gap-2 mb-2">
             <Calendar className="w-4 h-4 text-blue-400" />
@@ -201,7 +199,6 @@ export const TrainingHistory: React.FC = () => {
 
         <motion.div
           className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-4 border border-green-500/30"
-          whileHover={{ scale: 1.02 }}
         >
           <div className="flex items-center gap-2 mb-2">
             <Clock className="w-4 h-4 text-green-400" />
@@ -212,7 +209,6 @@ export const TrainingHistory: React.FC = () => {
 
         <motion.div
           className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-500/30"
-          whileHover={{ scale: 1.02 }}
         >
           <div className="flex items-center gap-2 mb-2">
             <Target className="w-4 h-4 text-purple-400" />
@@ -225,7 +221,6 @@ export const TrainingHistory: React.FC = () => {
 
         <motion.div
           className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl p-4 border border-yellow-500/30"
-          whileHover={{ scale: 1.02 }}
         >
           <div className="flex items-center gap-2 mb-2">
             <Award className="w-4 h-4 text-yellow-400" />

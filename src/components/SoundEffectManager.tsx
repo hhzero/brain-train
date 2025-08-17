@@ -37,7 +37,7 @@ enum SoundType {
   RESUME = 'resume',
   COMPLETE = 'complete',
   LEVEL_UP = 'level_up',
-  ACHIEVEMENT = 'achievement',
+
   
   // 界面音效
   BUTTON_CLICK = 'button_click',
@@ -96,7 +96,7 @@ const TONE_FREQUENCIES: Record<SoundType, number> = {
   [SoundType.RESUME]: 440,
   [SoundType.COMPLETE]: 880,
   [SoundType.LEVEL_UP]: 1200,
-  [SoundType.ACHIEVEMENT]: 1500,
+
   [SoundType.BUTTON_CLICK]: 800,
   [SoundType.BUTTON_HOVER]: 600,
   [SoundType.NOTIFICATION]: 700
@@ -126,7 +126,7 @@ const SOUND_STYLES: Record<SoundType, Partial<ToneConfig>> = {
   [SoundType.RESUME]: { type: 'triangle', duration: 250, attack: 0.05, decay: 0.1, sustain: 0.4, release: 0.15 },
   [SoundType.COMPLETE]: { type: 'sine', duration: 600, attack: 0.1, decay: 0.2, sustain: 0.6, release: 0.4 },
   [SoundType.LEVEL_UP]: { type: 'triangle', duration: 800, attack: 0.1, decay: 0.3, sustain: 0.5, release: 0.5 },
-  [SoundType.ACHIEVEMENT]: { type: 'sine', duration: 1000, attack: 0.2, decay: 0.3, sustain: 0.6, release: 0.6 },
+
   
   // 界面音效 - 轻柔简洁
   [SoundType.BUTTON_CLICK]: { type: 'triangle', duration: 100, attack: 0.01, decay: 0.05, sustain: 0.2, release: 0.05 },
@@ -295,14 +295,14 @@ export class SoundEffectManager {
   }
 
   // 播放系统音效
-  public async playSystem(type: 'start' | 'pause' | 'resume' | 'complete' | 'levelUp' | 'achievement'): Promise<void> {
+  public async playSystem(type: 'start' | 'pause' | 'resume' | 'complete' | 'levelUp'): Promise<void> {
     const soundMap = {
       start: SoundType.START,
       pause: SoundType.PAUSE,
       resume: SoundType.RESUME,
       complete: SoundType.COMPLETE,
       levelUp: SoundType.LEVEL_UP,
-      achievement: SoundType.ACHIEVEMENT
+
     };
     
     await this.playTone(soundMap[type]);
@@ -347,7 +347,7 @@ export class SoundEffectManager {
     const soundTypes = type === 'effects' 
       ? [SoundType.CORRECT, SoundType.INCORRECT, SoundType.PERFECT, SoundType.COMBO, 
          SoundType.START, SoundType.PAUSE, SoundType.RESUME, SoundType.COMPLETE,
-         SoundType.LEVEL_UP, SoundType.ACHIEVEMENT, SoundType.BUTTON_CLICK, 
+         SoundType.LEVEL_UP, SoundType.BUTTON_CLICK, 
          SoundType.BUTTON_HOVER, SoundType.NOTIFICATION]
       : [SoundType.TONE_C, SoundType.TONE_D, SoundType.TONE_E, SoundType.TONE_F,
          SoundType.TONE_G, SoundType.TONE_A, SoundType.TONE_B, SoundType.TONE_C_HIGH];

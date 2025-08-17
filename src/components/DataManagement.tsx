@@ -133,10 +133,7 @@ export const DataManagement: React.FC = () => {
             <span>训练会话:</span>
             <span className="text-cyan-400">{userData?.sessions.length || 0} 个</span>
           </div>
-          <div className="flex justify-between">
-            <span>解锁成就:</span>
-            <span className="text-purple-400">{userData?.achievements.length || 0} 个</span>
-          </div>
+
           <div className="flex justify-between">
             <span>存储使用:</span>
             <span className="text-green-400">

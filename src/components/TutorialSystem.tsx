@@ -559,7 +559,6 @@ export function TutorialSystem({
       <motion.button
         onClick={startTutorial}
         className="fixed bottom-6 right-6 p-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 z-40"
-        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -616,7 +615,6 @@ export function TutorialSystem({
                     <motion.button
                       onClick={skipTutorial}
                       className="p-2 text-gray-400 hover:text-white transition-colors"
-                      whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
                       <SkipForward className="w-5 h-5" />
@@ -626,7 +624,6 @@ export function TutorialSystem({
                   <motion.button
                     onClick={closeTutorial}
                     className="p-2 text-gray-400 hover:text-white transition-colors"
-                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
                     <X className="w-5 h-5" />
@@ -667,7 +664,6 @@ export function TutorialSystem({
                   onClick={prevStep}
                   disabled={isFirstStep}
                   className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors"
-                  whileHover={{ scale: isFirstStep ? 1 : 1.05 }}
                   whileTap={{ scale: isFirstStep ? 1 : 0.95 }}
                 >
                   <ChevronLeft className="w-4 h-4" />
@@ -692,7 +688,6 @@ export function TutorialSystem({
                 <motion.button
                   onClick={nextStep}
                   className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {isLastStep ? '完成' : '下一步'}
@@ -719,7 +714,6 @@ export function TutorialLauncher({ onStart, className }: TutorialLauncherProps) 
     <motion.button
       onClick={onStart}
       className={`flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-cyan-700 transition-all duration-200 ${className}`}
-      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
       <HelpCircle className="w-4 h-4" />

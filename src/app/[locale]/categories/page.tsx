@@ -91,7 +91,6 @@ export default function Categories() {
                       cat.list.map((item: any) => (
                         <motion.div
                           key={item.id}
-                          whileHover={{ scale: 1.02 }}
                           className='flex items-center justify-between bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors'
                         >
                           <div className='flex-1'>
@@ -101,7 +100,6 @@ export default function Categories() {
                             )}
                           </div>
                           <motion.button
-                            whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className='ml-4 rounded-lg bg-primary px-6 py-2 text-white font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg'
                             onClick={() => router.push(item.link)}

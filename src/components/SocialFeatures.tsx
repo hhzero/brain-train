@@ -52,7 +52,7 @@ export interface UserStats {
   averageScore: number
   bestStreak: number
   favoriteModule: string
-  achievements: number
+
 }
 
 // 徽章
@@ -114,7 +114,7 @@ export interface LeaderboardEntry {
 export interface Activity {
   id: string
   user: User
-  type: 'achievement' | 'challenge_complete' | 'new_record' | 'level_up' | 'badge_earned'
+  type: 'challenge_complete' | 'new_record' | 'level_up' | 'badge_earned'
   content: string
   timestamp: Date
   data?: any
@@ -176,7 +176,7 @@ export default function SocialFeatures({
 
   const getActivityIcon = (type: string) => {
     switch (type) {
-      case 'achievement': return Trophy
+  
       case 'challenge_complete': return Target
       case 'new_record': return TrendingUp
       case 'level_up': return Star

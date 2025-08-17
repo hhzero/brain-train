@@ -113,11 +113,6 @@ export const LazyTutorialSystem = createLazyComponent(
   <DefaultLoadingFallback />
 );
 
-export const LazyAchievementSystem = createLazyComponent(
-  () => import('./AchievementSystem'),
-  <DefaultLoadingFallback />
-);
-
 export const LazyAudioTestPanel = createLazyComponent(
   () => import('./AudioTestPanel').then(module => ({ default: module.AudioTestPanel })),
   <DefaultLoadingFallback />

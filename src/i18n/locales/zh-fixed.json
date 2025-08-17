@@ -144,7 +144,7 @@
     "about": "关于",
     "profile": "个人中心",
     "leaderboard": "排行榜",
-    "achievements": "成就",
+
     "settings": "设置"
   },
   "training": {
@@ -328,7 +328,7 @@
     "tabs": {
       "overview": "概览",
       "recommendations": "推荐",
-      "achievements": "成就",
+
       "social": "社交"
     },
     "abilities": {
@@ -346,33 +346,7 @@
       "needsAttention": "需要关注"
     }
   },
-  "achievements": {
-    "title": "成就系统",
-    "description": "通过完成训练和挑战解锁各种成就徽章",
-    "categories": {
-      "all": "全部",
-      "training": "训练成就",
-      "streak": "连胜成就",
-      "score": "分数成就",
-      "time": "时间成就",
-      "social": "社交成就",
-      "special": "特殊成就"
-    },
-    "rarity": {
-      "common": "普通",
-      "rare": "稀有",
-      "epic": "史诗",
-      "legendary": "传说"
-    },
-    "stats": {
-      "unlockedAchievements": "已解锁成就",
-      "achievementPoints": "成就积分",
-      "completionRate": "完成度"
-    },
-    "newUnlock": "新成就解锁！",
-    "viewDetails": "查看详情",
-    "shareAchievement": "分享成就"
-  },
+
   "recommendations": {
     "title": "个性化推荐",
     "description": "基于您的训练历史和能力评估的智能推荐",
@@ -434,7 +408,7 @@
     "activities": {
       "title": "动态",
       "recent": "最近动态",
-      "achievement": "获得成就",
+
       "training": "完成训练",
       "challenge": "参与挑战",
       "friendship": "添加好友",
@@ -762,11 +736,7 @@
       "title": "认知灵活性训练营 2.0",
       "description": "通过职场模拟、学习场景、生活情境等多元化训练，全面提升认知灵活性和执行控制能力",
       "challengeLevel": "挑战等级",
-      "achievements": {
-        "title": "成就徽章",
-        "streakMaster": "连击达人",
-        "trainingExpert": "训练专家"
-      },
+
       "trainingControl": {
         "title": "训练控制",
         "startTraining": "开始训练",
@@ -962,28 +932,7 @@
           "title": "N-Back训练",
           "description": "N-Back训练提升工作记忆力和专注力，科学有效的脑力训练工具。",
           "keywords": "n-back,工作记忆,专注力,脑力训练,认知提升"
-        },
-        "achievements": {
-          "firstSession": {
-            "title": "初次体验",
-            "description": "完成第一次N-Back训练"
-          },
-          "perfectRound": {
-            "title": "完美表现",
-            "description": "在一轮训练中达到100%准确率"
-          },
-          "streakMaster": {
-            "title": "连击大师",
-            "description": "连续答对10题"
-          },
-          "levelUp": {
-            "title": "等级提升",
-            "description": "成功提升到更高难度等级"
-          },
-          "highAccuracy": {
-            "name": "高精度大师",
-            "description": "在训练中达到90%以上的准确率"
-          }
+        }
         },
         "feedback": {
           "correct": "正确！",
@@ -1047,7 +996,7 @@
           "totalTrials": "总试验次数",
           "visualCorrect": "视觉正确",
           "auditoryCorrect": "听觉正确",
-          "achievementsUnlocked": "成就解锁",
+
           "continueTraining": "继续训练解锁更多成就！",
           "improveAccuracy": "提高准确率和连击数来获得奖励",
           "excellentPerformance": "优秀表现！你的工作记忆能力很强",
@@ -1082,7 +1031,7 @@
         "menu": {
           "startTraining": "开始训练",
           "statistics": "统计数据",
-          "achievements": "成就",
+
           "settings": "设置",
           "tutorial": "教程",
           "demo": "演示"
@@ -1119,14 +1068,7 @@
         "bio": "个人简介",
         "bioPlaceholder": "介绍一下你自己..."
       },
-      "achievements": {
-        "title": "成就概览",
-        "count": "成就数量",
-        "streak": "连击天数",
-        "totalScore": "总积分",
-        "trainingTime": "训练时长",
-        "recent": "最近成就"
-      },
+
       "stats": {
         "totalSessions": "训练次数",
         "totalTime": "总时长",
@@ -1147,7 +1089,7 @@
       "settings": {
         "notifications": {
           "title": "通知设置",
-          "achievements": "成就解锁",
+
           "friendRequests": "好友请求",
           "trainingReminders": "训练提醒",
           "weeklyReports": "周报告",
@@ -1204,8 +1146,8 @@
           "profileVisible": "公开个人资料",
           "showOnlineStatus": "显示在线状态",
           "allowFriendRequests": "允许好友请求",
-          "showTrainingStats": "显示训练统计",
-          "showAchievements": "显示成就"
+          "showTrainingStats": "显示训练统计"
+
         },
         "dataManagement": {
           "title": "数据管理",
@@ -1398,481 +1340,5 @@
       "buttonClickLog": "🎯 按钮被点击了！"
     },
     "startTraining": "开始训练"
-  },
-  "nback": {
-    "meta": {
-      "title": "N-Back Training",
-      "description": "N-Back training to improve working memory and focus, scientifically effective brain training tool.",
-      "keywords": "n-back,working memory,focus,brain training,cognitive enhancement"
-    },
-    "achievements": {
-      "firstSession": {
-        "title": "First Experience",
-        "description": "Complete your first N-Back training session"
-      },
-      "perfectRound": {
-        "title": "Perfect Performance",
-        "description": "Achieve 100% accuracy in a training round"
-      },
-      "streakMaster": {
-        "title": "Streak Master",
-        "description": "Answer 10 questions correctly in a row"
-      },
-      "levelUp": {
-        "title": "Level Up",
-        "description": "Successfully advance to a higher difficulty level"
-      },
-      "streak5": {
-        "title": "Persistent",
-        "description": "Train for 5 consecutive days"
-      },
-      "level3": {
-        "title": "Advanced Challenge",
-        "description": "Reach 3-Back level"
-      },
-      "highAccuracy": {
-        "name": "High Accuracy Master",
-        "description": "Achieve over 90% accuracy in training"
-      }
-    },
-    "feedback": {
-      "correct": "Correct!",
-      "incorrect": "Incorrect",
-      "missed": "Missed",
-      "falseAlarm": "False Alarm",
-      "excellent": "Excellent!",
-      "good": "Good",
-      "needsImprovement": "Needs Improvement",
-      "keepGoing": "Keep going!"
-    },
-    "modes": {
-      "tutorial": {
-        "title": "Tutorial Mode",
-        "description": "Learn the basics of N-Back training"
-      },
-      "visual": {
-        "title": "Visual Mode",
-        "description": "Train visual working memory with position patterns"
-      },
-      "audio": {
-        "title": "Audio Mode",
-        "description": "Train auditory working memory with sound patterns"
-      },
-      "dual": {
-        "title": "Dual Mode",
-        "description": "Train both visual and auditory working memory simultaneously"
-      },
-      "single": {
-        "title": "Single Modal",
-        "description": "Focus on one type of stimulus at a time"
-      },
-      "position": {
-        "title": "Position",
-        "description": "Track spatial positions in the grid"
-      }
-    },
-    "settings": {
-      "title": "Training Settings",
-      "description": "Customize your N-Back training experience",
-      "levelHint": "Recommended to start from lower levels",
-      "audioFeedback": "Audio Feedback",
-      "audioDescription": "Enable audio prompts and feedback",
-      "nLevel": "N Level",
-      "trials": "Number of Trials",
-      "stimulusDuration": "Stimulus Duration",
-      "intervalDuration": "Interval Duration",
-      "mode": "Training Mode",
-      "difficulty": "Difficulty"
-    },
-    "ui": {
-      "title": "Dual N-Back Training",
-      "subtitle": "Scientifically proven working memory training method to enhance cognitive abilities",
-      "description": "Comprehensive working memory training through dual stimulation of visual positions and auditory tones",
-      "selectMode": "Select Training Mode",
-      "selectModeDescription": "Choose the training type that suits you",
-      "startTraining": "Start Training",
-      "dataManagement": "Data Management",
-      "trainingHistory": "Training History",
-      "waitingResponse": "Waiting for response...",
-      "score": "Score",
-      "streak": "Streak",
-      "trainingProgress": "Training Progress",
-      "start": "Start Training",
-      "pause": "Pause",
-      "resume": "Resume",
-      "stop": "Stop",
-      "restart": "Restart",
-      "accuracy": "Accuracy",
-      "level": "Level",
-      "round": "Round",
-      "progress": "Progress",
-      "visualStimulus": "Visual Stimulus",
-      "auditoryStimulus": "Auditory Stimulus",
-      "positionMatch": "Position Match {{nLevel}} Steps Back",
-      "audioMatch": "Audio Match {{nLevel}} Steps Back",
-      "positionInstruction": "Click when current position matches {{nLevel}} steps back",
-      "audioInstruction": "Click when current audio matches {{nLevel}} steps back",
-      "trainingTip": "Focus and observe, respond immediately when stimulus matches {{nLevel}} steps back",
-      "congratulations": "Congratulations on completing {{nLevel}}-Back training, check your performance",
-      "trainingStats": "Training Statistics",
-      "totalTrials": "Total Trials",
-      "visualCorrect": "Visual Correct",
-      "auditoryCorrect": "Auditory Correct",
-      "achievementsUnlocked": "Achievements Unlocked",
-      "continueTraining": "Continue training to unlock more achievements!",
-      "improveAccuracy": "Improve accuracy and streak to earn rewards",
-      "excellentPerformance": "Excellent performance! Your working memory is strong",
-      "goodPerformance": "Good performance! Keep up the training"
-    },
-    "instructions": {
-      "title": "Training Instructions",
-      "visual": "Observe positions in the grid, determine if they match N steps back",
-      "audio": "Listen to letter sounds, determine if they match N steps back",
-      "dual": "Perform both visual and auditory judgments, dual challenge for working memory",
-      "objective": "Objective: Press spacebar when current stimulus matches the one N steps back",
-      "controls": "Controls: Press spacebar to respond to matches",
-      "tips": "Tips: Stay focused, don't rush to respond"
-    },
-    "results": {
-      "evaluation": "Training Evaluation",
-      "recommendation": "Recommendation",
-      "sessionComplete": "Training Complete!",
-      "finalScore": "Final Score",
-      "accuracy": "Accuracy",
-      "reactionTime": "Average Reaction Time",
-      "improvements": "Improvement Suggestions",
-      "nextSession": "Next Training"
-    },
-    "buttons": {
-      "backToMenu": "Back to Menu",
-      "trainAgain": "Train Again",
-      "startTraining": "Start Training",
-      "pauseTraining": "Pause Training",
-      "resumeTraining": "Resume Training",
-      "stopTraining": "Stop Training",
-      "restartTraining": "Restart Training",
-      "viewResults": "View Results",
-      "nextLevel": "Next Level",
-      "settings": "Settings"
-    },
-    "difficulty": {
-      "adjusted": "Difficulty adjusted to level {{level}}, reason: {{reason}}"
-    },
-    "training": {
-      "visualMatch": "Visual Match",
-      "audioMatch": "Audio Match",
-      "progress": "Training Progress",
-      "paused": "Training Paused",
-      "resume": "Resume Training"
-    },
-    "title": "N-Back Training",
-    "description": "Scientific training method to improve working memory and cognitive abilities",
-    "menu": {
-      "startTraining": "Start Training",
-      "statistics": "Statistics",
-      "achievements": "Achievements",
-      "settings": "Settings",
-      "tutorial": "Tutorial",
-      "demo": "Demo"
-    },
-    "demo": {
-      "title": "Training Demo"
-    },
-    "welcome": {
-      "title": "Welcome to N-Back Training",
-      "description": "This is a scientifically proven effective working memory training tool",
-      "skip": "Skip",
-      "startGuide": "Start Guide"
-    }
-  },
-  "profile": {
-    "tabs": {
-      "profile": "Profile",
-      "stats": "Statistics",
-      "settings": "Settings",
-      "privacy": "Privacy"
-    },
-    "basicInfo": {
-      "title": "Basic Information",
-      "edit": "Edit",
-      "save": "Save",
-      "cancel": "Cancel",
-      "level": "Level",
-      "rank": "Rank",
-      "joinedAt": "Joined",
-      "displayName": "Display Name",
-      "username": "Username",
-      "email": "Email",
-      "bio": "Bio",
-      "bioPlaceholder": "Tell us about yourself..."
-    },
-    "achievements": {
-      "title": "Achievement Overview",
-      "count": "Achievement Count",
-      "streak": "Streak Days",
-      "totalScore": "Total Score",
-      "trainingTime": "Training Time",
-      "recent": "Recent Achievements"
-    },
-    "stats": {
-      "totalSessions": "Total Sessions",
-      "totalTime": "Total Time",
-      "averageAccuracy": "Average Accuracy",
-      "bestStreak": "Best Streak",
-      "trainingDistribution": "Training Distribution",
-      "goalProgress": "Goal Progress",
-      "weeklyGoal": "Weekly Goal",
-      "monthlyGoal": "Monthly Goal",
-      "comparedToLastMonth": "Compared to Last Month",
-      "types": {
-        "attention": "Attention",
-        "memory": "Memory",
-        "reaction": "Reaction",
-        "cognitive": "Cognitive"
-      }
-    },
-    "settings": {
-      "notifications": {
-        "title": "Notification Settings",
-        "achievements": "Achievement Unlocked",
-        "friendRequests": "Friend Requests",
-        "trainingReminders": "Training Reminders",
-        "weeklyReports": "Weekly Reports",
-        "soundEffects": "Sound Effects",
-        "vibration": "Vibration Feedback"
-      },
-      "training": {
-        "title": "Training Preferences",
-        "difficulty": "Difficulty Setting",
-        "duration": "Training Duration",
-        "breakReminders": "Break Reminders",
-        "autoSave": "Auto Save",
-        "showHints": "Show Hints",
-        "adaptiveDifficulty": "Adaptive Difficulty",
-        "difficultyLevels": {
-          "easy": "Easy",
-          "medium": "Medium",
-          "hard": "Hard",
-          "adaptive": "Adaptive"
-        }
-      },
-      "interface": {
-        "title": "Interface Settings",
-        "theme": "Theme",
-        "language": "Language",
-        "fontSize": "Font Size",
-        "animations": "Animations",
-        "reducedMotion": "Reduced Motion",
-        "themes": {
-          "dark": "Dark",
-          "light": "Light",
-          "auto": "Auto"
-        },
-        "languages": {
-          "zh": "中文",
-          "en": "English",
-          "ja": "日本語"
-        },
-        "fontSizes": {
-          "small": "Small",
-          "medium": "Medium",
-          "large": "Large"
-        }
-      },
-      "audio": {
-        "title": "Audio Settings",
-        "muteAll": "Mute All",
-        "masterVolume": "Master Volume",
-        "effectsVolume": "Effects Volume",
-        "voiceVolume": "Voice Volume"
-      },
-      "privacy": {
-        "title": "Privacy Settings",
-        "profileVisible": "Public Profile",
-        "showOnlineStatus": "Show Online Status",
-        "allowFriendRequests": "Allow Friend Requests",
-        "showTrainingStats": "Show Training Statistics",
-        "showAchievements": "Show Achievements"
-      },
-      "dataManagement": {
-        "title": "Data Management",
-        "exportData": "Export My Data",
-        "importData": "Import Data",
-        "resetData": "Reset Training Data",
-        "deleteAccount": "Delete Account",
-        "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records, achievements, and friend relationships. This action cannot be undone.",
-        "confirmDelete": "Confirm Delete"
-      }
-    }
-  },
-  "the_title_homepage01": "Restrain coldness in the eyes, conceal clumsiness in spirit, stir subtly in the soul",
-  "the_title_homepage02": "Seemingly foolish yet not foolish, great skill without artifice—let us reach inner tranquility and richness through contemplation.",
-  "Use_Start": "Start Training",
-  "userMenu": {
-    "guest": "Guest",
-    "signedInAs": "Signed in as",
-    "profile": "Profile",
-    "logout": "Logout",
-    "login": "Login",
-    "register": "Register"
-  },
-  "auth": {
-    "login": {
-      "title": "Login",
-      "subtitle": "Welcome back! Please sign in to your account"
-    },
-    "register": {
-      "title": "Register",
-      "subtitle": "Create a new account to start your brain training journey"
-    },
-    "fields": {
-      "username": "Username",
-      "email": "Email",
-      "password": "Password",
-      "confirmPassword": "Confirm Password"
-    },
-    "placeholders": {
-      "username": "Enter your username",
-      "email": "Enter your email",
-      "password": "Enter your password",
-      "confirmPassword": "Confirm your password"
-    },
-    "buttons": {
-      "login": "Login",
-      "register": "Register",
-      "cancel": "Cancel"
-    },
-    "errors": {
-      "emailRequired": "Email is required",
-      "passwordRequired": "Password is required",
-      "usernameRequired": "Username is required",
-      "passwordMismatch": "Passwords do not match",
-      "invalidEmail": "Please enter a valid email address",
-      "passwordTooShort": "Password must be at least 6 characters",
-      "loginFailed": "Login failed. Please check your credentials.",
-      "registerFailed": "Registration failed. Please try again."
-    }
-  },
-  "audioSettings": {
-    "title": "Audio Settings",
-    "reset": "Reset",
-    "masterVolume": "Master Volume",
-    "effectsSettings": "Effects Settings",
-    "enabled": "Enabled",
-    "disabled": "Disabled",
-    "effectsVolume": "Effects Volume",
-    "effectsStyle": "Effects Style",
-    "tonesSettings": "Tones Settings",
-    "tonesVolume": "Tones Volume",
-    "toneType": "Tone Type",
-    "testEffects": "Test Effects",
-    "testTones": "Test Tones",
-    "toneTypes": {
-      "sine": {
-        "label": "Sine Wave",
-        "description": "Pure and gentle tone"
-      },
-      "square": {
-        "label": "Square Wave",
-        "description": "Crisp and bright tone"
-      },
-      "triangle": {
-        "label": "Triangle Wave",
-        "description": "Gentle and balanced tone"
-      },
-      "sawtooth": {
-        "label": "Sawtooth Wave",
-        "description": "Rich and full tone"
-      }
-    },
-    "effectStyles": {
-      "digital": {
-        "label": "Digital Style",
-        "description": "Modern tech-inspired effects"
-      },
-      "natural": {
-        "label": "Natural Style",
-        "description": "Nature-inspired effects"
-      },
-      "minimal": {
-        "label": "Minimal Style",
-        "description": "Clean and clear effects"
-      }
-    }
-  },
-  "personalizedRecommendations": {
-    "attention": {
-      "title": "Multi-Dimensional Attention Challenge",
-      "description": "Intensive training designed for attention weaknesses"
-    },
-    "emotional": {
-      "title": "Emotional Management Training",
-      "description": "Comprehensive training to improve emotion recognition and regulation"
-    },
-    "cognitive": {
-      "title": "Cognitive Flexibility Bootcamp",
-      "description": "Enhance thinking switching and problem-solving abilities"
-    },
-    "weaknessImprovement": {
-      "attention": "Your attention score is {{score}} points, training recommended",
-      "emotional": "Your emotional management score is {{score}} points, improvement suggested",
-      "cognitive": "Your cognitive flexibility score is {{score}} points, enhancement needed"
-    },
-    "tags": {
-      "attention": "Attention",
-      "emotional": "Emotional Management",
-      "cognitive": "Cognitive Training",
-      "thinking": "Thinking Training",
-      "basic": "Basic Training",
-      "personalized": "Personalized"
-    }
-  },
-  "errorBoundary": {
-    "title": "Something went wrong",
-    "description": "The application encountered an unexpected error. We are working to fix this issue.",
-    "errorDetails": "Error Details",
-    "errorId": "Error ID",
-    "retry": "Retry",
-    "goHome": "Go Home",
-    "refresh": "Refresh Page",
-    "helpText": "If the problem persists, please contact technical support or try again later."
-  },
-  "trainingData": {
-    "errors": {
-      "loadFailed": "Failed to load data",
-      "notLoggedIn": "User not logged in",
-      "saveFailed": "Failed to save training result",
-      "exportFailed": "Failed to export data",
-      "importFailed": "Failed to import data",
-      "invalidFormat": "Invalid data format",
-      "clearFailed": "Failed to clear data"
-    }
-  },
-  "progressConfigs": {
-    "attentionMultidimensional": {
-      "name": "Multidimensional Attention Challenge",
-      "description": "Improve attention concentration through multisensory fusion training"
-    },
-    "cognitiveFlexibility": {
-      "name": "Cognitive Flexibility Training Camp",
-      "description": "Enhance thinking switching and adaptation abilities"
-    },
-    "emotionManagement": {
-      "name": "Emotion Management Training",
-      "description": "Learn emotion recognition and regulation techniques"
-    }
-  },
-  "languages": {
-    "en": "English",
-    "zh": "中文",
-    "es": "Español",
-    "ja": "日本語"
-  },
-  "simpleTest": {
-    "title": "Simple Test",
-    "rawHtmlButton": "Raw HTML Button",
-    "customButtonComponent": "Custom Button Component",
-    "buttonClickSuccess": "Button clicked successfully!",
-    "buttonClickLog": "🎯 Button clicked!"
+  
   }
-}

@@ -43,30 +43,7 @@
       "description": "N-Back training improves working memory and focus, a scientifically effective brain training tool.",
       "keywords": "n-back,working memory,focus,brain training,cognitive enhancement"
     },
-    "achievements": {
-      "title": "N-Back Achievements",
-      "description": "View all your achievements and milestones in N-Back training",
-      "firstSession": {
-        "title": "First Experience",
-        "description": "Complete your first N-Back training session"
-      },
-      "perfectRound": {
-        "title": "Perfect Performance",
-        "description": "Achieve 100% accuracy in a training round"
-      },
-      "streakMaster": {
-        "title": "Streak Master",
-        "description": "Get 10 correct answers in a row"
-      },
-      "levelUp": {
-        "title": "Level Up",
-        "description": "Successfully advance to a higher difficulty level"
-      },
-      "highAccuracy": {
-        "name": "High Accuracy Master",
-        "description": "Achieve over 90% accuracy in training"
-      }
-    },
+
     "feedback": {
       "correct": "Correct!",
       "keepGoing": "Keep going!",
@@ -138,8 +115,7 @@
       "totalTrials": "Total Trials",
       "visualCorrect": "Visual Correct",
       "auditoryCorrect": "Auditory Correct",
-      "achievementsUnlocked": "Achievements Unlocked",
-      "continueTraining": "Continue training to unlock more achievements!",
+
       "improveAccuracy": "Improve accuracy and streaks to earn rewards",
       "excellentPerformance": "Excellent performance! Your working memory ability is strong",
       "goodPerformance": "Good performance! Keep up the training",
@@ -185,7 +161,6 @@
     "menu": {
       "startTraining": "Start Training",
       "statistics": "Statistics",
-      "achievements": "Achievements",
       "settings": "Settings",
       "tutorial": "Tutorial",
       "demo": "Demo"
@@ -272,7 +247,6 @@
     "title": "Training Progress",
     "overview": "Overview",
     "statistics": "Statistics",
-    "achievements": "Achievements",
     "history": "Training History",
     "totalSessions": "Total Sessions",
     "totalTime": "Total Training Time",
@@ -307,8 +281,7 @@
       "profileVisible": "Public Profile",
       "showOnlineStatus": "Show Online Status",
       "allowFriendRequests": "Allow Friend Requests",
-      "showTrainingStats": "Show Training Statistics",
-      "showAchievements": "Show Achievements"
+      "showTrainingStats": "Show Training Statistics"
     },
     "dataManagement": {
       "title": "Data Management",
@@ -316,7 +289,7 @@
       "importData": "Import Data",
       "resetData": "Reset Training Data",
       "deleteAccount": "Delete Account",
-      "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records, achievements, and friend relationships. This action cannot be undone.",
+      "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records and friend relationships. This action cannot be undone.",
       "confirmDelete": "Confirm Delete"
     }
   },
@@ -474,11 +447,7 @@
       "title": "Cognitive Flexibility Training Camp 2.0",
       "subtitle": "Comprehensive cognitive flexibility and executive control training through diverse scenarios",
       "challengeLevel": "Challenge Level",
-      "achievements": {
-        "title": "Achievement Badges",
-        "streakMaster": "Streak Master",
-        "trainingExpert": "Training Expert"
-      },
+
       "trainingControl": {
         "title": "Training Control",
         "startTraining": "Start Training",
@@ -926,8 +895,7 @@
       "profileVisible": "Public Profile",
       "showOnlineStatus": "Show Online Status",
       "allowFriendRequests": "Allow Friend Requests",
-      "showTrainingStats": "Show Training Statistics",
-      "showAchievements": "Show Achievements"
+      "showTrainingStats": "Show Training Statistics"
     },
     "dataManagement": {
       "title": "Data Management",
@@ -935,7 +903,7 @@
       "importData": "Import Data",
       "resetData": "Reset Training Data",
       "deleteAccount": "Delete Account",
-      "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records, achievements, and friend relationships. This action cannot be undone.",
+      "deleteConfirmation": "This action will permanently delete your account and all associated data, including training records and friend relationships. This action cannot be undone.",
       "confirmDelete": "Confirm Delete"
     }
   },

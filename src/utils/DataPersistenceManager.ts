@@ -16,7 +16,6 @@ export interface TrainingSession {
   accuracy: number;
   averageReactionTime: number;
   score: number;
-  achievements: string[]; // 本次训练解锁的成就
 }
 
 // 用户统计数据接口
@@ -27,17 +26,9 @@ export interface UserStatistics {
   highestNLevel: number;
   averageAccuracy: number;
   bestAccuracy: number;
-  totalAchievements: number;
   currentStreak: number; // 连续训练天数
   longestStreak: number;
   lastTrainingDate: number;
-}
-
-// 用户成就数据接口
-export interface UserAchievement {
-  id: string;
-  unlockedAt: number;
-  progress?: number; // 进度型成就的当前进度
 }
 
 // 用户设置接口 - 移除音乐相关配置
@@ -59,7 +50,6 @@ export interface UserData {
     lastActiveAt: number;
   };
   statistics: UserStatistics;
-  achievements: UserAchievement[];
   settings: UserSettings;
   sessions: TrainingSession[];
 }
@@ -107,12 +97,10 @@ export class DataPersistenceManager {
         highestNLevel: 1,
         averageAccuracy: 0,
         bestAccuracy: 0,
-        totalAchievements: 0,
         currentStreak: 0,
         longestStreak: 0,
         lastTrainingDate: 0
       },
-      achievements: [],
       settings: {
         audioEnabled: true,
         effectVolume: 0.7,
@@ -281,30 +269,7 @@ export class DataPersistenceManager {
     stats.lastTrainingDate = timestamp;
   }
 
-  /**
-   * 解锁成就
-   */
-  public unlockAchievement(achievementId: string): boolean {
-    if (!this.userData) return false;
 
-    // 检查是否已经解锁
-    const existing = this.userData.achievements.find(a => a.id === achievementId);
-    if (existing) return false;
-
-    // 添加新成就
-    this.userData.achievements.push({
-      id: achievementId,
-      unlockedAt: Date.now()
-    });
-
-    // 更新成就统计
-    this.userData.statistics.totalAchievements++;
-    
-    // 保存数据
-    this.saveUserData();
-    
-    return true;
-  }
 
   /**
    * 获取训练历史
@@ -380,7 +345,6 @@ export class DataPersistenceManager {
       typeof data === 'object' &&
       data.profile &&
       data.statistics &&
-      data.achievements &&
       data.settings &&
       Array.isArray(data.sessions)
     );

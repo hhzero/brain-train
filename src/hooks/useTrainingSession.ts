@@ -5,7 +5,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { TrainingSession } from '@/lib/storage';
-import { useTrainingSessions, useAchievements, useUserStatistics } from './useLocalStorage';
+import { useTrainingSessions, useUserStatistics } from './useLocalStorage';
 
 // 训练状态枚举
 export enum TrainingState {
@@ -82,7 +82,7 @@ export function useTrainingSession() {
 
   // 数据管理钩子
   const { addSession } = useTrainingSessions();
-  const { checkAchievements } = useAchievements();
+
   const { refreshStatistics } = useUserStatistics();
 
   // 生成会话ID
@@ -285,13 +285,13 @@ export function useTrainingSession() {
     addSession(session);
     
     // 检查成就
-    checkAchievements(session);
+    
     
     // 刷新统计数据
     refreshStatistics();
 
     return session;
-  }, [config, startTime, sessionId, pausedTime, liveStats, addSession, checkAchievements, refreshStatistics]);
+  }, [config, startTime, sessionId, pausedTime, liveStats, addSession, refreshStatistics]);
 
   // 放弃训练
   const abandonTraining = useCallback(() => {

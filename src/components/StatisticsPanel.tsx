@@ -54,7 +54,7 @@ interface HistoricalStats {
   bestReactionTime: number;   // 最佳反应时间
   highestLevel: number;       // 最高等级
   totalScore: number;         // 总得分
-  achievementsUnlocked: number; // 解锁成就数
+
   currentLevel: number;       // 当前等级
   experiencePoints: number;   // 经验值
   nextLevelExp: number;       // 下一等级所需经验
@@ -183,7 +183,7 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({
     },
     {
       label: '解锁成就',
-      value: historicalStats.achievementsUnlocked,
+      value: 0,
       icon: <Award className="w-5 h-5" />,
       color: 'pink',
       gradient: 'from-pink-400 to-rose-500',
@@ -413,7 +413,7 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({
                   <span className="text-white font-medium">平均反应时间:</span> {historicalStats.averageReactionTime}ms
                 </div>
                 <div className="text-gray-300">
-                  <span className="text-white font-medium">成就进度:</span> {historicalStats.achievementsUnlocked}/50
+                  <span className="text-white font-medium">成就进度:</span> 0/50
                 </div>
               </div>
             </div>

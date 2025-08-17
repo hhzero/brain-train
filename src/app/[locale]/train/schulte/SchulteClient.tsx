@@ -403,7 +403,7 @@ export default function SchulteClient() {
                           height: Math.min(80, 600 / gridSize - 8)
                         }}
                         disabled={!isTraining || isPaused || cell.isFound}
-                        whileHover={{ scale: cell.isFound ? 1 : 1.05 }}
+
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}

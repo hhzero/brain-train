@@ -284,7 +284,7 @@ export default function CognitiveFlexibilityTraining() {
   const [showSettings, setShowSettings] = useState(false);
   const [feedback, setFeedback] = useState<{ type: 'correct' | 'incorrect' | null; message: string }>({ type: null, message: '' });
   const [challengeLevel, setChallengeLevel] = useState(1);
-  const [achievements, setAchievements] = useState<string[]>([]);
+
   
   // 实时统计
   const [liveStats, setLiveStats] = useState({
@@ -533,7 +533,7 @@ export default function CognitiveFlexibilityTraining() {
     }
 
     // 检查成就
-    checkAchievements(sessionStats, isCorrect);
+    
 
     // 生成下一个刺激
     setTimeout(() => {
@@ -546,24 +546,7 @@ export default function CognitiveFlexibilityTraining() {
     }, config.stimulusInterval);
   }, [currentStimulus, isActive, config, sessionStats, state, generateStimulus]);
 
-  // 检查成就
-  const checkAchievements = (stats: SessionStats, isCorrect: boolean) => {
-    const newAchievements: string[] = [];
-    
-    if (stats.currentStreak >= 10 && !achievements.includes('streak-10')) {
-      newAchievements.push('streak-10');
-      toast.success(t('achievements.streak10'));
-    }
-    
-    if (stats.totalAnswers >= 50 && !achievements.includes('answers-50')) {
-      newAchievements.push('answers-50');
-      toast.success(t('achievements.answers50'));
-    }
-    
-    if (newAchievements.length > 0) {
-      setAchievements(prev => [...prev, ...newAchievements]);
-    }
-  };
+
 
   // 开始训练
   const handleStartTraining = () => {
@@ -835,10 +818,6 @@ export default function CognitiveFlexibilityTraining() {
               <Star className="w-4 h-4 text-yellow-400" />
               {t('challengeLevel')} {challengeLevel}
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <Award className="w-4 h-4 text-purple-400" />
-              {t('achievements')} {achievements.length}
-            </div>
           </div>
         </motion.div>
 
@@ -1094,30 +1073,7 @@ export default function CognitiveFlexibilityTraining() {
               </CardContent>
             </Card>
 
-            {/* 成就展示 */}
-            {achievements.length > 0 && (
-              <Card className="bg-gray-800/50 border-gray-700">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
-                    <Award className="w-5 h-5 text-purple-400" />
-                    {t('achievementBadges.title')}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-2">
-                    {achievements.map(achievement => (
-                      <div key={achievement} className="flex items-center gap-2 p-2 bg-purple-500/20 rounded-lg">
-                        <Star className="w-4 h-4 text-yellow-400" />
-                        <span className="text-xs text-white">
-                          {achievement === 'streak-10' && t('achievementBadges.streakMaster')}
-                          {achievement === 'answers-50' && t('achievementBadges.trainingExpert')}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+
 
             {/* 训练设置 */}
             {showSettings && (

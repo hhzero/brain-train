@@ -323,7 +323,7 @@ export default function GazeClient() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* 训练区域 */}
         <div className="lg:col-span-2">
-          <Card>
+          <Card className="hover:scale-100">
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span>{t('trainingArea')}</span>
@@ -342,23 +342,25 @@ export default function GazeClient() {
                 tabIndex={0}
                 onBlur={handleFocusLoss}
               >
-                {/* 主目标 */}
-                <motion.div
-                  className="absolute rounded-full bg-black shadow-lg border-4 border-cyan-200 flex items-center justify-center"
-                  style={{
-                    width: config.targetSize,
-                    height: config.targetSize,
-                    left: `${targetPosition.x}%`,
-                    top: `${targetPosition.y}%`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                  animate={mode === 'dynamic' ? {
-                    scale: [1, 1.1, 1],
-                    transition: { duration: 2, repeat: Infinity }
-                  } : {}}
-                >
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </motion.div>
+                {/* 主目标 - 仅在训练开始时显示 */}
+                {isTraining && (
+                  <motion.div
+                    className="absolute rounded-full bg-black shadow-lg border-4 border-cyan-200 flex items-center justify-center"
+                    style={{
+                      width: 32,
+                      height: 32,
+                      left: `${targetPosition.x}%`,
+                      top: `${targetPosition.y}%`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                    animate={mode === 'dynamic' && !isPaused ? {
+                      scale: [1, 1.1, 1],
+                      transition: { duration: 2, repeat: Infinity }
+                    } : {}}
+                  >
+                    <div className="w-2 h-2 bg-white rounded-full" />
+                  </motion.div>
+                )}
                 
                 {/* 干扰元素 */}
                 <AnimatePresence>
@@ -387,7 +389,7 @@ export default function GazeClient() {
                 {!isTraining && (
                   <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                     <div className="text-center text-white">
-                      <Eye className="w-12 h-12 mx-auto mb-4" />
+                      <Play className="w-12 h-12 mx-auto mb-4" />
                       <p className="text-lg font-semibold">{t('clickToStart')}</p>
                     </div>
                   </div>
@@ -430,7 +432,7 @@ export default function GazeClient() {
         {/* 统计面板 */}
         <div className="space-y-6">
           {/* 实时统计 */}
-          <Card>
+          <Card className="hover:scale-100">
             <CardHeader>
               <CardTitle>{t('realTimeStats')}</CardTitle>
             </CardHeader>

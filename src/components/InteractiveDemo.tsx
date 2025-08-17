@@ -257,7 +257,7 @@ export function InteractiveDemo({
               className={`p-2 rounded-lg transition-colors ${
                 audioEnabled ? 'bg-green-600 text-white' : 'bg-gray-700 text-gray-400'
               }`}
-              whileHover={{ scale: 1.1 }}
+
               whileTap={{ scale: 0.9 }}
             >
               {audioEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -266,7 +266,7 @@ export function InteractiveDemo({
             <motion.button
               onClick={resetDemo}
               className="p-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
-              whileHover={{ scale: 1.1 }}
+
               whileTap={{ scale: 0.9 }}
             >
               <RotateCcw className="w-4 h-4" />
@@ -416,7 +416,7 @@ export function InteractiveDemo({
             onClick={prevStep}
             disabled={currentStepIndex === 0}
             className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors"
-            whileHover={{ scale: currentStepIndex === 0 ? 1 : 1.05 }}
+
             whileTap={{ scale: currentStepIndex === 0 ? 1 : 0.95 }}
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
@@ -427,7 +427,7 @@ export function InteractiveDemo({
             <motion.button
               onClick={togglePlay}
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
-              whileHover={{ scale: 1.05 }}
+
               whileTap={{ scale: 0.95 }}
             >
               {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
@@ -438,7 +438,6 @@ export function InteractiveDemo({
               <motion.button
                 onClick={nextStep}
                 className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 下一步
