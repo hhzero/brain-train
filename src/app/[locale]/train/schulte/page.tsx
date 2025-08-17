@@ -1,14 +1,19 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { getTranslations } from 'next-intl/server'
 
-export const generateMetadata = (): Metadata => ({
-  title: '舒尔特方格 | Brain Train',
-  description: '舒尔特方格训练提升注意力、视觉搜索和反应速度，是经典的专注力训练工具。',
-  keywords: ['舒尔特方格', '注意力', '专注力', '视觉搜索', '反应速度', '脑力训练']
-})
+export const generateMetadata = async ({ params }: { params: { locale: string } }): Promise<Metadata> => {
+  const t = await getTranslations({ locale: params.locale, namespace: 'schulte' })
+  
+  return {
+    title: `${t('title')} | Brain Train`,
+    description: t('description'),
+    keywords: [t('title'), 'attention', 'focus', 'visual search', 'reaction speed', 'brain training']
+  }
+}
 
 const SchulteClient = dynamic(() => import('./SchulteClient'), { ssr: false })
 
 export default function SchultePage() {
   return <SchulteClient />
-} 
+}

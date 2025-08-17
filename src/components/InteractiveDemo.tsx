@@ -533,7 +533,7 @@ export function DemoSelector({ onSelect, className }: DemoSelectorProps) {
                   ? 'border-purple-500 bg-purple-600/20'
                   : 'border-gray-700 bg-gray-800/50 hover:border-gray-600'
               }`}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.00 }}
               whileTap={{ scale: 0.98 }}
             >
               <div className="flex items-start gap-3">

@@ -374,10 +374,11 @@ export default function SchulteClient() {
             <CardContent>
               <div className="flex justify-center mb-6">
                 <div 
-                  className="grid gap-2 p-4 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg"
+                  className="grid gap-3 p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl shadow-inner border border-slate-200"
                   style={{ 
                     gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
-                    maxWidth: Math.min(600, gridSize * 80)
+                    width: Math.min(600, gridSize * 80 + 48),
+                    aspectRatio: '1'
                   }}
                 >
                   <AnimatePresence>
@@ -387,21 +388,17 @@ export default function SchulteClient() {
                         onClick={() => handleCellClick(cell)}
                         className={`
                           aspect-square flex items-center justify-center font-bold
-                          rounded-lg border-2 transition-all duration-200
+                          rounded-lg border-2 transition-all duration-200 shadow-sm
                           ${cell.isFound
                             ? 'bg-green-100 border-green-300 text-green-700'
                             : cell.isTarget
                             ? 'bg-cyan-100 border-cyan-300 text-cyan-700 ring-2 ring-cyan-400 shadow-lg'
                             : cell.isError
                             ? 'bg-red-100 border-red-300 text-red-700 ring-2 ring-red-400'
-                            : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+                            : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md'
                           }
                           ${gridSize <= 5 ? 'text-xl' : gridSize <= 7 ? 'text-lg' : 'text-base'}
                         `}
-                        style={{
-                          width: Math.min(80, 600 / gridSize - 8),
-                          height: Math.min(80, 600 / gridSize - 8)
-                        }}
                         disabled={!isTraining || isPaused || cell.isFound}
 
                         whileTap={{ scale: 0.95 }}

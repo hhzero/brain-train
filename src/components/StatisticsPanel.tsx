@@ -199,7 +199,7 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ scale: 1.02, y: -2 }}
+      whileHover={{ scale: 1.00, y: -2 }}
     >
       {/* 背景光效 */}
       <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-5 rounded-xl`} />
