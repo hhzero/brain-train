@@ -137,7 +137,11 @@
     "gazeBestLabel": "最佳记录：",
     "gazeDotAriaLabel": "专注训练目标点",
     "gazeInterrupted": "专注被中断！",
-    "trainingPaused":"训练暂停",
+    "trainingPaused":"已暂停",
+    "resume":"继续",
+    "stop":"停止",
+    "pause":"暂停",
+    "trackingAccuracy":"准确率",
     "mode": {
       "static": "静态模式",
       "dynamic": "动态模式",

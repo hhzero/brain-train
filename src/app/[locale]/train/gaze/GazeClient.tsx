@@ -88,10 +88,18 @@ export default function GazeClient() {
     setStabilityScore(100)
     setTrackingAccuracy(100)
     
+    // 根据模式设置目标位置
+    if (mode === 'static' || mode === 'anti-distraction') {
+      // 静态模式和抗干扰模式：黑点始终在中心位置
+      setTargetPosition({ x: 50, y: 50 })
+    }
+    
+    // 只有动态模式才启动动态移动
     if (mode === 'dynamic') {
       startDynamicMovement()
     }
     
+    // 抗干扰模式启动干扰元素
     if (mode === 'anti-distraction') {
       startDistractions()
     }
@@ -101,13 +109,34 @@ export default function GazeClient() {
 
   // 暂停/恢复训练
   const togglePause = useCallback(() => {
-    setIsPaused(prev => !prev)
-    if (isPaused) {
-      toast.info(t('ui.trainingResumed'))
-    } else {
-      toast.info(t('ui.trainingPaused'))
-    }
-  }, [isPaused, t])
+    setIsPaused(prev => {
+      const newPausedState = !prev
+      
+      if (newPausedState) {
+        // 暂停时清理所有定时器
+        if (movementTimer.current) {
+          clearInterval(movementTimer.current)
+          movementTimer.current = null
+        }
+        if (distractionTimer.current) {
+          clearInterval(distractionTimer.current)
+          distractionTimer.current = null
+        }
+        toast.info(t('ui.trainingPaused'))
+      } else {
+        // 恢复时重新启动相应的定时器
+        if (mode === 'dynamic') {
+          startDynamicMovement()
+        }
+        if (mode === 'anti-distraction') {
+          startDistractions()
+        }
+        toast.info(t('ui.trainingResumed'))
+      }
+      
+      return newPausedState
+    })
+  }, [mode, t])
 
   // 停止训练
   const stopTraining = useCallback(() => {
@@ -170,6 +199,7 @@ export default function GazeClient() {
   // 启动干扰元素
   const startDistractions = useCallback(() => {
     distractionTimer.current = setInterval(() => {
+      // 只有在未暂停状态下才生成新的干扰元素
       if (!isPaused) {
         const newDistraction: DistractionElement = {
           id: `distraction_${Date.now()}`,
