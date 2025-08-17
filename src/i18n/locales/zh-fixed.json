@@ -766,7 +766,217 @@
         "learning": "学习场景",
         "life": "生活情境"
       },
-      "completion": {
+      "workplace": {
+        "customerComplaint": "客户投诉处理",
+        "meetingConflict": "会议冲突解决",
+        "deadlinePressure": "截止日期压力",
+        "teamCollaboration": "团队协作",
+        "resourceAllocation": "资源分配",
+        "priorityManagement": "优先级管理"
+      },
+      "workplaceStimuli": {
+        "customerComplaint": {
+          "context": "一位重要客户对产品质量表示强烈不满，要求立即解决方案。同时，您还需要处理其他紧急任务。",
+          "options": [
+            "立即停下所有工作，全力处理客户投诉",
+            "安排专人处理投诉，自己继续处理紧急任务",
+            "先完成手头工作，再处理客户投诉"
+          ]
+        },
+        "meetingConflict": {
+          "context": "您同时收到两个重要会议邀请，时间冲突，都与您的工作密切相关。",
+          "options": [
+            "参加更重要的会议，委托同事参加另一个",
+            "尝试协调会议时间",
+            "分别参加两个会议的部分时间"
+          ]
+        },
+        "deadlinePressure": {
+          "context": "项目截止日期临近，但突然出现技术问题需要额外时间解决。",
+          "options": [
+            "加班解决技术问题，确保按时完成",
+            "申请延期，确保质量",
+            "简化项目范围，按时交付核心功能"
+          ]
+        },
+        "teamCollaboration": {
+          "context": "团队成员对项目方向有不同意见，需要快速达成共识。",
+          "options": [
+            "组织紧急会议讨论",
+            "采用投票方式决定",
+            "寻求上级指导"
+          ]
+        },
+        "resourceAllocation": {
+          "context": "部门预算有限，需要在多个重要项目间分配资源。",
+          "options": [
+            "优先投入最有潜力的项目",
+            "平均分配资源",
+            "集中资源完成一个项目"
+          ]
+        },
+        "priorityManagement": {
+          "context": "同时收到来自不同部门的紧急任务请求，都声称是最高优先级。",
+          "options": [
+            "按照任务的实际影响程度排序",
+            "按照请求者的职位高低排序",
+            "按照任务的截止时间排序"
+          ]
+        }
+       },
+       "learning": {
+         "studyMethod": "学习方法切换",
+         "timeManagement": "时间管理",
+         "focusTraining": "专注力训练",
+         "memoryTechnique": "记忆技巧",
+         "problemSolving": "问题解决",
+         "criticalThinking": "批判性思维"
+       },
+       "learningStimuli": {
+         "studyMethod": {
+           "context": "您正在准备重要考试，发现当前的学习方法效率不高，需要快速调整策略。",
+           "options": [
+             "继续使用熟悉的方法，加大学习时间",
+             "尝试新的学习技巧，如思维导图",
+             "寻求他人的学习建议和经验"
+           ]
+         },
+         "timeManagement": {
+           "context": "您有多门课程需要复习，时间有限，需要合理安排学习计划。",
+           "options": [
+             "优先复习最难的科目",
+             "平均分配时间给各科目",
+             "先复习最有把握的科目"
+           ]
+         },
+         "focusTraining": {
+           "context": "学习时经常分心，注意力难以集中，影响学习效果。",
+           "options": [
+             "使用番茄工作法，定时休息",
+             "寻找更安静的学习环境",
+             "先处理分心的事情，再专心学习"
+           ]
+         },
+         "memoryTechnique": {
+           "context": "需要记忆大量信息，传统的死记硬背效果不佳。",
+           "options": [
+             "使用联想记忆法",
+             "制作记忆卡片反复练习",
+             "通过理解来加深记忆"
+           ]
+         },
+         "problemSolving": {
+           "context": "遇到复杂的学习问题，需要找到有效的解决方案。",
+           "options": [
+             "分解问题，逐步解决",
+             "寻求老师或同学帮助",
+             "查阅相关资料和案例"
+           ]
+         },
+         "criticalThinking": {
+           "context": "面对不同观点和信息，需要培养批判性思维能力。",
+           "options": [
+             "质疑信息来源的可靠性",
+             "寻找支持和反对的证据",
+             "从多个角度分析问题"
+           ]
+         }
+        },
+        "life": {
+          "familyConflict": "家庭冲突处理",
+          "socialPressure": "社交压力应对",
+          "healthManagement": "健康管理",
+          "financialPlanning": "财务规划",
+          "careerDecision": "职业决策",
+          "relationshipIssue": "人际关系问题"
+        },
+        "lifeStimuli": {
+          "familyConflict": {
+            "context": "家庭成员对重要决定有不同意见，气氛紧张，需要妥善处理。",
+            "options": [
+              "坚持自己的观点，据理力争",
+              "寻求妥协，照顾各方感受",
+              "暂时回避，等情绪平复后再讨论"
+            ]
+          },
+          "socialPressure": {
+            "context": "朋友们都在做某件事，虽然您不太感兴趣，但感受到了社交压力。",
+            "options": [
+              "坚持自己的选择，不随波逐流",
+              "尝试参与，也许会有新发现",
+              "找个合适的理由礼貌拒绝"
+            ]
+          },
+          "healthManagement": {
+            "context": "工作繁忙，生活节奏快，健康状况开始出现警示信号。",
+            "options": [
+              "立即调整作息，优先关注健康",
+              "逐步改善生活习惯",
+              "先完成重要工作，再考虑健康问题"
+            ]
+          },
+          "financialPlanning": {
+            "context": "收入有限，需要在储蓄、投资和消费之间做出平衡。",
+            "options": [
+              "优先储蓄，减少不必要开支",
+              "适度投资，寻求财富增长",
+              "享受当下，合理消费"
+            ]
+          },
+          "careerDecision": {
+            "context": "面临职业选择，需要在稳定和发展机会之间做出决定。",
+            "options": [
+              "选择稳定的工作，降低风险",
+              "追求发展机会，勇于挑战",
+              "寻求平衡，综合考虑各因素"
+            ]
+          },
+          "relationshipIssue": {
+            "context": "与重要的人发生误解，关系出现裂痕，需要修复。",
+            "options": [
+              "主动道歉，承担责任",
+              "坦诚沟通，澄清误解",
+              "给彼此时间，让关系自然修复"
+            ]
+          }
+         },
+         "taskSwitching": {
+           "judgeColor": "判断颜色",
+           "judgeShape": "判断形状"
+         },
+         "feedback": {
+           "correct": "正确！",
+           "incorrect": "错误！"
+         },
+         "trainingArea": {
+           "title": "训练区域",
+           "startMessage": "点击开始按钮开始训练",
+           "workplaceSimulation": "职场模拟",
+           "learningScenario": "学习场景",
+           "lifeSituation": "生活情境"
+         },
+         "trainingComplete": {
+           "title": "训练完成！",
+           "finalScore": "最终分数",
+           "accuracy": "准确率",
+           "bestStreak": "最佳连击",
+           "averageReactionTime": "平均反应时间",
+           "trainAgain": "再次训练"
+         },
+         "trainingStats": {
+           "title": "训练统计",
+           "accuracy": "准确率",
+           "averageReactionTime": "平均反应时间",
+           "score": "得分",
+           "totalTrials": "总试验数",
+           "challengeProgress": "挑战进度"
+         },
+         "progress": {
+           "sessionProgress": "会话进度"
+         },
+         "suggestedTime": "建议时间",
+         "seconds": "秒",
+          "completion": {
         "title": "训练完成！",
         "finalScore": "最终分数",
         "accuracy": "准确率",
@@ -820,9 +1030,10 @@
         "progressiveChallenge": "进阶挑战",
         "contextualLearning": "情境化学习"
       },
-      "taskInstructions": {
-        "stroopTest": "说出文字的颜色（不是文字内容）",
-        "workingMemoryUpdate": "记住序列，然后输入最后一个字母"
+      "taskTypes": {
+        "taskSwitching": "任务切换",
+        "stroopTest": "斯特鲁普测试",
+        "workingMemoryUpdate": "工作记忆更新"
       },
       "multidimensionalAttention": {
         "title": "多维注意力挑战 3.0",

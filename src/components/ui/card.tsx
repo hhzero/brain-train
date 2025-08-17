@@ -18,7 +18,7 @@ const Card = React.forwardRef<
       'rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md shadow-xl',
       // 渐变边框效果
       'relative before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-r before:from-purple-500/50 before:via-cyan-500/50 before:to-pink-500/50 before:-z-10',
-      // 悬停效果
+      // 悬停效果，这里不要有放大效果
       'hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 hover:scale-[1.00]',
       // 内部发光效果
       'shadow-inner shadow-white/10',
