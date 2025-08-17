@@ -386,7 +386,7 @@ export default function MultidimensionalAttentionPage() {
       </AnimatePresence>
       
       {/* 训练状态覆盖层 */}
-      {!isActive && (
+      {state === TrainingState.IDLE && (
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
           <motion.div
             className="text-center"
@@ -396,6 +396,63 @@ export default function MultidimensionalAttentionPage() {
             <Brain className="w-16 h-16 text-purple-400 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white mb-2">{t('multidimensionalAttention.title')}</h3>
             <p className="text-gray-300 mb-4">{t('multidimensionalAttention.startPrompt')}</p>
+          </motion.div>
+        </div>
+      )}
+      
+      {/* 准备状态覆盖层 */}
+      {state === TrainingState.PREPARING && (
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div
+              className="w-20 h-20 border-4 border-purple-400 border-t-transparent rounded-full mx-auto mb-4"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            />
+            <h3 className="text-2xl font-bold text-purple-400 mb-2">{t('multidimensionalAttention.preparing')}</h3>
+            <p className="text-gray-300 text-lg">{t('multidimensionalAttention.getReady')}</p>
+            <motion.div
+              className="mt-4 flex justify-center space-x-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  className="w-2 h-2 bg-purple-400 rounded-full"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.2
+                  }}
+                />
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      )}
+      
+      {/* 暂停状态覆盖层 */}
+      {state === TrainingState.PAUSED && (
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Pause className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-white mb-2">{t('multidimensionalAttention.trainingPaused')}</h3>
+            <p className="text-gray-300 mb-4">{t('multidimensionalAttention.pauseMessage')}</p>
           </motion.div>
         </div>
       )}
@@ -445,7 +502,7 @@ export default function MultidimensionalAttentionPage() {
                     ) : state === TrainingState.PREPARING ? (
                       <div className="text-center">
                         <div className="text-lg font-semibold text-purple-400 mb-2">{t('multidimensionalAttention.preparing')}</div>
-                        <div className="text-sm text-gray-400">{t('multidimensionalAttention.prepareMessage')}</div>
+                        <div className="text-sm text-gray-400">{t('multidimensionalAttention.getReady')}</div>
                       </div>
                     ) : (
                       <>
@@ -504,7 +561,7 @@ export default function MultidimensionalAttentionPage() {
                 {/* 进度条 */}
                 <div className="mb-4">
                   <div className="flex justify-between text-sm text-gray-400 mb-2">
-                    <span>{t('progress.sessionProgress')}</span>
+                    <span>{t('multidimensionalAttention.sessionProgress')}</span>
                     <span>{Math.round(((config.duration - timeRemaining) / config.duration) * 100)}%</span>
                   </div>
                   <Progress value={((config.duration - timeRemaining) / config.duration) * 100} className="h-2" />

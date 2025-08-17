@@ -201,8 +201,8 @@ export default function SchulteClient() {
       // 更新网格状态
       setGrid(prev => prev.map(c => 
         c.value === cell.value 
-          ? { ...c, isFound: true, isTarget: false }
-          : { ...c, isTarget: c.value === nextTarget }
+          ? { ...c, isFound: true }
+          : c
       ))
       
       // 检查是否完成
@@ -263,15 +263,15 @@ export default function SchulteClient() {
     }
   }, [isTraining, isPaused, config.timeLimit, stopTraining])
 
-  // 更新目标高亮
-  useEffect(() => {
-    if (isTraining) {
-      setGrid(prev => prev.map(cell => ({
-        ...cell,
-        isTarget: cell.value === currentTarget && !cell.isFound
-      })))
-    }
-  }, [currentTarget, isTraining])
+  // 更新目标高亮 - 已注释，避免提前显示目标数字
+  // useEffect(() => {
+  //   if (isTraining) {
+  //     setGrid(prev => prev.map(cell => ({
+  //       ...cell,
+  //       isTarget: cell.value === currentTarget && !cell.isFound
+  //     })))
+  //   }
+  // }, [currentTarget, isTraining])
 
   // 初始化网格
   useEffect(() => {
@@ -391,8 +391,6 @@ export default function SchulteClient() {
                           rounded-lg border-2 transition-all duration-200 shadow-sm
                           ${cell.isFound
                             ? 'bg-green-100 border-green-300 text-green-700'
-                            : cell.isTarget
-                            ? 'bg-cyan-100 border-cyan-300 text-cyan-700 ring-2 ring-cyan-400 shadow-lg'
                             : cell.isError
                             ? 'bg-red-100 border-red-300 text-red-700 ring-2 ring-red-400'
                             : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md'
@@ -419,7 +417,7 @@ export default function SchulteClient() {
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-100 rounded-full">
                     <Target className="w-5 h-5 text-cyan-600" />
                     <span className="text-cyan-800 font-semibold">
-                      {t('findNumber', { number: currentTarget })}
+                      {t('findNumber')} ：{currentTarget}
                     </span>
                   </div>
                 </div>
@@ -461,7 +459,7 @@ export default function SchulteClient() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                <div className="flex justify-between text-sm text-white mb-1">
                   <span>{t('timeElapsed')}</span>
                   <span>{time}s / {config.timeLimit || 300}s</span>
                 </div>
@@ -469,7 +467,7 @@ export default function SchulteClient() {
               </div>
               
               <div>
-                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                <div className="flex justify-between text-sm text-white mb-1">
                   <span>{t('progress')}</span>
                   <span>{foundNumbers.length} / {gridSize * gridSize}</span>
                 </div>
@@ -478,17 +476,13 @@ export default function SchulteClient() {
               
               <div className="pt-2 border-t space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">{t('currentTarget')}</span>
-                  <span className="text-lg font-bold text-cyan-600">{currentTarget}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">{t('errors')}</span>
-                  <span className="text-lg font-bold text-red-500">{errorCount}</span>
+                  <span className="text-sm text-white">{t('errors')}</span>
+                  <span className="text-lg font-bold text-red-600">{errorCount}</span>
                 </div>
                 {reactionTimes.length > 0 && (
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">{t('avgReaction')}</span>
-                    <span className="text-sm font-semibold">
+                    <span className="text-sm text-white">{t('avgReaction')}</span>
+                    <span className="text-sm font-semibold text-gray-100">
                       {Math.round(reactionTimes.reduce((sum, time) => sum + time, 0) / reactionTimes.length)}ms
                     </span>
                   </div>
@@ -507,20 +501,20 @@ export default function SchulteClient() {
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">{t('level')}</span>
-                <span className="font-semibold">{progress.level}</span>
+                <span className="text-sm text-white">{t('level')}</span>
+                <span className="font-semibold text-gray-100">{progress.level}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">{t('bestScore')}</span>
-                <span className="font-semibold">{progress.bestScore}</span>
+                <span className="text-sm text-white">{t('bestScore')}</span>
+                <span className="font-semibold text-gray-100">{progress.bestScore}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">{t('totalSessions')}</span>
-                <span className="font-semibold">{progress.totalSessions}</span>
+                <span className="text-sm text-white">{t('totalSessions')}</span>
+                <span className="font-semibold text-gray-100">{progress.totalSessions}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">{t('totalTime')}</span>
-                <span className="font-semibold">{Math.round(progress.totalTimeSpent / 60)}min</span>
+                <span className="text-sm text-white">{t('totalTime')}</span>
+                <span className="font-semibold text-gray-100">{Math.round(progress.totalTimeSpent / 60)}min</span>
               </div>
             </CardContent>
           </Card>

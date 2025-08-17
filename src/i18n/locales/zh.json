@@ -151,7 +151,7 @@
     "timeUsed": "用时",
     "bestTime": "最佳",
     "numberLabel": "数字{number}",
-    "findNumber": "找到数字 {{number}}",
+    "findNumber": "找到数字",
     "startTraining": "开始",
     "completed": "完成！用时 {{time}} 秒",
     "timeElapsed": "已用时间",
@@ -206,6 +206,110 @@
     "level": "等级",
     "totalTime": "总时间"
   },
+
+"multidimensionalAttention": {
+    "title": "多维注意力挑战 3.0",
+    "subtitle": "沉浸式3D环境 · 多感官融合 · 自适应难度系统",
+    "upgradeTitle": "升级版多维注意力训练",
+    "selectEnvironment": "选择训练环境",
+    "trainingConfig": "训练配置",
+    "sensoryMode": "感官模式",
+    "initialDifficulty": "初始难度",
+    "targets": "目标",
+    "soundFeedback": "音效反馈",
+    "adaptiveDifficulty": "自适应难度",
+    "startPrompt": "点击开始按钮开始训练",
+    "prepareMessage": "准备中，请稍候...",
+    "description": "通过视觉、听觉、触觉多感官训练，全面提升注意力的广度、深度和灵活性",
+    "trainingControl": "训练控制",
+    "startTraining": "开始训练",
+    "preparing": "准备开始...",
+    "getReady": "请做好准备，训练即将开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "complete": "完成",
+    "abandon": "放弃",
+    "settings": "设置",
+    "trainingPaused": "训练已暂停",
+    "pauseMessage": "训练已暂停，点击继续按钮恢复训练",
+    "sessionProgress": "会话进度",
+    "trainingComplete": "训练完成！",
+    "finalScore": "最终分数",
+    "accuracy": "准确率",
+    "bestStreak": "最佳连击",
+    "averageReactionTime": "平均反应时间",
+    "retrain": "再次训练",
+    "trainingStats": "训练统计",
+    "score": "得分",
+    "totalStimuli": "总刺激数",
+    "trainingSettings": "训练设置",
+    "trainingDuration": "训练时长（秒）",
+    "difficultyLevel": "难度等级",
+    "level": "等级 {level}",
+    "trainingTypes": "训练类型",
+    "visualTraining": "视觉训练",
+    "auditoryTraining": "听觉训练",
+    "tactileTraining": "触觉训练",
+    "sensoryModes": {
+      "visual": "视觉专注",
+      "audio": "听觉训练",
+      "multi": "多感官融合",
+      "synesthetic": "联觉体验"
+    },
+    "environments": {
+      "deepSpace": {
+        "name": "深空",
+        "description": "在无垠的宇宙中训练专注力",
+        "benefits": [
+          "提升专注力",
+          "减少干扰",
+          "增强空间感知"
+        ]
+      },
+      "mysticalForest": {
+        "name": "神秘森林",
+        "description": "在自然环境中放松心灵",
+        "benefits": [
+          "缓解压力",
+          "提升创造力",
+          "增强直觉"
+        ]
+      },
+      "underwaterWorld": {
+        "name": "深海世界",
+        "description": "在宁静的海底世界中冥想",
+        "benefits": [
+          "深度放松",
+          "情绪平衡",
+          "内心宁静"
+        ]
+      },
+      "neonCity": {
+        "name": "霓虹都市",
+        "description": "在动态城市中锻炼适应性",
+        "benefits": [
+          "快速反应",
+          "多任务处理",
+          "压力适应"
+        ]
+      },
+      "abstractDimension": {
+        "name": "抽象维度",
+        "description": "在抽象空间中探索认知边界",
+        "benefits": [
+          "创新思维",
+          "认知灵活性",
+          "突破局限"
+        ]
+      }
+    },
+    "units": {
+      "ms": "毫秒",
+      "seconds": "秒",
+      "minutes": "分钟"
+    }
+  },
+
   "navigation": {
     "home": "首页",
     "training": "训练",
@@ -1186,104 +1290,7 @@
         "stroopTest": "说出文字的颜色（不是文字内容）",
         "workingMemoryUpdate": "记住序列，然后输入最后一个字母"
       },
-      "multidimensionalAttention": {
-        "title": "多维注意力挑战 3.0",
-        "subtitle": "沉浸式3D环境 · 多感官融合 · 自适应难度系统",
-        "upgradeTitle": "升级版多维注意力训练",
-        "selectEnvironment": "选择训练环境",
-        "trainingConfig": "训练配置",
-        "sensoryMode": "感官模式",
-        "initialDifficulty": "初始难度",
-        "targets": "目标",
-        "soundFeedback": "音效反馈",
-        "adaptiveDifficulty": "自适应难度",
-        "startPrompt": "点击开始按钮开始训练",
-        "description": "通过视觉、听觉、触觉多感官训练，全面提升注意力的广度、深度和灵活性",
-        "trainingControl": "训练控制",
-        "startTraining": "开始训练",
-        "preparing": "准备开始...",
-        "getReady": "请做好准备，训练即将开始",
-        "pause": "暂停",
-        "resume": "继续",
-        "complete": "完成",
-        "abandon": "放弃",
-        "settings": "设置",
-        "trainingComplete": "训练完成！",
-        "finalScore": "最终分数",
-        "accuracy": "准确率",
-        "bestStreak": "最佳连击",
-        "averageReactionTime": "平均反应时间",
-        "retrain": "再次训练",
-        "trainingStats": "训练统计",
-        "score": "得分",
-        "totalStimuli": "总刺激数",
-        "trainingSettings": "训练设置",
-        "trainingDuration": "训练时长（秒）",
-        "difficultyLevel": "难度等级",
-        "level": "等级 {level}",
-        "trainingTypes": "训练类型",
-        "visualTraining": "视觉训练",
-        "auditoryTraining": "听觉训练",
-        "tactileTraining": "触觉训练",
-        "sensoryModes": {
-          "visual": "视觉专注",
-          "audio": "听觉训练",
-          "multi": "多感官融合",
-          "synesthetic": "联觉体验"
-        },
-        "environments": {
-          "deepSpace": {
-            "name": "深空",
-            "description": "在无垠的宇宙中训练专注力",
-            "benefits": [
-              "提升专注力",
-              "减少干扰",
-              "增强空间感知"
-            ]
-          },
-          "mysticalForest": {
-            "name": "神秘森林",
-            "description": "在自然环境中放松心灵",
-            "benefits": [
-              "缓解压力",
-              "提升创造力",
-              "增强直觉"
-            ]
-          },
-          "underwaterWorld": {
-            "name": "深海世界",
-            "description": "在宁静的海底世界中冥想",
-            "benefits": [
-              "深度放松",
-              "情绪平衡",
-              "内心宁静"
-            ]
-          },
-          "neonCity": {
-            "name": "霓虹都市",
-            "description": "在动态城市中锻炼适应性",
-            "benefits": [
-              "快速反应",
-              "多任务处理",
-              "压力适应"
-            ]
-          },
-          "abstractDimension": {
-            "name": "抽象维度",
-            "description": "在抽象空间中探索认知边界",
-            "benefits": [
-              "创新思维",
-              "认知灵活性",
-              "突破局限"
-            ]
-          }
-        },
-        "units": {
-          "ms": "毫秒",
-          "seconds": "秒",
-          "minutes": "分钟"
-        }
-      },
+      
       "nback": {
         "meta": {
           "title": "N-Back训练",
