@@ -346,6 +346,8 @@
   "gazeTitle": "Gaze Focus Training",
   "gazeDesc": "Keep your focus on the central black dot, avoid being distracted by interference elements, and train sustained attention",
   "gaze": {
+    "gazeTitle": "Gaze Focus Training",
+    "gazeDesc": "Maintain focus on the central point to improve sustained attention",
     "title": "Gaze Focus Training",
     "description": "Maintain focus on the central point to improve sustained attention",
     "instructions": {
@@ -386,7 +388,16 @@
     "trainingPaused": "Training Paused",
     "trainingStarted": "Training started!",
     "trainingResumed": "Training resumed!",
-    "trainingCompleted": "Training completed!"
+    "trainingCompleted": "Training completed!",
+    "focusLost": "Focus lost",
+    "ui": {
+      "trainingStarted": "Training started"
+    },
+    "interruptions": "Interruptions",
+    "level": "Level",
+    "bestScore": "Best Score",
+    "totalSessions": "Total Sessions",
+    "totalTime": "Total Time"
   },
   "progress": {
     "title": "Training Progress",

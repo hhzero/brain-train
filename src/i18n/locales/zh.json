@@ -184,6 +184,11 @@
     "stop":"停止",
     "pause":"暂停",
     "trackingAccuracy":"准确率",
+    "focusLost": "专注力丢失",
+    "trainingCompleted": "训练完成",
+    "ui": {
+      "trainingStarted": "训练已开始"
+    },
     "mode": {
       "static": "静态模式",
       "dynamic": "动态模式",

@@ -472,7 +472,7 @@ export default function GazeClient() {
                   <span>{t('timeElapsed')}</span>
                   <span>{time}s / {config.duration}s</span>
                 </div>
-                <Progress value={(time / config.duration) * 100} />
+                <Progress value={Math.min(100, Math.max(0, (time / Math.max(config.duration, 1)) * 100))} />
               </div>
               
               <div>
@@ -480,24 +480,24 @@ export default function GazeClient() {
                   <span>{t('focusTime')}</span>
                   <span>{focusTime}s</span>
                 </div>
-                <Progress value={(focusTime / Math.max(time, 1)) * 100} className="bg-green-100" />
+                <Progress value={Math.min(100, Math.max(0, (focusTime / Math.max(time, 1)) * 100))} className="bg-green-100" />
               </div>
               
               <div>
                 <div className="flex justify-between text-sm text-gray-600 mb-1">
                   <span>{t('stability')}</span>
-                  <span>{Math.round(stabilityScore)}%</span>
+                  <span>{Math.round(isNaN(stabilityScore) ? 0 : stabilityScore)}%</span>
                 </div>
-                <Progress value={stabilityScore} className="bg-blue-100" />
+                <Progress value={Math.min(100, Math.max(0, isNaN(stabilityScore) ? 0 : stabilityScore))} className="bg-blue-100" />
               </div>
               
               {mode === 'dynamic' && (
                 <div>
                   <div className="flex justify-between text-sm text-gray-600 mb-1">
                     <span>{t('trackingAccuracy')}</span>
-                    <span>{Math.round(trackingAccuracy)}%</span>
+                    <span>{Math.round(isNaN(trackingAccuracy) ? 0 : trackingAccuracy)}%</span>
                   </div>
-                  <Progress value={trackingAccuracy} className="bg-purple-100" />
+                  <Progress value={Math.min(100, Math.max(0, isNaN(trackingAccuracy) ? 0 : trackingAccuracy))} className="bg-purple-100" />
                 </div>
               )}
               
@@ -533,7 +533,7 @@ export default function GazeClient() {
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600">{t('totalTime')}</span>
-                <span className="font-semibold">{Math.round(progress.totalTimeSpent / 60)}min</span>
+                <span className="font-semibold">{Math.round(Math.max(0, progress.totalTimeSpent || 0) / 60)}min</span>
               </div>
             </CardContent>
           </Card>

@@ -184,6 +184,11 @@
     "stop": "중지",
     "pause": "일시정지",
     "trackingAccuracy": "정확도",
+    "focusLost": "집중력 상실",
+    "trainingCompleted": "훈련 완료",
+    "ui": {
+      "trainingStarted": "훈련 시작"
+    },
     "mode": {
       "static": "정적 모드",
       "dynamic": "동적 모드",
