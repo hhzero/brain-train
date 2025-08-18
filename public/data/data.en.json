@@ -9,6 +9,13 @@
         "description": "Sharpen your working memory and short-term retention by constantly challenging your memory limits, making your mind more agile.",
         "image": "/images/memory/memory.png",
         "link": "/train/n-back"
+      },
+      {
+        "id": 11,
+        "name": "Grid Memory",
+        "description": "Memorize randomly marked colored squares in an n×n grid to train spatial memory and visual attention.",
+        "image": "/images/memory/memory.png",
+        "link": "/train/grid-memory"
       }
     ]
   },

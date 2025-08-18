@@ -5,7 +5,7 @@ import { DifficultyLevel, TrainingType } from '@/types/training';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Clock, Target, Zap, Brain } from 'lucide-react';
+import { Clock, Target, Zap, Brain, Grid3X3 } from 'lucide-react';
 
 interface DifficultyConfigProps {
   trainingType: TrainingType;
@@ -161,6 +161,43 @@ const difficultyConfigs = {
       timeLimit: 180,
       description: '五任务类型，极复杂情境，极高切换频率'
     }
+  },
+  'grid-memory': {
+    beginner: {
+      gridSize: '3x3',
+      targetCount: 3,
+      memoryTime: 3,
+      maxErrors: 2,
+      description: '3×3网格，3个目标，3秒记忆时间'
+    },
+    intermediate: {
+      gridSize: '4x4',
+      targetCount: 4,
+      memoryTime: 3,
+      maxErrors: 2,
+      description: '4×4网格，4个目标，3秒记忆时间'
+    },
+    advanced: {
+      gridSize: '5x5',
+      targetCount: 5,
+      memoryTime: 2,
+      maxErrors: 2,
+      description: '5×5网格，5个目标，2秒记忆时间'
+    },
+    expert: {
+      gridSize: '6x6',
+      targetCount: 6,
+      memoryTime: 2,
+      maxErrors: 1,
+      description: '6×6网格，6个目标，2秒记忆时间'
+    },
+    master: {
+      gridSize: '6x6',
+      targetCount: 8,
+      memoryTime: 1,
+      maxErrors: 1,
+      description: '6×6网格，8个目标，1秒记忆时间'
+    }
   }
 };
 
@@ -184,7 +221,8 @@ const trainingIcons = {
   gaze: Target,
   schulte: Brain,
   'multi-attention': Zap,
-  'cognitive-flexibility': Clock
+  'cognitive-flexibility': Clock,
+  'grid-memory': Grid3X3
 };
 
 export const DifficultyConfig: React.FC<DifficultyConfigProps> = ({
@@ -299,6 +337,33 @@ export const DifficultyConfig: React.FC<DifficultyConfigProps> = ({
                 <Clock className="h-3 w-3" />
                 {cognitiveConfig.timeLimit}秒
               </div>
+            </div>
+          </div>
+        );
+      }
+      
+      case 'grid-memory': {
+        const gridConfig = config as any;
+        return (
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="space-y-1">
+              <div className="font-medium text-muted-foreground">网格规格</div>
+              <div>{gridConfig.gridSize}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="font-medium text-muted-foreground">目标数量</div>
+              <div>{gridConfig.targetCount}个</div>
+            </div>
+            <div className="space-y-1">
+              <div className="font-medium text-muted-foreground">记忆时间</div>
+              <div className="flex items-center gap-1">
+                <Clock className="h-3 w-3" />
+                {gridConfig.memoryTime}秒
+              </div>
+            </div>
+            <div className="space-y-1">
+              <div className="font-medium text-muted-foreground">最大错误</div>
+              <div>{gridConfig.maxErrors}次</div>
             </div>
           </div>
         );

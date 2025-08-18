@@ -7,7 +7,7 @@ export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert
 export type TrainingMode = 'practice' | 'challenge' | 'adaptive' | 'custom';
 
 // 训练类型
-export type TrainingType = 'gaze' | 'schulte' | 'multi-attention' | 'cognitive-flexibility';
+export type TrainingType = 'gaze' | 'schulte' | 'multi-attention' | 'cognitive-flexibility' | 'grid-memory';
 
 // 训练状态
 export type TrainingStatus = 'idle' | 'preparing' | 'active' | 'paused' | 'completed' | 'failed';
@@ -135,6 +135,23 @@ export interface CognitiveFlexibilityResult extends TrainingResult {
   cognitiveFlexibilityIndex: number; // 认知灵活性指数
 }
 
+// 方格记忆特定类型
+export interface GridMemoryConfig extends BaseTrainingConfig {
+  gridSize: 3 | 4 | 5 | 6; // 方格大小 (3x3, 4x4, 5x5, 6x6)
+  memoryTime: number; // 记忆时间（秒）
+  maxErrors: number; // 最大错误次数
+}
+
+export interface GridMemoryResult extends TrainingResult {
+  gridSize: number; // 方格大小
+  targetCount: number; // 目标方格数量
+  memoryTime: number; // 记忆时间
+  selectionTime: number; // 选择阶段用时
+  errorCount: number; // 错误次数
+  memoryScore: number; // 记忆评分
+  spatialMemoryIndex: number; // 空间记忆指数
+}
+
 // 自适应难度系统
 export interface AdaptiveDifficultySystem {
   currentDifficulty: DifficultyLevel;
@@ -224,10 +241,12 @@ export type AnyTrainingConfig =
   | GazeTrainingConfig 
   | SchulteTrainingConfig 
   | MultiAttentionConfig 
-  | CognitiveFlexibilityConfig;
+  | CognitiveFlexibilityConfig
+  | GridMemoryConfig;
 
 export type AnyTrainingResult = 
   | GazeTrainingResult 
   | SchulteTrainingResult 
   | MultiAttentionResult 
-  | CognitiveFlexibilityResult;
+  | CognitiveFlexibilityResult
+  | GridMemoryResult;

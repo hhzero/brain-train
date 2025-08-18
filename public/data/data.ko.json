@@ -9,6 +9,13 @@
         "description": "지속적으로 기억의 한계에 도전하여 뇌의 작업 기억력/단기 저장 능력을 향상시키고, 사고를 더욱 민첩하게 만듭니다.",
         "image": "/images/memory/memory.png",
         "link": "/train/n-back"
+      },
+      {
+        "id": 11,
+        "name": "격자 기억",
+        "description": "n×n 격자에서 무작위로 표시된 색상 사각형의 위치를 기억하여 공간 기억과 시각적 주의력을 훈련합니다.",
+        "image": "/images/memory/memory.png",
+        "link": "/train/grid-memory"
       }
     ]
   },

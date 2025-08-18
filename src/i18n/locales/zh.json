@@ -2020,6 +2020,37 @@
         "startGuide": "开始指导"
       }
     },
+    "gridMemory": {
+      "title": "方格记忆",
+      "description": "通过记忆彩色方格的位置来训练空间记忆能力",
+      "selectDifficulty": "选择难度",
+      "difficulty": {
+        "easy": "简单",
+        "medium": "中等",
+        "hard": "困难",
+        "expert": "专家"
+      },
+      "gridSize": "网格大小",
+      "markedCells": "标记方格",
+      "memoryTime": "记忆时间",
+      "startGame": "开始游戏",
+      "memorizePhase": "记忆阶段",
+      "selectPhase": "选择阶段",
+      "gameComplete": "游戏完成！",
+      "gameOver": "游戏结束",
+      "score": "得分",
+      "correct": "正确",
+      "wrong": "错误",
+      "total": "总计",
+      "accuracy": "准确率",
+      "performance": "表现",
+      "excellent": "优秀！",
+      "good": "良好",
+      "keepTrying": "继续努力！",
+      "timeSpent": "用时",
+      "backToMenu": "返回菜单",
+      "playAgain": "再玩一次"
+    },
     "trainingSelection": {
       "title": "选择训练项目",
       "subtitle": "选择适合您的大脑训练项目，开始您的认知提升之旅",

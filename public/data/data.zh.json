@@ -9,6 +9,13 @@
         "description": "通过不断挑战记忆极限，提升大脑的工作记忆力/短时存储能力，让思维更敏捷。",
         "image": "/images/memory/memory.png",
         "link": "/train/n-back"
+      },
+      {
+        "id": 11,
+        "name": "方格记忆",
+        "description": "在n×n方格中记忆随机标记的彩色方块位置，训练空间记忆和视觉注意力。",
+        "image": "/images/memory/memory.png",
+        "link": "/train/grid-memory"
       }
     ]
   },

@@ -38,7 +38,8 @@ const trainingTypeLabels: Record<TrainingType, string> = {
   gaze: '凝视训练',
   schulte: '舒尔特方格',
   'multi-attention': '多维注意力',
-  'cognitive-flexibility': '认知灵活性'
+  'cognitive-flexibility': '认知灵活性',
+  'grid-memory': '方格记忆'
 };
 
 export const GamificationDashboard: React.FC<GamificationDashboardProps> = ({

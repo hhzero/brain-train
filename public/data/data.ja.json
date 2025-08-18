@@ -9,6 +9,13 @@
         "description": "記憶の限界に挑戦し続けることで、脳のワーキングメモリ・短期記憶能力を向上させ、思考をより敏捷にします。",
         "image": "/images/memory/memory.png",
         "link": "/train/n-back"
+      },
+      {
+        "id": 11,
+        "name": "グリッドメモリー",
+        "description": "n×nグリッド内でランダムにマークされた色付きの正方形の位置を記憶し、空間記憶と視覚的注意力を訓練します。",
+        "image": "/images/memory/memory.png",
+        "link": "/train/grid-memory"
       }
     ]
   },

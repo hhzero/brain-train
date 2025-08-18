@@ -141,14 +141,16 @@ export const useTrainingStore = create<TrainingStore>()(persist(
       gaze: createDefaultUserProgress('gaze'),
       schulte: createDefaultUserProgress('schulte'),
       'multi-attention': createDefaultUserProgress('multi-attention'),
-      'cognitive-flexibility': createDefaultUserProgress('cognitive-flexibility')
+      'cognitive-flexibility': createDefaultUserProgress('cognitive-flexibility'),
+      'grid-memory': createDefaultUserProgress('grid-memory')
     },
     trainingHistory: [],
     adaptiveDifficulty: {
       gaze: createDefaultAdaptiveDifficulty(),
       schulte: createDefaultAdaptiveDifficulty(),
       'multi-attention': createDefaultAdaptiveDifficulty(),
-      'cognitive-flexibility': createDefaultAdaptiveDifficulty()
+      'cognitive-flexibility': createDefaultAdaptiveDifficulty(),
+      'grid-memory': createDefaultAdaptiveDifficulty()
     },
     gamification: createDefaultGameification(),
     stats: createDefaultStats(),
@@ -381,7 +383,8 @@ export const useTrainingStore = create<TrainingStore>()(persist(
             gaze: createDefaultUserProgress('gaze'),
             schulte: createDefaultUserProgress('schulte'),
             'multi-attention': createDefaultUserProgress('multi-attention'),
-            'cognitive-flexibility': createDefaultUserProgress('cognitive-flexibility')
+            'cognitive-flexibility': createDefaultUserProgress('cognitive-flexibility'),
+            'grid-memory': createDefaultUserProgress('grid-memory')
           }
         }));
       }
@@ -394,14 +397,16 @@ export const useTrainingStore = create<TrainingStore>()(persist(
           gaze: createDefaultUserProgress('gaze'),
           schulte: createDefaultUserProgress('schulte'),
           'multi-attention': createDefaultUserProgress('multi-attention'),
-          'cognitive-flexibility': createDefaultUserProgress('cognitive-flexibility')
+          'cognitive-flexibility': createDefaultUserProgress('cognitive-flexibility'),
+          'grid-memory': createDefaultUserProgress('grid-memory')
         },
         trainingHistory: [],
         adaptiveDifficulty: {
           gaze: createDefaultAdaptiveDifficulty(),
           schulte: createDefaultAdaptiveDifficulty(),
           'multi-attention': createDefaultAdaptiveDifficulty(),
-          'cognitive-flexibility': createDefaultAdaptiveDifficulty()
+          'cognitive-flexibility': createDefaultAdaptiveDifficulty(),
+          'grid-memory': createDefaultAdaptiveDifficulty()
         },
         gamification: createDefaultGameification(),
         stats: createDefaultStats()

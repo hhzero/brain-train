@@ -40,7 +40,8 @@ const trainingTypeLabels = {
   gaze: '凝视训练',
   schulte: '舒尔特方格',
   'multi-attention': '多维注意力',
-  'cognitive-flexibility': '认知灵活性'
+  'cognitive-flexibility': '认知灵活性',
+  'grid-memory': '方格记忆'
 };
 
 export const PerformanceAnalyzer: React.FC<PerformanceAnalyzerProps> = ({
@@ -147,6 +148,14 @@ export const PerformanceAnalyzer: React.FC<PerformanceAnalyzerProps> = ({
       case 'cognitive-flexibility':
         if (avgReactionTime > 1200) {
           recommendations.push('建议加强任务切换练习，提高认知灵活性');
+        }
+        break;
+      case 'grid-memory':
+        if (avgAccuracy < 75) {
+          recommendations.push('建议从小网格开始，专注于记忆准确性');
+        }
+        if (avgReactionTime > 1000) {
+          recommendations.push('建议增加记忆时间，提高空间记忆能力');
         }
         break;
     }
