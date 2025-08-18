@@ -2023,7 +2023,14 @@
     "gridMemory": {
       "title": "方格记忆",
       "description": "通过记忆彩色方格的位置来训练空间记忆能力",
+      "meta": {
+        "title": "方格记忆 - 空间记忆训练",
+        "description": "通过记忆彩色方格位置训练空间记忆能力，提升视觉工作记忆",
+        "keywords": "方格记忆,空间记忆,视觉记忆,记忆训练,认知训练"
+      },
       "selectDifficulty": "选择难度",
+      "preview": "预览",
+      "selectDifficultyToStart": "选择难度开始游戏",
       "difficulty": {
         "easy": "简单",
         "medium": "中等",
@@ -2048,8 +2055,10 @@
       "good": "良好",
       "keepTrying": "继续努力！",
       "timeSpent": "用时",
+      "gameProgress": "游戏进度",
       "backToMenu": "返回菜单",
-      "playAgain": "再玩一次"
+    "playAgain": "再玩一次",
+    "congratulations": "恭喜你！"
     },
     "trainingSelection": {
       "title": "选择训练项目",

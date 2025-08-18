@@ -6,12 +6,13 @@ import TouchOptimizedButton from '@/components/TouchOptimizedButton'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
-import { Play, Pause, RotateCcw, Star, Trophy, Brain, Zap, Clock, Target } from 'lucide-react'
+import { Play, Pause, RotateCcw, Star, Trophy, Brain, Zap, Clock, Target, ArrowLeft, X, Percent, Check } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import StarfieldBackground from '@/components/StarfieldBackground'
 import TrainingErrorBoundary from '@/components/TrainingErrorBoundary'
 import { useTranslations } from 'next-intl'
 import { useTrainingStore } from '@/stores/training-store'
+import { useRouter } from 'next/navigation'
 import type { DifficultyLevel, TrainingMode } from '@/types/training'
 
 // 游戏状态枚举
@@ -67,6 +68,10 @@ const ERROR_COLOR = '#EF4444'
 function GridMemoryClientContent() {
   // 国际化翻译
   const t = useTranslations('gridMemory')
+  const tCommon = useTranslations('common')
+  
+  // 路由导航
+  const router = useRouter()
   
   // 训练商店
   const { startTrainingSession, completeTrainingSession } = useTrainingStore()
@@ -332,17 +337,63 @@ function GridMemoryClientContent() {
     }
   }, [])
   
-  // 渲染网格
-  const renderGrid = () => {
+  // 渲染预览网格
+  const renderPreviewGrid = () => {
     const difficulty = difficulties[selectedDifficulty]
     const gridSize = difficulty.gridSize
+    
+    // 计算网格尺寸，确保每个格子至少有50px，最大不超过80px
+    const cellSize = Math.max(50, Math.min(80, Math.floor(500 / gridSize)))
+    const gridWidth = cellSize * gridSize + (gridSize - 1) * 8 // 8px gap
+    
+    // 创建预览网格数据
+    const previewGrid = []
+    for (let i = 0; i < gridSize * gridSize; i++) {
+      previewGrid.push({
+        id: i,
+        isPreview: true
+      })
+    }
     
     return (
       <div 
         className="grid gap-2 mx-auto"
         style={{
           gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
-          maxWidth: `${Math.min(400, gridSize * 60)}px`
+          width: `${gridWidth}px`,
+          maxWidth: '100%'
+        }}
+      >
+        {previewGrid.map((cell) => (
+          <div
+            key={cell.id}
+            className="aspect-square rounded-lg border-2 border-purple-400/30 bg-purple-800/10 transition-all duration-300"
+            style={{
+              minWidth: `${cellSize}px`,
+              minHeight: `${cellSize}px`
+            }}
+          />
+        ))}
+      </div>
+    )
+  }
+  
+  // 渲染网格
+  const renderGrid = () => {
+    const difficulty = difficulties[selectedDifficulty]
+    const gridSize = difficulty.gridSize
+    
+    // 计算网格尺寸，确保每个格子至少有50px，最大不超过80px
+    const cellSize = Math.max(50, Math.min(80, Math.floor(500 / gridSize)))
+    const gridWidth = cellSize * gridSize + (gridSize - 1) * 8 // 8px gap
+    
+    return (
+      <div 
+        className="grid gap-2 mx-auto"
+        style={{
+          gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+          width: `${gridWidth}px`,
+          maxWidth: '100%'
         }}
       >
         {grid.map((cell) => (
@@ -355,7 +406,9 @@ function GridMemoryClientContent() {
             `}
             style={{
               backgroundColor: cell.color || 'rgba(139, 92, 246, 0.1)',
-              boxShadow: cell.color ? `0 0 20px ${cell.color}40` : 'none'
+              boxShadow: cell.color ? `0 0 20px ${cell.color}40` : 'none',
+              minWidth: `${cellSize}px`,
+              minHeight: `${cellSize}px`
             }}
             onClick={() => handleCellClick(cell.id)}
             whileHover={gameState === GameState.SELECTING ? { scale: 1.05 } : {}}
@@ -372,7 +425,7 @@ function GridMemoryClientContent() {
                 className="w-full h-full flex items-center justify-center"
               >
                 {cell.isCorrect ? (
-                  <Star className="w-6 h-6 text-white" />
+                  <Check className="w-6 h-6 text-white" />
                 ) : (
                   <span className="text-white text-xl font-bold">×</span>
                 )}
@@ -388,287 +441,311 @@ function GridMemoryClientContent() {
     <div className="relative min-h-screen">
       <StarfieldBackground />
       
-      <div className="relative z-10 max-w-4xl mx-auto p-6">
-        {/* 菜单界面 */}
-        {gameState === GameState.MENU && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-8"
+      <div className="relative z-10 max-w-7xl mx-auto p-4">
+        {/* 头部区域 - 返回按钮和标题在同一行 */}
+        <div className="flex items-center justify-between mb-6">
+          {/* 返回按钮 */}
+          <TouchOptimizedButton
+            onClick={() => router.back()}
+            variant="outline"
+            className="border-purple-400/50 text-purple-200 hover:bg-purple-800/50 px-4 py-2"
+            hapticFeedback
           >
-            {/* 标题 */}
-            <div className="text-center">
-              <motion.h1 
-                className="text-4xl font-bold bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent mb-4"
-                animate={{ 
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                {t('title')}
-              </motion.h1>
-              <p className="text-purple-200 text-lg">{t('description')}</p>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            {tCommon('back')}
+          </TouchOptimizedButton>
+          
+          {/* 标题区域 */}
+          <div className="text-center flex-1">
+            <motion.h1 
+              className="text-4xl font-bold bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent mb-3"
+              animate={{ 
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              {t('title')}
+            </motion.h1>
+            <p className="text-purple-200 text-lg">{t('description')}</p>
+          </div>
+          
+          {/* 右侧占位，保持标题居中 */}
+          <div className="w-[120px]"></div>
+        </div>
+        
+        {/* 顶部控制区域 - 优化布局和对齐 */}
+        <div className="mb-8">
+          {/* 难度选择区域 - 水平布局 */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-4 mb-6">
+            {/* 难度选择标题 - 左侧 */}
+            <div className="flex-shrink-0">
+              <h2 className="text-purple-100 text-xl font-semibold">
+                {t('selectDifficulty')}
+              </h2>
             </div>
             
-            {/* 难度选择 */}
-            <Card className="bg-purple-900/30 border-purple-500/30">
-              <CardHeader>
-                <CardTitle className="text-purple-100 flex items-center gap-2">
-                  <Target className="w-5 h-5" />
-                  {t('selectDifficulty')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {difficulties.map((difficulty, index) => (
-                    <motion.button
-                      key={index}
-                      className={`
-                        p-4 rounded-lg border-2 transition-all duration-300
-                        ${selectedDifficulty === index 
-                          ? 'border-pink-400 bg-pink-500/20' 
-                          : 'border-purple-400/30 bg-purple-800/20 hover:border-purple-400/50'
-                        }
-                      `}
-                      onClick={() => setSelectedDifficulty(index)}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <div className="text-left">
-                        <h3 className="text-purple-100 font-semibold mb-2">
-                          {difficulty.name}
-                        </h3>
-                        <div className="text-sm text-purple-300 space-y-1">
-                          <p>{t('gridSize')}: {difficulty.gridSize}×{difficulty.gridSize}</p>
-                          <p>{t('markedCells')}: {difficulty.markedCells}</p>
-                          <p>{t('memoryTime')}: {difficulty.memoryTime / 1000}s</p>
-                        </div>
-                      </div>
-                    </motion.button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-            
-            {/* 开始按钮 */}
-            <div className="text-center">
+            {/* 难度选择按钮 - 右侧 */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            {difficulties.map((difficulty, index) => (
+              <motion.button
+                key={index}
+                className={`
+                  px-6 py-3 rounded-lg border-2 transition-all duration-300 min-w-[100px]
+                  ${selectedDifficulty === index 
+                    ? 'border-pink-400 bg-pink-500/20 shadow-lg shadow-pink-500/20' 
+                    : 'border-purple-400/30 bg-purple-800/20 hover:border-purple-400/50 hover:bg-purple-700/30'
+                  }
+                  ${gameState !== GameState.MENU ? 'opacity-50 cursor-not-allowed' : ''}
+                `}
+                onClick={() => gameState === GameState.MENU && setSelectedDifficulty(index)}
+                whileHover={gameState === GameState.MENU ? { scale: 1.05 } : {}}
+                whileTap={gameState === GameState.MENU ? { scale: 0.95 } : {}}
+                disabled={gameState !== GameState.MENU}
+              >
+                <span className="text-purple-100 font-medium">
+                  {difficulty.name}
+                </span>
+              </motion.button>
+            ))}
+            </div>
+          </div>
+          
+          {/* 操作按钮区域 - 居中对齐 */}
+          <div className="flex justify-center gap-6">
+            {gameState === GameState.MENU && (
               <TouchOptimizedButton
                 onClick={startGame}
-                className="bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:from-pink-600 hover:via-purple-700 hover:to-cyan-600 px-8 py-4 text-lg"
+                className="bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:from-pink-600 hover:via-purple-700 hover:to-cyan-600 px-10 py-4 text-lg font-semibold shadow-lg"
                 hapticFeedback
                 preventDoubleClick
               >
-                <Play className="w-5 h-5 mr-2" />
+                <Play className="w-5 h-5 mr-3" />
                 {t('startGame')}
               </TouchOptimizedButton>
-            </div>
-          </motion.div>
-        )}
-        
-        {/* 记忆阶段 */}
-        {gameState === GameState.MEMORIZING && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="space-y-6"
-          >
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-purple-100 mb-4">
-                {t('memorizePhase')}
-              </h2>
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <Clock className="w-5 h-5 text-cyan-400" />
-                <span className="text-cyan-400 text-lg font-semibold">
-                  {Math.ceil(memoryTimeLeft / 1000)}s
-                </span>
-              </div>
-              <Progress 
-                value={(memoryTimeLeft / difficulties[selectedDifficulty].memoryTime) * 100} 
-                className="w-64 mx-auto"
-              />
-            </div>
+            )}
             
-            {renderGrid()}
-          </motion.div>
-        )}
-        
-        {/* 选择阶段 */}
-        {gameState === GameState.SELECTING && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="space-y-6"
-          >
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-purple-100 mb-4">
-                {t('selectPhase')}
-              </h2>
-              <div className="flex justify-center gap-8 mb-6">
-                <div className="text-center">
-                  <div className="text-green-400 text-xl font-bold">
-                    {selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length}
-                  </div>
-                  <div className="text-green-400 text-sm">{t('correct')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-red-400 text-xl font-bold">{wrongSelections}</div>
-                  <div className="text-red-400 text-sm">{t('wrong')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-purple-400 text-xl font-bold">{markedCells.length}</div>
-                  <div className="text-purple-400 text-sm">{t('total')}</div>
-                </div>
-              </div>
-            </div>
-            
-            {renderGrid()}
-            
-            <div className="text-center">
+            {gameState !== GameState.MENU && (
               <TouchOptimizedButton
                 onClick={resetGame}
                 variant="outline"
-                className="border-purple-400/50 text-purple-200 hover:bg-purple-800/50"
+                className="border-purple-400/50 text-purple-200 hover:bg-purple-800/50 px-8 py-4 text-lg font-medium shadow-lg"
                 hapticFeedback
               >
-                <RotateCcw className="w-4 h-4 mr-2" />
+                <RotateCcw className="w-5 h-5 mr-3" />
                 {t('backToMenu')}
               </TouchOptimizedButton>
-            </div>
-          </motion.div>
-        )}
-        
-        {/* 结果界面 */}
-        {gameState === GameState.RESULTS && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-8"
-          >
-            <div className="text-center">
-              <motion.h2 
-                className="text-3xl font-bold text-purple-100 mb-4"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                {stats.wrongSelections < 2 ? t('gameComplete') : t('gameOver')}
-              </motion.h2>
-            </div>
+            )}
             
-            {/* 统计卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="bg-purple-900/30 border-purple-500/30">
-                <CardHeader>
-                  <CardTitle className="text-purple-100 flex items-center gap-2">
-                    <Trophy className="w-5 h-5 text-yellow-400" />
-                    {t('score')}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold text-yellow-400 mb-2">
-                    {stats.score}
-                  </div>
-                  <div className="space-y-2 text-sm text-purple-300">
-                    <div className="flex justify-between">
-                      <span>{t('correct')}:</span>
-                      <span className="text-green-400">{stats.correctSelections}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>{t('wrong')}:</span>
-                      <span className="text-red-400">{stats.wrongSelections}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>{t('accuracy')}:</span>
-                      <span className="text-cyan-400">{stats.accuracy.toFixed(1)}%</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-purple-900/30 border-purple-500/30">
-                <CardHeader>
-                  <CardTitle className="text-purple-100 flex items-center gap-2">
-                    <Brain className="w-5 h-5 text-pink-400" />
-                    {t('performance')}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {stats.accuracy >= 80 ? (
-                      <motion.div 
-                        className="flex items-center justify-center gap-2 text-green-400"
-                        animate={{ y: [0, -2, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <motion.span
-                          animate={{ rotate: [0, 360] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          🌟
-                        </motion.span>
-                        <span>{t('excellent')}</span>
-                      </motion.div>
-                    ) : stats.accuracy >= 60 ? (
-                      <motion.div 
-                        className="flex items-center justify-center gap-2 text-yellow-400"
-                        animate={{ y: [0, -2, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <motion.span
-                          animate={{ scale: [1, 1.1, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          👍
-                        </motion.span>
-                        <span>{t('good')}</span>
-                      </motion.div>
-                    ) : (
-                      <motion.div 
-                        className="flex items-center justify-center gap-2 text-orange-400"
-                        animate={{ y: [0, -2, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <motion.span
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                          💪
-                        </motion.span>
-                        <span>{t('keepTrying')}</span>
-                      </motion.div>
-                    )}
-                    
-                    <div className="text-sm text-purple-300">
-                      {t('timeSpent')}: {(stats.timeSpent / 1000).toFixed(1)}s
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            
-            {/* 操作按钮 */}
-            <div className="flex justify-center gap-6">
-              <TouchOptimizedButton
-                onClick={resetGame}
-                variant="outline"
-                className="border-purple-400/50 text-purple-200 hover:bg-purple-800/50 px-8 py-3"
-                hapticFeedback
-                preventDoubleClick
-              >
-                {t('backToMenu')}
-              </TouchOptimizedButton>
-              
+            {gameState === GameState.RESULTS && (
               <TouchOptimizedButton
                 onClick={startGame}
-                className="bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:from-pink-600 hover:via-purple-700 hover:to-cyan-600 px-8 py-3"
+                className="bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:from-pink-600 hover:via-purple-700 hover:to-cyan-600 px-8 py-4 text-lg font-semibold shadow-lg"
                 hapticFeedback
                 preventDoubleClick
               >
-                <Play className="w-4 h-4 mr-2" />
+                <Play className="w-5 h-5 mr-3" />
                 {t('playAgain')}
               </TouchOptimizedButton>
+            )}
+          </div>
+        </div>
+        
+        {/* 主游戏区域 - 优化布局和对齐 */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* 左侧游戏区域 - 占2/3宽度，优化对齐 */}
+          <div className="lg:col-span-2">
+            <div className="min-h-[500px] flex flex-col justify-center bg-purple-900/10 rounded-2xl p-6 border border-purple-500/20">
+              
+                {/* 菜单状态 - 显示示例网格 */}
+                {gameState === GameState.MENU && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-8"
+                  >
+                    <div className="text-center">
+                      <h3 className="text-xl font-semibold text-purple-200 mb-6">
+                        {t('preview')}
+                      </h3>
+                    </div>
+                    <div className="flex justify-center">
+                      {renderPreviewGrid()}
+                    </div>
+                  </motion.div>
+                )}
+          
+                {/* 记忆阶段 */}
+                {gameState === GameState.MEMORIZING && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-8"
+                  >
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-6 mb-8">
+                        <h3 className="text-2xl font-bold text-purple-100">
+                          {t('memorizePhase')}
+                        </h3>
+                        <div className="flex items-center gap-3">
+                          <Clock className="w-5 h-5 text-cyan-400" />
+                          <span className="text-cyan-400 text-xl font-bold">
+                            {Math.ceil(memoryTimeLeft / 1000)}s
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      {renderGrid()}
+                    </div>
+                  </motion.div>
+                )}
+                
+                {/* 选择阶段 */}
+                {gameState === GameState.SELECTING && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-8"
+                  >
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold text-purple-100 mb-8">
+                        {t('selectPhase')}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      {renderGrid()}
+                    </div>
+                  </motion.div>
+                )}
+                
+                {/* 游戏结果阶段 - 继续显示方格 */}
+                {gameState === GameState.RESULTS && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-8"
+                  >
+                    <div className="text-center">
+                      <h3 className="text-purple-100 text-2xl font-bold mb-8">{t('gameComplete')}</h3>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      {renderGrid()}
+                    </div>
+                  </motion.div>
+                )}
             </div>
-          </motion.div>
-        )}
+            
+          </div>
+          
+          {/* 右侧统计区域 - 占1/3宽度，优化对齐 */}
+          <div className="lg:col-span-1">
+            <div className="space-y-6">
+              {/* 游戏进度统计 */}
+              {(gameState === GameState.SELECTING || gameState === GameState.MEMORIZING) && (
+                <div className="space-y-4">
+                  <div className="pb-4">
+                    <h3 className="text-purple-100 flex items-center gap-3 text-lg font-semibold">
+                      <Brain className="w-6 h-6 text-pink-400" />
+                      {t('gameProgress')}
+                    </h3>
+                  </div>
+                  <div className="pt-0">
+                    <div className="space-y-5">
+                      <div className="flex justify-between items-center p-3 bg-green-500/10 rounded-lg border border-green-400/20">
+                        <span className="text-purple-200 font-medium">{t('correct')}:</span>
+                        <span className="text-green-400 text-2xl font-bold">
+                          {selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-red-500/10 rounded-lg border border-red-400/20">
+                        <span className="text-purple-200 font-medium">{t('wrong')}:</span>
+                        <span className="text-red-400 text-2xl font-bold">{wrongSelections}</span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-purple-500/10 rounded-lg border border-purple-400/20">
+                        <span className="text-purple-200 font-medium">{t('total')}:</span>
+                        <span className="text-purple-400 text-2xl font-bold">{markedCells.length}</span>
+                      </div>
+                      <div className="pt-3 border-t border-purple-500/30">
+                        <div className="flex justify-between items-center p-3 bg-cyan-500/10 rounded-lg border border-cyan-400/20">
+                          <span className="text-purple-200 font-medium">{t('accuracy')}:</span>
+                          <span className="text-cyan-400 text-xl font-bold">
+                            {selectedCells.length > 0 
+                              ? ((selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length / selectedCells.length) * 100).toFixed(1)
+                              : 0
+                            }%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+        
+               {/* 游戏结果 */}
+               {gameState === GameState.RESULTS && (
+                 <div className="space-y-4">
+                   <div className="pb-4">
+                     <h3 className="text-purple-100 flex items-center gap-3 text-lg font-semibold">
+                       <Trophy className="w-6 h-6 text-yellow-400" />
+                       {stats.wrongSelections < 2 ? t('gameComplete') : t('gameOver')}
+                     </h3>
+                   </div>
+                   <div className="pt-0">
+                     <motion.div
+                       initial={{ opacity: 0, scale: 0.9 }}
+                       animate={{ opacity: 1, scale: 1 }}
+                       className="space-y-6"
+                     >
+                       {/* 得分显示 - 突出显示 */}
+                       <div className="text-center p-6 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl border border-yellow-400/30 shadow-lg">
+                         <div className="text-purple-200 text-lg font-medium mb-2">{t('score')}</div>
+                         <div className="text-yellow-400 text-4xl font-bold">{stats.score}</div>
+                       </div>
+                       
+                       {/* 统计信息 - 优化布局 */}
+                       <div className="space-y-4">
+                         <div className="flex justify-between items-center p-3 bg-green-500/10 rounded-lg border border-green-400/20">
+                           <span className="text-purple-200 font-medium">{t('correct')}:</span>
+                           <span className="text-green-400 text-2xl font-bold">{stats.correctSelections}</span>
+                         </div>
+                         <div className="flex justify-between items-center p-3 bg-red-500/10 rounded-lg border border-red-400/20">
+                           <span className="text-purple-200 font-medium">{t('wrong')}:</span>
+                           <span className="text-red-400 text-2xl font-bold">{stats.wrongSelections}</span>
+                         </div>
+                         <div className="flex justify-between items-center p-3 bg-cyan-500/10 rounded-lg border border-cyan-400/20">
+                           <span className="text-purple-200 font-medium">{t('accuracy')}:</span>
+                           <span className="text-cyan-400 text-xl font-bold">{stats.accuracy.toFixed(1)}%</span>
+                         </div>
+                         <div className="flex justify-between items-center p-3 bg-purple-500/10 rounded-lg border border-purple-400/20">
+                           <span className="text-purple-200 font-medium">{t('timeSpent')}:</span>
+                           <span className="text-purple-400 text-xl font-bold">{(stats.timeSpent / 1000).toFixed(1)}s</span>
+                         </div>
+                       </div>
+                     </motion.div>
+                   </div>
+                 </div>
+               )}
+              
+              {/* 操作按钮区域 - 仅在选择阶段显示 */}
+              {gameState === GameState.SELECTING && (
+                <div className="space-y-4">
+                  <TouchOptimizedButton
+                    onClick={resetGame}
+                    variant="outline"
+                    className="w-full border-purple-400/50 text-purple-200 hover:bg-purple-800/50"
+                    hapticFeedback
+                  >
+                    <RotateCcw className="w-4 h-4 mr-2" />
+                    {t('backToMenu')}
+                  </TouchOptimizedButton>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

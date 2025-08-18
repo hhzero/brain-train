@@ -1410,7 +1410,14 @@
   "gridMemory": {
     "title": "Grid Memory",
     "description": "Train spatial memory by remembering the positions of colored grids",
+    "meta": {
+      "title": "Grid Memory - Spatial Memory Training",
+      "description": "Train spatial memory by remembering colored grid positions, enhance visual working memory",
+      "keywords": "grid memory,spatial memory,visual memory,memory training,cognitive training"
+    },
     "selectDifficulty": "Select Difficulty",
+    "preview": "Preview",
+    "selectDifficultyToStart": "Select difficulty to start",
     "difficulty": {
       "easy": "Easy",
       "medium": "Medium",
@@ -1435,8 +1442,10 @@
     "good": "Good",
     "keepTrying": "Keep Trying!",
     "timeSpent": "Time Spent",
+    "gameProgress": "Game Progress",
     "backToMenu": "Back to Menu",
-    "playAgain": "Play Again"
+    "playAgain": "Play Again",
+    "congratulations": "Congratulations!"
   },
   "trainingSelection": {
     "title": "Choose Training Program",

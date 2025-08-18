@@ -579,7 +579,14 @@
   "gridMemory": {
     "title": "격자 기억",
     "description": "컬러풀한 격자의 위치를 기억하여 공간 기억 능력을 훈련합니다",
+    "meta": {
+      "title": "격자 기억 - 공간 기억 훈련",
+      "description": "색깔 격자 위치를 기억하여 공간 기억 능력을 훈련하고 시각적 작업 기억을 향상시킵니다",
+      "keywords": "격자 기억,공간 기억,시각 기억,기억 훈련,인지 훈련"
+    },
     "selectDifficulty": "난이도 선택",
+    "preview": "미리보기",
+    "selectDifficultyToStart": "난이도를 선택하여 게임 시작",
     "difficulty": {
       "easy": "쉬움",
       "medium": "보통",
@@ -604,8 +611,10 @@
     "good": "좋음",
     "keepTrying": "계속 노력하세요!",
     "timeSpent": "소요 시간",
+    "gameProgress": "게임 진행",
     "backToMenu": "메뉴로 돌아가기",
-    "playAgain": "다시 플레이"
+    "playAgain": "다시 플레이",
+    "congratulations": "축하합니다!"
   },
   "trainingSelection": {
     "title": "훈련 프로그램 선택",

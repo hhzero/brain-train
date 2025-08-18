@@ -415,7 +415,7 @@ export const useTrainingStore = create<TrainingStore>()(persist(
   }),
   {
     name: 'brain-train-storage',
-    partialize: (state) => ({
+    partialize: (state: TrainingStore): Partial<TrainingStore> => ({
       userProgress: state.userProgress,
       trainingHistory: state.trainingHistory,
       adaptiveDifficulty: state.adaptiveDifficulty,
@@ -428,80 +428,6 @@ export const useTrainingStore = create<TrainingStore>()(persist(
       if (error) {
         console.warn('训练数据恢复失败，使用默认设置:', error);
         // 可以在这里添加用户通知逻辑
-      }
-    },
-    // 自定义存储方法，添加配额检查
-    storage: {
-      getItem: (name) => {
-        try {
-          return localStorage.getItem(name);
-        } catch (error) {
-          console.warn('读取存储数据失败:', error);
-          return null;
-        }
-      },
-      setItem: (name, value) => {
-        try {
-          // 检查存储大小，如果超过限制则清理旧数据
-          const currentSize = new Blob([value]).size;
-          const maxSize = 5 * 1024 * 1024; // 5MB限制
-          
-          if (currentSize > maxSize) {
-            console.warn('存储数据过大，正在清理历史记录...');
-            // 解析当前数据并清理
-            const data = JSON.parse(value);
-            if (data.state?.trainingHistory) {
-              data.state.trainingHistory = data.state.trainingHistory.slice(-50); // 只保留最近50条
-            }
-            if (data.state?.stats?.daily) {
-              data.state.stats.daily = data.state.stats.daily.slice(-15); // 只保留最近15天
-            }
-            value = JSON.stringify(data);
-          }
-          
-          localStorage.setItem(name, value);
-        } catch (error) {
-          if (error.name === 'QuotaExceededError') {
-            console.warn('存储配额已满，正在清理数据...');
-            try {
-              // 尝试清理其他存储项
-              const keys = Object.keys(localStorage);
-              keys.forEach(key => {
-                if (key !== name && key.startsWith('brain-train')) {
-                  localStorage.removeItem(key);
-                }
-              });
-              
-              // 再次尝试存储简化的数据
-              const data = JSON.parse(value);
-              const essentialData = {
-                state: {
-                  userProgress: data.state?.userProgress || {},
-                  settings: data.state?.settings || {},
-                  // 只保留最基本的数据
-                  trainingHistory: (data.state?.trainingHistory || []).slice(-20),
-                  stats: {
-                    daily: (data.state?.stats?.daily || []).slice(-7)
-                  }
-                },
-                version: data.version
-              };
-              localStorage.setItem(name, JSON.stringify(essentialData));
-            } catch (fallbackError) {
-              console.error('存储失败，数据将不会被保存:', fallbackError);
-              // 可以在这里添加用户通知逻辑
-            }
-          } else {
-            console.error('存储数据时发生错误:', error);
-          }
-        }
-      },
-      removeItem: (name) => {
-        try {
-          localStorage.removeItem(name);
-        } catch (error) {
-          console.warn('删除存储数据失败:', error);
-        }
       }
     }
   }

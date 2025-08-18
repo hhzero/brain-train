@@ -579,7 +579,14 @@
   "gridMemory": {
     "title": "グリッドメモリー",
     "description": "カラフルなグリッドの位置を記憶して空間記憶能力を鍛えます",
+    "meta": {
+      "title": "グリッドメモリ - 空間記憶トレーニング",
+      "description": "色付きグリッドの位置を記憶して空間記憶能力を訓練し、視覚的作業記憶を向上させる",
+      "keywords": "グリッドメモリ,空間記憶,視覚記憶,記憶トレーニング,認知トレーニング"
+    },
     "selectDifficulty": "難易度を選択",
+    "preview": "プレビュー",
+    "selectDifficultyToStart": "難易度を選択してゲームを開始",
     "difficulty": {
       "easy": "簡単",
       "medium": "普通",
@@ -604,8 +611,10 @@
     "good": "良好",
     "keepTrying": "頑張って！",
     "timeSpent": "所要時間",
+    "gameProgress": "ゲーム進行",
     "backToMenu": "メニューに戻る",
-    "playAgain": "もう一度プレイ"
+    "playAgain": "もう一度プレイ",
+    "congratulations": "おめでとうございます！"
   },
   "trainingSelection": {
     "title": "トレーニングプログラムを選択",
