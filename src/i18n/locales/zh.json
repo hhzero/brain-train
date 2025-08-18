@@ -317,6 +317,7 @@
     "memory": "记忆力",
     "attention": "注意力",
     "reaction": "反应力",
+    "reactionSpeed": "反应速度",
     "classification": "分类",
     "speedReading": "速读",
     "about": "关于",
@@ -499,6 +500,75 @@
       }
     },
     "description": "通过科学的训练方法和沉浸式体验，全面提升认知能力、注意力和情绪管理技能"
+  },
+  "quickMath": {
+    "title": "速算训练",
+    "description": "快速心算训练，提升数学运算反应速度和准确性",
+    "difficulty": {
+      "easy": "简单",
+      "medium": "中等",
+      "hard": "困难"
+    },
+    "difficultyDescription": {
+      "easy": "20以内的加减法运算",
+      "medium": "50-1000的加减法运算",
+      "hard": "1000以上的加减法运算"
+    },
+    "ui": {
+      "selectDifficulty": "选择难度等级",
+      "startGame": "开始游戏",
+      "score": "得分",
+      "timeLeft": "剩余时间",
+      "gameOver": "游戏结束",
+      "finalScore": "最终得分",
+      "playAgain": "再玩一次",
+      "backToMenu": "返回菜单",
+      "back": "返回",
+      "inputAnswer": "输入答案",
+      "confirm": "确认",
+      "clear": "清除",
+      "correct": "正确！",
+      "wrong": "错误！",
+      "missed": "错过了！",
+      "pause": "暂停",
+      "resume": "继续",
+      "paused": "已暂停",
+      "yourAnswer": "您的答案",
+      "gameTime": "游戏时长",
+      "accuracy": "准确率",
+      "totalQuestions": "总题数",
+      "correctAnswers": "正确答案",
+      "gameDuration": "游戏时长",
+      "averageTime": "平均时间",
+      "difficulty": "难度",
+      "changeDifficulty": "更改难度",
+      "selectDifficultyHint": "选择适合你的难度等级开始训练"
+    },
+    "instructions": {
+      "title": "游戏说明",
+      "description": "算术题目会从屏幕上方匀速下降，使用数字键盘输入正确答案并点击确认。答对得分，题目消失；答错或错过题目将扣分。",
+      "controls": "使用数字键盘输入答案，点击确认按钮提交",
+      "tips": "保持专注，快速计算，准确输入",
+      "gameRules": "游戏规则",
+      "howToPlay": "操作方法",
+      "gameTips": "游戏提示",
+      "difficultyLevels": "难度等级"
+    },
+    "results": {
+      "congratulations": "继续加油！",
+      "detailedStats": "详细统计",
+      "questionsPerMinute": "每分钟答题数",
+      "correctRate": "正确率",
+      "missedQuestions": "错过题目",
+      "perfectPerformance": "完美表现！",
+      "excellentPerformance": "优秀表现！",
+      "goodPerformance": "良好表现！",
+      "needsImprovement": "还需努力！",
+      "keepTrying": "继续加油！",
+      "encouragementMessage": "继续努力！多练习可以提高反应速度！",
+      "greatSpeed": "太棒了！你的反应速度非常出色！",
+      "goodProgress": "不错的表现！继续练习会更好！"
+    }
   },
   "retention": {
     "title": "训练中心",

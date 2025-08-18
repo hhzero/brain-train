@@ -61,7 +61,7 @@ export default function TrainingPage() {
   const t = useTranslations('')
   
   // 训练模块数据
-  const trainingModules = []
+  const trainingModules: any[] = []
 
   // 统计数据
   const stats = [
@@ -370,14 +370,14 @@ export default function TrainingPage() {
 
                     {/* 特性标签 */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {module.features.map((feature, idx) => (
+                      {module.features?.map((feature: string, idx: number) => (
                         <span
                           key={idx}
                           className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-full border border-white/20"
                         >
                           {feature}
                         </span>
-                      ))}
+                      )) || []}
                     </div>
 
                     {/* 开始训练按钮 */}

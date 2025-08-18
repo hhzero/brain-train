@@ -7,7 +7,7 @@ import LogoIcon from '../../icons/logo'
 import LangSwitcher from './LangSwitcher'
 import ThemeSwitch from './ThemeSwitch'
 import UserMenu from './UserMenu'
-import { FiChevronDown } from 'react-icons/fi'
+
 import { usePathname } from 'next/navigation'
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
 export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('')
   const [isGamesMenuOpen, setIsGamesMenuOpen] = useState(false)
+
   const pathname = usePathname()
   const [isClient, setIsClient] = useState(false)
 
@@ -45,6 +46,10 @@ export const Header: FC<Props> = ({ locale }) => {
           </Link>
           <Link href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/attention` ? ' active' : ''}`}>
             {t('navigation.attention')}
+          </Link>
+
+          <Link href={`/reaction-speed`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname.includes('/reaction-speed') ? ' active' : ''}`}>
+            {t('navigation.reactionSpeed')}
           </Link>
 
           <Link href={`/about`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/about` ? ' active' : ''}`}>

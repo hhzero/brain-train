@@ -12,23 +12,16 @@
       }
     ]
   },
-  "Reaction": {
+  "ReactionSpeed": {
     "id": 2,
-    "name": "Reaction",
+    "name": "Reaction Speed",
     "list": [
       {
         "id": 10,
-        "name": "Reaction Training 1",
-        "description": "Description for Reaction Training 1",
-        "image": "/images/memory/memory.png",
-        "link": "/memory"
-      },
-      {
-        "id": 11,
-        "name": "Reaction Training 2",
-        "description": "Description for Reaction Training 2",
-        "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "name": "Quick Math Training",
+        "description": "Improve numerical reaction ability and calculation speed through rapid mental arithmetic training, exercising the brain's fast processing capabilities.",
+        "image": "/images/reaction/quick-math.png",
+        "link": "/reaction-speed/quick-math"
       }
     ]
   },

@@ -1,0 +1,27 @@
+/* 数字下降动画 - 平滑匀速效果 */
+@keyframes fallDown {
+  0% {
+    top: -10%;
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 95%;
+    opacity: 0.3;
+  }
+}
+
+/* 确保动画在暂停时保持状态 */
+.falling-problem {
+  animation-fill-mode: forwards;
+}
+
+/* 暂停状态下的动画 */
+.paused .falling-problem {
+  animation-play-state: paused;
+}

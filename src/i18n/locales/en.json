@@ -6,12 +6,78 @@
     "memory": "Memory",
     "attention": "Attention",
     "reaction": "Reaction",
+    "reactionSpeed": "Reaction Speed",
     "classification": "Classification",
     "speedReading": "Speed Reading",
     "about": "About",
     "profile": "Profile",
     "leaderboard": "Leaderboard",
     "settings": "Settings"
+  },
+  "quickMath": {
+    "title": "Quick Math Training",
+    "description": "Fast mental arithmetic training to improve mathematical calculation reaction speed and accuracy",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "difficultyDescription": {
+      "easy": "Addition and subtraction within 20",
+      "medium": "Addition and subtraction from 50 to 1000",
+      "hard": "Addition and subtraction above 1000"
+    },
+    "ui": {
+      "selectDifficulty": "Select Difficulty Level",
+      "startGame": "Start Game",
+      "score": "Score",
+      "timeLeft": "Time Left",
+      "gameOver": "Game Over",
+      "finalScore": "Final Score",
+      "playAgain": "Play Again",
+      "backToMenu": "Back to Menu",
+      "inputAnswer": "Input Answer",
+      "confirm": "Confirm",
+      "clear": "Clear",
+      "correct": "Correct!",
+      "wrong": "Wrong!",
+      "missed": "Missed!",
+      "pause": "Pause",
+      "resume": "Resume",
+      "gameTime": "Game Time",
+      "accuracy": "Accuracy",
+      "totalQuestions": "Total Questions",
+      "correctAnswers": "Correct Answers",
+      "back": "Back",
+      "paused": "Paused",
+      "yourAnswer": "Your Answer",
+      "selectDifficultyHint": "Choose the difficulty level that suits you to start training"
+    },
+    "instructions": {
+      "title": "Game Instructions",
+      "description": "Arithmetic problems will fall from the top of the screen at a steady pace. Use the number pad to input the correct answer and click confirm. Get points for correct answers and the problem disappears; wrong or missed answers will deduct points.",
+      "controls": "Use the number pad to input answers, click the confirm button to submit",
+      "tips": "Stay focused, calculate quickly, input accurately",
+      "gameRules": "Game Rules",
+      "howToPlay": "How to Play",
+      "gameTips": "Game Tips",
+      "difficultyLevels": "Difficulty Levels"
+    },
+    "results": {
+      "congratulations": "Keep it up!",
+      "detailedStats": "Detailed Statistics",
+      "questionsPerMinute": "Questions per Minute",
+      "correctRate": "Correct Rate",
+      "missedQuestions": "Missed Questions",
+      "perfectPerformance": "Perfect Performance!",
+      "excellentPerformance": "Excellent Performance!",
+      "goodPerformance": "Good Performance!",
+      "needsImprovement": "Needs Improvement!",
+      "keepTrying": "Keep Trying!",
+      "encouragementMessage": "Keep practicing! More practice can improve your reaction speed!",
+      "greatSpeed": "Amazing! Your reaction speed is excellent!",
+      "goodProgress": "Good performance! Keep practicing and you'll get better!"
+    }
   },
   "training": {
     "title": "Brain Training",
@@ -1303,5 +1369,30 @@
       "extended": "Extended Exhale (4-2-6-2)"
     }
   },
-  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a simple about page just to show how you can use the internationalization in different pages"
+  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a simple about page just to show how you can use the internationalization in different pages",
+  "ReactionSpeed": {
+    "clickToStart": "Click to Start",
+    "waitForGreen": "Wait for green...",
+    "clickNow": "Click now!",
+    "reactionTime": "Reaction time: {time}ms",
+    "tooEarly": "Too early!",
+    "lightning": "Lightning fast!",
+    "veryFast": "Very fast!",
+    "good": "Good!",
+    "notBad": "Not bad!",
+    "keepPracticing": "Keep practicing!",
+    "tryAgain": "Try again",
+    "cancel": "Cancel",
+    "bestScore": "Best Score",
+    "averageTime": "Average Time",
+    "totalAttempts": "Total Attempts",
+    "noRecord": "No record",
+    "testCount": "Test Count",
+    "noData": "No data",
+    "gameInstructions": "Game Instructions",
+    "instruction1": "Click the purple area to start the game",
+    "instruction2": "Wait when it's red, don't click",
+    "instruction3": "Click immediately when green appears",
+    "instruction4": "Challenge your reaction limits!"
+  }
 }

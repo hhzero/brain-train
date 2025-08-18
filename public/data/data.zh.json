@@ -12,23 +12,16 @@
       }
     ]
   },
-  "Reaction": {
+  "ReactionSpeed": {
     "id": 2,
-    "name": "反应力",
+    "name": "反应速度",
     "list": [
       {
         "id": 10,
-        "name": "反应速度测试",
-        "description": "测试你的反应速度，看看你能多快响应屏幕上的变化！挑战你的极限反应时间。",
-        "image": "/images/memory/memory.png",
-        "link": "/train/reaction-speed"
-      },
-      {
-        "id": 11,
-        "name": "反应时间训练",
-        "description": "通过连续的反应训练提升你的反应能力，让大脑和手指配合更加敏捷。",
-        "image": "/images/memory/memory.png",
-        "link": "/train/reaction-time"
+        "name": "速算训练",
+        "description": "通过快速心算训练提升数字反应能力和计算速度，锻炼大脑的快速处理能力。",
+        "image": "/images/reaction/quick-math.png",
+        "link": "/reaction-speed/quick-math"
       }
     ]
   },
