@@ -164,7 +164,7 @@ export default function SchulteClient() {
   }, [currentSession, gridSize, foundNumbers, errorCount, reactionTimes, time, config, mode, completeTrainingSession, t])
 
   // 处理格子点击
-  const handleCellClick = useCallback((cell: GridCell) => {
+  const handleCellClick = useCallback(async (cell: GridCell) => {
     if (!isTraining || isPaused || isCompleted) return
     
     const now = Date.now()
@@ -212,9 +212,15 @@ export default function SchulteClient() {
       }
       
       if (settings.soundEnabled) {
-        // 播放成功音效
-        const audio = new Audio('/sounds/success.mp3')
-        audio.play().catch(() => {})
+        // 播放成功音效 - 使用音调替代音频文件
+        try {
+          const { audioManager } = await import('@/utils/AudioManager')
+          await audioManager.initialize()
+          await audioManager.playTone(523.25, 300, 0.3, 'sine') // C5音调，300ms
+        } catch (error) {
+          console.warn('播放成功音效失败:', error)
+          // 音频播放失败不影响训练继续进行
+        }
       }
     } else {
       setErrorCount(prev => prev + 1)
@@ -232,9 +238,15 @@ export default function SchulteClient() {
       }, 500)
       
       if (settings.soundEnabled) {
-        // 播放错误音效
-        const audio = new Audio('/sounds/error.mp3')
-        audio.play().catch(() => {})
+        // 播放错误音效 - 使用音调替代音频文件
+        try {
+          const { audioManager } = await import('@/utils/AudioManager')
+          await audioManager.initialize()
+          await audioManager.playTone(220, 500, 0.3, 'square') // A3音调，500ms，方波
+        } catch (error) {
+          console.warn('播放错误音效失败:', error)
+          // 音频播放失败不影响训练继续进行
+        }
       }
       
       toast.error(t('wrongNumber'))

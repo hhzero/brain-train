@@ -57,7 +57,8 @@ class AudioManager {
       // 创建音频上下文
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioContextClass) {
-        console.warn('AudioManager: 浏览器不支持Web Audio API');
+        console.warn('AudioManager: 浏览器不支持Web Audio API，使用静默模式');
+        this.isInitialized = false;
         return false;
       }
       
@@ -65,21 +66,31 @@ class AudioManager {
       
       // 处理音频上下文状态
       if (this.audioContext.state === 'suspended') {
-        await this.audioContext.resume();
+        try {
+          await this.audioContext.resume();
+        } catch (resumeError) {
+          console.warn('AudioManager: 无法恢复音频上下文，可能需要用户交互', resumeError);
+          // 不直接返回false，而是标记为需要用户交互
+        }
       }
       
       this.isInitialized = true;
       console.log('AudioManager: 音频系统初始化成功');
       
-      // 预加载常用音频
-      await this.preloadAudioBuffers();
+      // 预加载常用音频（使用try-catch包装）
+      try {
+        await this.preloadAudioBuffers();
+      } catch (preloadError) {
+        console.warn('AudioManager: 预加载音频失败，但系统仍可正常工作', preloadError);
+      }
       
       // 启动缓存清理定时器
       this.startCacheCleanup();
       
       return true;
     } catch (error) {
-      console.error('AudioManager: 初始化失败', error);
+      console.error('AudioManager: 初始化失败，切换到静默模式', error);
+      this.isInitialized = false;
       return false;
     }
   }
@@ -88,7 +99,10 @@ class AudioManager {
    * 预加载音频缓冲区
    */
   private async preloadAudioBuffers(): Promise<void> {
-    if (!this.audioContext) return;
+    if (!this.audioContext) {
+      console.warn('AudioManager: 音频上下文不存在，跳过预加载');
+      return;
+    }
     
     const promises = this.frequencies.map(async (frequency, index) => {
       try {
@@ -105,13 +119,20 @@ class AudioManager {
           lastUsed: Date.now(),
           frequency
         });
+        
+        return true;
       } catch (error) {
-        console.warn(`AudioManager: 预加载音频 ${index} 失败`, error);
+        console.warn(`AudioManager: 预加载音频 ${index} (${frequency}Hz) 失败`, error);
+        return false;
       }
     });
     
-    await Promise.all(promises);
-    console.log(`AudioManager: 预加载了 ${this.audioCache.size} 个音频缓冲区`);
+    const results = await Promise.allSettled(promises);
+    const successCount = results.filter(result => 
+      result.status === 'fulfilled' && result.value === true
+    ).length;
+    
+    console.log(`AudioManager: 成功预加载了 ${successCount}/${this.frequencies.length} 个音频缓冲区`);
   }
   
   /**
@@ -123,52 +144,72 @@ class AudioManager {
     }
     
     const { frequency, duration, volume, type } = config;
-    const sampleRate = this.audioContext.sampleRate;
-    const frameCount = sampleRate * (duration / 1000);
     
-    // 创建音频缓冲区
-    const buffer = this.audioContext.createBuffer(1, frameCount, sampleRate);
-    const channelData = buffer.getChannelData(0);
-    
-    // 生成音频数据
-    for (let i = 0; i < frameCount; i++) {
-      const time = i / sampleRate;
-      let sample = 0;
-      
-      // 根据波形类型生成样本
-      switch (type) {
-        case 'sine':
-          sample = Math.sin(2 * Math.PI * frequency * time);
-          break;
-        case 'square':
-          sample = Math.sign(Math.sin(2 * Math.PI * frequency * time));
-          break;
-        case 'triangle':
-          sample = (2 / Math.PI) * Math.asin(Math.sin(2 * Math.PI * frequency * time));
-          break;
-        case 'sawtooth':
-          sample = 2 * (frequency * time - Math.floor(frequency * time + 0.5));
-          break;
-        default:
-          sample = Math.sin(2 * Math.PI * frequency * time);
-      }
-      
-      // 应用音量和淡入淡出
-      const fadeTime = 0.01; // 10ms 淡入淡出
-      const fadeFrames = fadeTime * sampleRate;
-      
-      if (i < fadeFrames) {
-        // 淡入
-        sample *= (i / fadeFrames);
-      } else if (i > frameCount - fadeFrames) {
-        // 淡出
-        sample *= ((frameCount - i) / fadeFrames);
-      }
-      
-      channelData[i] = sample * volume;
+    // 验证参数
+    if (frequency <= 0 || frequency > 20000) {
+      throw new Error(`无效的频率值: ${frequency}Hz，有效范围: 1-20000Hz`);
     }
     
-    return buffer;
+    if (duration <= 0 || duration > 10000) {
+      throw new Error(`无效的持续时间: ${duration}ms，有效范围: 1-10000ms`);
+    }
+    
+    if (volume < 0 || volume > 1) {
+      throw new Error(`无效的音量值: ${volume}，有效范围: 0-1`);
+    }
+    
+    try {
+      const sampleRate = this.audioContext.sampleRate;
+      const frameCount = Math.floor(sampleRate * (duration / 1000));
+      
+      // 创建音频缓冲区
+      const buffer = this.audioContext.createBuffer(1, frameCount, sampleRate);
+      const channelData = buffer.getChannelData(0);
+      
+      // 生成音频数据
+      for (let i = 0; i < frameCount; i++) {
+        const time = i / sampleRate;
+        let sample = 0;
+        
+        // 根据波形类型生成样本
+        switch (type) {
+          case 'sine':
+            sample = Math.sin(2 * Math.PI * frequency * time);
+            break;
+          case 'square':
+            sample = Math.sign(Math.sin(2 * Math.PI * frequency * time));
+            break;
+          case 'triangle':
+            sample = (2 / Math.PI) * Math.asin(Math.sin(2 * Math.PI * frequency * time));
+            break;
+          case 'sawtooth':
+            sample = 2 * (frequency * time - Math.floor(frequency * time + 0.5));
+            break;
+          default:
+            sample = Math.sin(2 * Math.PI * frequency * time);
+        }
+        
+        // 应用音量和淡入淡出
+        const fadeTime = 0.01; // 10ms 淡入淡出
+        const fadeFrames = Math.floor(fadeTime * sampleRate);
+        
+        if (i < fadeFrames) {
+          // 淡入
+          sample *= (i / fadeFrames);
+        } else if (i > frameCount - fadeFrames) {
+          // 淡出
+          sample *= ((frameCount - i) / fadeFrames);
+        }
+        
+        // 防止数值溢出
+        channelData[i] = Math.max(-1, Math.min(1, sample * volume));
+      }
+      
+      return buffer;
+    } catch (error) {
+      console.error('AudioManager: 创建音频缓冲区失败', error);
+      throw new Error(`创建音频缓冲区失败: ${error instanceof Error ? error.message : '未知错误'}`);
+    }
   }
   
   /**
@@ -180,9 +221,24 @@ class AudioManager {
     volume: number = 0.3,
     type: OscillatorType = 'sine'
   ): Promise<void> {
+    // 如果音频系统未初始化，尝试重新初始化
     if (!this.isInitialized || !this.audioContext) {
-      console.warn('AudioManager: 音频系统未初始化');
-      return;
+      console.warn('AudioManager: 音频系统未初始化，尝试重新初始化');
+      const initSuccess = await this.initialize();
+      if (!initSuccess) {
+        console.warn('AudioManager: 音频系统初始化失败，跳过音频播放');
+        return;
+      }
+    }
+    
+    // 检查音频上下文状态
+    if (this.audioContext && this.audioContext.state === 'suspended') {
+      try {
+        await this.audioContext.resume();
+      } catch (resumeError) {
+        console.warn('AudioManager: 无法恢复音频上下文，跳过音频播放', resumeError);
+        return;
+      }
     }
     
     try {
@@ -210,21 +266,28 @@ class AudioManager {
       }
       
       // 播放音频
-      const source = this.audioContext.createBufferSource();
-      const gainNode = this.audioContext.createGain();
+      const source = this.audioContext!.createBufferSource();
+      const gainNode = this.audioContext!.createGain();
       
       source.buffer = audioBuffer;
       source.connect(gainNode);
-      gainNode.connect(this.audioContext.destination);
+      gainNode.connect(this.audioContext!.destination);
       
       // 设置音量
-      gainNode.gain.setValueAtTime(volume, this.audioContext.currentTime);
+      gainNode.gain.setValueAtTime(volume, this.audioContext!.currentTime);
       
       // 开始播放
-      source.start(this.audioContext.currentTime);
+      source.start(this.audioContext!.currentTime);
+      
+      // 添加结束处理
+      source.onended = () => {
+        source.disconnect();
+        gainNode.disconnect();
+      };
       
     } catch (error) {
-      console.error('AudioManager: 播放音频失败', error);
+      console.error('AudioManager: 播放音频失败，但不影响应用正常运行', error);
+      // 不抛出错误，让应用继续运行
     }
   }
   
@@ -237,11 +300,15 @@ class AudioManager {
     volume: number = 0.3
   ): Promise<void> {
     if (index < 0 || index >= this.frequencies.length) {
-      console.warn(`AudioManager: 无效的音调索引 ${index}`);
+      console.warn(`AudioManager: 无效的音调索引 ${index}，有效范围: 0-${this.frequencies.length - 1}`);
       return;
     }
     
-    await this.playTone(this.frequencies[index], duration, volume);
+    try {
+      await this.playTone(this.frequencies[index], duration, volume);
+    } catch (error) {
+      console.warn(`AudioManager: 播放音调索引 ${index} 失败`, error);
+    }
   }
   
   /**

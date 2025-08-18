@@ -101,16 +101,16 @@
       "score": "Score",
       "streak": "Streak",
       "trainingProgress": "Training Progress",
-      "nBackTraining": "{{level}}-Back Training",
-      "trialProgress": "Trial {{current}}/{{total}}",
+      "nBackTraining": "{level}-Back Training",
+      "trialProgress": "Trial {current}/{total}",
       "visualStimulus": "Visual Stimulus",
       "auditoryStimulus": "Auditory Stimulus",
-      "positionMatch": "Position match {{nLevel}} steps back",
-      "audioMatch": "Audio match {{nLevel}} steps back",
-      "positionInstruction": "Click when current position matches {{nLevel}} steps back",
-      "audioInstruction": "Click when current audio matches {{nLevel}} steps back",
-      "trainingTip": "Focus on listening and observing, respond immediately when stimulus matches {{nLevel}} steps back",
-      "congratulations": "Congratulations on completing {{nLevel}}-Back training, check your performance",
+      "positionMatch": "Position match {nLevel} steps back",
+      "audioMatch": "Audio match {nLevel} steps back",
+      "positionInstruction": "Click when current position matches {nLevel} steps back",
+      "audioInstruction": "Click when current audio matches {nLevel} steps back",
+      "trainingTip": "Focus on listening and observing, respond immediately when stimulus matches {nLevel} steps back",
+      "congratulations": "Congratulations on completing {nLevel}-Back training, check your performance",
       "trainingStats": "Training Statistics",
       "totalTrials": "Total Trials",
       "visualCorrect": "Visual Correct",
@@ -147,7 +147,7 @@
       "trainAgain": "Train Again"
     },
     "difficulty": {
-      "adjusted": "Difficulty adjusted to level {{level}}, reason: {{reason}}"
+      "adjusted": "Difficulty adjusted to level {level}, reason: {reason}"
     },
     "training": {
       "visualMatch": "Visual Match",
@@ -406,9 +406,9 @@
       "description": "Enhance thinking switching and problem-solving abilities"
     },
     "weaknessImprovement": {
-      "attention": "Your attention score is {{score}} points, training recommended",
-      "emotional": "Your emotional management score is {{score}} points, improvement suggested",
-      "cognitive": "Your cognitive flexibility score is {{score}} points, enhancement needed"
+      "attention": "Your attention score is {score} points, training recommended",
+      "emotional": "Your emotional management score is {score} points, improvement suggested",
+      "cognitive": "Your cognitive flexibility score is {score} points, enhancement needed"
     },
     "tags": {
       "attention": "Attention",
@@ -628,9 +628,9 @@
   },
   "common": {
     "time": {
-      "minutes": "{{count}} minutes",
-      "hours": "{{count}} hours",
-      "hoursAndMinutes": "{{hours}} hours {{minutes}} minutes"
+      "minutes": "{count} minutes",
+      "hours": "{count} hours",
+      "hoursAndMinutes": "{hours} hours {minutes} minutes"
     }
   },
   "languages": {
@@ -646,14 +646,14 @@
     "buttonClickSuccess": "Button clicked successfully!",
     "buttonClickLog": "🎯 Button clicked!"
   },
-  "reactionTime": "Reaction time: {{time}}ms",
-  "trainingCompleted": "Training completed! Score: {{score}}",
+  "reactionTime": "Reaction time: {time}ms",
+  "trainingCompleted": "Training completed! Score: {score}",
   "emotionRecognition": {
     "title": "Emotion Recognition Training",
     "description": "Enhance your ability to recognize and understand emotions through advanced training exercises",
     "feedback": {
-      "correct": "Correct! You identified {{emotion}} - {{description}}",
-      "incorrect": "Incorrect. The correct emotion was {{emotion}} - {{description}}"
+      "correct": "Correct! You identified {emotion} - {description}",
+      "incorrect": "Incorrect. The correct emotion was {emotion} - {description}"
     },
     "challenge": {
       "title": "Emotion Recognition Challenge",
@@ -667,7 +667,7 @@
     },
     "startTraining": "Start Training",
     "game": {
-      "roundProgress": "Round {{current}} of {{total}}",
+      "roundProgress": "Round {current} of {total}",
       "score": "Score",
       "streak": "Streak",
       "question": "What emotion is being expressed?",
@@ -708,7 +708,7 @@
     "trainingSettings": "Training Settings",
     "trainingDuration": "Training Duration (seconds)",
     "difficultyLevel": "Difficulty Level",
-    "level": "Level {{level}}",
+    "level": "Level {level}",
     "trainingTypes": "Training Types",
     "visualTraining": "Visual Training",
     "auditoryTraining": "Auditory Training",
@@ -777,12 +777,12 @@
     "description": "Relax your mind and body through breathing and meditation",
     "selectSession": "Select Session",
     "ui": {
-      "minutes": "{{count}} minutes",
+      "minutes": "{count} minutes",
       "breathingRhythm": "Breathing Rhythm",
       "meditationGuide": "Meditation Guide",
       "preparation": "Preparation",
       "breathingTechniques": "Breathing Techniques",
-      "cycle": "Cycle {{count}}",
+      "cycle": "Cycle {count}",
       "continue": "Continue",
       "pause": "Pause",
       "restart": "Restart"
@@ -830,8 +830,8 @@
     },
     "completion": {
       "title": "Session Complete",
-      "congratulations": "Well done! You've completed {{duration}} minutes of stress relief session.",
-      "totalCycles": "Total cycles completed: {{cycles}}",
+      "congratulations": "Well done! You've completed {duration} minutes of stress relief session.",
+      "totalCycles": "Total cycles completed: {cycles}",
       "backToSelection": "Back to Session Selection"
     }
   },

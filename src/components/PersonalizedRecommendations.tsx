@@ -112,6 +112,12 @@ export default function PersonalizedRecommendations({
   const [recommendations, setRecommendations] = useState<RecommendationItem[]>([])
   const [selectedFilter, setSelectedFilter] = useState<'all' | TrainingType>('all')
   const [isRefreshing, setIsRefreshing] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+  
+  // 确保客户端渲染
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   // 生成推荐
   useEffect(() => {
@@ -535,7 +541,7 @@ export default function PersonalizedRecommendations({
           variant="outline"
           className="bg-white/10 border-white/20 text-white hover:bg-white/20"
         >
-          <RefreshCw className={`w-4 h-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
+          <RefreshCw className={`w-4 h-4 mr-2 ${isClient && isRefreshing ? 'animate-spin' : ''}`} />
           刷新推荐
         </Button>
       </div>
@@ -551,7 +557,7 @@ export default function PersonalizedRecommendations({
               variant={selectedFilter === option.value ? 'default' : 'outline'}
               size="sm"
               className={`
-                ${selectedFilter === option.value 
+                ${isClient && selectedFilter === option.value 
                   ? 'bg-cyan-500 text-white' 
                   : 'bg-white/10 text-gray-300 border-white/20 hover:bg-white/20'
                 }

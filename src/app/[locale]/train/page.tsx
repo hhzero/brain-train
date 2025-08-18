@@ -63,28 +63,6 @@ export default function TrainingPage() {
   // 训练模块数据
   const trainingModules = [
     {
-      id: 'multi-attention',
-      title: t('training.modules.multiAttention.title'),
-      description: t('training.modules.multiAttention.description'),
-      icon: Target,
-      color: 'from-blue-500 to-cyan-500',
-      difficulty: t('training.difficulty.intermediate'),
-      duration: t('training.duration.15-30min'),
-      features: [t('training.features.3dEnvironment'), t('training.features.multiSensory'), t('training.features.adaptiveDifficulty'), t('training.features.realTimeFeedback')],
-      href: '/train'
-    },
-    {
-      id: 'cognitive-flexibility',
-      title: t('training.modules.cognitiveFlexibility.title'),
-      description: t('training.modules.cognitiveFlexibility.description'),
-      icon: Brain,
-      color: 'from-purple-500 to-pink-500',
-      difficulty: t('training.difficulty.advanced'),
-      duration: t('training.duration.20-40min'),
-      features: [t('training.features.workplaceSimulation'), t('training.features.learningScenarios'), t('training.features.lifeContexts'), t('training.features.advancedChallenges')],
-      href: '/train'
-    },
-    {
       id: 'emotional-management',
       title: t('training.modules.emotionalManagement.title'),
       description: t('training.modules.emotionalManagement.description'),
@@ -132,7 +110,7 @@ export default function TrainingPage() {
 
   // 统计数据
   const stats = [
-    { label: t('training.stats.trainingModules'), value: '6+', icon: Gamepad2 },
+    { label: t('training.stats.trainingModules'), value: '4+', icon: Gamepad2 },
     { label: t('training.stats.userCompletions'), value: '10K+', icon: Users },
     { label: t('training.stats.averageImprovement'), value: '85%', icon: TrendingUp },
     { label: t('training.stats.satisfaction'), value: '4.9', icon: Star }
@@ -184,18 +162,7 @@ export default function TrainingPage() {
     riskLevel: 'low'
   })
   
-  const [trainingHistory] = useState<TrainingHistory[]>([
-    {
-      moduleId: 'multi-attention',
-      moduleName: 'Multi-Attention Training',
-      type: TrainingType.ATTENTION,
-      completedAt: new Date(),
-      duration: 20,
-      score: 850,
-      accuracy: 89,
-      difficulty: 'medium'
-    }
-  ])
+  const [trainingHistory] = useState<TrainingHistory[]>([])
   
   const [userPreferences] = useState<UserPreferences>({
     preferredDifficulty: 'medium',
@@ -267,16 +234,16 @@ export default function TrainingPage() {
 
   const categories = [
     { id: 'all', label: t('training.categories.all'), count: trainingModules.length },
-    { id: 'attention', label: t('training.categories.attention'), count: 2 },
+    { id: 'attention', label: t('training.categories.attention'), count: 0 },
     { id: 'emotion', label: t('training.categories.emotion'), count: 4 },
-    { id: 'cognitive', label: t('training.categories.cognitive'), count: 2 }
+    { id: 'cognitive', label: t('training.categories.cognitive'), count: 0 }
   ]
 
   const filteredModules = trainingModules.filter(module => {
     if (selectedCategory === 'all') return true
-    if (selectedCategory === 'attention') return ['multi-attention', 'cognitive-flexibility'].includes(module.id)
+    if (selectedCategory === 'attention') return [] // 注意力分类模块已删除
     if (selectedCategory === 'emotion') return ['emotional-management', 'emotion-recognition', 'stress-relief', 'social-eq'].includes(module.id)
-    if (selectedCategory === 'cognitive') return ['cognitive-flexibility', 'multi-attention'].includes(module.id)
+    if (selectedCategory === 'cognitive') return [] // 认知分类模块已删除
     return true
   })
 

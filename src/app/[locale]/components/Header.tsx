@@ -1,7 +1,7 @@
 'use client'
 import { Link } from '@/navigation'
 import { useTranslations } from 'next-intl'
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import GithubIcon from '../../icons/github'
 import LogoIcon from '../../icons/logo'
 import LangSwitcher from './LangSwitcher'
@@ -17,6 +17,12 @@ export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('')
   const [isGamesMenuOpen, setIsGamesMenuOpen] = useState(false)
   const pathname = usePathname()
+  const [isClient, setIsClient] = useState(false)
+
+  // 确保在客户端渲染时才应用动态样式，避免hydration警告
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <div className='mx-auto flex max-w-screen-2xl flex-row items-center justify-between p-5 z-[200] relative'>
@@ -30,23 +36,23 @@ export const Header: FC<Props> = ({ locale }) => {
       </Link>
       <div className='flex flex-row items-center gap-3'>
         <nav className='mr-10 inline-flex gap-5'>
-          <Link href='/' className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}` || pathname === `/${locale}/` ? ' active' : ''}`}>
+          <Link href='/' className={`text-white hover:text-cyan-300 transition-colors${isClient && (pathname === `/${locale}` || pathname === `/${locale}/`) ? ' active' : ''}`}>
             {t('navigation.home')}
           </Link>
           
-          <Link href={`/memory`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/memory` ? ' active' : ''}`}>
+          <Link href={`/memory`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/memory` ? ' active' : ''}`}>
             {t('navigation.memory')}
           </Link>
-          <Link href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/attention` ? ' active' : ''}`}>
+          <Link href={`/attention`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/attention` ? ' active' : ''}`}>
             {t('navigation.attention')}
           </Link>
-          <Link href={`/speedreading`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/speedreading` ? ' active' : ''}`}>
+          <Link href={`/speedreading`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/speedreading` ? ' active' : ''}`}>
             {t('navigation.speedReading')}
           </Link>
-          <Link href={`/train`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/train` ? ' active' : ''}`}>
+          <Link href={`/train`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/train` ? ' active' : ''}`}>
             {t('navigation.training')}
           </Link>
-          <Link href={`/about`} className={`text-white hover:text-cyan-300 transition-colors${pathname === `/${locale}/about` ? ' active' : ''}`}>
+          <Link href={`/about`} className={`text-white hover:text-cyan-300 transition-colors${isClient && pathname === `/${locale}/about` ? ' active' : ''}`}>
             {t('navigation.about')}
           </Link>
           

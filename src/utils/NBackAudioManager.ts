@@ -74,52 +74,107 @@ class NBackAudioManager {
   }
 
   /**
-   * 播放指定索引的音调（0-7）
+   * 播放音调
    */
-  async playTone(toneIndex: number, duration: number = 0.5, volume: number = 0.3): Promise<void> {
-    if (!this.audioContext || !this.isInitialized) {
-      await this.initialize();
-    }
-
-    if (!this.audioContext) {
-      throw new Error('音频上下文未初始化');
-    }
-
-    const frequency = TONE_FREQUENCIES[toneIndex % TONE_FREQUENCIES.length];
-    
+  async playTone(index: number, duration: number = 500, volume: number = 0.5): Promise<void> {
     try {
-      // 创建振荡器
+      if (!this.isInitialized || !this.audioContext) {
+        console.warn('NBackAudioManager: 音频上下文未初始化');
+        return;
+      }
+
+      if (this.audioContext.state === 'suspended') {
+        await this.audioContext.resume();
+      }
+
+      const frequency = this.getToneFrequency(index);
       const oscillator = this.audioContext.createOscillator();
       const gainNode = this.audioContext.createGain();
 
-      // 连接音频节点
       oscillator.connect(gainNode);
       gainNode.connect(this.audioContext.destination);
 
-      // 设置音调参数
-      oscillator.frequency.setValueAtTime(frequency, this.audioContext.currentTime);
-      oscillator.type = 'sine'; // 使用正弦波
-
-      // 设置音量包络（淡入淡出）
       const now = this.audioContext.currentTime;
+      const durationInSeconds = duration / 1000;
+
+      oscillator.frequency.setValueAtTime(frequency, now);
+      oscillator.type = 'sine';
+
+      // 设置音量包络
       gainNode.gain.setValueAtTime(0, now);
-      gainNode.gain.linearRampToValueAtTime(volume, now + 0.01); // 快速淡入
-      gainNode.gain.linearRampToValueAtTime(volume, now + duration - 0.01); // 保持音量
-      gainNode.gain.linearRampToValueAtTime(0, now + duration); // 淡出
+      gainNode.gain.linearRampToValueAtTime(volume, now + 0.01);
+      gainNode.gain.linearRampToValueAtTime(volume, now + durationInSeconds - 0.01);
+      gainNode.gain.linearRampToValueAtTime(0, now + durationInSeconds);
 
-      // 播放音调
       oscillator.start(now);
-      oscillator.stop(now + duration);
+      oscillator.stop(now + durationInSeconds);
 
-      // 清理资源
       oscillator.onended = () => {
         oscillator.disconnect();
         gainNode.disconnect();
       };
-
     } catch (error) {
-      console.error('播放音调失败:', error);
-      throw error;
+      console.warn('NBackAudioManager: 播放音调失败:', error);
+      // 音频播放失败不影响训练继续进行
+    }
+  }
+
+  /**
+   * 播放反馈音效
+   */
+  async playFeedback(type: 'correct' | 'incorrect', volume: number = 0.5): Promise<void> {
+    try {
+      if (!this.isInitialized || !this.audioContext) {
+        console.warn('NBackAudioManager: 音频上下文未初始化');
+        return;
+      }
+
+      if (this.audioContext.state === 'suspended') {
+        await this.audioContext.resume();
+      }
+
+      switch (type) {
+        case 'correct':
+          await this.playSuccessSound(volume);
+          break;
+        case 'incorrect':
+          await this.playErrorSound(volume);
+          break;
+      }
+    } catch (error) {
+      console.warn('NBackAudioManager: 播放反馈音效失败:', error);
+      // 音频播放失败不影响训练继续进行
+    }
+  }
+
+  /**
+   * 播放系统音效
+   */
+  async playSystem(type: 'start' | 'complete' | 'tick', volume: number = 0.5): Promise<void> {
+    try {
+      if (!this.isInitialized || !this.audioContext) {
+        console.warn('NBackAudioManager: 音频上下文未初始化');
+        return;
+      }
+
+      if (this.audioContext.state === 'suspended') {
+        await this.audioContext.resume();
+      }
+
+      switch (type) {
+        case 'start':
+          await this.playStartSound(volume);
+          break;
+        case 'complete':
+          await this.playCompleteSound(volume);
+          break;
+        case 'tick':
+          await this.playTickSound(volume);
+          break;
+      }
+    } catch (error) {
+      console.warn('NBackAudioManager: 播放系统音效失败:', error);
+      // 音频播放失败不影响训练继续进行
     }
   }
 

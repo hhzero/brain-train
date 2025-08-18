@@ -5,7 +5,7 @@
  * 创建梦幻深邃的宇宙星空效果，包含多层星星、星云、流星和脉冲效果
  */
 
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // 辅助函数：确保透明度值在有效范围内并转换为十六进制
@@ -110,6 +110,12 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
   const starsRef = useRef<Star[]>([]);
   const nebulasRef = useRef<Nebula[]>([]);
   const meteorsRef = useRef<Meteor[]>([]);
+  const [isClient, setIsClient] = useState(false);
+  
+  // 确保客户端渲染
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   
   // 根据强度设置星星数量
   const starCount = useMemo(() => {
@@ -1133,7 +1139,7 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
   }, [animated, interactive, starCount, showNebula, showMeteors, depth]);
   
   return (
-    <div className={`fixed inset-0 overflow-hidden z-0 ${!interactive ? 'pointer-events-none' : ''}`}>
+    <div className={`fixed inset-0 overflow-hidden z-0 ${isClient && !interactive ? 'pointer-events-none' : ''}`}>
       {/* 深邃星空渐变背景 - 更接近图2的深蓝色效果 */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'linear-gradient(to bottom, #0a0e27 0%, #1a1b3a 25%, #2d1b69 50%, #1e1b4b 75%, #0f0f23 100%)'

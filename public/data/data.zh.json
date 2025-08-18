@@ -49,20 +49,6 @@
         "description": "在打乱顺序的数字方格中依次寻找目标数字，有助于提升视觉搜索、顺序处理和注意力分配能力",
         "image": "/images/memory/memory.png",
         "link": "/train/schulte"
-      },
-      {
-        "id": 12,
-        "name": "多维注意力挑战",
-        "description": "通过视觉、听觉、触觉多感官刺激训练，提升多维度注意力分配和切换能力，增强认知灵活性",
-        "image": "/images/memory/memory.png",
-        "link": "/train/multidimensional-attention"
-      },
-      {
-        "id": 13,
-        "name": "认知灵活性训练营",
-        "description": "通过任务切换、抑制控制、工作记忆更新等训练，提升认知灵活性和执行控制能力",
-        "image": "/images/memory/memory.png",
-        "link": "/train/cognitive-flexibility"
       }
     ]
   },
