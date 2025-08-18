@@ -172,24 +172,24 @@ const difficultyConfigs = {
     },
     intermediate: {
       gridSize: '4x4',
-      targetCount: 4,
+      targetCount: 5,
       memoryTime: 3,
       maxErrors: 2,
-      description: '4×4网格，4个目标，3秒记忆时间'
+      description: '4×4网格，5个目标，3秒记忆时间'
     },
     advanced: {
       gridSize: '5x5',
-      targetCount: 5,
+      targetCount: 7,
       memoryTime: 2,
       maxErrors: 2,
-      description: '5×5网格，5个目标，2秒记忆时间'
+      description: '5×5网格，7个目标，2秒记忆时间'
     },
     expert: {
       gridSize: '6x6',
-      targetCount: 6,
+      targetCount: 9,
       memoryTime: 2,
       maxErrors: 1,
-      description: '6×6网格，6个目标，2秒记忆时间'
+      description: '6×6网格，9个目标，2秒记忆时间'
     },
     master: {
       gridSize: '6x6',
