@@ -438,9 +438,7 @@
       "confirmDelete": "Confirm Delete"
     }
   },
-  "the_title_homepage01": "Gather frost in gaze, hide wisdom in spirit, let the soul dance in silence",
-  "the_title_homepage02": "Appear simple yet profound, master without artifice. Through contemplation, we find inner peace and boundless depth.",
-  "Use_Start": "Start Training",
+
   "userMenu": {
     "guest": "Guest",
     "signedInAs": "Signed in as",
@@ -1394,5 +1392,8 @@
     "instruction2": "Wait when it's red, don't click",
     "instruction3": "Click immediately when green appears",
     "instruction4": "Challenge your reaction limits!"
-  }
+  },
+  "the_title_homepage01": "With calmness in the eyes, humility in the heart, and quiet movement in the soul",
+  "the_title_homepage02": "Appearing foolish yet not foolish, great skill without artifice. Reach inner tranquility and richness through contemplation",
+  "Use_Start": "Start Training"
 }
