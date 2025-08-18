@@ -1,10 +1,17 @@
 {
+  "about": "This is a brain training platform dedicated to providing solutions for enhancing cognitive abilities. If you have any suggestions or questions, please contact us at: zhzero886@gmail.com.",
   "navigation": {
     "home": "Home",
     "training": "Training",
-    "progress": "Progress",
-    "settings": "Settings",
-    "profile": "Profile"
+    "memory": "Memory",
+    "attention": "Attention",
+    "reaction": "Reaction",
+    "classification": "Classification",
+    "speedReading": "Speed Reading",
+    "about": "About",
+    "profile": "Profile",
+    "leaderboard": "Leaderboard",
+    "settings": "Settings"
   },
   "training": {
     "title": "Brain Training",
@@ -124,11 +131,21 @@
     },
     "instructions": {
       "title": "Training Instructions",
-      "visual": "Observe positions in the grid, determine if they match N steps back",
-      "audio": "Listen to letter pronunciations, determine if they match N steps back",
+      "visual": {
+        "title": "Visual Training",
+        "description": "Observe positions in the grid, determine if they match N steps back"
+      },
+      "audio": {
+        "title": "Audio Training",
+        "description": "Listen to letter pronunciations, determine if they match N steps back"
+      },
       "dual": {
-        "title": "Dual N-Back Instructions"
-      }
+        "title": "Dual Training",
+        "description": "Train both visual and auditory working memory simultaneously. Watch for position matches and listen for audio matches."
+      },
+      "objective": "Objective: Press spacebar when current stimulus matches the stimulus N steps back",
+      "controls": "Controls: Press spacebar to respond to matches",
+      "tips": "Tips: Stay focused, don't rush to respond"
     },
     "results": {
       "accuracy": "Accuracy",
@@ -191,7 +208,7 @@
     "totalSessions": "Total Sessions",
     "totalTime": "Total Time",
     "numberLabel": "Find number",
-    "findNumber": "Find number {number}",
+    "findNumber": "Find number",
     "startTraining": "Start Training",
     "completed": "Completed!",
     "mode": {
@@ -219,8 +236,49 @@
     "trainingStarted": "Training started!",
     "trainingResumed": "Training resumed!",
     "trainingPaused": "Training paused!",
-    "trainingCompleted": "Training completed! Score: {score}"
+    "trainingCompleted": "Training completed! Score: {score}",
+    "subtitle": "Enhance visual attention and processing speed",
+    "trainingInProgress": "Training in Progress",
+    "correct": "Correct!",
+    "incorrect": "Incorrect, try again",
+    "numbersFound": "Numbers Found",
+    "accuracy": "Accuracy",
+    "trainingComplete": "Training Complete!",
+    "yourTime": "Your Time",
+    "restartTraining": "Restart Training",
+    "backToMenu": "Back to Menu",
+    "settings": {
+      "gridSize": "Grid Size",
+      "difficulty": "Difficulty",
+      "timeLimit": "Time Limit",
+      "showNumbers": "Show All Numbers",
+      "highlightFound": "Highlight Found Numbers"
+    },
+    "gridSizes": {
+      "3x3": "3×3 (Beginner)",
+      "4x4": "4×4 (Intermediate)",
+      "5x5": "5×5 (Advanced)",
+      "6x6": "6×6 (Expert)"
+    },
+    "difficulties": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard",
+      "expert": "Expert"
+    },
+    "statistics": {
+      "averageAccuracy": "Average Accuracy",
+      "improvement": "Improvement Rate"
+    },
+    "achievements": {
+      "speedDemon": "Speed Demon",
+      "perfectionist": "Perfectionist",
+      "consistent": "Consistent Performer",
+      "dedicated": "Dedicated Trainer"
+    }
   },
+  "gazeTitle": "Gaze Focus Training",
+  "gazeDesc": "Keep your focus on the central black dot, avoid being distracted by interference elements, and train sustained attention",
   "gaze": {
     "title": "Gaze Focus Training",
     "description": "Maintain focus on the central point to improve sustained attention",
@@ -242,10 +300,27 @@
       "distractions": "Distractions",
       "focusScore": "Focus Score"
     },
+    "mode": {
+      "static": "Static Mode",
+      "dynamic": "Dynamic Mode",
+      "anti-distraction": "Anti-distraction Mode"
+    },
+    "trainingArea": "Training Area",
+    "realTimeStats": "Real-time Stats",
+    "personalRecords": "Personal Records",
+    "clickToStart": "Click to Start",
+    "startTraining": "Start Training",
+    "timeElapsed": "Time Elapsed",
+    "focusTime": "Focus Time",
+    "stability": "Stability",
+    "trackingAccuracy": "Tracking Accuracy",
     "resume": "Resume",
     "pause": "Pause",
     "stop": "Stop",
-    "trainingPaused": "Training Paused"
+    "trainingPaused": "Training Paused",
+    "trainingStarted": "Training started!",
+    "trainingResumed": "Training resumed!",
+    "trainingCompleted": "Training completed!"
   },
   "progress": {
     "title": "Training Progress",
@@ -392,6 +467,136 @@
       }
     }
   },
+  "emotionalManagement": {
+    "title": "Emotional Management",
+    "subtitle": "Learn to recognize and manage emotions effectively",
+    "description": "Through scientific training methods, help you better understand and control your emotions, improving emotional intelligence and mental health.",
+    "startTraining": "Start Training",
+    "trainingInProgress": "Training in Progress",
+    "trainingCompleted": "Training Completed",
+    "currentEmotion": "Current Emotion",
+    "recognizeEmotion": "Recognize this emotion",
+    "correct": "Correct!",
+    "incorrect": "Incorrect, try again",
+    "score": "Score",
+    "accuracy": "Accuracy",
+    "timeRemaining": "Time Remaining",
+    "nextEmotion": "Next Emotion",
+    "trainingComplete": "Training Complete!",
+    "yourScore": "Your Score",
+    "restartTraining": "Restart Training",
+    "backToMenu": "Back to Menu",
+    "pause": "Pause",
+    "resume": "Resume",
+    "settings": "Settings",
+    "difficulty": "Difficulty",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "timeLimit": "Time Limit",
+    "unlimited": "Unlimited",
+    "seconds": "seconds",
+    "emotionTypes": "Emotion Types",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "trainingMode": "Training Mode",
+    "practice": "Practice",
+    "test": "Test",
+    "challenge": "Challenge",
+    "statistics": "Statistics",
+    "totalSessions": "Total Sessions",
+    "averageAccuracy": "Average Accuracy",
+    "bestScore": "Best Score",
+    "totalTime": "Total Time",
+    "progress": "Progress",
+    "level": "Level",
+    "experience": "Experience",
+    "achievements": "Achievements",
+    "badges": "Badges",
+    "leaderboard": "Leaderboard",
+    "rank": "Rank",
+    "emotions": {
+      "happy": "Happy",
+      "sad": "Sad",
+      "angry": "Angry",
+      "surprised": "Surprised",
+      "fearful": "Fearful",
+      "disgusted": "Disgusted",
+      "neutral": "Neutral",
+      "excited": "Excited",
+      "calm": "Calm",
+      "anxious": "Anxious",
+      "confused": "Confused",
+      "confident": "Confident"
+    },
+    "feedback": {
+      "excellent": "Excellent! Perfect recognition!",
+      "good": "Good job! Keep it up!",
+      "needsImprovement": "Needs improvement. Try to focus more.",
+      "tryAgain": "Try again. Take your time to observe."
+    },
+    "tips": {
+      "title": "Training Tips",
+      "tip1": "Pay attention to facial expressions and body language",
+      "tip2": "Consider the context and situation",
+      "tip3": "Practice regularly to improve recognition skills",
+      "tip4": "Take breaks to avoid mental fatigue"
+    }
+  },
+  "retention": {
+    "title": "Memory Retention",
+    "subtitle": "Enhance your ability to retain and recall information",
+    "description": "Improve your long-term memory through scientifically proven techniques and exercises.",
+    "techniques": {
+      "spaced": "Spaced Repetition",
+      "chunking": "Information Chunking",
+      "visualization": "Visual Memory",
+      "association": "Memory Association"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "progress": "Progress",
+    "accuracy": "Accuracy",
+    "speed": "Speed",
+    "consistency": "Consistency"
+  },
+  "recommendations": {
+    "title": "Personalized Recommendations",
+    "subtitle": "Tailored suggestions based on your performance",
+    "description": "Get customized training recommendations to optimize your cognitive development.",
+    "categories": {
+      "memory": "Memory Enhancement",
+      "attention": "Attention Improvement",
+      "flexibility": "Cognitive Flexibility",
+      "emotional": "Emotional Intelligence"
+    },
+    "priority": {
+      "high": "High Priority",
+      "medium": "Medium Priority",
+      "low": "Low Priority"
+    },
+    "status": {
+      "new": "New",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    }
+  },
+  "social": {
+    "title": "Social Features",
+    "subtitle": "Connect and compete with others",
+    "description": "Share your progress and challenge friends in cognitive training.",
+    "leaderboard": "Leaderboard",
+    "friends": "Friends",
+    "challenges": "Challenges",
+    "achievements": "Achievements",
+    "share": "Share Progress",
+    "invite": "Invite Friends",
+    "compete": "Compete",
+    "collaborate": "Collaborate"
+  },
   "personalizedRecommendations": {
     "attention": {
       "title": "Multi-Dimensional Attention Challenge",
@@ -529,7 +734,62 @@
         "enableFeedback": "Enable Feedback",
         "adaptiveDifficulty": "Adaptive Difficulty",
         "progressiveChallenge": "Progressive Challenge",
-        "contextualLearning": "Contextual Learning"
+        "contextualLearning": "Contextual Learning",
+        "reset": "Reset",
+        "quickPresets": "Quick Presets",
+        "basicSettings": "Basic Settings",
+        "trainingMode": "Training Mode",
+        "nLevel": "N-Level",
+        "nLevelDescription": "Higher levels require remembering more items",
+        "sessionLength": "Session Length",
+        "sessionLengthDescription": "Number of trials in each training session",
+        "timesUnit": "times",
+        "timingSettings": "Timing Settings",
+        "stimulusDuration": "Stimulus Duration",
+        "stimulusDurationDescription": "How long each stimulus is displayed",
+        "intervalDuration": "Interval Duration",
+        "intervalDurationDescription": "Time between stimuli",
+        "enableAdaptive": "Enable Adaptive Difficulty",
+        "enableAdaptiveDescription": "Automatically adjust difficulty based on performance",
+        "targetAccuracy": "Target Accuracy",
+        "targetAccuracyDescription": "Desired accuracy level for adaptive training",
+        "minLevel": "Minimum Level",
+        "maxLevel": "Maximum Level",
+        "currentConfigSummary": "Current Configuration Summary",
+        "trainingLevel": "Training Level",
+        "stimulusTime": "Stimulus Time",
+        "modes": {
+          "dual": {
+            "label": "Dual N-Back",
+            "description": "Train both visual and auditory working memory simultaneously"
+          },
+          "visual": {
+            "label": "Visual N-Back",
+            "description": "Focus on visual working memory training"
+          },
+          "audio": {
+            "label": "Audio N-Back",
+            "description": "Focus on auditory working memory training"
+          }
+        },
+        "presets": {
+          "beginner": {
+            "name": "Beginner",
+            "description": "Easy settings for newcomers"
+          },
+          "standard": {
+            "name": "Standard",
+            "description": "Balanced settings for regular training"
+          },
+          "challenge": {
+            "name": "Challenge",
+            "description": "Harder settings for experienced users"
+          },
+          "expert": {
+            "name": "Expert",
+            "description": "Maximum difficulty for advanced training"
+          }
+        }
       },
       "taskInstructions": {
         "stroopTest": "Say the color of the text (not the text content)",
@@ -626,11 +886,106 @@
       "description": "Learn emotion recognition and regulation techniques"
     }
   },
+  "startTraining": "Start Training",
   "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "complete": "Complete",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "share": "Share",
+    "download": "Download",
+    "upload": "Upload",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact Us",
+    "help": "Help",
+    "feedback": "Feedback",
+    "version": "Version",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "All Rights Reserved",
+    "loadingBackgroundImage": "Loading background image...",
     "time": {
       "minutes": "{count} minutes",
       "hours": "{count} hours",
       "hoursAndMinutes": "{hours} hours {minutes} minutes"
+    },
+    "errorBoundary": {
+      "title": "Oops, something went wrong",
+      "description": "The application encountered an unexpected error, but don't worry, we can start fresh!",
+      "retryButton": "🔄 Start Over",
+      "viewDetails": "View Error Details",
+      "errorMessage": "Error Message",
+      "errorStack": "Error Stack"
+    }
+  },
+  "training": {
+    "title": "Training",
+    "description": "Choose a training module to enhance your cognitive abilities",
+    "modules": {
+      "memory": {
+        "title": "Memory Training",
+        "description": "Enhance your memory capacity and recall abilities"
+      },
+      "attention": {
+        "title": "Attention Training",
+        "description": "Improve your focus and concentration skills"
+      },
+      "cognitiveFlexibility": {
+        "title": "Cognitive Flexibility",
+        "description": "Enhance your mental agility and adaptability"
+      },
+      "emotionalManagement": {
+        "title": "Emotional Management",
+        "description": "Learn to recognize and manage emotions effectively"
+      },
+      "stressRelief": {
+        "title": "Stress Relief",
+        "description": "Relaxation and stress reduction techniques"
+      },
+      "zenMeditation": {
+        "title": "Zen Meditation",
+        "description": "Mindfulness and meditation practice"
+      },
+      "multidimensionalAttention": {
+        "title": "Multidimensional Attention",
+        "description": "Train your ability to focus on multiple stimuli simultaneously"
+      },
+      "schulte": {
+        "title": "Schulte Grid",
+        "description": "Improve visual attention and processing speed"
+      },
+      "gaze": {
+        "title": "Gaze Training",
+        "description": "Enhance visual focus and eye movement control"
+      }
     }
   },
   "languages": {
@@ -912,101 +1267,41 @@
     }
   },
   "zenMeditation": {
-    "title": "Zen Meditation Focus Training",
-    "subtitle": "Cultivate inner peace and focus through ancient Zen wisdom",
-    "guide": {
-      "title": "Zen Wisdom Guide",
-      "traditions": {
-        "title": "Meditation Traditions",
-        "zen": {
-          "name": "Zen",
-          "description": "Direct pointing to the mind, seeing one's nature and becoming Buddha"
-        },
-        "vipassana": {
-          "name": "Vipassana",
-          "description": "Observe as it is, insight into reality"
-        },
-        "tibetan": {
-          "name": "Tibetan",
-          "description": "Compassion and wisdom, benefiting all beings"
-        },
-        "chan": {
-          "name": "Chan",
-          "description": "In walking, standing, sitting, lying - all is Zen"
-        }
-      },
-      "types": {
-        "title": "Meditation Types",
-        "breathing": "Breathing Meditation - Observe breath, cultivate focus",
-        "mindfulness": "Mindfulness Meditation - Awareness of the present, insight into reality",
-        "lovingKindness": "Loving-Kindness Meditation - Cultivate compassion, dissolve resentment",
-        "walking": "Walking Meditation - Stillness in movement, mindful walking",
-        "bodyScan": "Body Scan - Body awareness, release tension"
-      },
-      "tips": {
-        "title": "Meditation Guidelines",
-        "posture": "Maintain an upright yet relaxed posture",
-        "expectation": "Don't force any special experiences",
-        "wandering": "When the mind wanders, gently return to the focus object",
-        "compassion": "Treat your imperfections with compassion",
-        "integration": "Bring meditation awareness into daily life"
-      },
-      "startButton": "Begin Zen Journey"
+    "title": "Zen Meditation",
+    "subtitle": "Find inner peace through mindfulness",
+    "description": "Practice mindfulness meditation to reduce stress, improve focus, and enhance overall well-being.",
+    "startMeditation": "Start Meditation",
+    "meditationInProgress": "Meditation in Progress",
+    "meditationCompleted": "Meditation Completed",
+    "breatheIn": "Breathe In",
+    "breatheOut": "Breathe Out",
+    "hold": "Hold",
+    "relax": "Relax",
+    "focus": "Focus on your breath",
+    "timeRemaining": "Time Remaining",
+    "sessionComplete": "Session Complete!",
+    "totalTime": "Total Time",
+    "restartMeditation": "Restart Meditation",
+    "backToMenu": "Back to Menu",
+    "settings": {
+      "duration": "Duration",
+      "backgroundSound": "Background Sound",
+      "guidedVoice": "Guided Voice",
+      "breathingPattern": "Breathing Pattern"
     },
-    "sessions": {
-      "title": "Select Meditation Session",
-      "score": "Meditation Score",
-      "completed": "Sessions Completed",
-      "duration": "Meditation Duration",
-      "minutes": "minutes",
-      "seconds": "seconds",
-      "difficulty": "Difficulty",
-      "benefits": "Practice Benefits",
-      "philosophy": "Zen Wisdom",
-      "resetButton": "Start Over"
+    "sounds": {
+      "none": "None",
+      "rain": "Rain",
+      "ocean": "Ocean Waves",
+      "forest": "Forest",
+      "birds": "Birds"
     },
-    "practice": {
-      "phase": "Phase",
-      "guidance": "Meditation Guidance",
-      "focus": "Focus Object",
-      "visualization": "Visualization Guide",
-      "wisdom": "Zen Wisdom",
-      "mantra": "Loving-Kindness Mantra",
-      "showMantra": "Show Mantra",
-      "hideMantra": "Hide Mantra",
-      "startMeditation": "Start Meditation",
-      "pauseMeditation": "Pause Meditation",
-      "nextPhase": "Next Phase",
-      "completeMeditation": "Complete Meditation",
-      "instruction": "Meditation Instruction",
-      "focusObject": "Focus Object"
-    },
-    "name": "Zen Sitting Meditation",
-    "steps": {
-      "posture": {
-        "name": "Adjust Body",
-        "instruction": "Sit upright, spine straight, hands in mudra"
-      },
-      "breathing": {
-        "name": "Adjust Breath",
-        "instruction": "Breathe naturally, observe the flow of breath"
-      },
-      "mind": {
-        "name": "Adjust Mind",
-        "instruction": "Let go of distracting thoughts, return to this present moment"
-      },
-      "awareness": {
-        "name": "Awareness",
-        "instruction": "Maintain clear awareness, don't cling to thoughts"
-      }
-    },
-    "visualizations": {
-      "stillWater": "Mind like still water, clear and peaceful",
-      "emptySpace": "Mind like empty space, unobstructed"
-    },
-    "mantras": {
-      "presence": "The present moment is, this mind is Buddha",
-      "emptiness": "Emptiness is form, form is emptiness"
+    "patterns": {
+      "natural": "Natural",
+      "box": "Box Breathing (4-4-4-4)",
+      "triangle": "Triangle Breathing (4-4-6)",
+      "extended": "Extended Exhale (4-2-6-2)"
     }
-  }
+  },
+  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a simple about page just to show how you can use the internationalization in different pages"
 }

@@ -731,27 +731,27 @@ function NBackClientContent() {
             <CardTitle className="text-purple-200 text-center">💡 {t('instructions.title')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-purple-200/80">
-              <div className="text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-sm text-purple-200/80">
+              <div className="text-center p-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
                   👁️
                 </div>
-                <h4 className="font-semibold text-purple-200 mb-2">{t('instructions.visual.title')}</h4>
-                <p>{t('instructions.visual.description')}</p>
+                <h4 className="font-semibold text-purple-200 mb-2 text-base">{t('instructions.visual.title')}</h4>
+                <p className="text-xs sm:text-sm leading-relaxed break-words">{t('instructions.visual.description')}</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-3">
                   🎵
                 </div>
-                <h4 className="font-semibold text-purple-200 mb-2">{t('instructions.audio.title')}</h4>
-                <p>{t('instructions.audio.description')}</p>
+                <h4 className="font-semibold text-purple-200 mb-2 text-base">{t('instructions.audio.title')}</h4>
+                <p className="text-xs sm:text-sm leading-relaxed break-words">{t('instructions.audio.description')}</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-4 sm:col-span-2 lg:col-span-1">
                 <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
                   🧠
                 </div>
-                <h4 className="font-semibold text-purple-200 mb-2">{t('instructions.dual.title')}</h4>
-                <p>{t('instructions.dual.description')}</p>
+                <h4 className="font-semibold text-purple-200 mb-2 text-base">{t('instructions.dual.title')}</h4>
+                <p className="text-xs sm:text-sm leading-relaxed break-words">{t('instructions.dual.description')}</p>
               </div>
             </div>
           </CardContent>
