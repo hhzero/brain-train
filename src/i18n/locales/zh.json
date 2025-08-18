@@ -2014,5 +2014,24 @@
         "skip": "跳过",
         "startGuide": "开始指导"
       }
+    },
+    "trainingSelection": {
+      "title": "选择训练项目",
+      "subtitle": "选择适合您的大脑训练项目，开始您的认知提升之旅",
+      "backToHome": "返回首页",
+      "categories": {
+        "memory": {
+          "title": "记忆力训练",
+          "description": "提升工作记忆和长期记忆能力"
+        },
+        "attention": {
+          "title": "注意力训练",
+          "description": "增强专注力和抗干扰能力"
+        },
+        "reactionSpeed": {
+          "title": "反应速度训练",
+          "description": "提高反应速度和处理能力"
+        }
+      }
     }
   }

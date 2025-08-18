@@ -1395,5 +1395,24 @@
   },
   "the_title_homepage01": "With calmness in the eyes, humility in the heart, and quiet movement in the soul",
   "the_title_homepage02": "Appearing foolish yet not foolish, great skill without artifice. Reach inner tranquility and richness through contemplation",
-  "Use_Start": "Start Training"
+  "Use_Start": "Start Training",
+  "trainingSelection": {
+    "title": "Choose Training Program",
+    "subtitle": "Select the brain training program that suits you and start your cognitive enhancement journey",
+    "backToHome": "Back to Home",
+    "categories": {
+      "memory": {
+        "title": "Memory Training",
+        "description": "Enhance working memory and long-term memory abilities"
+      },
+      "attention": {
+        "title": "Attention Training",
+        "description": "Improve focus and resistance to distractions"
+      },
+      "reactionSpeed": {
+        "title": "Reaction Speed Training",
+        "description": "Improve reaction speed and processing abilities"
+      }
+    }
+  }
 }

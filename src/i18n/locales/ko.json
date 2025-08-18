@@ -570,5 +570,24 @@
   },
   "the_title_homepage01": "눈에는 고요함을, 마음에는 겸손함을, 영혼에는 조용한 움직임을",
   "the_title_homepage02": "어리석어 보이지만 어리석지 않고, 큰 기교에는 기교가 없다. 사색을 통해 내면의 고요함과 풍요로움에 도달하자",
-  "Use_Start": "훈련 시작"
+  "Use_Start": "훈련 시작",
+  "trainingSelection": {
+    "title": "훈련 프로그램 선택",
+    "subtitle": "당신에게 적합한 뇌 훈련 프로그램을 선택하고 인지 능력 향상의 여정을 시작하세요",
+    "backToHome": "홈으로 돌아가기",
+    "categories": {
+      "memory": {
+        "title": "기억력 훈련",
+        "description": "작업 기억과 장기 기억 능력을 향상시킵니다"
+      },
+      "attention": {
+        "title": "주의력 훈련",
+        "description": "집중력과 방해 저항 능력을 강화합니다"
+      },
+      "reactionSpeed": {
+        "title": "반응 속도 훈련",
+        "description": "반응 속도와 처리 능력을 향상시킵니다"
+      }
+    }
+  }
 }

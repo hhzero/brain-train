@@ -28,7 +28,7 @@ export default function DashboardPage({
           </span>
         </h1>
         <div className='mt-8 flex flex-row gap-4'>
-          <Link href='/attention'>
+          <Link href='/training-selection'>
             <Button rounded size='large' className='training-btn'>
               <span className='training-btn-text'>{t('Use_Start')}</span>
             </Button>

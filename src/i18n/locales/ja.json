@@ -570,5 +570,24 @@
   },
   "the_title_homepage01": "眼に冷静を宿し、心に謙虚を秘め、魂に静かな動きを",
   "the_title_homepage02": "愚かに見えて愚かでなく、大いなる技巧に技巧なし。思考の中で内なる静寂と豊かさに到達しましょう",
-  "Use_Start": "トレーニング開始"
+  "Use_Start": "トレーニング開始",
+  "trainingSelection": {
+    "title": "トレーニングプログラムを選択",
+    "subtitle": "あなたに適した脳トレーニングプログラムを選択し、認知能力向上の旅を始めましょう",
+    "backToHome": "ホームに戻る",
+    "categories": {
+      "memory": {
+        "title": "記憶力トレーニング",
+        "description": "ワーキングメモリと長期記憶能力を向上させます"
+      },
+      "attention": {
+        "title": "注意力トレーニング",
+        "description": "集中力と抗干渉能力を強化します"
+      },
+      "reactionSpeed": {
+        "title": "反応速度トレーニング",
+        "description": "反応速度と処理能力を向上させます"
+      }
+    }
+  }
 }
