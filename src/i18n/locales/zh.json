@@ -238,7 +238,7 @@
     "accuracy": "准确率",
     "bestStreak": "最佳连击",
     "averageReactionTime": "平均反应时间",
-    "retrain": "再次训练",
+    "trainAgain": "再次训练",
     "trainingStats": "训练统计",
     "score": "得分",
     "totalStimuli": "总刺激数",

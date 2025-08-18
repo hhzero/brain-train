@@ -61,56 +61,11 @@ export default function TrainingPage() {
   const t = useTranslations('')
   
   // 训练模块数据
-  const trainingModules = [
-    {
-      id: 'emotional-management',
-      title: t('training.modules.emotionalManagement.title'),
-      description: t('training.modules.emotionalManagement.description'),
-      icon: Heart,
-      color: 'from-rose-500 to-orange-500',
-      difficulty: t('training.difficulty.beginner'),
-      duration: t('training.duration.10-25min'),
-      features: [t('training.features.emotionRecognition'), t('training.features.stressRelief'), t('training.features.taichiMindset'), t('training.features.zenFocus')],
-      href: '/train'
-    },
-    {
-      id: 'emotion-recognition',
-      title: t('training.modules.emotionRecognition.title'),
-      description: t('training.modules.emotionRecognition.description'),
-      icon: Users,
-      color: 'from-green-500 to-teal-500',
-      difficulty: t('training.difficulty.beginner'),
-      duration: t('training.duration.10-20min'),
-      features: [t('training.features.facialRecognition'), t('training.features.contextAnalysis'), t('training.features.culturalAdaptation'), t('training.features.instantFeedback')],
-      href: '/train'
-    },
-    {
-      id: 'stress-relief',
-      title: t('training.modules.stressRelief.title'),
-      description: t('training.modules.stressRelief.description'),
-      icon: Sparkles,
-      color: 'from-indigo-500 to-purple-500',
-      difficulty: t('training.difficulty.beginner'),
-      duration: t('training.duration.5-15min'),
-      features: [t('training.features.mindfulMeditation'), t('training.features.breathingTraining'), t('training.features.relaxationGuidance')],
-      href: '/train'
-    },
-    {
-      id: 'social-eq',
-      title: t('training.modules.socialEQ.title'),
-      description: t('training.modules.socialEQ.description'),
-      icon: Users,
-      color: 'from-yellow-500 to-red-500',
-      difficulty: t('training.difficulty.intermediate'),
-      duration: t('training.duration.15-30min'),
-      features: [t('training.features.scenarioSimulation'), t('training.features.communicationSkills'), t('training.features.eqAssessment'), t('training.features.culturalWisdom')],
-      href: '/train'
-    }
-  ]
+  const trainingModules = []
 
   // 统计数据
   const stats = [
-    { label: t('training.stats.trainingModules'), value: '4+', icon: Gamepad2 },
+    { label: t('training.stats.trainingModules'), value: '0', icon: Gamepad2 },
     { label: t('training.stats.userCompletions'), value: '10K+', icon: Users },
     { label: t('training.stats.averageImprovement'), value: '85%', icon: TrendingUp },
     { label: t('training.stats.satisfaction'), value: '4.9', icon: Star }
@@ -235,14 +190,14 @@ export default function TrainingPage() {
   const categories = [
     { id: 'all', label: t('training.categories.all'), count: trainingModules.length },
     { id: 'attention', label: t('training.categories.attention'), count: 0 },
-    { id: 'emotion', label: t('training.categories.emotion'), count: 4 },
+    { id: 'emotion', label: t('training.categories.emotion'), count: 0 },
     { id: 'cognitive', label: t('training.categories.cognitive'), count: 0 }
   ]
 
   const filteredModules = trainingModules.filter(module => {
     if (selectedCategory === 'all') return true
     if (selectedCategory === 'attention') return [] // 注意力分类模块已删除
-    if (selectedCategory === 'emotion') return ['emotional-management', 'emotion-recognition', 'stress-relief', 'social-eq'].includes(module.id)
+    if (selectedCategory === 'emotion') return [] // 情绪分类模块已删除
     if (selectedCategory === 'cognitive') return [] // 认知分类模块已删除
     return true
   })
