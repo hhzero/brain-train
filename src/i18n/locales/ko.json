@@ -1,0 +1,571 @@
+{
+  "startTraining": "훈련 시작",
+  "about": "이것은 인지능력 향상 솔루션 제공에 전념하는 두뇌 훈련 플랫폼입니다. 제안이나 문의사항이 있으시면 언제든지 연락해 주세요: zhzero886@gmail.com.",
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류",
+    "success": "성공",
+    "cancel": "취소",
+    "confirm": "확인",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "close": "닫기",
+    "back": "뒤로",
+    "next": "다음",
+    "previous": "이전",
+    "start": "시작",
+    "pause": "일시정지",
+    "resume": "재개",
+    "stop": "중지",
+    "complete": "완료",
+    "retry": "재시도",
+    "refresh": "새로고침",
+    "search": "검색",
+    "filter": "필터",
+    "sort": "정렬",
+    "view": "보기",
+    "share": "공유",
+    "download": "다운로드",
+    "upload": "업로드",
+    "settings": "설정",
+    "profile": "프로필",
+    "logout": "로그아웃",
+    "login": "로그인",
+    "register": "회원가입",
+    "home": "홈",
+    "about": "소개",
+    "contact": "문의",
+    "help": "도움말",
+    "feedback": "피드백",
+    "version": "버전",
+    "language": "언어",
+    "theme": "테마",
+    "notifications": "알림",
+    "privacy": "개인정보",
+    "terms": "이용약관",
+    "copyright": "저작권",
+    "loadingBackgroundImage": "배경 이미지 로딩 중...",
+    "time": {
+      "minutes": "{count}분",
+      "hours": "{count}시간",
+      "hoursAndMinutes": "{hours}시간 {minutes}분"
+    },
+    "errorBoundary": {
+      "title": "죄송합니다. 문제가 발생했습니다",
+      "description": "애플리케이션에서 예상치 못한 오류가 발생했지만 걱정하지 마세요. 다시 시작할 수 있습니다!",
+      "retryButton": "🔄 다시 시작",
+      "viewDetails": "오류 세부사항 보기",
+      "errorMessage": "오류 메시지",
+      "errorStack": "오류 스택"
+    }
+  },
+  "zenMeditation": {
+    "title": "선수 집중력 훈련",
+    "subtitle": "고대 선수 지혜를 통해 내면의 고요함과 집중력을 기르세요",
+    "guide": {
+      "title": "선수 지혜 가이드",
+      "traditions": {
+        "title": "선수 전통",
+        "zen": {
+          "name": "선종 (Zen)",
+          "description": "직지인심, 견성성불"
+        },
+        "vipassana": {
+          "name": "위빠사나 (Vipassana)",
+          "description": "있는 그대로 관찰하여 진실을 통찰하다"
+        },
+        "tibetan": {
+          "name": "티베트 불교 (Tibetan)",
+          "description": "자비와 지혜, 중생 이익"
+        },
+        "chan": {
+          "name": "선종 (Chan)",
+          "description": "행주좌와, 모든 것이 선기"
+        }
+      },
+      "types": {
+        "title": "선수 유형",
+        "breathing": "호흡 선수 - 호흡을 관찰하여 집중력을 기르다",
+        "mindfulness": "정념 선수 - 지금 이 순간을 자각하여 진실을 통찰하다",
+        "lovingKindness": "자심 선수 - 자비를 기르고 원한을 해소하다",
+        "walking": "걸음 선 - 동중유정, 걸음의 자각",
+        "bodyScan": "바디 스캔 - 몸을 자각하고 긴장을 해소하다"
+      },
+      "tips": {
+        "title": "선수 요점",
+        "posture": "바르고 편안한 앉은 자세를 유지하세요",
+        "expectation": "특별한 체험을 강요하지 마세요",
+        "wandering": "마음이 산만해질 때 부드럽게 집중 대상으로 돌아가세요",
+        "compassion": "자신의 불완전함에 자비심으로 대하세요",
+        "integration": "선수의 자각을 일상생활에 통합하세요"
+      },
+      "startButton": "선수 여행 시작하기"
+    },
+    "sessions": {
+      "title": "선수 세션 선택",
+      "score": "선수 점수",
+      "completed": "세션 완료",
+      "duration": "선수 시간",
+      "minutes": "분",
+      "seconds": "초",
+      "difficulty": "난이도",
+      "benefits": "수행의 이익",
+      "philosophy": "선수 지혜",
+      "resetButton": "다시 시작"
+    },
+    "practice": {
+      "phase": "단계",
+      "guidance": "선수 지도",
+      "focus": "집중 대상",
+      "visualization": "관상 가이드",
+      "wisdom": "선수 지혜",
+      "mantra": "자심 진언",
+      "showMantra": "진언 표시",
+      "hideMantra": "진언 숨기기",
+      "startMeditation": "선수 시작",
+      "pauseMeditation": "선수 일시정지",
+      "nextPhase": "다음 단계",
+      "completeMeditation": "선수 완료"
+    }
+  },
+  "schulte": {
+    "title": "슐테 표",
+    "description": "슐테 표 훈련은 집중력과 시각 검색의 고전적인 훈련 방법으로, 숫자를 순서대로 클릭하여 주의력 집중과 반응 속도를 향상시킵니다.",
+    "schulteTitle": "슐테 표 훈련",
+    "schulteDesc": "슐테 표 훈련은 집중력과 시각 검색의 고전적인 훈련 방법으로, 숫자를 순서대로 클릭하여 주의력 집중과 반응 속도를 향상시킵니다.",
+    "mode": {
+      "sequential": "순차 모드",
+      "reverse": "역순 모드",
+      "random": "랜덤 모드"
+    },
+    "trainingArea": "훈련 영역",
+    "realTimeStats": "실시간 통계",
+    "personalRecords": "개인 기록",
+    "trainingElapsed": "훈련 경과 시간",
+    "currentNumber": "현재 숫자",
+    "totalNumbers": "총 숫자 수",
+    "averageTime": "평균 시간",
+    "bestScore": "최고 기록",
+    "totalSessions": "총 훈련 횟수",
+    "totalTime": "총 시간",
+    "timeUsed": "사용 시간",
+    "bestTime": "최고",
+    "numberLabel": "숫자 {number}",
+    "findNumber": "숫자 찾기",
+    "startTraining": "시작",
+    "completed": "완료! 소요 시간 {time}초",
+    "timeElapsed": "경과 시간",
+    "progress": "진행률",
+    "currentTarget": "현재 목표",
+    "errors": "오류 횟수",
+    "avgReaction": "평균 반응 시간",
+    "level": "레벨",
+    "resume": "계속",
+    "pause": "일시정지",
+    "stop": "중지",
+    "wrongNumber": "오류! 숫자 {number}를 찾아주세요",
+    "trainingStarted": "훈련 시작",
+    "trainingResumed": "훈련 계속",
+    "trainingPaused": "훈련 일시정지",
+    "trainingCompleted": "훈련 완료"
+  },
+  "gaze": {
+    "gazeTitle": "응시 집중 훈련",
+    "gazeDesc": "중앙의 검은 점에 집중하여 응시하고, 방해 요소에 주의를 분산시키지 않도록 하여 지속적 집중 능력을 훈련합니다",
+    "gazeStatusFocusing": "집중 중...",
+    "gazeStatusIdle": "시작 준비 완료",
+    "gazeFocusLabel": "집중 시간:",
+    "gazeBestLabel": "최고 기록:",
+    "gazeDotAriaLabel": "집중 훈련 목표점",
+    "gazeInterrupted": "집중이 중단되었습니다!",
+    "trainingPaused": "일시정지 중",
+    "resume": "계속",
+    "stop": "중지",
+    "pause": "일시정지",
+    "trackingAccuracy": "정확도",
+    "mode": {
+      "static": "정적 모드",
+      "dynamic": "동적 모드",
+      "anti-distraction": "항간섭 모드"
+    },
+    "trainingArea": "훈련 영역",
+    "realTimeStats": "실시간 통계",
+    "personalRecords": "개인 기록",
+    "clickToStart": "클릭하여 시작",
+    "startTraining": "훈련 시작",
+    "timeElapsed": "경과 시간",
+    "focusStability": "집중 안정성",
+    "totalInterruptions": "총 중단 횟수",
+    "bestScore": "최고 기록",
+    "averageScore": "평균 기록",
+    "totalSessions": "총 훈련 횟수",
+    "bestTime": "최고 시간",
+    "focusTime": "집중 시간",
+    "stability": "안정성",
+    "interruptions": "중단 횟수",
+    "level": "레벨",
+    "totalTime": "총 시간"
+  },
+  "multidimensionalAttention": {
+    "title": "다차원 주의력 챌린지 3.0",
+    "subtitle": "몰입형 3D 환경 · 다감각 융합 · 적응형 난이도 시스템",
+    "upgradeTitle": "업그레이드 버전 다차원 주의력 훈련",
+    "selectEnvironment": "훈련 환경 선택",
+    "trainingConfig": "훈련 설정",
+    "sensoryMode": "감각 모드",
+    "initialDifficulty": "초기 난이도",
+    "targets": "목표",
+    "soundFeedback": "음향 피드백",
+    "adaptiveDifficulty": "적응형 난이도",
+    "startPrompt": "시작 버튼을 클릭하여 훈련을 시작하세요",
+    "prepareMessage": "준비 중, 잠시만 기다려 주세요...",
+    "description": "시각, 청각, 촉각의 다감각 훈련을 통해 주의력의 폭, 깊이, 유연성을 전면적으로 향상시킵니다",
+    "trainingControl": "훈련 제어",
+    "startTraining": "훈련 시작",
+    "preparing": "시작 준비 중...",
+    "getReady": "준비하세요, 훈련이 곧 시작됩니다",
+    "pause": "일시정지",
+    "resume": "계속",
+    "complete": "완료",
+    "abandon": "포기",
+    "settings": "설정",
+    "trainingPaused": "훈련이 일시정지되었습니다",
+    "pauseMessage": "훈련이 일시정지되었습니다. 계속 버튼을 클릭하여 훈련을 재개하세요",
+    "sessionProgress": "세션 진행률",
+    "trainingComplete": "훈련 완료!",
+    "finalScore": "최종 점수",
+    "accuracy": "정확도",
+    "bestStreak": "최고 연속 기록",
+    "averageReactionTime": "평균 반응 시간",
+    "trainAgain": "다시 훈련",
+    "trainingStats": "훈련 통계",
+    "score": "점수",
+    "totalStimuli": "총 자극 수",
+    "trainingSettings": "훈련 설정",
+    "trainingDuration": "훈련 시간(초)",
+    "difficultyLevel": "난이도 레벨",
+    "level": "레벨 {level}",
+    "trainingTypes": "훈련 유형",
+    "visualTraining": "시각 훈련",
+    "auditoryTraining": "청각 훈련",
+    "tactileTraining": "촉각 훈련",
+    "sensoryModes": {
+      "visual": "시각 집중",
+      "audio": "청각 훈련",
+      "multi": "다감각 융합",
+      "synesthetic": "공감각 체험"
+    },
+    "environments": {
+      "deepSpace": {
+        "name": "심우주",
+        "description": "무한한 우주에서 집중력을 훈련하세요",
+        "benefits": [
+          "집중력 향상",
+          "간섭 감소",
+          "공간 지각 강화"
+        ]
+      },
+      "mysticalForest": {
+        "name": "신비의 숲",
+        "description": "자연 환경에서 마음을 편안하게 하세요",
+        "benefits": [
+          "스트레스 완화",
+          "창의력 향상",
+          "직감 강화"
+        ]
+      },
+      "underwaterWorld": {
+        "name": "심해 세계",
+        "description": "조용한 해저 세계에서 명상하세요",
+        "benefits": [
+          "깊은 이완",
+          "감정 균형",
+          "내면의 고요"
+        ]
+      },
+      "neonCity": {
+        "name": "네온 도시",
+        "description": "역동적인 도시에서 적응성을 단련하세요",
+        "benefits": [
+          "빠른 반응",
+          "멀티태스킹 처리",
+          "스트레스 적응"
+        ]
+      },
+      "abstractDimension": {
+        "name": "추상 차원",
+        "description": "추상 공간에서 인지의 경계를 탐색하세요",
+        "benefits": [
+          "혁신적 사고",
+          "인지 유연성",
+          "한계 돌파"
+        ]
+      }
+    },
+    "units": {
+      "ms": "밀리초",
+      "seconds": "초",
+      "minutes": "분"
+    }
+  },
+  "navigation": {
+    "home": "홈",
+    "training": "훈련",
+    "memory": "기억력",
+    "attention": "주의력",
+    "reaction": "반응력",
+    "reactionSpeed": "반응 속도",
+    "classification": "분류",
+    "speedReading": "속독",
+    "about": "소개",
+    "profile": "개인 센터",
+    "leaderboard": "순위",
+    "settings": "설정"
+  },
+  "training": {
+    "title": "두뇌 훈련 센터",
+    "subtitle": "Brain Training Center",
+    "seo": {
+      "title": "두뇌 훈련 센터 - 전방위 인지능력 향상 플랫폼",
+      "description": "전문적인 두뇌 훈련 플랫폼, 주의력, 기억력, 감정 관리 등 다차원 훈련 모듈을 제공하여 과학적으로 인지능력을 향상시킵니다",
+      "keywords": "두뇌 훈련,인지 훈련,주의력 훈련,기억 훈련,감정 관리,뇌 훈련"
+    },
+    "modules": {
+      "attention": {
+        "title": "다차원 주의력 챌린지",
+        "description": "몰입형 3D 환경에서의 주의력 훈련, 다감각 융합 체험, 적응형 난이도 조정",
+        "features": [
+          "3D 환경",
+          "다감각 융합",
+          "적응형 난이도",
+          "실시간 피드백"
+        ]
+      },
+      "cognitiveFlexibility": {
+        "title": "인지 유연성 훈련 캠프",
+        "description": "과제 전환, 스트룹 테스트 등의 훈련을 통해 사고 민첩성과 인지 유연성을 향상시킵니다",
+        "features": [
+          "직장 시뮬레이션",
+          "학습 시나리오",
+          "생활 상황",
+          "고급 챌린지"
+        ]
+      },
+      "emotionalManagement": {
+        "title": "감정 관리 훈련",
+        "description": "중화 문화를 융합한 감정 조절 훈련, 태극 심경, 선수 집중 등의 모듈을 포함합니다",
+        "features": [
+          "감정 인식",
+          "스트레스 완화",
+          "태극 심경",
+          "선수 집중"
+        ]
+      },
+      "emotionRecognition": {
+        "title": "감정 인식 훈련",
+        "description": "표정과 음성 인식 훈련을 통해 감정 지각과 이해 능력을 향상시킵니다",
+        "features": [
+          "표정 인식",
+          "음성 분석",
+          "상황 이해",
+          "공감 훈련"
+        ]
+      },
+      "stressRelief": {
+        "title": "스트레스 완화 명상",
+        "description": "마음챙김 명상과 호흡 훈련을 결합하여 효과적으로 스트레스를 완화하고 심리 건강을 향상시킵니다",
+        "features": [
+          "마음챙김 명상",
+          "호흡 훈련",
+          "이완 기법",
+          "심리 조절"
+        ]
+      },
+      "socialIntelligence": {
+        "title": "사회적 감정 지능 향상",
+        "description": "사회 시나리오 시뮬레이션과 소통 기술 훈련을 통해 대인 교류 능력을 향상시킵니다",
+        "features": [
+          "사회 시뮬레이션",
+          "소통 기술",
+          "감정 지능 테스트",
+          "인간관계"
+        ]
+      },
+      "multiAttention": {
+        "title": "Multi-Dimensional Attention Challenge",
+        "description": "Immersive 3D environment multi-sensory attention training to enhance focus and reaction speed"
+      },
+      "socialEQ": {
+        "title": "Social EQ Enhancement",
+        "description": "Improve interpersonal skills and communication through real social scenario simulations"
+      }
+    },
+    "difficulty": {
+      "beginner": "초급",
+      "intermediate": "중급",
+      "advanced": "고급",
+      "expert": "전문가",
+      "all": "All Levels"
+    },
+    "duration": {
+      "short": "단시간",
+      "medium": "중간 시간",
+      "long": "장시간",
+      "5-15min": "5-15 minutes",
+      "10-20min": "10-20 minutes",
+      "10-25min": "10-25 minutes",
+      "15-30min": "15-30 minutes",
+      "20-40min": "20-40 minutes"
+    },
+    "features": {
+      "3dEnvironment": "3D 환경",
+      "multiSensory": "다감각 융합",
+      "adaptiveDifficulty": "적응형 난이도",
+      "realTimeFeedback": "실시간 피드백",
+      "workplaceSimulation": "직장 시뮬레이션",
+      "learningScenarios": "학습 시나리오",
+      "lifeContexts": "생활 상황",
+      "advancedChallenges": "고급 챌린지",
+      "emotionRecognition": "감정 인식",
+      "stressRelief": "스트레스 완화",
+      "taichiMindset": "태극 심경",
+      "zenFocus": "선수 집중",
+      "facialRecognition": "표정 인식",
+      "contextAnalysis": "상황 분석",
+      "culturalAdaptation": "문화 적응",
+      "instantFeedback": "즉시 피드백",
+      "mindfulMeditation": "마음챙김 명상",
+      "breathingTraining": "호흡 훈련",
+      "relaxationGuidance": "이완 가이던스",
+      "scenarioSimulation": "시나리오 시뮬레이션",
+      "communicationSkills": "소통 기술",
+      "eqAssessment": "감정 지능 평가",
+      "culturalWisdom": "문화 지혜"
+    },
+    "categories": {
+      "all": "전체",
+      "cognitive": "인지 훈련",
+      "emotional": "감정 관리",
+      "social": "사회 기술",
+      "mindfulness": "마음챙김 명상",
+      "attention": "Attention",
+      "emotion": "Emotional Management",
+      "dataLoadError": "Failed to load data:"
+    },
+    "stats": {
+      "totalUsers": "총 사용자 수",
+      "sessionsCompleted": "완료 훈련 횟수",
+      "averageImprovement": "평균 향상",
+      "satisfactionRate": "만족도",
+      "trainingModules": "Training Modules",
+      "userCompletions": "User Completions",
+      "satisfaction": "Satisfaction",
+      "totalTrainingTime": "Total Training Time",
+      "completedTraining": "Completed Training",
+      "activeUsers": "Active Users"
+    },
+    "mockUsers": {
+      "trainer": "트레이너",
+      "cognitiveExplorer": "인지 탐험가",
+      "focusMaster": "집중 마스터",
+      "emotionManager": "감정 관리사",
+      "memoryMaster": "기억 마스터",
+      "quickThinker": "사고 민첩자"
+    },
+    "mockData": {
+      "milestone": {
+        "title": "연승 달인",
+        "description": "15일 연속 훈련",
+        "reward": "전용 배지"
+      },
+      "dailyGoals": {
+        "completeSessions": {
+          "title": "훈련 완료",
+          "description": "2회 훈련 완료"
+        },
+        "trainingTime": {
+          "title": "훈련 시간",
+          "description": "30분간 훈련"
+        }
+      },
+      "insights": {
+        "attentionExcellent": {
+          "title": "주의력 성과 우수",
+          "description": "귀하의 주의력 훈련 성적이 동일 레벨 사용자의 상위 20%에 랭크되었습니다",
+          "actionText": "더 높은 난이도에 도전하기"
+        }
+      }
+    },
+    "description": "과학적인 훈련 방법과 몰입형 체험을 통해 인지능력, 주의력, 감정 관리 기술을 전면적으로 향상시킵니다"
+  },
+  "quickMath": {
+    "title": "속산 훈련",
+    "description": "고속 암산 훈련, 수학 연산 반응 속도와 정확도를 향상시킵니다",
+    "difficulty": {
+      "easy": "쉬움",
+      "medium": "보통",
+      "hard": "어려움"
+    },
+    "difficultyDescription": {
+      "easy": "20 이내의 덧셈뺄셈 연산",
+      "medium": "50-1000의 덧셈뺄셈 연산",
+      "hard": "1000 이상의 덧셈뺄셈 연산"
+    },
+    "ui": {
+      "selectDifficulty": "난이도 레벨 선택",
+      "startGame": "게임 시작",
+      "score": "점수",
+      "timeLeft": "남은 시간",
+      "gameOver": "게임 종료",
+      "finalScore": "최종 점수",
+      "playAgain": "다시 플레이",
+      "backToMenu": "메뉴로 돌아가기",
+      "back": "뒤로",
+      "inputAnswer": "답 입력",
+      "confirm": "확인",
+      "clear": "지우기",
+      "correct": "정답!",
+      "wrong": "오답!",
+      "missed": "놓쳤습니다!",
+      "pause": "일시정지",
+      "resume": "재개",
+      "paused": "일시정지 중",
+      "yourAnswer": "당신의 답",
+      "gameTime": "게임 시간",
+      "accuracy": "정확도",
+      "totalQuestions": "총 문제 수",
+      "correctAnswers": "정답 수",
+      "gameDuration": "게임 시간",
+      "averageTime": "평균 시간",
+      "difficulty": "난이도",
+      "changeDifficulty": "난이도 변경",
+      "selectDifficultyHint": "당신에게 적합한 난이도 레벨을 선택하여 훈련을 시작하세요"
+    },
+    "instructions": {
+      "title": "게임 설명",
+      "description": "산술 문제가 화면 상단에서 등속으로 하강하며, 숫자 키패드를 사용하여 정확한 답을 입력하고 확인을 클릭합니다. 정답이면 득점하고 문제가 사라집니다; 오답이거나 놓치면 감점됩니다.",
+      "controls": "숫자 키패드를 사용하여 답을 입력하고 확인 버튼을 클릭하여 제출",
+      "tips": "집중을 유지하고 빠르게 계산하며 정확하게 입력하세요",
+      "gameRules": "게임 규칙",
+      "howToPlay": "조작 방법",
+      "gameTips": "게임 팁",
+      "difficultyLevels": "난이도 레벨"
+    },
+    "results": {
+      "congratulations": "수고하셨습니다!",
+      "detailedStats": "상세 통계",
+      "questionsPerMinute": "분당 문제 수",
+      "correctRate": "정답률",
+      "missedQuestions": "놓친 문제",
+      "perfectPerformance": "완벽한 성과!",
+      "excellentPerformance": "우수한 성과!",
+      "goodPerformance": "좋은 성과!",
+      "needsImprovement": "아직 노력이 필요합니다!",
+      "keepTrying": "계속 노력하세요!",
+      "encouragementMessage": "계속 노력하세요! 연습을 거듭하면 반응 속도가 향상됩니다!",
+      "greatSpeed": "훌륭합니다! 당신의 반응 속도가 매우 우수합니다!",
+      "goodProgress": "좋은 성과입니다! 계속 연습하면 더 좋아질 것입니다!"
+    }
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "startTraining": "トレーニング開始",
+  "about": "これは認知能力向上ソリューションの提供に専念する脳力トレーニングプラットフォームです。ご提案やご質問がございましたら、お気軽にお問い合わせください：zhzero886@gmail.com。",
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "close": "閉じる",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "start": "開始",
+    "pause": "一時停止",
+    "resume": "再開",
+    "stop": "停止",
+    "complete": "完了",
+    "retry": "再試行",
+    "refresh": "更新",
+    "search": "検索",
+    "filter": "フィルター",
+    "sort": "並び替え",
+    "view": "表示",
+    "share": "共有",
+    "download": "ダウンロード",
+    "upload": "アップロード",
+    "settings": "設定",
+    "profile": "プロフィール",
+    "logout": "ログアウト",
+    "login": "ログイン",
+    "register": "登録",
+    "home": "ホーム",
+    "about": "について",
+    "contact": "お問い合わせ",
+    "help": "ヘルプ",
+    "feedback": "フィードバック",
+    "version": "バージョン",
+    "language": "言語",
+    "theme": "テーマ",
+    "notifications": "通知",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "copyright": "著作権",
+    "loadingBackgroundImage": "背景画像を読み込み中...",
+    "time": {
+      "minutes": "{count}分",
+      "hours": "{count}時間",
+      "hoursAndMinutes": "{hours}時間{minutes}分"
+    },
+    "errorBoundary": {
+      "title": "申し訳ございません、問題が発生しました",
+      "description": "アプリケーションで予期しないエラーが発生しましたが、ご心配なく、再開できます！",
+      "retryButton": "🔄 再開",
+      "viewDetails": "エラー詳細を表示",
+      "errorMessage": "エラーメッセージ",
+      "errorStack": "エラースタック"
+    }
+  },
+  "zenMeditation": {
+    "title": "禅修集中力トレーニング",
+    "subtitle": "古代の禅修智慧を通じて、内なる静寂と集中を培う",
+    "guide": {
+      "title": "禅修智慧ガイド",
+      "traditions": {
+        "title": "禅修伝統",
+        "zen": {
+          "name": "禅宗 (Zen)",
+          "description": "直指人心、見性成仏"
+        },
+        "vipassana": {
+          "name": "ヴィパッサナー (Vipassana)",
+          "description": "ありのままに観察し、真実を洞察する"
+        },
+        "tibetan": {
+          "name": "チベット仏教 (Tibetan)",
+          "description": "慈悲と智慧、衆生利益"
+        },
+        "chan": {
+          "name": "禅宗 (Chan)",
+          "description": "行住坐臥、すべてが禅機"
+        }
+      },
+      "types": {
+        "title": "禅修タイプ",
+        "breathing": "呼吸禅修 - 呼吸を観察し、集中を培う",
+        "mindfulness": "正念禅修 - 今この瞬間に気づき、真実を洞察する",
+        "lovingKindness": "慈心禅修 - 慈悲を培い、怨恨を解消する",
+        "walking": "歩行禅 - 動中有静、歩行の気づき",
+        "bodyScan": "ボディスキャン - 身体に気づき、緊張を解放する"
+      },
+      "tips": {
+        "title": "禅修要点",
+        "posture": "正直でリラックスした座り姿勢を保つ",
+        "expectation": "特別な体験を強要しない",
+        "wandering": "心が散漫になったとき、優しく集中対象に戻る",
+        "compassion": "自分の不完全さに慈悲心で接する",
+        "integration": "禅修の気づきを日常生活に取り入れる"
+      },
+      "startButton": "禅修の旅を始める"
+    },
+    "sessions": {
+      "title": "禅修セッションを選択",
+      "score": "禅修スコア",
+      "completed": "セッション完了",
+      "duration": "禅修時間",
+      "minutes": "分",
+      "seconds": "秒",
+      "difficulty": "難易度",
+      "benefits": "修行の利益",
+      "philosophy": "禅修智慧",
+      "resetButton": "再開"
+    },
+    "practice": {
+      "phase": "段階",
+      "guidance": "禅修指導",
+      "focus": "集中対象",
+      "visualization": "観想ガイド",
+      "wisdom": "禅修智慧",
+      "mantra": "慈心真言",
+      "showMantra": "真言を表示",
+      "hideMantra": "真言を隠す",
+      "startMeditation": "禅修開始",
+      "pauseMeditation": "禅修一時停止",
+      "nextPhase": "次の段階",
+      "completeMeditation": "禅修完了"
+    }
+  },
+  "schulte": {
+    "title": "シュルテ表",
+    "description": "シュルテ表トレーニングは、集中力と視覚検索の古典的なトレーニング方法で、数字を順番にクリックすることで注意力集中と反応速度を向上させます。",
+    "schulteTitle": "シュルテ表トレーニング",
+    "schulteDesc": "シュルテ表トレーニングは、集中力と視覚検索の古典的なトレーニング方法で、数字を順番にクリックすることで注意力集中と反応速度を向上させます。",
+    "mode": {
+      "sequential": "順序モード",
+      "reverse": "逆順モード",
+      "random": "ランダムモード"
+    },
+    "trainingArea": "トレーニングエリア",
+    "realTimeStats": "リアルタイム統計",
+    "personalRecords": "個人記録",
+    "trainingElapsed": "トレーニング経過時間",
+    "currentNumber": "現在の数字",
+    "totalNumbers": "総数字数",
+    "averageTime": "平均時間",
+    "bestScore": "最高記録",
+    "totalSessions": "総トレーニング回数",
+    "totalTime": "総時間",
+    "timeUsed": "使用時間",
+    "bestTime": "最高",
+    "numberLabel": "数字{number}",
+    "findNumber": "数字を見つける",
+    "startTraining": "開始",
+    "completed": "完了！所要時間 {time} 秒",
+    "timeElapsed": "経過時間",
+    "progress": "進捗",
+    "currentTarget": "現在のターゲット",
+    "errors": "エラー回数",
+    "avgReaction": "平均反応時間",
+    "level": "レベル",
+    "resume": "続行",
+    "pause": "一時停止",
+    "stop": "停止",
+    "wrongNumber": "エラー！数字 {number} を見つけてください",
+    "trainingStarted": "トレーニング開始",
+    "trainingResumed": "トレーニング続行",
+    "trainingPaused": "トレーニング一時停止",
+    "trainingCompleted": "トレーニング完了"
+  },
+  "gaze": {
+    "gazeTitle": "凝視集中トレーニング",
+    "gazeDesc": "中央の黒点に集中して凝視し、干渉要素に注意を散らされないようにして、持続的集中能力をトレーニングします",
+    "gazeStatusFocusing": "集中中...",
+    "gazeStatusIdle": "開始準備完了",
+    "gazeFocusLabel": "集中時間：",
+    "gazeBestLabel": "最高記録：",
+    "gazeDotAriaLabel": "集中トレーニング目標点",
+    "gazeInterrupted": "集中が中断されました！",
+    "trainingPaused": "一時停止中",
+    "resume": "続行",
+    "stop": "停止",
+    "pause": "一時停止",
+    "trackingAccuracy": "精度",
+    "mode": {
+      "static": "静的モード",
+      "dynamic": "動的モード",
+      "anti-distraction": "抗干渉モード"
+    },
+    "trainingArea": "トレーニングエリア",
+    "realTimeStats": "リアルタイム統計",
+    "personalRecords": "個人記録",
+    "clickToStart": "クリックして開始",
+    "startTraining": "トレーニング開始",
+    "timeElapsed": "経過時間",
+    "focusStability": "集中安定性",
+    "totalInterruptions": "総中断回数",
+    "bestScore": "最高記録",
+    "averageScore": "平均記録",
+    "totalSessions": "総トレーニング回数",
+    "bestTime": "最高時間",
+    "focusTime": "集中時間",
+    "stability": "安定性",
+    "interruptions": "中断回数",
+    "level": "レベル",
+    "totalTime": "総時間"
+  },
+  "multidimensionalAttention": {
+    "title": "多次元注意力チャレンジ 3.0",
+    "subtitle": "没入型3D環境 · 多感覚融合 · 適応的難易度システム",
+    "upgradeTitle": "アップグレード版多次元注意力トレーニング",
+    "selectEnvironment": "トレーニング環境を選択",
+    "trainingConfig": "トレーニング設定",
+    "sensoryMode": "感覚モード",
+    "initialDifficulty": "初期難易度",
+    "targets": "ターゲット",
+    "soundFeedback": "音響フィードバック",
+    "adaptiveDifficulty": "適応的難易度",
+    "startPrompt": "開始ボタンをクリックしてトレーニングを開始",
+    "prepareMessage": "準備中、しばらくお待ちください...",
+    "description": "視覚、聴覚、触覚の多感覚トレーニングを通じて、注意力の広さ、深さ、柔軟性を全面的に向上させます",
+    "trainingControl": "トレーニングコントロール",
+    "startTraining": "トレーニング開始",
+    "preparing": "開始準備中...",
+    "getReady": "準備してください、トレーニングがまもなく開始されます",
+    "pause": "一時停止",
+    "resume": "続行",
+    "complete": "完了",
+    "abandon": "放棄",
+    "settings": "設定",
+    "trainingPaused": "トレーニングが一時停止されました",
+    "pauseMessage": "トレーニングが一時停止されました。続行ボタンをクリックしてトレーニングを再開してください",
+    "sessionProgress": "セッション進捗",
+    "trainingComplete": "トレーニング完了！",
+    "finalScore": "最終スコア",
+    "accuracy": "精度",
+    "bestStreak": "最高連続記録",
+    "averageReactionTime": "平均反応時間",
+    "trainAgain": "再トレーニング",
+    "trainingStats": "トレーニング統計",
+    "score": "スコア",
+    "totalStimuli": "総刺激数",
+    "trainingSettings": "トレーニング設定",
+    "trainingDuration": "トレーニング時間（秒）",
+    "difficultyLevel": "難易度レベル",
+    "level": "レベル {level}",
+    "trainingTypes": "トレーニングタイプ",
+    "visualTraining": "視覚トレーニング",
+    "auditoryTraining": "聴覚トレーニング",
+    "tactileTraining": "触覚トレーニング",
+    "sensoryModes": {
+      "visual": "視覚集中",
+      "audio": "聴覚トレーニング",
+      "multi": "多感覚融合",
+      "synesthetic": "共感覚体験"
+    },
+    "environments": {
+      "deepSpace": {
+        "name": "深宇宙",
+        "description": "無限の宇宙で集中力をトレーニング",
+        "benefits": [
+          "集中力向上",
+          "干渉減少",
+          "空間知覚強化"
+        ]
+      },
+      "mysticalForest": {
+        "name": "神秘の森",
+        "description": "自然環境で心をリラックス",
+        "benefits": [
+          "ストレス緩和",
+          "創造力向上",
+          "直感強化"
+        ]
+      },
+      "underwaterWorld": {
+        "name": "深海世界",
+        "description": "静かな海底世界で瞑想",
+        "benefits": [
+          "深いリラックス",
+          "感情バランス",
+          "内なる静寂"
+        ]
+      },
+      "neonCity": {
+        "name": "ネオン都市",
+        "description": "動的都市で適応性を鍛える",
+        "benefits": [
+          "迅速反応",
+          "マルチタスク処理",
+          "ストレス適応"
+        ]
+      },
+      "abstractDimension": {
+        "name": "抽象次元",
+        "description": "抽象空間で認知の境界を探索",
+        "benefits": [
+          "革新的思考",
+          "認知柔軟性",
+          "限界突破"
+        ]
+      }
+    },
+    "units": {
+      "ms": "ミリ秒",
+      "seconds": "秒",
+      "minutes": "分"
+    }
+  },
+  "navigation": {
+    "home": "ホーム",
+    "training": "トレーニング",
+    "memory": "記憶力",
+    "attention": "注意力",
+    "reaction": "反応力",
+    "reactionSpeed": "反応速度",
+    "classification": "分類",
+    "speedReading": "速読",
+    "about": "について",
+    "profile": "個人センター",
+    "leaderboard": "ランキング",
+    "settings": "設定"
+  },
+  "training": {
+    "title": "脳力トレーニングセンター",
+    "subtitle": "Brain Training Center",
+    "seo": {
+      "title": "脳力トレーニングセンター - 全方位認知能力向上プラットフォーム",
+      "description": "専門的な脳力トレーニングプラットフォーム、注意力、記憶力、感情管理など多次元トレーニングモジュールを提供し、科学的に認知能力を向上させます",
+      "keywords": "脳力トレーニング,認知トレーニング,注意力トレーニング,記憶トレーニング,感情管理,脳トレーニング"
+    },
+    "modules": {
+      "attention": {
+        "title": "多次元注意力チャレンジ",
+        "description": "没入型3D環境での注意力トレーニング、多感覚融合体験、適応的難易度調整",
+        "features": [
+          "3D環境",
+          "多感覚融合",
+          "適応的難易度",
+          "リアルタイムフィードバック"
+        ]
+      },
+      "cognitiveFlexibility": {
+        "title": "認知柔軟性トレーニングキャンプ",
+        "description": "タスク切り替え、Stroopテストなどのトレーニングを通じて、思考敏捷性と認知柔軟性を向上させます",
+        "features": [
+          "職場シミュレーション",
+          "学習シナリオ",
+          "生活状況",
+          "上級チャレンジ"
+        ]
+      },
+      "emotionalManagement": {
+        "title": "感情管理トレーニング",
+        "description": "中華文化を融合した感情調節トレーニング、太極心境、禅修集中などのモジュールを含みます",
+        "features": [
+          "感情認識",
+          "ストレス緩和",
+          "太極心境",
+          "禅修集中"
+        ]
+      },
+      "emotionRecognition": {
+        "title": "感情認識トレーニング",
+        "description": "表情と音声認識トレーニングを通じて、感情知覚と理解能力を向上させます",
+        "features": [
+          "表情認識",
+          "音声分析",
+          "状況理解",
+          "共感トレーニング"
+        ]
+      },
+      "stressRelief": {
+        "title": "ストレス緩和瞑想",
+        "description": "マインドフルネス瞑想と呼吸トレーニングを結合し、効果的にストレスを緩和し、心理健康を向上させます",
+        "features": [
+          "マインドフルネス瞑想",
+          "呼吸トレーニング",
+          "リラックス技法",
+          "心理調節"
+        ]
+      },
+      "socialIntelligence": {
+        "title": "社会的感情知能向上",
+        "description": "社会シナリオシミュレーションとコミュニケーション技能トレーニングを通じて、対人交流能力を向上させます",
+        "features": [
+          "社会シミュレーション",
+          "コミュニケーション技能",
+          "感情知能テスト",
+          "人間関係"
+        ]
+      },
+      "multiAttention": {
+        "title": "Multi-Dimensional Attention Challenge",
+        "description": "Immersive 3D environment multi-sensory attention training to enhance focus and reaction speed"
+      },
+      "socialEQ": {
+        "title": "Social EQ Enhancement",
+        "description": "Improve interpersonal skills and communication through real social scenario simulations"
+      }
+    },
+    "difficulty": {
+      "beginner": "初級",
+      "intermediate": "中級",
+      "advanced": "上級",
+      "expert": "エキスパート",
+      "all": "All Levels"
+    },
+    "duration": {
+      "short": "短時間",
+      "medium": "中程度の時間",
+      "long": "長時間",
+      "5-15min": "5-15 minutes",
+      "10-20min": "10-20 minutes",
+      "10-25min": "10-25 minutes",
+      "15-30min": "15-30 minutes",
+      "20-40min": "20-40 minutes"
+    },
+    "features": {
+      "3dEnvironment": "3D環境",
+      "multiSensory": "多感覚融合",
+      "adaptiveDifficulty": "適応的難易度",
+      "realTimeFeedback": "リアルタイムフィードバック",
+      "workplaceSimulation": "職場シミュレーション",
+      "learningScenarios": "学習シナリオ",
+      "lifeContexts": "生活状況",
+      "advancedChallenges": "上級チャレンジ",
+      "emotionRecognition": "感情認識",
+      "stressRelief": "ストレス緩和",
+      "taichiMindset": "太極心境",
+      "zenFocus": "禅修集中",
+      "facialRecognition": "表情認識",
+      "contextAnalysis": "状況分析",
+      "culturalAdaptation": "文化適応",
+      "instantFeedback": "即時フィードバック",
+      "mindfulMeditation": "マインドフルネス瞑想",
+      "breathingTraining": "呼吸トレーニング",
+      "relaxationGuidance": "リラックスガイダンス",
+      "scenarioSimulation": "シナリオシミュレーション",
+      "communicationSkills": "コミュニケーション技能",
+      "eqAssessment": "感情知能評価",
+      "culturalWisdom": "文化智慧"
+    },
+    "categories": {
+      "all": "すべて",
+      "cognitive": "認知トレーニング",
+      "emotional": "感情管理",
+      "social": "社会技能",
+      "mindfulness": "マインドフルネス瞑想",
+      "attention": "Attention",
+      "emotion": "Emotional Management",
+      "dataLoadError": "Failed to load data:"
+    },
+    "stats": {
+      "totalUsers": "総ユーザー数",
+      "sessionsCompleted": "完了トレーニング回数",
+      "averageImprovement": "平均向上",
+      "satisfactionRate": "満足度",
+      "trainingModules": "Training Modules",
+      "userCompletions": "User Completions",
+      "satisfaction": "Satisfaction",
+      "totalTrainingTime": "Total Training Time",
+      "completedTraining": "Completed Training",
+      "activeUsers": "Active Users"
+    },
+    "mockUsers": {
+      "trainer": "トレーナー",
+      "cognitiveExplorer": "認知探索者",
+      "focusMaster": "集中マスター",
+      "emotionManager": "感情管理師",
+      "memoryMaster": "記憶マスター",
+      "quickThinker": "思考敏捷者"
+    },
+    "mockData": {
+      "milestone": {
+        "title": "連勝達人",
+        "description": "15日連続トレーニング",
+        "reward": "専用バッジ"
+      },
+      "dailyGoals": {
+        "completeSessions": {
+          "title": "トレーニング完了",
+          "description": "2回のトレーニングを完了"
+        },
+        "trainingTime": {
+          "title": "トレーニング時間",
+          "description": "30分間のトレーニング"
+        }
+      },
+      "insights": {
+        "attentionExcellent": {
+          "title": "注意力パフォーマンス優秀",
+          "description": "あなたの注意力トレーニング成績は同レベルユーザーの上位20%にランクインしています",
+          "actionText": "より高い難易度に挑戦"
+        }
+      }
+    },
+    "description": "科学的なトレーニング方法と没入型体験を通じて、認知能力、注意力、感情管理技能を全面的に向上させます"
+  },
+  "quickMath": {
+    "title": "速算トレーニング",
+    "description": "高速暗算トレーニング、数学演算反応速度と精度を向上させます",
+    "difficulty": {
+      "easy": "簡単",
+      "medium": "普通",
+      "hard": "困難"
+    },
+    "difficultyDescription": {
+      "easy": "20以内の加減法演算",
+      "medium": "50-1000の加減法演算",
+      "hard": "1000以上の加減法演算"
+    },
+    "ui": {
+      "selectDifficulty": "難易度レベルを選択",
+      "startGame": "ゲーム開始",
+      "score": "スコア",
+      "timeLeft": "残り時間",
+      "gameOver": "ゲーム終了",
+      "finalScore": "最終スコア",
+      "playAgain": "もう一度プレイ",
+      "backToMenu": "メニューに戻る",
+      "back": "戻る",
+      "inputAnswer": "答えを入力",
+      "confirm": "確認",
+      "clear": "クリア",
+      "correct": "正解！",
+      "wrong": "不正解！",
+      "missed": "見逃しました！",
+      "pause": "一時停止",
+      "resume": "再開",
+      "paused": "一時停止中",
+      "yourAnswer": "あなたの答え",
+      "gameTime": "ゲーム時間",
+      "accuracy": "精度",
+      "totalQuestions": "総問題数",
+      "correctAnswers": "正解数",
+      "gameDuration": "ゲーム時間",
+      "averageTime": "平均時間",
+      "difficulty": "難易度",
+      "changeDifficulty": "難易度変更",
+      "selectDifficultyHint": "あなたに適した難易度レベルを選択してトレーニングを開始"
+    },
+    "instructions": {
+      "title": "ゲーム説明",
+      "description": "算術問題が画面上部から等速で降下し、数字キーパッドを使用して正しい答えを入力し、確認をクリックします。正解すると得点し、問題が消えます；不正解や見逃すと減点されます。",
+      "controls": "数字キーパッドを使用して答えを入力し、確認ボタンをクリックして提出",
+      "tips": "集中を保ち、迅速に計算し、正確に入力",
+      "gameRules": "ゲームルール",
+      "howToPlay": "操作方法",
+      "gameTips": "ゲームのコツ",
+      "difficultyLevels": "難易度レベル"
+    },
+    "results": {
+      "congratulations": "頑張って！",
+      "detailedStats": "詳細統計",
+      "questionsPerMinute": "1分あたりの問題数",
+      "correctRate": "正解率",
+      "missedQuestions": "見逃した問題",
+      "perfectPerformance": "完璧なパフォーマンス！",
+      "excellentPerformance": "優秀なパフォーマンス！",
+      "goodPerformance": "良いパフォーマンス！",
+      "needsImprovement": "まだ努力が必要！",
+      "keepTrying": "頑張って！",
+      "encouragementMessage": "頑張って！練習を重ねれば反応速度が向上します！",
+      "greatSpeed": "素晴らしい！あなたの反応速度は非常に優秀です！",
+      "goodProgress": "良いパフォーマンス！練習を続ければもっと良くなります！"
+    }
+  }
+}

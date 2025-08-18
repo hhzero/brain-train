@@ -1,0 +1,116 @@
+{
+  "Memory": {
+    "id": 1,
+    "name": "기억력",
+    "list": [
+      {
+        "id": 10,
+        "name": "플로우 기억: n-back",
+        "description": "지속적으로 기억의 한계에 도전하여 뇌의 작업 기억력/단기 저장 능력을 향상시키고, 사고를 더욱 민첩하게 만듭니다.",
+        "image": "/images/memory/memory.png",
+        "link": "/train/n-back"
+      }
+    ]
+  },
+  "ReactionSpeed": {
+    "id": 2,
+    "name": "반응 속도",
+    "list": [
+      {
+        "id": 10,
+        "name": "속산 훈련",
+        "description": "빠른 암산 훈련을 통해 숫자 반응 능력과 계산 속도를 향상시키고, 뇌의 빠른 처리 능력을 단련합니다.",
+        "image": "/images/reaction/quick-math.png",
+        "link": "/reaction-speed/quick-math"
+      }
+    ]
+  },
+  "Attention": {
+    "id": 3,
+    "name": "주의력",
+    "list": [
+      {
+        "id": 10,
+        "name": "응시 훈련",
+        "description": "화면 중앙의 검은 점을 지속적으로 응시하여 집중력과 방해 저항 능력을 훈련하고, 주의 산만을 줄이며 지속적 주의력을 향상시킵니다!",
+        "image": "/images/memory/memory.png",
+        "link": "/train/gaze"
+      },
+      {
+        "id": 11,
+        "name": "슐테 표",
+        "description": "순서가 뒤섞인 숫자 표에서 순차적으로 목표 숫자를 찾는 것으로 시각 검색, 순서 처리, 주의력 배분 능력 향상에 도움이 됩니다.",
+        "image": "/images/memory/memory.png",
+        "link": "/train/schulte"
+      }
+    ]
+  },
+  "SpeedReading": {
+    "id": 4,
+    "name": "속독",
+    "list": [
+      {
+        "id": 10,
+        "name": "음독 제거",
+        "description": "한 글자씩 묵독하는 습관을 개선합니다",
+        "image": "/images/memory/memory.png",
+        "link": "/train/reading-elimination"
+      },
+      {
+        "id": 11,
+        "name": "속도 실전",
+        "description": "실제 독서 방식으로 자신의 속도 능력을 훈련합니다",
+        "image": "/images/memory/memory.png",
+        "link": "/train/speed-practice"
+      }
+    ]
+  },
+  "EmotionManagement": {
+    "id": 5,
+    "name": "감정 관리",
+    "list": [
+      {
+        "id": 10,
+        "name": "감정 인식 훈련",
+        "description": "표정과 음성 톤 인식 훈련을 통해 감정 지각 능력을 향상시키고 감성 지능의 기초를 강화합니다.",
+        "image": "/images/emotion/emotion-recognition.png",
+        "link": "/train/emotion-recognition"
+      },
+      {
+        "id": 11,
+        "name": "스트레스 완화 명상",
+        "description": "마인드풀니스 명상과 심호흡 기법을 결합하여 효과적으로 스트레스를 완화하고 심리적 회복력을 향상시킵니다.",
+        "image": "/images/emotion/stress-relief.png",
+        "link": "/train/stress-relief"
+      },
+      {
+        "id": 12,
+        "name": "감정 조절 연습",
+        "description": "감정 조절 전략을 학습하고, 인지 재구성과 행동 기법을 통해 부정적인 감정을 관리합니다.",
+        "image": "/images/emotion/emotion-regulation.png",
+        "link": "/train/emotion-regulation"
+      },
+      {
+        "id": 13,
+        "name": "사회적 감성 지능 향상",
+        "description": "상황 시뮬레이션 훈련을 통해 대인관계에서의 감정 이해와 표현 능력을 향상시킵니다.",
+        "image": "/images/emotion/social-eq.png",
+        "link": "/train/social-eq"
+      },
+      {
+        "id": 14,
+        "name": "태극 심경 훈련",
+        "description": "태극 철학을 융합한 감정 균형 훈련으로, 가상 태극 체험을 통해 내면의 고요함을 기릅니다.",
+        "image": "/images/emotion/taichi-mindset.png",
+        "link": "/train/taichi-mindset"
+      },
+      {
+        "id": 15,
+        "name": "선수 집중력",
+        "description": "선종의 지혜를 결합한 집중력 훈련으로, 수식관·관심 등의 방법을 통해 심리 소질을 향상시킵니다.",
+        "image": "/images/emotion/zen-focus.png",
+        "link": "/train/zen-focus"
+      }
+    ]
+  }
+}

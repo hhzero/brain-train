@@ -5,30 +5,23 @@
     "list": [
       {
         "id": 10,
-        "name": "ワーキングメモリ：n-back",
-        "description": "記憶の限界に挑戦し続けることで、ワーキングメモリや短期記憶力を高め、思考をより敏捷にします。",
+        "name": "フロー記憶：n-back",
+        "description": "記憶の限界に挑戦し続けることで、脳のワーキングメモリ・短期記憶能力を向上させ、思考をより敏捷にします。",
         "image": "/images/memory/memory.png",
         "link": "/train/n-back"
       }
     ]
   },
-  "Reaction": {
+  "ReactionSpeed": {
     "id": 2,
-    "name": "反応力",
+    "name": "反応速度",
     "list": [
       {
         "id": 10,
-        "name": "反応力トレーニング1",
-        "description": "反応力トレーニング1の説明",
-        "image": "/images/memory/memory.png",
-        "link": "/memory"
-      },
-      {
-        "id": 11,
-        "name": "反応力トレーニング2",
-        "description": "反応力トレーニング2の説明",
-        "image": "/images/memory/memory.png",
-        "link": "/memory"
+        "name": "速算トレーニング",
+        "description": "高速暗算トレーニングを通じて数字への反応能力と計算速度を向上させ、脳の高速処理能力を鍛えます。",
+        "image": "/images/reaction/quick-math.png",
+        "link": "/reaction-speed/quick-math"
       }
     ]
   },
@@ -39,14 +32,14 @@
       {
         "id": 10,
         "name": "凝視トレーニング",
-        "description": "画面中央の黒点を見つめ続けることで集中力と妨害耐性を鍛え、注意力の持続と雑念の軽減に役立ちます。",
+        "description": "画面中央の黒点を持続的に凝視することで、集中力と抗干渉能力を鍛え、注意散漫を減らし、持続的注意力を向上させます！",
         "image": "/images/memory/memory.png",
         "link": "/train/gaze"
       },
       {
         "id": 11,
-        "name": "シュルテグリッド",
-        "description": "シャッフルされた数字グリッドから目標数字を順に探すことで、視覚探索力・順序処理力・注意分配力を高めます。",
+        "name": "シュルテ表",
+        "description": "順序が乱れた数字の表から順次目標数字を探すことで、視覚検索、順序処理、注意力配分能力の向上に役立ちます。",
         "image": "/images/memory/memory.png",
         "link": "/train/schulte"
       }
@@ -58,18 +51,66 @@
     "list": [
       {
         "id": 10,
-        "name": "音読抑制トレーニング",
-        "description": "一語一語読む癖を改善し、速読力と理解力を向上させます。",
+        "name": "音読の除去",
+        "description": "一字一句黙読する習慣を改善します",
         "image": "/images/memory/memory.png",
         "link": "/train/reading-elimination"
       },
       {
         "id": 11,
-        "name": "スピード実践",
-        "description": "実際の読書スタイルでスピード力を鍛え、より速く効率的な読書を目指します。",
+        "name": "速度実戦",
+        "description": "実際の読書方式で、自分の速度能力をトレーニングします",
         "image": "/images/memory/memory.png",
         "link": "/train/speed-practice"
       }
     ]
+  },
+  "EmotionManagement": {
+    "id": 5,
+    "name": "感情管理",
+    "list": [
+      {
+        "id": 10,
+        "name": "感情認識トレーニング",
+        "description": "表情や音声のトーンの認識トレーニングを通じて、感情知覚能力を向上させ、EQの基礎を強化します。",
+        "image": "/images/emotion/emotion-recognition.png",
+        "link": "/train/emotion-recognition"
+      },
+      {
+        "id": 11,
+        "name": "ストレス緩和瞑想",
+        "description": "マインドフルネス瞑想と深呼吸技法を組み合わせ、効果的にストレスを緩和し、心理的レジリエンスを向上させます。",
+        "image": "/images/emotion/stress-relief.png",
+        "link": "/train/stress-relief"
+      },
+      {
+        "id": 12,
+        "name": "感情調節練習",
+        "description": "感情調節戦略を学び、認知再構成と行動技法を通じてネガティブな感情を管理します。",
+        "image": "/images/emotion/emotion-regulation.png",
+        "link": "/train/emotion-regulation"
+      },
+      {
+        "id": 13,
+        "name": "社会的EQ向上",
+        "description": "状況シミュレーショントレーニングを通じて、対人関係における感情理解と表現能力を向上させます。",
+        "image": "/images/emotion/social-eq.png",
+        "link": "/train/social-eq"
+      },
+      {
+        "id": 14,
+        "name": "太極心境トレーニング",
+        "description": "太極哲学を融合した感情バランストレーニング、バーチャル太極体験を通じて内なる静寂を培います。",
+        "image": "/images/emotion/taichi-mindset.png",
+        "link": "/train/taichi-mindset"
+      },
+      {
+        "id": 15,
+        "name": "禅修集中力",
+        "description": "禅宗の智慧を結合した集中力トレーニング、数息観・観心などの方法を通じて心理素質を向上させます。",
+        "image": "/images/emotion/zen-focus.png",
+        "link": "/train/zen-focus"
+      }
+    ]
   }
-} 
+}
