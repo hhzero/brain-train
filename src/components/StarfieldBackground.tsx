@@ -5,7 +5,7 @@
  * 创建梦幻深邃的宇宙星空效果，包含多层星星、星云、流星和脉冲效果
  */
 
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo, memo } from 'react';
 import { motion } from 'framer-motion';
 
 // 辅助函数：确保透明度值在有效范围内并转换为十六进制
@@ -82,7 +82,7 @@ interface Meteor {
   fadeOutProgress: number; // 淡出进度
   trailIntensity: number; // 尾迹强度
   speedVariation: number; // 速度变化
-  isMouseGenerated: boolean; // 是否由鼠标生成
+
 }
 
 interface StarfieldBackgroundProps {
@@ -117,72 +117,58 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
     setIsClient(true);
   }, []);
   
-  // 根据强度设置星星数量
+  // 根据强度设置星星数量 - 优化性能，减少数量
   const starCount = useMemo(() => {
     switch (intensity) {
-      case 'low': return 150;
-      case 'medium': return 300;
-      case 'high': return 500;
-      case 'ultra': return 800;
-      default: return 300;
+      case 'low': return 80;
+      case 'medium': return 150;
+      case 'high': return 250;
+      case 'ultra': return 400;
+      default: return 150;
     }
   }, [intensity]);
   
-  // 德拉克洛瓦风格星空颜色配置 - 强烈的暖冷对比
-  const starColors = {
+  // 使用useMemo优化颜色配置，避免重复创建
+  const starColors = useMemo(() => ({
     far: [
-      '#4a5568', '#6b7280', '#9ca3af', // 原有冷色调
-      '#8B4513', '#CD853F', '#D2691E'  // 添加暖色调（棕色、沙褐色、巧克力色）
+      '#4a5568', '#6b7280', '#9ca3af', // 冷色调
+      '#8B4513', '#CD853F', '#D2691E'  // 暖色调
     ],
     mid: [
-      '#e2e8f0', '#cbd5e1', '#94a3b8', // 原有冷色调
-      '#FFD700', '#FFA500', '#FF8C00', // 金黄色、橙色系
-      '#DC143C', '#B22222'             // 深红色系
+      '#e2e8f0', '#cbd5e1', '#94a3b8', // 冷色调
+      '#FFD700', '#FFA500', '#FF8C00'  // 暖色调
     ],
     near: [
-      '#ffffff', '#f0f9ff', '#dbeafe', '#bfdbfe', '#93c5fd', // 原有冷色调
-      '#FFD700', '#FF6B35', '#C73E1D', // 德拉克洛瓦暖色调（金黄、橙红、深红）
-      '#FF4500', '#FF1493', '#8B0000'  // 强烈的暖色调
+      '#ffffff', '#f0f9ff', '#dbeafe', // 冷色调
+      '#FFD700', '#FF6B35', '#C73E1D'  // 暖色调
     ]
-  };
-  
+  }), []);
 
-  
-  // 德拉克洛瓦风格星云颜色配置 - 浪漫主义色彩
-  const nebulaColors = [
+  // 使用useMemo优化星云颜色配置
+  const nebulaColors = useMemo(() => [
     'rgba(147, 51, 234, 0.15)', // 紫色
     'rgba(236, 72, 153, 0.12)', // 粉色
     'rgba(59, 130, 246, 0.18)', // 蓝色
     'rgba(16, 185, 129, 0.10)', // 绿色
     'rgba(245, 101, 101, 0.08)', // 红色
-    // 德拉克洛瓦风格暖色调星云
     'rgba(255, 215, 0, 0.12)',   // 金黄色
     'rgba(255, 107, 53, 0.10)',  // 橙红色
-    'rgba(199, 62, 29, 0.08)',   // 深红色
-    'rgba(255, 69, 0, 0.09)',    // 橙色
-    'rgba(220, 20, 60, 0.11)',   // 深红色
-    'rgba(139, 69, 19, 0.07)',   // 棕色
-  ];
-  
-  // 德拉克洛瓦风格流星颜色配置 - 戏剧性色彩
-  const meteorColors = [
+  ], []);
+
+  // 使用useMemo优化流星颜色配置
+  const meteorColors = useMemo(() => [
     '#ffffff',   // 白色
     '#60a5fa',   // 蓝色
     '#a78bfa',   // 紫色
     '#fb7185',   // 粉色
     '#34d399',   // 绿色
-    // 德拉克洛瓦风格暖色调流星
     '#FFD700',   // 金黄色
     '#FF6B35',   // 橙红色
-    '#C73E1D',   // 深红色
-    '#FF4500',   // 橙色
-    '#DC143C',   // 深红色
-    '#8B4513'    // 棕色
-  ];
+  ], []);
   
-  // 初始化星星 - 增加星星数量创造漫天星星效果
+  // 初始化星星 - 优化性能，减少星星数量
   const initializeStars = (width: number, height: number): Star[] => {
-    const totalStars = Math.max(starCount, 1200); // 增加到至少1200颗星星
+    const totalStars = starCount; // 使用配置的星星数量，不强制增加
     return Array.from({ length: totalStars }, (_, i) => {
       // 随机分配星星层级
       const layerRandom = Math.random();
@@ -289,11 +275,11 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
     });
   };
   
-  // 初始化星云
+  // 初始化星云 - 简化性能，减少复杂效果
   const initializeNebulas = (width: number, height: number): Nebula[] => {
     if (!showNebula) return [];
     
-    return Array.from({ length: 5 }, (_, i) => {
+    return Array.from({ length: 3 }, (_, i) => {
       const baseX = Math.random() * width;
       const baseY = Math.random() * height;
       
@@ -301,27 +287,27 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
         id: i,
         x: baseX,
         y: baseY,
-        size: 200 + Math.random() * 300,
+        size: 200 + Math.random() * 200, // 减小尺寸范围
         color: nebulaColors[Math.floor(Math.random() * nebulaColors.length)],
-        opacity: 0.1 + Math.random() * 0.2,
+        opacity: 0.08 + Math.random() * 0.12, // 降低透明度
         rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.002,
-        // 移动效果属性
-        moveSpeed: 0.02 + Math.random() * 0.08, // 0.02-0.1 缓慢移动
-        moveDirection: Math.random() * Math.PI * 2, // 随机方向
-        driftPhase: Math.random() * Math.PI * 2, // 随机漂移相位
-        flowIntensity: 0.3 + Math.random() * 0.7, // 0.3-1.0 流动强度
+        rotationSpeed: (Math.random() - 0.5) * 0.001, // 减慢旋转速度
+        // 简化的移动效果属性
+        moveSpeed: 0.01 + Math.random() * 0.02, // 大幅减慢移动速度
+        moveDirection: Math.random() * Math.PI * 2,
+        driftPhase: Math.random() * Math.PI * 2,
+        flowIntensity: 0.2 + Math.random() * 0.3, // 降低流动强度
         baseX,
         baseY
       };
     });
   };
   
-  // 增强的流星初始化函数 - 支持从四个边缘生成
+  // 简化的流星初始化函数 - 减少流星数量
   const initializeMeteors = (): Meteor[] => {
     if (!showMeteors) return [];
     
-    const meteorCount = 4; // 减少流星数量为原来的一半
+    const meteorCount = 1; // 进一步减少到1个流星
     const meteors: Meteor[] = [];
     
     for (let i = 0; i < meteorCount; i++) {
@@ -386,79 +372,20 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
       fadeOutProgress: 0,
       trailIntensity: 0.7 + Math.random() * 0.3, // 0.7-1.0 尾迹强度
       speedVariation: 0.8 + Math.random() * 0.4, // 0.8-1.2 速度变化
-      isMouseGenerated: false
+
     };
   };
   
-  // 从鼠标位置创建流星的函数 - 确保向右下方移动
-  const createMouseMeteor = (mouseX: number, mouseY: number, width: number, height: number): Meteor => {
-    // 限制角度范围，确保向右下方移动（0到π/2之间，即0到90度）
-    const angle = Math.random() * (Math.PI / 2); // 0到π/2之间的角度
-    const distance = 200 + Math.random() * 300; // 飞行距离
-    // 确保目标点在右下方
-    const targetX = mouseX + Math.abs(Math.cos(angle)) * distance; // 确保向右
-    const targetY = mouseY + Math.abs(Math.sin(angle)) * distance; // 确保向下
-    
-    return {
-      id: Date.now() + Math.random(), // 唯一ID
-      x: mouseX,
-      y: mouseY,
-      angle,
-      speed: 3 + Math.random() * 3, // 鼠标流星速度更快
-      length: 60 + Math.random() * 80,
-      opacity: 0,
-      color: meteorColors[Math.floor(Math.random() * meteorColors.length)],
-      startEdge: 'left', // 鼠标生成的流星不需要边缘
-      targetX,
-      targetY,
-      maxOpacity: 0.8 + Math.random() * 0.2,
-      fadeInProgress: 0,
-      fadeOutProgress: 0,
-      trailIntensity: 0.9 + Math.random() * 0.1,
-      speedVariation: 1.0 + Math.random() * 0.5,
-      isMouseGenerated: true
-    };
-  };
+
   
-  // 绘制德拉克洛瓦风格星星 - 浪漫主义激情与色彩表现
+  // 绘制优化的星星 - 简化渲染逻辑提升性能
   const drawStar = (ctx: CanvasRenderingContext2D, star: Star, time: number) => {
     let currentOpacity = star.baseOpacity;
     
-    // 根据闪烁类型计算透明度
-    switch (star.twinkleType) {
-      case 'none':
-        // 不闪烁，保持基础透明度
-        currentOpacity = star.baseOpacity;
-        break;
-      case 'slow':
-        // 慢速闪烁
-        const slowTwinkle = Math.sin(time * 0.001 * star.twinkleSpeed + star.twinklePhase) * star.twinkleIntensity;
-        currentOpacity = star.baseOpacity + slowTwinkle * 0.3;
-        break;
-      case 'medium':
-        // 中速闪烁
-        const mediumTwinkle = Math.sin(time * 0.002 * star.twinkleSpeed + star.twinklePhase) * star.twinkleIntensity;
-        currentOpacity = star.baseOpacity + mediumTwinkle * 0.4;
-        break;
-      case 'fast':
-        // 快速闪烁
-        const fastTwinkle = Math.sin(time * 0.004 * star.twinkleSpeed + star.twinklePhase) * star.twinkleIntensity;
-        currentOpacity = star.baseOpacity + fastTwinkle * 0.5;
-        break;
-      case 'random':
-        // 随机闪烁 - 结合多种频率
-        const randomTwinkle1 = Math.sin(time * 0.001 * star.twinkleSpeed + star.twinklePhase) * 0.3;
-        const randomTwinkle2 = Math.sin(time * 0.003 * star.twinkleSpeed + star.pulsePhase) * 0.4;
-        const randomBurst = Math.sin(time * 0.0005 * star.twinkleSpeed + star.twinklePhase * 2) * 0.3;
-        currentOpacity = star.baseOpacity + (randomTwinkle1 + randomTwinkle2 + randomBurst) * star.twinkleIntensity;
-        break;
-    }
-    
-    // 德拉克洛瓦风格的额外戏剧性效果（仅对有闪烁的星星）
+    // 简化的闪烁效果计算
     if (star.twinkleType !== 'none') {
-      const dramaticPulse = Math.sin(time * 0.002 * star.passionIntensity + star.pulsePhase) * 0.2 + 0.8;
-      const emotionalBurst = Math.sin(time * 0.001 + star.twinklePhase * 2) * 0.1 + 0.9;
-      currentOpacity *= dramaticPulse * emotionalBurst;
+      const twinkle = Math.sin(time * 0.002 * star.twinkleSpeed + star.twinklePhase) * star.twinkleIntensity;
+      currentOpacity = star.baseOpacity + twinkle * 0.4;
     }
     
     // 确保透明度在合理范围内
@@ -466,54 +393,72 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
     
     const depthScale = depth ? star.z : 1;
     const finalOpacity = currentOpacity * depthScale;
-    const finalSize = star.size * depthScale * (1 + star.passionIntensity * 0.3);
+    const finalSize = star.size * depthScale;
     
     if (finalOpacity <= 0.01) return; // 跳过几乎不可见的星星
     
-    // 根据德拉克洛瓦类型绘制不同风格的星星
-    switch (star.delacroixType) {
-      case 'classic':
-        drawClassicDelacroixStar(ctx, star, finalOpacity, finalSize);
-        break;
-      case 'brushstroke':
-        drawBrushstrokeDelacroixStar(ctx, star, finalOpacity, finalSize, time);
-        break;
-      case 'passionate':
-        drawPassionateDelacroixStar(ctx, star, finalOpacity, finalSize, time);
-        break;
-    }
+    // 简化的星星渲染 - 只保留基本的圆形和光晕
+    drawSimpleStar(ctx, star, finalOpacity, finalSize);
   };
   
-  // 经典德拉克洛瓦星星 - 强烈色彩对比
-  const drawClassicDelacroixStar = (ctx: CanvasRenderingContext2D, star: Star, opacity: number, size: number) => {
+  // 简化的星星渲染 - 优化性能
+  const drawSimpleStar = (ctx: CanvasRenderingContext2D, star: Star, opacity: number, size: number) => {
     const coreSize = Math.max(0.8, size * 0.6);
     
-    // 绘制核心 - 使用强烈的色彩
+    // 绘制核心
     ctx.fillStyle = `${star.color}${toHexAlpha(opacity)}`;
     ctx.beginPath();
     ctx.arc(star.x, star.y, coreSize, 0, Math.PI * 2);
     ctx.fill();
     
-    // 德拉克洛瓦式的色彩光晕 - 暖色调更强烈
-    if (opacity > 0.5) {
-      const haloIntensity = star.isWarmTone ? 1.5 : 1.0; // 暖色调更强烈
+    // 简化的光晕效果 - 只对较亮的星星添加
+    if (opacity > 0.6 && star.layer === 'near') {
       const haloGradient = ctx.createRadialGradient(
         star.x, star.y, coreSize,
-        star.x, star.y, coreSize * 3 * haloIntensity
+        star.x, star.y, coreSize * 2.5
       );
       
-      const haloOpacity = opacity * (star.isWarmTone ? 0.4 : 0.2) * star.passionIntensity;
+      const haloOpacity = opacity * 0.3;
       haloGradient.addColorStop(0, `${star.color}${toHexAlpha(haloOpacity)}`);
-      haloGradient.addColorStop(0.6, `${star.color}${toHexAlpha(haloOpacity * 0.3)}`);
+      haloGradient.addColorStop(0.7, `${star.color}${toHexAlpha(haloOpacity * 0.2)}`);
       haloGradient.addColorStop(1, `${star.color}00`);
       
       ctx.fillStyle = haloGradient;
       ctx.beginPath();
-      ctx.arc(star.x, star.y, coreSize * 3 * haloIntensity, 0, Math.PI * 2);
+      ctx.arc(star.x, star.y, coreSize * 2.5, 0, Math.PI * 2);
       ctx.fill();
     }
   };
   
+  // 经典德拉克洛瓦星星 - 基础核心绘制
+  const drawClassicDelacroixStar = (ctx: CanvasRenderingContext2D, star: Star, opacity: number, size: number) => {
+    const coreSize = Math.max(1.0, size * 0.7);
+    
+    // 绘制星星核心
+    ctx.fillStyle = `${star.color}${toHexAlpha(opacity)}`;
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, coreSize, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 基础光晕效果
+    if (opacity > 0.5) {
+      const haloGradient = ctx.createRadialGradient(
+        star.x, star.y, coreSize,
+        star.x, star.y, coreSize * 3
+      );
+      
+      const haloOpacity = opacity * 0.4;
+      haloGradient.addColorStop(0, `${star.color}${toHexAlpha(haloOpacity)}`);
+      haloGradient.addColorStop(0.5, `${star.color}${toHexAlpha(haloOpacity * 0.3)}`);
+      haloGradient.addColorStop(1, `${star.color}00`);
+      
+      ctx.fillStyle = haloGradient;
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, coreSize * 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  };
+
   // 笔触风格德拉克洛瓦星星 - 模拟油画笔触
   const drawBrushstrokeDelacroixStar = (ctx: CanvasRenderingContext2D, star: Star, opacity: number, size: number, time: number) => {
     const coreSize = Math.max(1.0, size * 0.7);
@@ -763,30 +708,7 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
     ctx.arc(headX, headY, 1, 0, Math.PI * 2);
     ctx.fill();
     
-    // 为鼠标生成的流星添加特殊效果
-    if (meteor.isMouseGenerated) {
-      // 额外的彩色光环效果
-      const specialGlow = ctx.createRadialGradient(headX, headY, 0, headX, headY, 25);
-      specialGlow.addColorStop(0, `rgba(255, 255, 255, ${meteor.opacity * 0.2})`);
-      specialGlow.addColorStop(0.3, `${meteor.color}${toHexAlpha(meteor.opacity * 0.15)}`);
-      specialGlow.addColorStop(0.6, `rgba(255, 255, 255, ${meteor.opacity * 0.05})`);
-      specialGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      
-      ctx.fillStyle = specialGlow;
-      ctx.beginPath();
-      ctx.arc(headX, headY, 25, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // 脉冲环效果
-      const pulseRadius = 12 + Math.sin(time * 4 + meteor.id) * 3;
-      const pulseOpacity = meteor.opacity * 0.3 * (0.5 + Math.sin(time * 6 + meteor.id) * 0.5);
-      
-      ctx.strokeStyle = `${meteor.color}${toHexAlpha(pulseOpacity)}`;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(headX, headY, pulseRadius, 0, Math.PI * 2);
-      ctx.stroke();
-    }
+
     
     // 恢复画布状态
     ctx.restore();
@@ -936,14 +858,6 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
         // 重置流星 - 重新从随机边缘生成
         const newMeteor = createRandomMeteor(meteor.id, width, height);
         Object.assign(meteor, newMeteor);
-        
-        // 为鼠标生成的流星设置较短的生命周期
-        if (meteor.isMouseGenerated) {
-          // 鼠标流星在一定时间后消失
-          setTimeout(() => {
-            meteor.opacity = 0;
-          }, 2000 + Math.random() * 1000);
-        }
       }
     }
   };
@@ -1024,55 +938,14 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
     const newMouseX = event.clientX - rect.left;
     const newMouseY = event.clientY - rect.top;
     
-    // 计算鼠标移动距离
-    const deltaX = newMouseX - mouseRef.current.x;
-    const deltaY = newMouseY - mouseRef.current.y;
-    const moveDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-    
     // 更新鼠标位置
     mouseRef.current = {
       x: newMouseX,
       y: newMouseY
     };
-    
-    // 当鼠标快速移动时生成流星
-    if (moveDistance > 15 && Math.random() < 0.3) { // 30%概率生成流星
-      const mouseMeteor = createMouseMeteor(newMouseX, newMouseY, canvas.width, canvas.height);
-      meteorsRef.current.push(mouseMeteor);
-      
-      // 限制鼠标流星数量，避免性能问题
-      const mouseMeteorlimit = 15;
-      const mouseMeteors = meteorsRef.current.filter(m => m.isMouseGenerated);
-      if (mouseMeteors.length > mouseMeteorlimit) {
-        // 移除最老的鼠标流星
-        const oldestIndex = meteorsRef.current.findIndex(m => m.isMouseGenerated);
-        if (oldestIndex !== -1) {
-          meteorsRef.current.splice(oldestIndex, 1);
-        }
-      }
-    }
   };
   
-  // 处理鼠标点击 - 生成多个流星
-  const handleMouseClick = (event: MouseEvent) => {
-    if (!interactive) return;
-    
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const rect = canvas.getBoundingClientRect();
-    const clickX = event.clientX - rect.left;
-    const clickY = event.clientY - rect.top;
-    
-    // 点击时生成3-5个流星
-    const meteorCount = 3 + Math.floor(Math.random() * 3);
-    for (let i = 0; i < meteorCount; i++) {
-      setTimeout(() => {
-        const clickMeteor = createMouseMeteor(clickX, clickY, canvas.width, canvas.height);
-        meteorsRef.current.push(clickMeteor);
-      }, i * 100); // 延迟生成，创造连续效果
-    }
-  };
+
   
   // 处理窗口大小变化
   const handleResize = () => {
@@ -1102,7 +975,6 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
     window.addEventListener('resize', handleResize);
     if (interactive) {
       canvas.addEventListener('mousemove', handleMouseMove);
-      canvas.addEventListener('click', handleMouseClick);
     }
     
     // 定期生成新流星以增加频率
@@ -1129,7 +1001,6 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
       window.removeEventListener('resize', handleResize);
       if (interactive) {
         canvas.removeEventListener('mousemove', handleMouseMove);
-        canvas.removeEventListener('click', handleMouseClick);
       }
       clearInterval(meteorInterval);
       if (animationRef.current) {
@@ -1212,4 +1083,5 @@ const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
   );
 };
 
-export default StarfieldBackground;
+// 使用React.memo优化组件渲染性能
+export default memo(StarfieldBackground);

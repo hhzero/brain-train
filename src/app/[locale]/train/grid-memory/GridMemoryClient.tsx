@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo, memo } from 'react'
 import { Button } from '@/components/ui/button'
 import TouchOptimizedButton from '@/components/TouchOptimizedButton'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -65,7 +65,7 @@ const COLORS = [
 // 错误颜色
 const ERROR_COLOR = '#EF4444'
 
-function GridMemoryClientContent() {
+const GridMemoryClientContent = memo(function GridMemoryClientContent() {
   // 国际化翻译
   const t = useTranslations('gridMemory')
   const tCommon = useTranslations('common')
@@ -95,6 +95,17 @@ function GridMemoryClientContent() {
     accuracy: 0,
     timeSpent: 0
   })
+  
+  // 优化计算密集型值
+  const currentAccuracy = useMemo(() => {
+    if (selectedCells.length === 0) return 0
+    const correctCount = selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length
+    return ((correctCount / selectedCells.length) * 100).toFixed(1)
+  }, [selectedCells, grid])
+  
+  const correctSelectionsCount = useMemo(() => {
+    return selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length
+  }, [selectedCells, grid])
   
   // 定时器引用
   const memoryTimerRef = useRef<NodeJS.Timeout | null>(null)
@@ -337,8 +348,8 @@ function GridMemoryClientContent() {
     }
   }, [])
   
-  // 渲染预览网格
-  const renderPreviewGrid = () => {
+  // 渲染预览网格 - 使用useMemo优化
+  const renderPreviewGrid = useMemo(() => {
     const difficulty = difficulties[selectedDifficulty]
     const gridSize = difficulty.gridSize
     
@@ -376,10 +387,10 @@ function GridMemoryClientContent() {
         ))}
       </div>
     )
-  }
+  }, [selectedDifficulty, difficulties])
   
-  // 渲染网格
-  const renderGrid = () => {
+  // 渲染网格 - 使用useMemo优化
+  const renderGrid = useMemo(() => {
     const difficulty = difficulties[selectedDifficulty]
     const gridSize = difficulty.gridSize
     
@@ -408,7 +419,8 @@ function GridMemoryClientContent() {
               backgroundColor: cell.color || 'rgba(139, 92, 246, 0.1)',
               boxShadow: cell.color ? `0 0 20px ${cell.color}40` : 'none',
               minWidth: `${cellSize}px`,
-              minHeight: `${cellSize}px`
+              minHeight: `${cellSize}px`,
+              willChange: 'transform, opacity'
             }}
             onClick={() => handleCellClick(cell.id)}
             whileHover={gameState === GameState.SELECTING ? { scale: 1.05 } : {}}
@@ -416,7 +428,7 @@ function GridMemoryClientContent() {
             animate={{
               scale: cell.isMarked && gameState === GameState.MEMORIZING ? [1, 1.1, 1] : 1
             }}
-            transition={{ duration: 0.5, repeat: gameState === GameState.MEMORIZING ? Infinity : 0 }}
+            transition={{ duration: 0.5, repeat: gameState === GameState.MEMORIZING ? Infinity : 0, ease: 'easeOut' }}
           >
             {cell.isSelected && (
               <motion.div
@@ -435,13 +447,13 @@ function GridMemoryClientContent() {
         ))}
       </div>
     )
-  }
+  }, [selectedDifficulty, difficulties, grid, gameState, handleCellClick])
   
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen" style={{ willChange: 'transform', contain: 'layout style paint' }}>
       <StarfieldBackground />
       
-      <div className="relative z-10 max-w-7xl mx-auto p-4">
+      <div className="relative z-10 max-w-7xl mx-auto p-4" style={{ willChange: 'transform' }}>
         {/* 头部区域 - 返回按钮和标题在同一行 */}
         <div className="flex items-center justify-between mb-6">
           {/* 返回按钮 */}
@@ -554,7 +566,7 @@ function GridMemoryClientContent() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* 左侧游戏区域 - 占2/3宽度，优化对齐 */}
           <div className="lg:col-span-2">
-            <div className="min-h-[500px] flex flex-col justify-center bg-purple-900/10 rounded-2xl p-6 border border-purple-500/20">
+            <div className="min-h-[500px] flex flex-col justify-center bg-purple-900/10 rounded-2xl p-6 border border-purple-500/20" style={{ contain: 'layout style' }}>
               
                 {/* 菜单状态 - 显示示例网格 */}
                 {gameState === GameState.MENU && (
@@ -569,7 +581,7 @@ function GridMemoryClientContent() {
                       </h3>
                     </div>
                     <div className="flex justify-center">
-                      {renderPreviewGrid()}
+                      {renderPreviewGrid}
                     </div>
                   </motion.div>
                 )}
@@ -596,7 +608,7 @@ function GridMemoryClientContent() {
                     </div>
                     
                     <div className="flex justify-center">
-                      {renderGrid()}
+                      {renderGrid}
                     </div>
                   </motion.div>
                 )}
@@ -615,7 +627,7 @@ function GridMemoryClientContent() {
                     </div>
                     
                     <div className="flex justify-center">
-                      {renderGrid()}
+                      {renderGrid}
                     </div>
                   </motion.div>
                 )}
@@ -632,7 +644,7 @@ function GridMemoryClientContent() {
                     </div>
                     
                     <div className="flex justify-center">
-                      {renderGrid()}
+                      {renderGrid}
                     </div>
                   </motion.div>
                 )}
@@ -657,7 +669,7 @@ function GridMemoryClientContent() {
                       <div className="flex justify-between items-center p-3 bg-green-500/10 rounded-lg border border-green-400/20">
                         <span className="text-purple-200 font-medium">{t('correct')}:</span>
                         <span className="text-green-400 text-2xl font-bold">
-                          {selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length}
+                          {correctSelectionsCount}
                         </span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-red-500/10 rounded-lg border border-red-400/20">
@@ -672,10 +684,7 @@ function GridMemoryClientContent() {
                         <div className="flex justify-between items-center p-3 bg-cyan-500/10 rounded-lg border border-cyan-400/20">
                           <span className="text-purple-200 font-medium">{t('accuracy')}:</span>
                           <span className="text-cyan-400 text-xl font-bold">
-                            {selectedCells.length > 0 
-                              ? ((selectedCells.filter(id => grid.find(c => c.id === id)?.isMarked).length / selectedCells.length) * 100).toFixed(1)
-                              : 0
-                            }%
+                            {currentAccuracy}%
                           </span>
                         </div>
                       </div>
@@ -749,7 +758,7 @@ function GridMemoryClientContent() {
       </div>
     </div>
   )
-}
+})
 
 // 主组件 - 包裹错误边界
 export default function GridMemoryClient() {
