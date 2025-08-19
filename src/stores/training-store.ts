@@ -76,6 +76,23 @@ interface TrainingStore {
   // 数据重置
   resetProgress: (type?: TrainingType) => void;
   resetAllData: () => void;
+  
+  // 存储管理
+  cleanupOldData: () => void;
+  safeStorageUpdate: (newState: Partial<TrainingStore>) => void;
+  handleStorageQuotaExceeded: () => void;
+  showStorageError: () => void;
+  getStorageUsage: () => {
+    currentSize: number;
+    maxSize: number;
+    usagePercentage: number;
+    isNearLimit: boolean;
+    trainingHistoryCount: number;
+    dailyStatsCount: number;
+    weeklyStatsCount: number;
+    monthlyStatsCount: number;
+  };
+  manualCleanup: () => any;
 }
 
 // 默认用户进度
