@@ -102,10 +102,10 @@ function GridMemoryClientContent() {
   
   // 难度配置
   const difficulties: DifficultyConfig[] = useMemo(() => [
-    { gridSize: 3, markedCells: 3, memoryTime: 3000, name: t('difficulty.easy') },
-    { gridSize: 4, markedCells: 5, memoryTime: 4000, name: t('difficulty.medium') },
-    { gridSize: 5, markedCells: 7, memoryTime: 5000, name: t('difficulty.hard') },
-    { gridSize: 6, markedCells: 9, memoryTime: 6000, name: t('difficulty.expert') }
+    { gridSize: 4, markedCells: 5, memoryTime: 3000, name: t('difficulty.easy') },
+    { gridSize: 5, markedCells: 7, memoryTime: 4000, name: t('difficulty.medium') },
+    { gridSize: 6, markedCells: 9, memoryTime: 5000, name: t('difficulty.hard') },
+    { gridSize: 9, markedCells: 21, memoryTime: 6000, name: t('difficulty.expert') }
   ], [t])
   
   // 初始化网格
