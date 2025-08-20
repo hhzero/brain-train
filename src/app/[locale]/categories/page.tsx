@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 
-// 分类页面组件
+// 分类页面组件 
 export default function Categories() {
   // 保存所有类别数据
   const [categories, setCategories] = useState<any[]>([])
