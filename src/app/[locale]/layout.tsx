@@ -8,7 +8,6 @@ import { ThemeProvider } from '@/app/[locale]/components/ThemeProvider'
 import { Header } from './components/Header'
 import { cn } from '@/lib/utils'
 import { ClientStarfieldWrapper } from '@/components/ClientStarfieldWrapper'
-import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ['latin'],
