@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './[locale]/globals.css'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'Brain Train',
