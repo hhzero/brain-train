@@ -143,19 +143,23 @@ export const LevelSystem: React.FC<LevelSystemProps> = ({
   // 检查等级提升
   useEffect(() => {
     const currentLevel = getLevelFromExperience(totalExp).level;
-    const storedLevel = localStorage.getItem(`lastLevel_${trainingType || 'global'}`);
-    const lastLevel = storedLevel ? parseInt(storedLevel) : 1;
     
-    if (currentLevel > lastLevel) {
-      setLevelUpInfo({ oldLevel: lastLevel, newLevel: currentLevel });
-      setShowLevelUp(true);
-      localStorage.setItem(`lastLevel_${trainingType || 'global'}`, currentLevel.toString());
+    // 只在客户端环境中使用 localStorage
+    if (typeof window !== 'undefined') {
+      const storedLevel = localStorage.getItem(`lastLevel_${trainingType || 'global'}`);
+      const lastLevel = storedLevel ? parseInt(storedLevel) : 1;
       
-      // 3秒后隐藏升级动画
-      setTimeout(() => {
-        setShowLevelUp(false);
-        setLevelUpInfo(null);
-      }, 3000);
+      if (currentLevel > lastLevel) {
+        setLevelUpInfo({ oldLevel: lastLevel, newLevel: currentLevel });
+        setShowLevelUp(true);
+        localStorage.setItem(`lastLevel_${trainingType || 'global'}`, currentLevel.toString());
+        
+        // 3秒后隐藏升级动画
+        setTimeout(() => {
+          setShowLevelUp(false);
+          setLevelUpInfo(null);
+        }, 3000);
+      }
     }
   }, [totalExp, trainingType]);
 

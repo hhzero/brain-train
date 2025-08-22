@@ -241,10 +241,12 @@ export default function NBackTraining() {
   
   // 检查是否为首次使用
   useEffect(() => {
-    const hasVisited = localStorage.getItem('nback-visited');
-    if (!hasVisited) {
-      setIsFirstTime(true);
-      localStorage.setItem('nback-visited', 'true');
+    if (typeof window !== 'undefined') {
+      const hasVisited = localStorage.getItem('nback-visited');
+      if (!hasVisited) {
+        setIsFirstTime(true);
+        localStorage.setItem('nback-visited', 'true');
+      }
     }
   }, []);
   

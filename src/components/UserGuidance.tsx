@@ -600,7 +600,7 @@ export function SmartTooltip({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   useEffect(() => {
-    if (showOnce && storageKey) {
+    if (showOnce && storageKey && typeof window !== 'undefined') {
       const shown = localStorage.getItem(storageKey);
       if (shown) {
         setHasShown(true);
@@ -616,7 +616,7 @@ export function SmartTooltip({
       
       timeoutRef.current = setTimeout(() => {
         setIsVisible(true);
-        if (showOnce && storageKey) {
+        if (showOnce && storageKey && typeof window !== 'undefined') {
           localStorage.setItem(storageKey, 'true');
           setHasShown(true);
         }
