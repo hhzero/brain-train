@@ -563,36 +563,34 @@ function NBackClientContent() {
           </p>
         </motion.div>
         
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="flex flex-col lg:flex-row gap-6 mb-8">
           {/* 训练模式选择 */}
-          <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-pink-300 flex items-center gap-2">
+          <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm flex-1">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-pink-300 flex items-center gap-2 text-lg">
                 <Star className="w-5 h-5" />
                 {t('ui.selectMode')}
               </CardTitle>
-              <CardDescription className="text-purple-200/80">
+              <CardDescription className="text-purple-200/80 text-sm">
                 {t('ui.selectModeDescription')}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-3">
+            <CardContent className="space-y-2 pt-0">
               {trainingModes.map(({ mode, title, desc, disabled }) => (
                 <motion.div
                   key={mode}
-                  whileTap={{ scale: disabled ? 1 : 0.98 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <TouchOptimizedButton
                     variant={trainingMode === mode ? 'default' : 'outline'}
-                    className={`relative w-full justify-start h-auto p-4 transition-all duration-300 overflow-hidden ${
-                      disabled 
-                        ? 'opacity-50 cursor-not-allowed' 
-                        : trainingMode === mode 
-                          ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-2xl border-0' 
-                          : 'border-purple-400/50 text-purple-200 hover:bg-purple-800/50 hover:border-purple-400'
-                    }`}
+                    className={`relative w-full justify-start h-[70px] p-3 transition-all duration-300 overflow-hidden ${
+                      trainingMode === mode 
+                        ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-2xl border-0' 
+                        : 'border-purple-400/50 text-purple-200 hover:bg-purple-800/50 hover:border-purple-400'
+                    } ${disabled ? 'opacity-60' : ''}`}
                     onClick={() => !disabled && setTrainingMode(mode)}
                     disabled={disabled}
-                    hapticFeedback={!disabled}
+                    hapticFeedback
                     preventDoubleClick
                   >
                     {trainingMode === mode && (
@@ -605,9 +603,11 @@ function NBackClientContent() {
                         transition={{ duration: 2, repeat: Infinity }}
                       />
                     )}
-                    <div className="text-left relative z-10">
-                      <div className="font-semibold">{title}</div>
-                      <div className="text-sm opacity-80">{desc}</div>
+                    {/* 注释：添加框和文字都左对齐 */}
+                    
+                    <div className="relative z-10 flex flex-col h-full py-2">
+                      <div className="font-semibold leading-tight text-base mb-2 flex-shrink-0">{title}</div>
+                      <div className="text-sm opacity-80 leading-tight break-words flex-1 flex items-start" style={{display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', minHeight: '2.5rem'}}>{desc}</div>
                     </div>
                   </TouchOptimizedButton>
                 </motion.div>
@@ -616,17 +616,17 @@ function NBackClientContent() {
           </Card>
           
           {/* 难度设置 */}
-          <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-pink-300 flex items-center gap-2">
+          <Card className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/30 backdrop-blur-sm flex-1">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-pink-300 flex items-center gap-2 text-lg">
                 <Trophy className="w-5 h-5" />
                 {t('settings.title')}
               </CardTitle>
-              <CardDescription className="text-purple-200/80">
+              <CardDescription className="text-purple-200/80 text-sm">
                 {t('settings.description')}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4 pt-0">
               <div>
                 <label className="text-purple-200 text-sm font-medium mb-3 block">
                   {t('settings.nLevel', { level: nLevel })}
@@ -655,7 +655,7 @@ function NBackClientContent() {
                 </p>
               </div>
               
-              <div className="flex items-center justify-between p-3 bg-purple-800/30 rounded-lg">
+              <div className="flex items-center justify-between p-2 bg-purple-800/30 rounded-lg">
                 <div>
                   <span className="text-purple-200 text-sm font-medium">{t('settings.audioFeedback')}</span>
                   <p className="text-xs text-purple-300/70">{t('settings.audioDescription')}</p>
